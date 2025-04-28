@@ -1,39 +1,55 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+# General Date Format Package
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+A Flutter package for flexible and generalized date formatting, extending the functionality of the `general_datetime` package to provide an easy-to-use way of formatting dates across different calendar systems.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- Flexible date formatting based on a variety of calendar systems.
+- Locale-aware date formatting to support different regional preferences.
+- Easily format dates to string representations in multiple formats.
 
-## Getting started
+## Installation
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+To use this package, add it to your `pubspec.yaml` file:
+
+```yaml
+dependencies:
+  general_date_format: <latest_version>
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Here's an example of how to use the package to format a date:
 
 ```dart
-const like = 'sample';
+import 'package:general_date_format/general_date_format.dart';
+
+void main() {
+  final date = DateTime.now();
+  final formattedDate = GeneralDateFormat.format(date, 'yyyy-MM-dd');
+  print(formattedDate); // Output: 2025-04-28 (Example)
+}
 ```
 
-## Additional information
+### Formatting Options
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+You can use various formatting patterns, such as:
+
+- `'yyyy-MM-dd'` for a full date.
+- `'HH:mm:ss'` for time.
+- And other custom patterns based on your needs.
+
+Check the documentation for more advanced usage and available formats.
+
+## Documentation
+
+Full documentation can be found at [General Date Format Docs](https://github.com/ali-you/general-date-format-package).
+
+## Issues
+
+For any issues or feature requests, please check the [issues page](https://github.com/ali-you/general-date-format-package/issues).
+
+## License
+
+This project is licensed under the BSD 3-Clause License. See the [LICENSE](LICENSE) file for more details.

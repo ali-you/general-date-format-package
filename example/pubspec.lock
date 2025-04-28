@@ -75,6 +75,21 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  general_date_format:
+    dependency: "direct main"
+    description:
+      path: ".."
+      relative: true
+    source: path
+    version: "0.0.1"
+  general_datetime:
+    dependency: transitive
+    description:
+      name: general_datetime
+      sha256: ba931ce10014ab6e1a2131423937c76d10673f1869ed463e24431bef61f4d73f
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.0"
   leak_tracker:
     dependency: transitive
     description:
@@ -209,5 +224,5 @@ packages:
     source: hosted
     version: "14.3.1"
 sdks:
-  dart: ">=3.7.0 <4.0.0"
+  dart: ">=3.7.0-0 <4.0.0"
   flutter: ">=3.18.0-18.0.pre.54"

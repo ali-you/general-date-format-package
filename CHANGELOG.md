@@ -1,3 +1,4 @@
-## 0.0.1
+# Changelog
 
-* TODO: Describe initial release.
+## [0.0.1]
+- Initial release with support for all platforms
