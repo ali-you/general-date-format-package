@@ -1,5 +1,6 @@
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+/// This file is startup of general_date_format library
+/// you can use the package consider the example
+
+library;
+
+export 'src/general_date_format.dart';
