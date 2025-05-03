@@ -6,8 +6,10 @@ import 'package:meta/meta.dart';
 import 'constants.dart' as constants;
 import 'date_builder.dart';
 import 'date_computation.dart' as date_computation;
+import 'date_symbols.dart';
 import 'regexp.dart' as regexp;
 import 'string_stack.dart';
+import 'jalali/jalali_date_symbols.dart';
 
 part 'date_format_field.dart';
 
@@ -15,7 +17,8 @@ part 'date_format_field.dart';
 // ignore_for_file: non_constant_identifier_names, constant_identifier_names
 
 // TODO(efortuna): Customized pattern system -- suggested by i18n needs
-// feedback on appropriateness.
+/// feedback on appropriateness.
+///
 /// DateFormat is for formatting and parsing dates in a locale-sensitive
 /// manner.
 ///
@@ -45,7 +48,7 @@ part 'date_format_field.dart';
 /// library that contains data for all the locales.
 ///
 /// ```dart
-/// import 'package:intl/date_symbol_data_local.dart';
+/// import 'package:intl/jalali_symbol_data_local.dart';
 /// initializeDateFormatting('fr_FR', null).then((_) => runMyCode());
 /// ```
 ///
@@ -232,6 +235,27 @@ part 'date_format_field.dart';
 /// pattern 'MM/dd/yyyy', '01/11/12' parses to Jan 11, 12 A.D.
 
 class GeneralDateFormat {
+
+  /// Cache the last used symbols to reduce repeated lookups.
+  DateSymbols? _cachedDateSymbols;
+
+  /// Which locale was last used for symbol lookup.
+  String? _lastDateSymbolLocale;
+
+  /// Set the dateTimeSymbols and invalidate cache.
+  set dateTimeSymbols(DateSymbols symbols) {
+    // With all the mechanisms we have now this should be sufficient. We can
+    // have an UninitializedLocaleData which gives us the fallback locale, but
+    // when we replace it we invalidate. With a LazyLocaleData we won't change
+    // the results for a particular locale, it will just go from throwing to
+    // being available. With a Map everything is available.
+    _dateTimeSymbols = symbols;
+    _cachedDateSymbols = null;
+    _lastDateSymbolLocale = null;
+  }
+
+  DateSymbols? _dateTimeSymbols;
+
   /// Creates a new DateFormat, using the format specified by [newPattern].
   ///
   /// For forms that match one of our predefined skeletons, we look up the
@@ -781,11 +805,11 @@ class GeneralDateFormat {
   ///
   /// If the locale isn't present, or is uninitialized, throws.
   DateSymbols get dateSymbols {
-    if (_locale != lastDateSymbolLocale) {
-      lastDateSymbolLocale = _locale;
-      cachedDateSymbols = dateTimeSymbols[_locale];
+    if (_locale != _lastDateSymbolLocale) {
+      _lastDateSymbolLocale = _locale;
+      _cachedDateSymbols = dateTimeSymbols[_locale];
     }
-    return cachedDateSymbols!;
+    return _cachedDateSymbols!;
   }
 
   static final Map<String, bool> _useNativeDigitsByDefault = {};
