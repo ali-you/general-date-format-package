@@ -1,21 +1,9 @@
-import "date_symbols.dart";
-import "date_time_patterns.dart";
-import "src/date_format_internal.dart";
-
-/// This should be called for at least one [locale] before any date
-/// formatting methods are called. It sets up the lookup for date
-/// symbols. Both the [locale] and [ignored] parameter are ignored, as
-/// the data for all locales is directly available.
-Future<void> initializeDateFormatting([String? locale, String? ignored]) {
-  initializeDateSymbols(dateTimeSymbolMap);
-  initializeDatePatterns(dateTimePatternMap);
-  return new Future.value();
-}
+import "../date_symbols.dart";
 
 /// Returns a Map from locale names to the DateSymbols instance for
 /// that locale. Internal use only. Call initializeDateFormatting
 /// instead.
-Map<dynamic, dynamic> dateTimeSymbolMap() => {
+Map<String, DateSymbols> jalaliSymbolMap() => {
       // Date/time formatting symbols for locale en_ISO.
       "en_ISO": DateSymbols(
           NAME: 'en_ISO',

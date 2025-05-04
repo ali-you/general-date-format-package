@@ -1,15 +1,9 @@
-import 'package:intl/date_symbols.dart';
-import 'package:intl/src/date_format_internal.dart';
-import 'package:intl/src/intl_helpers.dart' as helpers;
 import 'package:meta/meta.dart';
 
-import 'constants.dart' as constants;
 import 'date_builder.dart';
-import 'date_computation.dart' as date_computation;
 import 'date_symbols.dart';
-import 'regexp.dart' as regexp;
+import 'general_date_format_internal.dart';
 import 'string_stack.dart';
-import 'jalali/jalali_date_symbols.dart';
 
 part 'date_format_field.dart';
 
@@ -235,27 +229,6 @@ part 'date_format_field.dart';
 /// pattern 'MM/dd/yyyy', '01/11/12' parses to Jan 11, 12 A.D.
 
 class GeneralDateFormat {
-
-  /// Cache the last used symbols to reduce repeated lookups.
-  DateSymbols? _cachedDateSymbols;
-
-  /// Which locale was last used for symbol lookup.
-  String? _lastDateSymbolLocale;
-
-  /// Set the dateTimeSymbols and invalidate cache.
-  set dateTimeSymbols(DateSymbols symbols) {
-    // With all the mechanisms we have now this should be sufficient. We can
-    // have an UninitializedLocaleData which gives us the fallback locale, but
-    // when we replace it we invalidate. With a LazyLocaleData we won't change
-    // the results for a particular locale, it will just go from throwing to
-    // being available. With a Map everything is available.
-    _dateTimeSymbols = symbols;
-    _cachedDateSymbols = null;
-    _lastDateSymbolLocale = null;
-  }
-
-  DateSymbols? _dateTimeSymbols;
-
   /// Creates a new DateFormat, using the format specified by [newPattern].
   ///
   /// For forms that match one of our predefined skeletons, we look up the
@@ -285,11 +258,6 @@ class GeneralDateFormat {
   /// [ArgumentError] is thrown.
   GeneralDateFormat([String? newPattern, String? locale])
       : _locale = helpers.verifiedLocale(locale, localeExists, null)! {
-    // TODO(alanknight): It should be possible to specify multiple skeletons eg
-    // date, time, timezone all separately. Adding many or named parameters to
-    // the constructor seems awkward, especially with the possibility of
-    // confusion with the locale. A 'fluent' interface with cascading on an
-    // instance might work better? A list of patterns is also possible.
     addPattern(newPattern);
   }
 
@@ -316,7 +284,10 @@ class GeneralDateFormat {
   /// Return a string representing [date] formatted according to our locale
   /// and internal format.
   String format(DateTime date) {
-    // TODO(efortuna): read optional TimeZone argument (or similar)?
+
+    initializeDateSymbols(calendar);
+    initializeDatePatterns();
+
     var result = StringBuffer();
     for (var field in _formatFields) {
       result.write(field.format(date));
@@ -480,6 +451,7 @@ class GeneralDateFormat {
   /// For example, 'yyyy-MM-dd' would be true, but 'dd hh:mm' would be false.
   bool get dateOnly => _dateOnly ??= _checkDateOnly;
   bool? _dateOnly;
+
   bool get _checkDateOnly => _formatFields.every((each) => each.forDate);
 
   /// Given user input, attempt to parse the [inputString] into the anticipated
@@ -544,39 +516,73 @@ class GeneralDateFormat {
   /// If the optional [locale] is omitted, the format will be created using the
   /// default locale in [Intl.systemLocale].
   GeneralDateFormat.d([locale]) : this('d', locale);
+
   GeneralDateFormat.E([locale]) : this('E', locale);
+
   GeneralDateFormat.EEEE([locale]) : this('EEEE', locale);
+
   GeneralDateFormat.EEEEE([locale]) : this('EEEEE', locale);
+
   GeneralDateFormat.LLL([locale]) : this('LLL', locale);
+
   GeneralDateFormat.LLLL([locale]) : this('LLLL', locale);
+
   GeneralDateFormat.M([locale]) : this('M', locale);
+
   GeneralDateFormat.Md([locale]) : this('Md', locale);
+
   GeneralDateFormat.MEd([locale]) : this('MEd', locale);
+
   GeneralDateFormat.MMM([locale]) : this('MMM', locale);
+
   GeneralDateFormat.MMMd([locale]) : this('MMMd', locale);
+
   GeneralDateFormat.MMMEd([locale]) : this('MMMEd', locale);
+
   GeneralDateFormat.MMMM([locale]) : this('MMMM', locale);
+
   GeneralDateFormat.MMMMd([locale]) : this('MMMMd', locale);
+
   GeneralDateFormat.MMMMEEEEd([locale]) : this('MMMMEEEEd', locale);
+
   GeneralDateFormat.QQQ([locale]) : this('QQQ', locale);
+
   GeneralDateFormat.QQQQ([locale]) : this('QQQQ', locale);
+
   GeneralDateFormat.y([locale]) : this('y', locale);
+
   GeneralDateFormat.yM([locale]) : this('yM', locale);
+
   GeneralDateFormat.yMd([locale]) : this('yMd', locale);
+
   GeneralDateFormat.yMEd([locale]) : this('yMEd', locale);
+
   GeneralDateFormat.yMMM([locale]) : this('yMMM', locale);
+
   GeneralDateFormat.yMMMd([locale]) : this('yMMMd', locale);
+
   GeneralDateFormat.yMMMEd([locale]) : this('yMMMEd', locale);
+
   GeneralDateFormat.yMMMM([locale]) : this('yMMMM', locale);
+
   GeneralDateFormat.yMMMMd([locale]) : this('yMMMMd', locale);
+
   GeneralDateFormat.yMMMMEEEEd([locale]) : this('yMMMMEEEEd', locale);
+
   GeneralDateFormat.yQQQ([locale]) : this('yQQQ', locale);
+
   GeneralDateFormat.yQQQQ([locale]) : this('yQQQQ', locale);
+
   GeneralDateFormat.H([locale]) : this('H', locale);
+
   GeneralDateFormat.Hm([locale]) : this('Hm', locale);
+
   GeneralDateFormat.Hms([locale]) : this('Hms', locale);
+
   GeneralDateFormat.j([locale]) : this('j', locale);
+
   GeneralDateFormat.jm([locale]) : this('jm', locale);
+
   GeneralDateFormat.jms([locale]) : this('jms', locale);
 
   /// NOT YET IMPLEMENTED.
@@ -594,8 +600,11 @@ class GeneralDateFormat {
   /// NOT YET IMPLEMENTED.
   // TODO(https://github.com/dart-lang/intl/issues/74)
   GeneralDateFormat.jz([locale]) : this('jz', locale);
+
   GeneralDateFormat.m([locale]) : this('m', locale);
+
   GeneralDateFormat.ms([locale]) : this('ms', locale);
+
   GeneralDateFormat.s([locale]) : this('s', locale);
 
   /// The 'add_*' methods append a particular skeleton to the format, or set
@@ -608,38 +617,71 @@ class GeneralDateFormat {
   ///
   /// would create a date format that prints both the date and the time.
   GeneralDateFormat add_d() => addPattern('d');
+
   GeneralDateFormat add_E() => addPattern('E');
+
   GeneralDateFormat add_EEEE() => addPattern('EEEE');
+
   GeneralDateFormat add_LLL() => addPattern('LLL');
+
   GeneralDateFormat add_LLLL() => addPattern('LLLL');
+
   GeneralDateFormat add_M() => addPattern('M');
+
   GeneralDateFormat add_Md() => addPattern('Md');
+
   GeneralDateFormat add_MEd() => addPattern('MEd');
+
   GeneralDateFormat add_MMM() => addPattern('MMM');
+
   GeneralDateFormat add_MMMd() => addPattern('MMMd');
+
   GeneralDateFormat add_MMMEd() => addPattern('MMMEd');
+
   GeneralDateFormat add_MMMM() => addPattern('MMMM');
+
   GeneralDateFormat add_MMMMd() => addPattern('MMMMd');
+
   GeneralDateFormat add_MMMMEEEEd() => addPattern('MMMMEEEEd');
+
   GeneralDateFormat add_QQQ() => addPattern('QQQ');
+
   GeneralDateFormat add_QQQQ() => addPattern('QQQQ');
+
   GeneralDateFormat add_y() => addPattern('y');
+
   GeneralDateFormat add_yM() => addPattern('yM');
+
   GeneralDateFormat add_yMd() => addPattern('yMd');
+
   GeneralDateFormat add_yMEd() => addPattern('yMEd');
+
   GeneralDateFormat add_yMMM() => addPattern('yMMM');
+
   GeneralDateFormat add_yMMMd() => addPattern('yMMMd');
+
   GeneralDateFormat add_yMMMEd() => addPattern('yMMMEd');
+
   GeneralDateFormat add_yMMMM() => addPattern('yMMMM');
+
   GeneralDateFormat add_yMMMMd() => addPattern('yMMMMd');
+
   GeneralDateFormat add_yMMMMEEEEd() => addPattern('yMMMMEEEEd');
+
   GeneralDateFormat add_yQQQ() => addPattern('yQQQ');
+
   GeneralDateFormat add_yQQQQ() => addPattern('yQQQQ');
+
   GeneralDateFormat add_H() => addPattern('H');
+
   GeneralDateFormat add_Hm() => addPattern('Hm');
+
   GeneralDateFormat add_Hms() => addPattern('Hms');
+
   GeneralDateFormat add_j() => addPattern('j');
+
   GeneralDateFormat add_jm() => addPattern('jm');
+
   GeneralDateFormat add_jms() => addPattern('jms');
 
   /// NOT YET IMPLEMENTED.
@@ -657,8 +699,11 @@ class GeneralDateFormat {
   /// NOT YET IMPLEMENTED.
   // TODO(https://github.com/dart-lang/intl/issues/74)
   GeneralDateFormat add_jz() => addPattern('jz');
+
   GeneralDateFormat add_m() => addPattern('m');
+
   GeneralDateFormat add_ms() => addPattern('ms');
+
   GeneralDateFormat add_s() => addPattern('s');
 
   /// For each of the skeleton formats we also allow the use of the
@@ -805,11 +850,11 @@ class GeneralDateFormat {
   ///
   /// If the locale isn't present, or is uninitialized, throws.
   DateSymbols get dateSymbols {
-    if (_locale != _lastDateSymbolLocale) {
-      _lastDateSymbolLocale = _locale;
-      _cachedDateSymbols = dateTimeSymbols[_locale];
+    if (_locale != lastDateSymbolLocale) {
+      lastDateSymbolLocale = _locale;
+      cachedDateSymbols = dateTimeSymbols[_locale];
     }
-    return _cachedDateSymbols!;
+    return cachedDateSymbols!;
   }
 
   static final Map<String, bool> _useNativeDigitsByDefault = {};
@@ -886,7 +931,7 @@ class GeneralDateFormat {
 
   // Does this use non-ASCII digits, e.g. Eastern Arabic.
   bool get usesNativeDigits =>
-      useNativeDigits && _localeZeroCodeUnit != constants.asciiZeroCodeUnit;
+      useNativeDigits && _localeZeroCodeUnit != '0'.codeUnitAt(0);
 
   /// Does this use ASCII digits
   bool get usesAsciiDigits => !usesNativeDigits;
@@ -898,8 +943,7 @@ class GeneralDateFormat {
     var newDigits = List<int>.filled(numberString.length, 0);
     var oldDigits = numberString.codeUnits;
     for (var i = 0; i < numberString.length; i++) {
-      newDigits[i] =
-          oldDigits[i] + localeZeroCodeUnit - constants.asciiZeroCodeUnit;
+      newDigits[i] = oldDigits[i] + localeZeroCodeUnit - '0'.codeUnitAt(0);
     }
     return String.fromCharCodes(newDigits);
   }
@@ -907,7 +951,7 @@ class GeneralDateFormat {
   /// A regular expression that matches for digits in a particular
   /// locale, defined by the digit for zero in that locale.
   RegExp _initDigitMatcher() {
-    if (usesAsciiDigits) return regexp.asciiDigitMatcher;
+    if (usesAsciiDigits) return RegExp(r'^\d+');
     var localeDigits = Iterable.generate(10, (i) => i)
         .map((i) => localeZeroCodeUnit + i)
         .toList();
