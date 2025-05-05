@@ -447,13 +447,11 @@ class _DateFormatPatternField extends _DateFormatField {
       return throwFormatException(inputStack);
     }
     inputStack.pop(string.length);
-    if (zeroDigit != constants.asciiZeroCodeUnit) {
-      // Trying to optimize this, as it might get called a lot. See the
-      // benchmark at benchmark/intl_stream_benchmark.dart
+    if (zeroDigit != '0'.codeUnitAt(0)) {
       var codeUnits = string.codeUnits;
       string = String.fromCharCodes(List.generate(
         codeUnits.length,
-        (index) => codeUnits[index] - zeroDigit + constants.asciiZeroCodeUnit,
+        (index) => codeUnits[index] - zeroDigit + '0'.codeUnitAt(0),
         growable: false,
       ));
     }

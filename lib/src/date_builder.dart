@@ -3,8 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:clock/clock.dart';
+import 'package:general_datetime/general_datetime.dart';
 
-import 'date_computation.dart' as date_computation;
 
 /// A class for holding onto the data for a date so that it can be built
 /// up incrementally.
@@ -55,12 +55,14 @@ class DateBuilder {
   // We do set it, the analyzer just can't tell.
   bool dateOnly = false;
 
-  /// The function we will call to create a DateTime from its component pieces.
-  ///
-  /// This is normally only modified in tests that want to introduce errors.
-  final _DateTimeConstructor _dateTimeConstructor;
+  // /// The function we will call to create a DateTime from its component pieces.
+  // ///
+  // /// This is normally only modified in tests that want to introduce errors.
+  // final _DateTimeConstructor _dateTimeConstructor;
 
-  DateBuilder(this._locale, this._dateTimeConstructor);
+  GeneralDateTimeInterface generalDateTime;
+
+  DateBuilder(this._locale, this.generalDateTime);
 
   // Functions that exist just to be closurized so we can pass them to a general
   // method.
@@ -132,9 +134,9 @@ class DateBuilder {
     if (dayOfYear > 0) {
       // We have an ordinal date, compute the corresponding date for the result
       // and compare to that.
-      var leapYear = date_computation.isLeapYear(date);
-      var correspondingDay =
-          date_computation.dayOfYear(date.month, date.day, leapYear);
+      // var leapYear = date_computation.isLeapYear(date);
+      var leapYear = generalDateTime.isLeapYear;
+      var correspondingDay = generalDateTime.dayOfYear;
       _verify(
           dayOfYear, correspondingDay, correspondingDay, 'dayOfYear', s, date);
     } else {
@@ -159,22 +161,6 @@ class DateBuilder {
       throw FormatException(errorDescription);
     }
   }
-
-  /// Offsets a [DateTime] by a specified number of years.
-  ///
-  /// All other fields of the [DateTime] normally will remain unaffected.  An
-  /// exception is if the resulting [DateTime] otherwise would represent an
-  /// invalid date (e.g. February 29 of a non-leap year).
-  DateTime _offsetYear(DateTime dateTime, int offsetYears) =>
-      _dateTimeConstructor(
-          dateTime.year + offsetYears,
-          dateTime.month,
-          dateTime.day,
-          dateTime.hour,
-          dateTime.minute,
-          dateTime.second,
-          dateTime.millisecond,
-          dateTime.isUtc);
 
   /// Return a date built using our values. If no date portion is set,
   /// use the 'Epoch' of January 1, 1970.
@@ -343,6 +329,6 @@ class DateBuilder {
   }
 }
 
-/// Defines a function type for creating DateTime instances.
-typedef _DateTimeConstructor = DateTime Function(int year, int month, int day,
-    int hour24, int minute, int second, int fractionalSecond, bool utc);
+// /// Defines a function type for creating DateTime instances.
+// typedef _DateTimeConstructor = DateTime Function(int year, int month, int day,
+//     int hour24, int minute, int second, int fractionalSecond, bool utc);

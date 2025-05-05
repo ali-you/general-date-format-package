@@ -33,7 +33,6 @@ String? computeMessageName(String? name, String? text, String? meaning) {
 }
 
 /// Returns an index of a separator between language and region.
-///
 /// Assumes that language length can be only 2 or 3.
 int _separatorIndex(String locale) {
   if (locale.length < 3) {
@@ -52,13 +51,6 @@ int _separatorIndex(String locale) {
 }
 
 String canonicalizedLocale(String? aLocale) {
-// Locales of length < 5 are presumably two-letter forms, or else malformed.
-// We return them unmodified and if correct they will be found.
-// Locales longer than 6 might be malformed, but also do occur. Do as
-// little as possible to them, but make the '-' be an '_' if it's there.
-// We treat C as a special case, and assume it wants en_ISO for formatting.
-// TODO(alanknight): en_ISO is probably not quite right for the C/Posix
-// locale for formatting. Consider adding C to the formats database.
   if (aLocale == null) return "en_US";
   if (aLocale == 'C') return 'en_ISO';
   if (aLocale.length < 5) return aLocale;
@@ -76,11 +68,7 @@ String canonicalizedLocale(String? aLocale) {
 
 String? verifiedLocale(String? newLocale, bool Function(String) localeExists,
     String? Function(String)? onFailure) {
-// TODO(alanknight): Previously we kept a single verified locale on the Intl
-// object, but with different verification for different uses, that's more
-// difficult. As a result, we call this more often. Consider keeping
-// verified locales for each purpose if it turns out to be a performance
-// issue.
+
   if (newLocale == null) {
     return verifiedLocale("en_US", localeExists, onFailure);
   }
@@ -137,20 +125,14 @@ String deprecatedLocale(String aLocale) {
 
 /// Return the short version of a locale name, e.g. 'en_US' => 'en'
 String shortLocale(String aLocale) {
-  // TODO(b/241094372): Remove this check.
-  if (aLocale == 'invalid') {
-    return 'in';
-  }
   if (aLocale.length < 2) {
     return aLocale;
   }
   var separatorIndex = _separatorIndex(aLocale);
   if (separatorIndex == -1) {
     if (aLocale.length < 4) {
-      // aLocale is already only a language code.
       return aLocale.toLowerCase();
     } else {
-      // Something weird, returning as is.
       return aLocale;
     }
   }

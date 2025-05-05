@@ -1,8 +1,10 @@
 import 'package:meta/meta.dart';
 
+// import 'date_builder.dart';
 import 'date_builder.dart';
 import 'date_symbols.dart';
 import 'general_date_format_internal.dart';
+import 'helpers.dart';
 import 'string_stack.dart';
 
 part 'date_format_field.dart';
@@ -257,7 +259,7 @@ class GeneralDateFormat {
   /// If [locale] does not exist in our set of supported locales then an
   /// [ArgumentError] is thrown.
   GeneralDateFormat([String? newPattern, String? locale])
-      : _locale = helpers.verifiedLocale(locale, localeExists, null)! {
+      : _locale = verifiedLocale(locale, localeExists, null)! {
     addPattern(newPattern);
   }
 
