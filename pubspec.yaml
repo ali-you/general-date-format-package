@@ -13,7 +13,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  general_datetime: ^1.2.0
+  general_datetime: ^1.2.1
 
 dev_dependencies:
   flutter_test:
