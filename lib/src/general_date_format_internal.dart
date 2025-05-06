@@ -3,7 +3,7 @@ import 'package:general_date_format/src/jalali/jalali_symbol_data_local.dart';
 import 'date_symbols.dart';
 import 'package:general_datetime/general_datetime.dart';
 
-import 'date_time_patterns.dart';
+import 'common/date_time_patterns.dart';
 
 Map<String, DateSymbols>? _dateTimeSymbols;
 
@@ -25,26 +25,12 @@ String? lastDateSymbolLocale;
 
 GeneralDateTimeInterface? lastCalendar;
 
-Map<dynamic, dynamic> dateTimePatterns = throw Exception(
-    "Symbols is not initialized");
-
 /// Initialize the symbols dictionary. This should be passed a function that
 /// creates and returns the symbol data. We take a function so that if
 /// initializing the data is an expensive operation it need only be done once,
 /// no matter how many times this method is called.
 void initializeDateSymbols(GeneralDateTimeInterface calendar) {
-  if (lastCalendar == null || lastCalendar != calendar) {
-    switch (calendar) {
-      case JalaliDateTime _:
-        dateTimeSymbols = jalaliSymbolMap();
-    }
+  if (lastCalendar == null || lastCalendar != calendar || _dateTimeSymbols == null) {
+    if (calendar.runtimeType == JalaliDateTime) dateTimeSymbols = jalaliSymbolMap();
   }
-}
-
-/// Initialize the patterns dictionary. This should be passed a function that
-/// creates and returns the pattern data. We take a function so that if
-/// initializing the data is an expensive operation it need only be done once,
-/// no matter how many times this method is called.
-void initializeDatePatterns() {
-  if (dateTimePatterns is Exception) dateTimePatterns = dateTimePatternMap();
 }

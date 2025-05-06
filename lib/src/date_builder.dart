@@ -2,9 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'package:clock/clock.dart';
 import 'package:general_datetime/general_datetime.dart';
-
 
 /// A class for holding onto the data for a date so that it can be built
 /// up incrementally.
@@ -36,7 +34,7 @@ class DateBuilder {
   ///
   /// Kept as a field to cache the result and to reduce the possibility of error
   /// after we've verified.
-  DateTime? _date;
+  GeneralDateTimeInterface? _date;
 
   /// The number of times we've retried, for error reporting.
   int _retried = 0;
@@ -147,7 +145,7 @@ class DateBuilder {
   }
 
   void _verify(int value, int min, int max, String desc, String originalInput,
-      [DateTime? parsed]) {
+      [GeneralDateTimeInterface? parsed]) {
     if (value < min || value > max) {
       var parsedDescription = parsed == null ? '' : ' Date parsed as $parsed.';
       var errorDescription =
@@ -162,53 +160,84 @@ class DateBuilder {
     }
   }
 
+  /// Offsets a [DateTime] by a specified number of years.
+  ///
+  /// All other fields of the [DateTime] normally will remain unaffected.  An
+  /// exception is if the resulting [DateTime] otherwise would represent an
+  /// invalid date (e.g. February 29 of a non-leap year).
+  GeneralDateTimeInterface _offsetYear(
+      GeneralDateTimeInterface dateTime, int offsetYears) {
+    int newYear = dateTime.year + offsetYears;
+
+    return switch (dateTime) {
+      JalaliDateTime _ => JalaliDateTime(
+          newYear,
+          dateTime.month,
+          dateTime.day,
+          dateTime.hour,
+          dateTime.minute,
+          dateTime.second,
+          dateTime.millisecond,
+          dateTime.microsecond),
+      HijriDateTime _ => HijriDateTime(
+          newYear,
+          dateTime.month,
+          dateTime.day,
+          dateTime.hour,
+          dateTime.minute,
+          dateTime.second,
+          dateTime.millisecond,
+          dateTime.microsecond),
+      _ => throw UnsupportedError("Unknown date type")
+    };
+  }
+
   /// Return a date built using our values. If no date portion is set,
   /// use the 'Epoch' of January 1, 1970.
-  DateTime asDate({int retries = 3}) {
-    // TODO(alanknight): Validate the date, especially for things which
+  GeneralDateTimeInterface asDate({int retries = 3}) {
     // can crash the VM, e.g. large month values.
     if (_date != null) return _date!;
-    DateTime preliminaryResult = _dateTimeConstructor(
+    GeneralDateTimeInterface preliminaryResult = JalaliDateTime(
       _estimatedYear,
       month,
       dayOrDayOfYear,
       hour24,
       minute,
       second,
-      fractionalSecond,
-      utc,
+      fractionalSecond
     );
     if (utc && _hasCentury) {
       _date = preliminaryResult;
-    } else {
-      _date = _correctForErrors(preliminaryResult, retries);
     }
+    // else {
+    //   _date = _correctForErrors(preliminaryResult, retries);
+    // }
     return _date!;
   }
 
   int get _estimatedYear {
-    DateTime preliminaryResult(int year) => _dateTimeConstructor(
-          year,
-          month,
-          dayOrDayOfYear,
-          hour24,
-          minute,
-          second,
-          fractionalSecond,
-          utc,
-        );
+    GeneralDateTimeInterface preliminaryResult(int year) => JalaliDateTime(
+        year,
+        generalDateTime.month,
+        generalDateTime.day,
+        generalDateTime.hour,
+        generalDateTime.minute,
+        generalDateTime.second,
+        generalDateTime.millisecond,
+        generalDateTime.microsecond);
     int estimatedYear;
     if (_hasCentury) {
       estimatedYear = year;
     } else {
-      var now = clock.now();
+      GeneralDateTimeInterface now = GeneralDateTimeInterface.now();
       if (utc) {
         now = now.toUtc();
       }
 
-      const lookBehindYears = 80;
-      var lowerDate = _offsetYear(now, -lookBehindYears);
-      var upperDate = _offsetYear(now, 100 - lookBehindYears);
+      const int lookBehindYears = 80;
+      GeneralDateTimeInterface lowerDate = _offsetYear(now, -lookBehindYears);
+      GeneralDateTimeInterface upperDate =
+          _offsetYear(now, 100 - lookBehindYears);
       var lowerCentury = (lowerDate.year ~/ 100) * 100;
       var upperCentury = (upperDate.year ~/ 100) * 100;
       estimatedYear = upperCentury + year;
@@ -235,65 +264,22 @@ class DateBuilder {
 
   /// Given a local DateTime, check for errors and try to compensate for them if
   /// possible.
-  DateTime _correctForErrors(DateTime result, int retries) {
-    // There are 3 kinds of errors that we know of
-    //
-    // 1 - Issue 15560, sometimes we get UTC even when we asked for local, or
-    // they get constructed as if in UTC and then have the offset subtracted.
-    // Retry, possibly several times, until we get something that looks valid,
-    // or we give up.
-    //
-    // 1a) - It appears that sometimes we get incorrect timezone offsets that
-    // are not directly related to UTC. Also check for those and retry or
-    // compensate.
-    //
-    // 2 - Timezone transitions. If we ask for the time during a timezone
-    // transition then it will offset it by that transition. This is
-    // particularly a problem if the timezone transition happens at midnight,
-    // and we're looking for a date with no time component. This happens in
-    // Brazil, and we can end up with 11:00pm the previous day. Add time to
-    // compensate.
-    //
-    // 3 - Invalid input which the constructor nevertheless accepts. Just return
-    // what it created, and verify will catch it if we're in strict mode.
+  GeneralDateTimeInterface _correctForErrors(GeneralDateTimeInterface result) {
 
-    // If we've exhausted our retries, just return the input - it's not just a
-    // flaky result.
-    if (retries <= 0) {
-      return result;
-    }
+    var leapYear = result.isLeapYear;
+    var resultDayOfYear = result.dayOfYear;
 
-    var leapYear = date_computation.isLeapYear(result);
-    var resultDayOfYear =
-        date_computation.dayOfYear(result.month, result.day, leapYear);
-
-    // Check for the UTC failure. Are we expecting to produce a local time, but
-    // the result is UTC. However, the local time might happen to be the same as
-    // UTC. To be thorough, check if either the hour/day don't agree with what
-    // we expect, or is a new DateTime in a non-UTC timezone.
-    if (!utc &&
-        result.isUtc &&
-        (result.hour != hour24 ||
-            result.day != resultDayOfYear ||
-            !DateTime.now().isUtc)) {
-      // This may be a UTC failure. Retry and if the result doesn't look
-      // like it's in the UTC time zone, use that instead.
-      _retried++;
-      return asDate(retries: retries - 1);
-    }
 
     if (dateOnly && result.hour != 0) {
       // This could be a flake, try again.
-      var tryAgain = asDate(retries: retries - 1);
+      var tryAgain = asDate();
       if (tryAgain != result) {
         // Trying again gave a different answer, so presumably it worked.
         return tryAgain;
       }
 
       // Trying again didn't work, try to force the offset.
-      var expectedDayOfYear = dayOfYear == 0
-          ? date_computation.dayOfYear(month, day, leapYear)
-          : dayOfYear;
+      int expectedDayOfYear = generalDateTime.dayOfYear;
 
       // If we're _dateOnly, then hours should be zero, but might have been
       // offset to e.g. 11:00pm the previous day. Add that time back in. This
@@ -305,7 +291,7 @@ class DateBuilder {
       // For example, if it's the day before at 11:00pm, we offset by (24 - 23),
       // so +1. If it's the same day at 1:00am, we offset by (0 - 1), so -1.
       var offset = (daysPrevious * 24) - result.hour;
-      var adjusted = result.add(Duration(hours: offset));
+      GeneralDateTimeInterface adjusted = result.add(Duration(hours: offset));
       // Check if the adjustment worked. This can fail on a time zone transition
       // where midnight doesn't exist.
       if (adjusted.hour == 0) {
@@ -317,8 +303,7 @@ class DateBuilder {
       // to 1:00 am because of a DST transition, and trying to go backwards 1
       // hour takes us back to 11:00pm the day before. In that case the 1:00am
       // answer on the correct date is preferable.
-      var adjustedDayOfYear =
-          date_computation.dayOfYear(adjusted.month, adjusted.day, leapYear);
+      var adjustedDayOfYear = adjusted.dayOfYear;
       if (adjustedDayOfYear != expectedDayOfYear) {
         return result;
       }

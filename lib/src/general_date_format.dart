@@ -1,6 +1,8 @@
+import 'package:general_date_format/src/common/date_time_patterns.dart';
+import 'package:general_date_format/src/common/symbol_list.dart';
+import 'package:general_datetime/general_datetime.dart';
 import 'package:meta/meta.dart';
 
-// import 'date_builder.dart';
 import 'date_builder.dart';
 import 'date_symbols.dart';
 import 'general_date_format_internal.dart';
@@ -9,62 +11,17 @@ import 'string_stack.dart';
 
 part 'date_format_field.dart';
 
-// Suppress naming issues as changes would breaking.
-// ignore_for_file: non_constant_identifier_names, constant_identifier_names
-
-// TODO(efortuna): Customized pattern system -- suggested by i18n needs
 /// feedback on appropriateness.
-///
-/// DateFormat is for formatting and parsing dates in a locale-sensitive
-/// manner.
-///
+/// GeneralDateFormat is for formatting and parsing dates in a locale-sensitive manner.
 /// It allows the user to choose from a set of standard date time formats as
 /// well as specify a customized pattern under certain locales. Date elements
 /// that vary across locales include month name, week name, field order, etc.
-/// We also allow the user to use any customized pattern to parse or format
-/// date-time strings under certain locales. Date elements that vary across
-/// locales include month name, weekname, field, order, etc.
-///
-/// Formatting dates in the default 'en_US' format does not require any
-/// initialization. e.g.
+/// Formatting dates in the default 'en_US' format.
 ///
 /// ```dart
-/// print(DateFormat.yMMMd().format(DateTime.now()));
+/// print(GeneralDateFormat.yMMMd().format(JalaliDateTime.now()));
 /// ```
 ///
-/// But for other locales, the formatting data for the locale must be
-/// obtained. This can currently be done in one of three ways, determined by
-/// which library you import. In all cases, the 'initializeDateFormatting'
-/// method must be called and will return a future that is complete once the
-/// locale data is available. The result of the future isn't important, but the
-/// data for that locale is available to the date formatting and parsing once it
-/// completes.
-///
-/// The easiest option is that the data may be available locally, imported in a
-/// library that contains data for all the locales.
-///
-/// ```dart
-/// import 'package:intl/jalali_symbol_data_local.dart';
-/// initializeDateFormatting('fr_FR', null).then((_) => runMyCode());
-/// ```
-///
-/// If we are running outside of a browser, we may want to read the data
-/// from files in the file system.
-///
-/// ```dart
-/// import 'package:intl/date_symbol_data_file.dart';
-/// initializeDateFormatting('de_DE', null).then((_) => runMyCode());
-/// ```
-///
-/// If we are running in a browser, we may want to read the data from the
-/// server using the XmlHttpRequest mechanism.
-///
-/// ```dart
-/// import 'package:intl/date_symbol_data_http_request.dart';
-/// initializeDateFormatting('pt_BR', null).then((_) => runMyCode());
-/// ```
-///
-/// Once we have the locale data, we need to specify the particular format.
 /// This library uses the ICU/JDK date/time pattern specification both for
 /// complete format specifications and also the abbreviated 'skeleton' form
 /// which can also adapt to different locales and is preferred where available.
@@ -125,12 +82,12 @@ part 'date_format_field.dart';
 ///
 ///      Pattern                           Result
 ///      ----------------                  -------
-///      DateFormat.yMd()                 -> 7/10/1996
-///      DateFormat('yMd')                -> 7/10/1996
-///      DateFormat.yMMMMd('en_US')       -> July 10, 1996
-///      DateFormat.jm()                  -> 5:08 PM
-///      DateFormat.yMd().add_jm()        -> 7/10/1996 5:08 PM
-///      DateFormat.Hm()                  -> 17:08 // force 24 hour time
+///      GeneralDateFormat.yMd()                 -> 7/10/1996
+///      GeneralDateFormat('yMd')                -> 7/10/1996
+///      GeneralDateFormat.yMMMMd('en_US')       -> July 10, 1996
+///      GeneralDateFormat.jm()                  -> 5:08 PM
+///      GeneralDateFormat.yMd().add_jm()        -> 7/10/1996 5:08 PM
+///      GeneralDateFormat.Hm()                  -> 17:08 // force 24 hour time
 ///
 /// Explicit Pattern Syntax: Formats can also be specified with a pattern
 /// string.  This can be used for formats that don't have a skeleton available,
@@ -215,10 +172,10 @@ part 'date_format_field.dart';
 //      'K:mm a, vvv'                     0:00 PM, PT
 ///
 /// When parsing a date string using the abbreviated year pattern ('yy'),
-/// DateFormat must interpret the abbreviated year relative to some
+/// GeneralDateFormat must interpret the abbreviated year relative to some
 /// century. It does this by adjusting dates to be within 80 years before and 20
 /// years after the time the parse function is called. For example, using a
-/// pattern of 'MM/dd/yy' and a DateFormat instance created on Jan 1, 1997,
+/// pattern of 'MM/dd/yy' and a GeneralDateFormat instance created on Jan 1, 1997,
 /// the string '01/11/12' would be interpreted as Jan 11, 2012 while the string
 /// '05/04/64' would be interpreted as May 4, 1964. During parsing, only
 /// strings consisting of exactly two digits will be parsed into the default
@@ -231,7 +188,7 @@ part 'date_format_field.dart';
 /// pattern 'MM/dd/yyyy', '01/11/12' parses to Jan 11, 12 A.D.
 
 class GeneralDateFormat {
-  /// Creates a new DateFormat, using the format specified by [newPattern].
+  /// Creates a new GeneralDateFormat, using the format specified by [newPattern].
   ///
   /// For forms that match one of our predefined skeletons, we look up the
   /// corresponding pattern in [locale] (or in the default locale if none is
@@ -242,13 +199,13 @@ class GeneralDateFormat {
   /// For example, in an en_US locale, specifying the skeleton
   ///
   /// ```dart
-  /// DateFormat.yMEd();
+  /// GeneralDateFormat.yMEd();
   /// ```
   ///
   /// or the explicit
   ///
   /// ```dart
-  /// DateFormat('EEE, M/d/y');
+  /// GeneralDateFormat('EEE, M/d/y');
   /// ```
   ///
   /// would produce the same result, a date of the form 'Wed, 6/27/2012'.
@@ -263,33 +220,10 @@ class GeneralDateFormat {
     addPattern(newPattern);
   }
 
-  /// Allows specifying a different way of creating a DateTime instance for
-  /// testing.
-  ///
-  /// There can be rare and erratic errors in DateTime creation in both
-  /// JavaScript and the Dart VM, and this allows us to test ways of
-  /// compensating for them.
-  @visibleForTesting
-  @Deprecated('clients should not depend on this internal field')
-  // ignore: library_private_types_in_public_api
-  _DateTimeConstructor dateTimeConstructor = (int year, int month, int day,
-      int hour24, int minute, int second, int fractionalSecond, bool utc) {
-    if (utc) {
-      return DateTime.utc(
-          year, month, day, hour24, minute, second, fractionalSecond);
-    } else {
-      return DateTime(
-          year, month, day, hour24, minute, second, fractionalSecond);
-    }
-  };
-
   /// Return a string representing [date] formatted according to our locale
   /// and internal format.
-  String format(DateTime date) {
-
-    initializeDateSymbols(calendar);
-    initializeDatePatterns();
-
+  String format(GeneralDateTimeInterface date) {
+    initializeDateSymbols(date);
     var result = StringBuffer();
     for (var field in _formatFields) {
       result.write(field.format(date));
@@ -304,8 +238,9 @@ class GeneralDateFormat {
   /// This will accept dates whose values are not strictly valid, or strings
   /// with additional characters (including whitespace) after a valid date. For
   /// stricter parsing, use [parseStrict].
-  DateTime parse(String inputString, [bool utc = false]) =>
-      _parse(inputString, utc: utc, strict: false);
+  /// TODO: implement this
+  // DateTime parse(String inputString, [bool utc = false]) =>
+  //     _parse(inputString, utc: utc, strict: false);
 
   /// Given user input, attempt to parse the [inputString] into the anticipated
   /// format, treating it as being in the local timezone.
@@ -314,13 +249,14 @@ class GeneralDateFormat {
   /// This will accept dates whose values are not strictly valid, or strings
   /// with additional characters (including whitespace) after a valid date. For
   /// stricter parsing, use [tryParseStrict].
-  DateTime? tryParse(String inputString, [bool utc = false]) {
-    try {
-      return parse(inputString, utc);
-    } on FormatException {
-      return null;
-    }
-  }
+  /// TODO: implement this
+  // DateTime? tryParse(String inputString, [bool utc = false]) {
+  //   try {
+  //     return parse(inputString, utc);
+  //   } on FormatException {
+  //     return null;
+  //   }
+  // }
 
   /// Given user input, attempt to parse the [inputString] 'loosely' into the
   /// anticipated format, accepting some variations from the strict format.
@@ -339,21 +275,22 @@ class GeneralDateFormat {
   ///
   /// For example, this will accept
   ///
-  ///       DateFormat.yMMMd('en_US').parseLoose('SEp   3 2014');
-  ///       DateFormat.yMd('en_US').parseLoose('09    03/2014');
-  ///       DateFormat.yMd('en_US').parseLoose('09 / 03 / 2014');
+  ///       GeneralDateFormat.yMMMd('en_US').parseLoose('SEp   3 2014');
+  ///       GeneralDateFormat.yMd('en_US').parseLoose('09    03/2014');
+  ///       GeneralDateFormat.yMd('en_US').parseLoose('09 / 03 / 2014');
   ///
   /// It will NOT accept
   ///
   ///       // 'Sept' is not a valid month name.
-  ///       DateFormat.yMMMd('en_US').parseLoose('Sept 3, 2014');
-  DateTime parseLoose(String inputString, [bool utc = false]) {
-    try {
-      return _parse(inputString, utc: utc, strict: true);
-    } on FormatException {
-      return _parseLoose(inputString.toLowerCase(), utc);
-    }
-  }
+  ///       GeneralDateFormat.yMMMd('en_US').parseLoose('Sept 3, 2014');
+  /// TODO: implement this
+  // DateTime parseLoose(String inputString, [bool utc = false]) {
+  //   try {
+  //     return _parse(inputString, utc: utc, strict: true);
+  //   } on FormatException {
+  //     return _parseLoose(inputString.toLowerCase(), utc);
+  //   }
+  // }
 
   /// Given user input, attempt to parse the [inputString] 'loosely' into the
   /// anticipated format, accepting some variations from the strict format.
@@ -372,36 +309,38 @@ class GeneralDateFormat {
   ///
   /// For example, this will accept
   ///
-  ///       DateFormat.yMMMd('en_US').tryParseLoose('SEp   3 2014');
-  ///       DateFormat.yMd('en_US').tryParseLoose('09    03/2014');
-  ///       DateFormat.yMd('en_US').tryParseLoose('09 / 03 / 2014');
+  ///       GeneralDateFormat.yMMMd('en_US').tryParseLoose('SEp   3 2014');
+  ///       GeneralDateFormat.yMd('en_US').tryParseLoose('09    03/2014');
+  ///       GeneralDateFormat.yMd('en_US').tryParseLoose('09 / 03 / 2014');
   ///
   /// It will NOT accept
   ///
   ///       // 'Sept' is not a valid month name.
-  ///       DateFormat.yMMMd('en_US').tryParseLoose('Sept 3, 2014');
-  DateTime? tryParseLoose(String inputString, [bool utc = false]) {
-    try {
-      return parseLoose(inputString, utc);
-    } on FormatException {
-      return null;
-    }
-  }
+  ///       GeneralDateFormat.yMMMd('en_US').tryParseLoose('Sept 3, 2014');
+  /// TODO: implement this
+  // DateTime? tryParseLoose(String inputString, [bool utc = false]) {
+  //   try {
+  //     return parseLoose(inputString, utc);
+  //   } on FormatException {
+  //     return null;
+  //   }
+  // }
 
-  DateTime _parseLoose(String inputString, bool utc) {
-    var dateFields = DateBuilder(locale, dateTimeConstructor);
-    if (utc) dateFields.utc = true;
-    var stack = StringStack(inputString);
-    for (var field in _formatFields) {
-      field.parseLoose(stack, dateFields);
-    }
-    if (!stack.atEnd) {
-      throw FormatException(
-          'Characters remaining after date parsing in $inputString');
-    }
-    dateFields.verify(inputString);
-    return dateFields.asDate();
-  }
+  /// TODO: implement this
+  // DateTime _parseLoose(String inputString, bool utc) {
+  //   var dateFields = DateBuilder(locale, dateTimeConstructor);
+  //   if (utc) dateFields.utc = true;
+  //   var stack = StringStack(inputString);
+  //   for (var field in _formatFields) {
+  //     field.parseLoose(stack, dateFields);
+  //   }
+  //   if (!stack.atEnd) {
+  //     throw FormatException(
+  //         'Characters remaining after date parsing in $inputString');
+  //   }
+  //   dateFields.verify(inputString);
+  //   return dateFields.asDate();
+  // }
 
   /// Given user input, attempt to parse the [inputString] into the anticipated
   /// format, treating it as being in the local timezone.
@@ -411,8 +350,9 @@ class GeneralDateFormat {
   /// DateTime constructor will accept them. It will also reject strings with
   /// additional characters (including whitespace) after a valid date. For
   /// looser parsing, use [parse].
-  DateTime parseStrict(String inputString, [bool utc = false]) =>
-      _parse(inputString, utc: utc, strict: true);
+  /// TODO: implement this
+  // DateTime parseStrict(String inputString, [bool utc = false]) =>
+  //     _parse(inputString, utc: utc, strict: true);
 
   /// Given user input, attempt to parse the [inputString] into the anticipated
   /// format, treating it as being in the local timezone.
@@ -422,31 +362,33 @@ class GeneralDateFormat {
   /// DateTime constructor will accept them. It will also reject strings with
   /// additional characters (including whitespace) after a valid date. For
   /// looser parsing, use [tryParse].
-  DateTime? tryParseStrict(String inputString, [bool utc = false]) {
-    try {
-      return parseStrict(inputString, utc);
-    } on FormatException {
-      return null;
-    }
-  }
+  /// TODO: implement this
+  // DateTime? tryParseStrict(String inputString, [bool utc = false]) {
+  //   try {
+  //     return parseStrict(inputString, utc);
+  //   } on FormatException {
+  //     return null;
+  //   }
+  // }
 
-  DateTime _parse(String inputString, {bool utc = false, bool strict = false}) {
-    // TODO(alanknight): The Closure code refers to special parsing of numeric
-    // values with no delimiters, which we currently don't do. Should we?
-    var dateFields = DateBuilder(locale, dateTimeConstructor);
-    if (utc) dateFields.utc = true;
-    dateFields.dateOnly = dateOnly;
-    var stack = StringStack(inputString);
-    for (var field in _formatFields) {
-      field.parse(stack, dateFields);
-    }
-    if (strict && !stack.atEnd) {
-      throw FormatException(
-          'Characters remaining after date parsing in $inputString');
-    }
-    if (strict) dateFields.verify(inputString);
-    return dateFields.asDate();
-  }
+  /// TODO: implement this
+  // DateTime _parse(String inputString, {bool utc = false, bool strict = false}) {
+  //   // TODO(alanknight): The Closure code refers to special parsing of numeric
+  //   // values with no delimiters, which we currently don't do. Should we?
+  //   var dateFields = DateBuilder(locale, dateTimeConstructor);
+  //   if (utc) dateFields.utc = true;
+  //   dateFields.dateOnly = dateOnly;
+  //   var stack = StringStack(inputString);
+  //   for (var field in _formatFields) {
+  //     field.parse(stack, dateFields);
+  //   }
+  //   if (strict && !stack.atEnd) {
+  //     throw FormatException(
+  //         'Characters remaining after date parsing in $inputString');
+  //   }
+  //   if (strict) dateFields.verify(inputString);
+  //   return dateFields.asDate();
+  // }
 
   /// Does our format only date fields, and no time fields.
   ///
@@ -463,7 +405,8 @@ class GeneralDateFormat {
   /// The canonical Dart style name
   /// is [parseUtc], but [parseUTC] is retained
   /// for backward-compatibility.
-  DateTime parseUTC(String inputString) => parse(inputString, true);
+  /// TODO: implement this
+  // DateTime parseUTC(String inputString) => parse(inputString, true);
 
   /// Given user input, attempt to parse the [inputString] into the anticipated
   /// format, treating it as being in UTC.
@@ -472,26 +415,27 @@ class GeneralDateFormat {
   /// The canonical Dart style name
   /// is [parseUtc], but [parseUTC] is retained
   /// for backward-compatibility.
-  DateTime parseUtc(String inputString) => parse(inputString, true);
+  /// TODO: implement this
+  // DateTime parseUtc(String inputString) => parse(inputString, true);
 
   /// Given user input, attempt to parse the [inputString] into the anticipated
   /// format, treating it as being in UTC.
   /// If [inputString] does not match our format, returns `null`.
-  DateTime? tryParseUtc(String inputString) {
-    try {
-      return parseUtc(inputString);
-    } on FormatException {
-      return null;
-    }
-  }
+  /// TODO: implement this
+  // DateTime? tryParseUtc(String inputString) {
+  //   try {
+  //     return parseUtc(inputString);
+  //   } on FormatException {
+  //     return null;
+  //   }
+  // }
 
   /// Return the locale code in which we operate, e.g. 'en_US' or 'pt'.
   String get locale => _locale;
 
   /// Returns a list of all locales for which we have date formatting
   /// information.
-  static List<String> allLocalesWithSymbols() =>
-      List<String>.from(dateTimeSymbols.keys);
+  static List<String> allLocalesWithSymbols() => symbolList;
 
   /// The named constructors for this class are all conveniences for creating
   /// instances using one of the known 'skeleton' formats, and having code
@@ -499,20 +443,20 @@ class GeneralDateFormat {
   /// So,
   ///
   /// ```dart
-  /// DateFormat.yMd('en_US')
+  /// GeneralDateFormat.yMd('en_US')
   /// ```
   ///
   /// is equivalent to
   ///
   /// ```dart
-  /// DateFormat('yMd', 'en_US')
+  /// GeneralDateFormat('yMd', 'en_US')
   /// ```
   ///
   /// To create a compound format you can use these constructors in combination
   /// with the 'add_*' methods below. e.g.
   ///
   /// ```dart
-  /// DateFormat.yMd().add_Hms();
+  /// GeneralDateFormat.yMd().add_Hms();
   /// ```
   ///
   /// If the optional [locale] is omitted, the format will be created using the
@@ -614,7 +558,7 @@ class GeneralDateFormat {
   /// useful for creating compound formats. For example
   ///
   /// ```dart
-  /// DateFormat.yMd().add_Hms();
+  /// GeneralDateFormat.yMd().add_Hms();
   /// ```
   ///
   /// would create a date format that prints both the date and the time.
@@ -842,7 +786,9 @@ class GeneralDateFormat {
   String? get pattern => _pattern;
 
   /// Return the skeletons for our current locale.
-  Map<dynamic, dynamic> get _availableSkeletons => dateTimePatterns[locale];
+  Map<dynamic, dynamic> get _availableSkeletons =>
+      dateTimePatternMap[locale] ??
+      (throw Exception("Date Patten not founded"));
 
   /// Return the [DateSymbols] information for the locale.
   ///
@@ -861,21 +807,20 @@ class GeneralDateFormat {
 
   static final Map<String, bool> _useNativeDigitsByDefault = {};
 
-  /// Should a new DateFormat for [locale] have useNativeDigits true.
+  /// Should a new GeneralDateFormat for [locale] have useNativeDigits true.
   ///
-  /// For example, for locale 'ar' when this setting is true, DateFormat will
+  /// For example, for locale 'ar' when this setting is true, GeneralDateFormat will
   /// format using Eastern Arabic digits, e.g. '\u0660, \u0661, \u0662'. If it
-  /// is false, a new DateFormat will format using ASCII digits.
-  static bool shouldUseNativeDigitsByDefaultFor(String locale) {
-    return _useNativeDigitsByDefault[locale] ?? true;
-  }
+  /// is false, a new GeneralDateFormat will format using ASCII digits.
+  static bool shouldUseNativeDigitsByDefaultFor(String locale) =>
+      _useNativeDigitsByDefault[locale] ?? true;
 
-  /// Indicate if a new DateFormat for [locale] should have useNativeDigits
+  /// Indicate if a new GeneralDateFormat for [locale] should have useNativeDigits
   /// true.
   ///
-  /// For example, for locale 'ar' when this setting is true, DateFormat will
+  /// For example, for locale 'ar' when this setting is true, GeneralDateFormat will
   /// format using Eastern Arabic digits, e.g. '\u0660, \u0661, \u0662'. If it
-  /// is false, a new DateFormat will format using ASCII digits.
+  /// is false, a new GeneralDateFormat will format using ASCII digits.
   ///
   /// If not indicated, the default value is true, so native digits will be
   /// used.
@@ -965,7 +910,7 @@ class GeneralDateFormat {
   /// is interpreted to mean that we use the default locale.
   static bool localeExists(String? localeName) {
     if (localeName == null) return false;
-    return dateTimeSymbols.containsKey(localeName);
+    return symbolList.contains(localeName);
   }
 
   static List<_DateFormatField Function(String, GeneralDateFormat)>
