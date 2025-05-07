@@ -6,7 +6,7 @@ void main() {
   group("Format Tests", () {
     test('Test Year', () {
       JalaliDateTime jalaliNow = JalaliDateTime.now();
-      String res = GeneralDateFormat("yyyy/MMMM/dd HH:mm", "en_ISO").format(jalaliNow);
+      String res = GeneralDateFormat("yyyy/MMMM/dd HH:mm EEEE", "fa").format(jalaliNow);
       print(jalaliNow);
       print(res);
     });
