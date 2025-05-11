@@ -75,8 +75,6 @@ part 'date_format_field.dart';
 ///      MINUTE                       m
 ///      MINUTE_SECOND                ms
 ///      SECOND                       s
-//
-// TODO(https://github.com/dart-lang/intl/issues/74): Update table above.
 ///
 /// Examples Using the US Locale:
 ///
@@ -122,8 +120,6 @@ part 'date_format_field.dart';
 ///     '        escape for text        (Delimiter)        'Date='
 ///     ''       single quote           (Literal)          'o''clock'
 ///
-//  TODO(https://github.com/dart-lang/intl/issues/74): Merge tables.
-//
 /// The following characters are reserved and currently are unimplemented:
 ///
 ///     Symbol   Meaning                Presentation       Example
@@ -163,7 +159,6 @@ part 'date_format_field.dart';
 ///     'h:mm a'                          12:08 PM
 ///     'yyyyy.MMMM.dd GGG hh:mm aaa'     01996.July.10 AD 12:08 PM
 //
-// TODO(https://github.com/dart-lang/intl/issues/74): Merge tables.
 //
 //      NOT YET IMPLEMENTED
 //      -------------------
@@ -216,7 +211,7 @@ class GeneralDateFormat {
   /// If [locale] does not exist in our set of supported locales then an
   /// [ArgumentError] is thrown.
   GeneralDateFormat([String? newPattern, String? locale])
-      : _locale = verifiedLocale(locale, localeExists, null)! {
+      : _locale = verifiedLocale(locale, localeExists)! {
     addPattern(newPattern);
   }
 

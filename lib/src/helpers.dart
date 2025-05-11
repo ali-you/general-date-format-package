@@ -19,11 +19,6 @@ class LocaleDataException implements Exception {
   String toString() => 'LocaleDataException: $message';
 }
 
-///  An abstract superclass for data readers to keep the type system happy.
-abstract class LocaleDataReader {
-  Future<String> read(String locale);
-}
-
 /// If a message is a string literal without interpolation, compute
 /// a name based on that and the meaning, if present.
 // NOTE: THIS LOGIC IS DUPLICATED IN intl_translation AND THE TWO MUST MATCH.
@@ -35,18 +30,10 @@ String? computeMessageName(String? name, String? text, String? meaning) {
 /// Returns an index of a separator between language and region.
 /// Assumes that language length can be only 2 or 3.
 int _separatorIndex(String locale) {
-  if (locale.length < 3) {
-    return -1;
-  }
-  if (locale[2] == '-' || locale[2] == '_') {
-    return 2;
-  }
-  if (locale.length < 4) {
-    return -1;
-  }
-  if (locale[3] == '-' || locale[3] == '_') {
-    return 3;
-  }
+  if (locale.length < 3) return -1;
+  if (locale[2] == '-' || locale[2] == '_') return 2;
+  if (locale.length < 4) return -1;
+  if (locale[3] == '-' || locale[3] == '_') return 3;
   return -1;
 }
 
@@ -66,15 +53,9 @@ String canonicalizedLocale(String? aLocale) {
   return '${language}_$region';
 }
 
-String? verifiedLocale(String? newLocale, bool Function(String) localeExists,
-    String? Function(String)? onFailure) {
-
-  if (newLocale == null) {
-    return verifiedLocale("en_US", localeExists, onFailure);
-  }
-  if (localeExists(newLocale)) {
-    return newLocale;
-  }
+String? verifiedLocale(String? newLocale, bool Function(String) localeExists) {
+  if (newLocale == null) return verifiedLocale("en_US", localeExists);
+  if (localeExists(newLocale)) return newLocale;
   final fallbackOptions = [
     canonicalizedLocale,
     shortLocale,
@@ -89,7 +70,7 @@ String? verifiedLocale(String? newLocale, bool Function(String) localeExists,
       return localeFallback;
     }
   }
-  return (onFailure ?? _throwLocaleError)(newLocale);
+  return _throwLocaleError(newLocale);
 }
 
 /// The default action if a locale isn't found in verifiedLocale. Throw
