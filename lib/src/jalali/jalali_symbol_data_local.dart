@@ -12249,93 +12249,33 @@ Map<String, DateSymbols> jalaliSymbolMap() => {
           WEEKENDRANGE: const [5, 6],
           FIRSTWEEKCUTOFFDAY: 3),
       // Date/time formatting symbols for locale si.
-      "si": new DateSymbols(
+      "si": DateSymbols(
           NAME: "si",
-          ERAS: const ['ක්‍රි.පූ.', 'ක්‍රි.ව.'],
-          ERANAMES: const ['ක්‍රිස්තු පූර්ව', 'ක්‍රිස්තු වර්ෂ'],
+          ERAS: const ['සු.ව.', 'සු.ව.'],
+          ERANAMES: const ['සූර්ය වර්ෂ', 'සූර්ය වර්ෂ'],
           NARROWMONTHS: const [
-            'ජ',
-            'පෙ',
-            'මා',
-            'අ',
-            'මැ',
-            'ජූ',
-            'ජූ',
-            'අ',
-            'සැ',
-            'ඔ',
-            'නෙ',
-            'දෙ'
+            'ෆ', 'ඔ', 'ඛ', 'ට', 'ම', 'ෂ', 'ම', 'අ', 'අ', 'ඩ', 'බ', 'එ'
           ],
           STANDALONENARROWMONTHS: const [
-            'ජ',
-            'පෙ',
-            'මා',
-            'අ',
-            'මැ',
-            'ජූ',
-            'ජූ',
-            'අ',
-            'සැ',
-            'ඔ',
-            'නෙ',
-            'දෙ'
+            'ෆ', 'ඔ', 'ඛ', 'ට', 'ම', 'ෂ', 'ම', 'අ', 'අ', 'ඩ', 'බ', 'එ'
           ],
           MONTHS: const [
-            'ජනවාරි',
-            'පෙබරවාරි',
-            'මාර්තු',
-            'අප්‍රේල්',
-            'මැයි',
-            'ජූනි',
-            'ජූලි',
-            'අගෝස්තු',
-            'සැප්තැම්බර්',
-            'ඔක්තෝබර්',
-            'නොවැම්බර්',
-            'දෙසැම්බර්'
+            'ෆර්වර්දින්', 'ඔර්ඩිබෙහෙෂ්ට්', 'ඛෝර්දාද්', 'ටිර්',
+            'මෝර්දාද්', 'ෂහ්රිවාර්', 'මෙහ්ර්', 'අබාන්',
+            'අසාර්', 'ඩෙයි', 'බහ්මන්', 'එස්ෆන්ඩ්'
           ],
           STANDALONEMONTHS: const [
-            'ජනවාරි',
-            'පෙබරවාරි',
-            'මාර්තු',
-            'අප්‍රේල්',
-            'මැයි',
-            'ජූනි',
-            'ජූලි',
-            'අගෝස්තු',
-            'සැප්තැම්බර්',
-            'ඔක්තෝබර්',
-            'නොවැම්බර්',
-            'දෙසැම්බර්'
+            'ෆර්වර්දින්', 'ඔර්ඩිබෙහෙෂ්ට්', 'ඛෝර්දාද්', 'ටිර්',
+            'මෝර්දාද්', 'ෂහ්රිවාර්', 'මෙහ්ර්', 'අබාන්',
+            'අසාර්', 'ඩෙයි', 'බහ්මන්', 'එස්ෆන්ඩ්'
           ],
           SHORTMONTHS: const [
-            'ජන',
-            'පෙබ',
-            'මාර්තු',
-            'අප්‍රේල්',
-            'මැයි',
-            'ජූනි',
-            'ජූලි',
-            'අගෝ',
-            'සැප්',
-            'ඔක්',
-            'නොවැ',
-            'දෙසැ'
+            'ෆර්', 'ඔර්', 'ඛෝ', 'ටි', 'මෝ', 'ෂහ්',
+            'මෙ', 'අබා', 'අසා', 'ඩෙ', 'බහ්', 'එස්'
           ],
           STANDALONESHORTMONTHS: const [
-            'ජන',
-            'පෙබ',
-            'මාර්',
-            'අප්‍රේල්',
-            'මැයි',
-            'ජූනි',
-            'ජූලි',
-            'අගෝ',
-            'සැප්',
-            'ඔක්',
-            'නොවැ',
-            'දෙසැ'
+            'ෆර්', 'ඔර්', 'ඛෝ', 'ටි', 'මෝ', 'ෂහ්',
+            'මෙ', 'අබා', 'අසා', 'ඩෙ', 'බහ්', 'එස්'
           ],
           WEEKDAYS: const [
             'ඉරිදා',
@@ -12408,93 +12348,33 @@ Map<String, DateSymbols> jalaliSymbolMap() => {
           WEEKENDRANGE: const [5, 6],
           FIRSTWEEKCUTOFFDAY: 6),
       // Date/time formatting symbols for locale sk.
-      "sk": new DateSymbols(
+      "sk": DateSymbols(
           NAME: "sk",
-          ERAS: const ['pred Kr.', 'po Kr.'],
-          ERANAMES: const ['pred Kristom', 'po Kristovi'],
+          ERAS: const ['SR', 'SR'],
+          ERANAMES: const ['Slnečný rok', 'Slnečný rok'],
           NARROWMONTHS: const [
-            'j',
-            'f',
-            'm',
-            'a',
-            'm',
-            'j',
-            'j',
-            'a',
-            's',
-            'o',
-            'n',
-            'd'
+            'f', 'o', 'c', 't', 'm', 'š', 'm', 'a', 'a', 'd', 'b', 'e'
           ],
           STANDALONENARROWMONTHS: const [
-            'j',
-            'f',
-            'm',
-            'a',
-            'm',
-            'j',
-            'j',
-            'a',
-            's',
-            'o',
-            'n',
-            'd'
+            'f', 'o', 'c', 't', 'm', 'š', 'm', 'a', 'a', 'd', 'b', 'e'
           ],
           MONTHS: const [
-            'januára',
-            'februára',
-            'marca',
-            'apríla',
-            'mája',
-            'júna',
-            'júla',
-            'augusta',
-            'septembra',
-            'októbra',
-            'novembra',
-            'decembra'
+            'farvardin', 'ordibehešt', 'chordad', 'tir',
+            'mordad', 'šachrivar', 'mehr', 'aban',
+            'azar', 'dey', 'bahman', 'esfand'
           ],
           STANDALONEMONTHS: const [
-            'január',
-            'február',
-            'marec',
-            'apríl',
-            'máj',
-            'jún',
-            'júl',
-            'august',
-            'september',
-            'október',
-            'november',
-            'december'
+            'farvardin', 'ordibehešt', 'chordad', 'tir',
+            'mordad', 'šachrivar', 'mehr', 'aban',
+            'azar', 'dey', 'bahman', 'esfand'
           ],
           SHORTMONTHS: const [
-            'jan',
-            'feb',
-            'mar',
-            'apr',
-            'máj',
-            'jún',
-            'júl',
-            'aug',
-            'sep',
-            'okt',
-            'nov',
-            'dec'
+            'far', 'ord', 'cho', 'tir', 'mor', 'šac',
+            'meh', 'aba', 'aza', 'dey', 'bah', 'esf'
           ],
           STANDALONESHORTMONTHS: const [
-            'jan',
-            'feb',
-            'mar',
-            'apr',
-            'máj',
-            'jún',
-            'júl',
-            'aug',
-            'sep',
-            'okt',
-            'nov',
-            'dec'
+            'far', 'ord', 'cho', 'tir', 'mor', 'šac',
+            'meh', 'aba', 'aza', 'dey', 'bah', 'esf'
           ],
           WEEKDAYS: const [
             'nedeľa',
@@ -12551,93 +12431,53 @@ Map<String, DateSymbols> jalaliSymbolMap() => {
           WEEKENDRANGE: const [5, 6],
           FIRSTWEEKCUTOFFDAY: 3),
       // Date/time formatting symbols for locale sl.
-      "sl": new DateSymbols(
+      "sl": DateSymbols(
           NAME: "sl",
-          ERAS: const ['pr. Kr.', 'po Kr.'],
-          ERANAMES: const ['pred Kristusom', 'po Kristusu'],
+          ERAS: const ['SL', 'SL'],
+          ERANAMES: const ['Sončno leto', 'Sončno leto'],
           NARROWMONTHS: const [
-            'j',
-            'f',
-            'm',
-            'a',
-            'm',
-            'j',
-            'j',
-            'a',
-            's',
-            'o',
-            'n',
-            'd'
+            'f', 'o', 'h', 't', 'm', 'š', 'm', 'a', 'a', 'd', 'b', 'e'
           ],
           STANDALONENARROWMONTHS: const [
-            'j',
-            'f',
-            'm',
-            'a',
-            'm',
-            'j',
-            'j',
-            'a',
-            's',
-            'o',
-            'n',
-            'd'
+            'f', 'o', 'h', 't', 'm', 'š', 'm', 'a', 'a', 'd', 'b', 'e'
           ],
           MONTHS: const [
-            'januar',
-            'februar',
-            'marec',
-            'april',
-            'maj',
-            'junij',
-            'julij',
-            'avgust',
-            'september',
-            'oktober',
-            'november',
-            'december'
+            'farvardin', 'ordibehešt', 'hordad', 'tir',
+            'mordad', 'šahrivar', 'mehr', 'aban',
+            'azar', 'dey', 'bahman', 'esfand'
           ],
           STANDALONEMONTHS: const [
-            'januar',
-            'februar',
-            'marec',
-            'april',
-            'maj',
-            'junij',
-            'julij',
-            'avgust',
-            'september',
-            'oktober',
-            'november',
-            'december'
+            'farvardin', 'ordibehešt', 'hordad', 'tir',
+            'mordad', 'šahrivar', 'mehr', 'aban',
+            'azar', 'dey', 'bahman', 'esfand'
           ],
           SHORTMONTHS: const [
-            'jan.',
-            'feb.',
-            'mar.',
-            'apr.',
-            'maj',
-            'jun.',
-            'jul.',
-            'avg.',
-            'sep.',
-            'okt.',
-            'nov.',
-            'dec.'
+            'far.',
+            'ord.',
+            'hor.',
+            'tir',
+            'mor.',
+            'šah.',
+            'meh.',
+            'aba.',
+            'aza.',
+            'dey',
+            'bah.',
+            'esf.'
           ],
           STANDALONESHORTMONTHS: const [
-            'jan.',
-            'feb.',
-            'mar.',
-            'apr.',
-            'maj',
-            'jun.',
-            'jul.',
-            'avg.',
-            'sep.',
-            'okt.',
-            'nov.',
-            'dec.'
+            'far.',
+            'ord.',
+            'hor.',
+            'tir',
+            'mor.',
+            'šah.',
+            'meh.',
+            'aba.',
+            'aza.',
+            'dey',
+            'bah.',
+            'esf.'
           ],
           WEEKDAYS: const [
             'nedelja',
@@ -12702,93 +12542,33 @@ Map<String, DateSymbols> jalaliSymbolMap() => {
           WEEKENDRANGE: const [5, 6],
           FIRSTWEEKCUTOFFDAY: 6),
       // Date/time formatting symbols for locale sq.
-      "sq": new DateSymbols(
+      "sq": DateSymbols(
           NAME: "sq",
-          ERAS: const ['p.K.', 'mb.K.'],
-          ERANAMES: const ['para Krishtit', 'mbas Krishtit'],
+          ERAS: const ['VD', 'VD'],
+          ERANAMES: const ['Viti Diellor', 'Viti Diellor'],
           NARROWMONTHS: const [
-            'j',
-            'sh',
-            'm',
-            'p',
-            'm',
-            'q',
-            'k',
-            'g',
-            'sh',
-            't',
-            'n',
-            'dh'
+            'f', 'o', 'h', 't', 'm', 's', 'm', 'a', 'a', 'd', 'b', 'e'
           ],
           STANDALONENARROWMONTHS: const [
-            'j',
-            'sh',
-            'm',
-            'p',
-            'm',
-            'q',
-            'k',
-            'g',
-            'sh',
-            't',
-            'n',
-            'dh'
+            'f', 'o', 'h', 't', 'm', 's', 'm', 'a', 'a', 'd', 'b', 'e'
           ],
           MONTHS: const [
-            'janar',
-            'shkurt',
-            'mars',
-            'prill',
-            'maj',
-            'qershor',
-            'korrik',
-            'gusht',
-            'shtator',
-            'tetor',
-            'nëntor',
-            'dhjetor'
+            'farvardin', 'ordibehesht', 'hordad', 'tir',
+            'mordad', 'shahrivar', 'mehr', 'aban',
+            'azar', 'dey', 'bahman', 'esfand'
           ],
           STANDALONEMONTHS: const [
-            'janar',
-            'shkurt',
-            'mars',
-            'prill',
-            'maj',
-            'qershor',
-            'korrik',
-            'gusht',
-            'shtator',
-            'tetor',
-            'nëntor',
-            'dhjetor'
+            'farvardin', 'ordibehesht', 'hordad', 'tir',
+            'mordad', 'shahrivar', 'mehr', 'aban',
+            'azar', 'dey', 'bahman', 'esfand'
           ],
           SHORTMONTHS: const [
-            'jan',
-            'shk',
-            'mar',
-            'pri',
-            'maj',
-            'qer',
-            'korr',
-            'gush',
-            'sht',
-            'tet',
-            'nën',
-            'dhj'
+            'far', 'ord', 'hor', 'tir', 'mor', 'sha',
+            'meh', 'aba', 'aza', 'dey', 'bah', 'esf'
           ],
           STANDALONESHORTMONTHS: const [
-            'jan',
-            'shk',
-            'mar',
-            'pri',
-            'maj',
-            'qer',
-            'korr',
-            'gush',
-            'sht',
-            'tet',
-            'nën',
-            'dhj'
+            'far', 'ord', 'hor', 'tir', 'mor', 'sha',
+            'meh', 'aba', 'aza', 'dey', 'bah', 'esf'
           ],
           WEEKDAYS: const [
             'e diel',
@@ -12863,93 +12643,33 @@ Map<String, DateSymbols> jalaliSymbolMap() => {
           WEEKENDRANGE: const [5, 6],
           FIRSTWEEKCUTOFFDAY: 6),
       // Date/time formatting symbols for locale sr.
-      "sr": new DateSymbols(
+      "sr": DateSymbols(
           NAME: "sr",
-          ERAS: const ['п. н. е.', 'н. е.'],
-          ERANAMES: const ['пре нове ере', 'нове ере'],
+          ERAS: const ['С.Г.', 'С.Г.'],
+          ERANAMES: const ['Сунчана година', 'Сунчана година'],
           NARROWMONTHS: const [
-            'ј',
-            'ф',
-            'м',
-            'а',
-            'м',
-            'ј',
-            'ј',
-            'а',
-            'с',
-            'о',
-            'н',
-            'д'
+            'ф', 'о', 'х', 'т', 'м', 'ш', 'м', 'а', 'а', 'д', 'б', 'е'
           ],
           STANDALONENARROWMONTHS: const [
-            'ј',
-            'ф',
-            'м',
-            'а',
-            'м',
-            'ј',
-            'ј',
-            'а',
-            'с',
-            'о',
-            'н',
-            'д'
+            'ф', 'о', 'х', 'т', 'м', 'ш', 'м', 'а', 'а', 'д', 'б', 'е'
           ],
           MONTHS: const [
-            'јануар',
-            'фебруар',
-            'март',
-            'април',
-            'мај',
-            'јун',
-            'јул',
-            'август',
-            'септембар',
-            'октобар',
-            'новембар',
-            'децембар'
+            'Фарвардин', 'Ордибехешт', 'Хордад', 'Тир',
+            'Мордад', 'Шахривар', 'Мехр', 'Абан',
+            'Азар', 'Деј', 'Бахман', 'Есфанд'
           ],
           STANDALONEMONTHS: const [
-            'јануар',
-            'фебруар',
-            'март',
-            'април',
-            'мај',
-            'јун',
-            'јул',
-            'август',
-            'септембар',
-            'октобар',
-            'новембар',
-            'децембар'
+            'Фарвардин', 'Ордибехешт', 'Хордад', 'Тир',
+            'Мордад', 'Шахривар', 'Мехр', 'Абан',
+            'Азар', 'Деј', 'Бахман', 'Есфанд'
           ],
           SHORTMONTHS: const [
-            'јан',
-            'феб',
-            'мар',
-            'апр',
-            'мај',
-            'јун',
-            'јул',
-            'авг',
-            'сеп',
-            'окт',
-            'нов',
-            'дец'
+            'Фар', 'Орд', 'Хор', 'Тир', 'Мор', 'Шах',
+            'Мех', 'Аба', 'Аза', 'Деј', 'Бах', 'Есф'
           ],
           STANDALONESHORTMONTHS: const [
-            'јан',
-            'феб',
-            'мар',
-            'апр',
-            'мај',
-            'јун',
-            'јул',
-            'авг',
-            'сеп',
-            'окт',
-            'нов',
-            'дец'
+            'Фар', 'Орд', 'Хор', 'Тир', 'Мор', 'Шах',
+            'Мех', 'Аба', 'Аза', 'Деј', 'Бах', 'Есф'
           ],
           WEEKDAYS: const [
             'недеља',
@@ -13014,93 +12734,33 @@ Map<String, DateSymbols> jalaliSymbolMap() => {
           WEEKENDRANGE: const [5, 6],
           FIRSTWEEKCUTOFFDAY: 6),
       // Date/time formatting symbols for locale sr_Latn.
-      "sr_Latn": new DateSymbols(
+      "sr_Latn": DateSymbols(
           NAME: "sr_Latn",
-          ERAS: const ['p. n. e.', 'n. e.'],
-          ERANAMES: const ['pre nove ere', 'nove ere'],
+          ERAS: const ['S.G.', 'S.G.'],
+          ERANAMES: const ['Sunčana godina', 'Sunčana godina'],
           NARROWMONTHS: const [
-            'j',
-            'f',
-            'm',
-            'a',
-            'm',
-            'j',
-            'j',
-            'a',
-            's',
-            'o',
-            'n',
-            'd'
+            'f', 'o', 'h', 't', 'm', 'š', 'm', 'a', 'a', 'd', 'b', 'e'
           ],
           STANDALONENARROWMONTHS: const [
-            'j',
-            'f',
-            'm',
-            'a',
-            'm',
-            'j',
-            'j',
-            'a',
-            's',
-            'o',
-            'n',
-            'd'
+            'f', 'o', 'h', 't', 'm', 'š', 'm', 'a', 'a', 'd', 'b', 'e'
           ],
           MONTHS: const [
-            'januar',
-            'februar',
-            'mart',
-            'april',
-            'maj',
-            'jun',
-            'jul',
-            'avgust',
-            'septembar',
-            'oktobar',
-            'novembar',
-            'decembar'
+            'farvardin', 'ordibehešt', 'hordad', 'tir',
+            'mordad', 'šahrivar', 'mehr', 'aban',
+            'azar', 'dej', 'bahman', 'esfand'
           ],
           STANDALONEMONTHS: const [
-            'januar',
-            'februar',
-            'mart',
-            'april',
-            'maj',
-            'jun',
-            'jul',
-            'avgust',
-            'septembar',
-            'oktobar',
-            'novembar',
-            'decembar'
+            'farvardin', 'ordibehešt', 'hordad', 'tir',
+            'mordad', 'šahrivar', 'mehr', 'aban',
+            'azar', 'dej', 'bahman', 'esfand'
           ],
           SHORTMONTHS: const [
-            'jan',
-            'feb',
-            'mar',
-            'apr',
-            'maj',
-            'jun',
-            'jul',
-            'avg',
-            'sep',
-            'okt',
-            'nov',
-            'dec'
+            'far', 'ord', 'hor', 'tir', 'mor', 'šah',
+            'meh', 'aba', 'aza', 'dej', 'bah', 'esf'
           ],
           STANDALONESHORTMONTHS: const [
-            'jan',
-            'feb',
-            'mar',
-            'apr',
-            'maj',
-            'jun',
-            'jul',
-            'avg',
-            'sep',
-            'okt',
-            'nov',
-            'dec'
+            'far', 'ord', 'hor', 'tir', 'mor', 'šah',
+            'meh', 'aba', 'aza', 'dej', 'bah', 'esf'
           ],
           WEEKDAYS: const [
             'nedelja',
@@ -13165,93 +12825,53 @@ Map<String, DateSymbols> jalaliSymbolMap() => {
           WEEKENDRANGE: const [5, 6],
           FIRSTWEEKCUTOFFDAY: 6),
       // Date/time formatting symbols for locale sv.
-      "sv": new DateSymbols(
+      "sv": DateSymbols(
           NAME: "sv",
-          ERAS: const ['f.Kr.', 'e.Kr.'],
-          ERANAMES: const ['före Kristus', 'efter Kristus'],
+          ERAS: const ['SÅ', 'SÅ'],
+          ERANAMES: const ['Solår', 'Solår'],
           NARROWMONTHS: const [
-            'J',
-            'F',
-            'M',
-            'A',
-            'M',
-            'J',
-            'J',
-            'A',
-            'S',
-            'O',
-            'N',
-            'D'
+            'F', 'O', 'K', 'T', 'M', 'S', 'M', 'A', 'A', 'D', 'B', 'E'
           ],
           STANDALONENARROWMONTHS: const [
-            'J',
-            'F',
-            'M',
-            'A',
-            'M',
-            'J',
-            'J',
-            'A',
-            'S',
-            'O',
-            'N',
-            'D'
+            'F', 'O', 'K', 'T', 'M', 'S', 'M', 'A', 'A', 'D', 'B', 'E'
           ],
           MONTHS: const [
-            'januari',
-            'februari',
-            'mars',
-            'april',
-            'maj',
-            'juni',
-            'juli',
-            'augusti',
-            'september',
-            'oktober',
-            'november',
-            'december'
+            'farvardin', 'ordibehesht', 'kordad', 'tir',
+            'mordad', 'shahrivar', 'mehr', 'aban',
+            'azar', 'dey', 'bahman', 'esfand'
           ],
           STANDALONEMONTHS: const [
-            'januari',
-            'februari',
-            'mars',
-            'april',
-            'maj',
-            'juni',
-            'juli',
-            'augusti',
-            'september',
-            'oktober',
-            'november',
-            'december'
+            'farvardin', 'ordibehesht', 'kordad', 'tir',
+            'mordad', 'shahrivar', 'mehr', 'aban',
+            'azar', 'dey', 'bahman', 'esfand'
           ],
           SHORTMONTHS: const [
-            'jan.',
-            'feb.',
-            'mars',
-            'apr.',
-            'maj',
-            'juni',
-            'juli',
-            'aug.',
-            'sep.',
-            'okt.',
-            'nov.',
-            'dec.'
+            'far.',
+            'ord.',
+            'kor.',
+            'tir',
+            'mor.',
+            'sha.',
+            'meh.',
+            'aba.',
+            'aza.',
+            'dey',
+            'bah.',
+            'esf.'
           ],
           STANDALONESHORTMONTHS: const [
-            'jan.',
-            'feb.',
-            'mars',
-            'apr.',
-            'maj',
-            'juni',
-            'juli',
-            'aug.',
-            'sep.',
-            'okt.',
-            'nov.',
-            'dec.'
+            'far.',
+            'ord.',
+            'kor.',
+            'tir',
+            'mor.',
+            'sha.',
+            'meh.',
+            'aba.',
+            'aza.',
+            'dey',
+            'bah.',
+            'esf.'
           ],
           WEEKDAYS: const [
             'söndag',
@@ -13316,93 +12936,33 @@ Map<String, DateSymbols> jalaliSymbolMap() => {
           WEEKENDRANGE: const [5, 6],
           FIRSTWEEKCUTOFFDAY: 3),
       // Date/time formatting symbols for locale sw.
-      "sw": new DateSymbols(
+      "sw": DateSymbols(
           NAME: "sw",
-          ERAS: const ['KK', 'BK'],
-          ERANAMES: const ['Kabla ya Kristo', 'Baada ya Kristo'],
+          ERAS: const ['MJ', 'MJ'],
+          ERANAMES: const ['Mwaka wa Jua', 'Mwaka wa Jua'],
           NARROWMONTHS: const [
-            'J',
-            'F',
-            'M',
-            'A',
-            'M',
-            'J',
-            'J',
-            'A',
-            'S',
-            'O',
-            'N',
-            'D'
+            'F', 'O', 'K', 'T', 'M', 'S', 'M', 'A', 'A', 'D', 'B', 'E'
           ],
           STANDALONENARROWMONTHS: const [
-            'J',
-            'F',
-            'M',
-            'A',
-            'M',
-            'J',
-            'J',
-            'A',
-            'S',
-            'O',
-            'N',
-            'D'
+            'F', 'O', 'K', 'T', 'M', 'S', 'M', 'A', 'A', 'D', 'B', 'E'
           ],
           MONTHS: const [
-            'Januari',
-            'Februari',
-            'Machi',
-            'Aprili',
-            'Mei',
-            'Juni',
-            'Julai',
-            'Agosti',
-            'Septemba',
-            'Oktoba',
-            'Novemba',
-            'Desemba'
+            'Farvardin', 'Ordibeheshti', 'Kodadi', 'Tiri',
+            'Modadi', 'Shahrivari', 'Mehri', 'Abana',
+            'Azari', 'Dei', 'Bahmani', 'Esfandi'
           ],
           STANDALONEMONTHS: const [
-            'Januari',
-            'Februari',
-            'Machi',
-            'Aprili',
-            'Mei',
-            'Juni',
-            'Julai',
-            'Agosti',
-            'Septemba',
-            'Oktoba',
-            'Novemba',
-            'Desemba'
+            'Farvardin', 'Ordibeheshti', 'Kodadi', 'Tiri',
+            'Modadi', 'Shahrivari', 'Mehri', 'Abana',
+            'Azari', 'Dei', 'Bahmani', 'Esfandi'
           ],
           SHORTMONTHS: const [
-            'Jan',
-            'Feb',
-            'Mac',
-            'Apr',
-            'Mei',
-            'Jun',
-            'Jul',
-            'Ago',
-            'Sep',
-            'Okt',
-            'Nov',
-            'Des'
+            'Far', 'Ord', 'Kod', 'Tir', 'Mod', 'Sha',
+            'Meh', 'Aba', 'Aza', 'Dei', 'Bah', 'Esf'
           ],
           STANDALONESHORTMONTHS: const [
-            'Jan',
-            'Feb',
-            'Mac',
-            'Apr',
-            'Mei',
-            'Jun',
-            'Jul',
-            'Ago',
-            'Sep',
-            'Okt',
-            'Nov',
-            'Des'
+            'Far', 'Ord', 'Kod', 'Tir', 'Mod', 'Sha',
+            'Meh', 'Aba', 'Aza', 'Dei', 'Bah', 'Esf'
           ],
           WEEKDAYS: const [
             'Jumapili',
@@ -13467,93 +13027,33 @@ Map<String, DateSymbols> jalaliSymbolMap() => {
           WEEKENDRANGE: const [5, 6],
           FIRSTWEEKCUTOFFDAY: 6),
       // Date/time formatting symbols for locale ta.
-      "ta": new DateSymbols(
+      "ta": DateSymbols(
           NAME: "ta",
-          ERAS: const ['கி.மு.', 'கி.பி.'],
-          ERANAMES: const ['கிறிஸ்துவுக்கு முன்', 'அன்னோ டோமினி'],
+          ERAS: const ['சூ.ஆ.', 'சூ.ஆ.'],
+          ERANAMES: const ['சூரிய ஆண்டு', 'சூரிய ஆண்டு'],
           NARROWMONTHS: const [
-            'ஜ',
-            'பி',
-            'மா',
-            'ஏ',
-            'மே',
-            'ஜூ',
-            'ஜூ',
-            'ஆ',
-            'செ',
-            'அ',
-            'ந',
-            'டி'
+            'ப', 'ஒ', 'க', 'த', 'ம', 'ஷ', 'ம', 'அ', 'அ', 'ட', 'ப', 'எ'
           ],
           STANDALONENARROWMONTHS: const [
-            'ஜ',
-            'பி',
-            'மா',
-            'ஏ',
-            'மே',
-            'ஜூ',
-            'ஜூ',
-            'ஆ',
-            'செ',
-            'அ',
-            'ந',
-            'டி'
+            'ப', 'ஒ', 'க', 'த', 'ம', 'ஷ', 'ம', 'அ', 'அ', 'ட', 'ப', 'எ'
           ],
           MONTHS: const [
-            'ஜனவரி',
-            'பிப்ரவரி',
-            'மார்ச்',
-            'ஏப்ரல்',
-            'மே',
-            'ஜூன்',
-            'ஜூலை',
-            'ஆகஸ்ட்',
-            'செப்டம்பர்',
-            'அக்டோபர்',
-            'நவம்பர்',
-            'டிசம்பர்'
+            'பர்வர்தின்', 'ஒர்டிபெஹெஷ்ட்', 'கொர்தாத்', 'திர்',
+            'மொர்தாத்', 'ஷஹ்ரிவர்', 'மெஹ்ர்', 'அபன்',
+            'அஜார்', 'டெய்', 'பஹ்மன்', 'எஸ்பண்ட்'
           ],
           STANDALONEMONTHS: const [
-            'ஜனவரி',
-            'பிப்ரவரி',
-            'மார்ச்',
-            'ஏப்ரல்',
-            'மே',
-            'ஜூன்',
-            'ஜூலை',
-            'ஆகஸ்ட்',
-            'செப்டம்பர்',
-            'அக்டோபர்',
-            'நவம்பர்',
-            'டிசம்பர்'
+            'பர்வர்தின்', 'ஒர்டிபெஹெஷ்ட்', 'கொர்தாத்', 'திர்',
+            'மொர்தாத்', 'ஷஹ்ரிவர்', 'மெஹ்ர்', 'அபன்',
+            'அஜார்', 'டெய்', 'பஹ்மன்', 'எஸ்பண்ட்'
           ],
           SHORTMONTHS: const [
-            'ஜன.',
-            'பிப்.',
-            'மார்.',
-            'ஏப்.',
-            'மே',
-            'ஜூன்',
-            'ஜூலை',
-            'ஆக.',
-            'செப்.',
-            'அக்.',
-            'நவ.',
-            'டிச.'
+            'பர்', 'ஒர்டி', 'கொர்', 'தி', 'மொ', 'ஷ',
+            'மெ', 'அப', 'அஜா', 'டெ', 'பஹ்', 'எஸ்'
           ],
           STANDALONESHORTMONTHS: const [
-            'ஜன.',
-            'பிப்.',
-            'மார்.',
-            'ஏப்.',
-            'மே',
-            'ஜூன்',
-            'ஜூலை',
-            'ஆக.',
-            'செப்.',
-            'அக்.',
-            'நவ.',
-            'டிச.'
+            'பர்', 'ஒர்டி', 'கொர்', 'தி', 'மொ', 'ஷ',
+            'மெ', 'அப', 'அஜா', 'டெ', 'பஹ்', 'எஸ்'
           ],
           WEEKDAYS: const [
             'ஞாயிறு',
@@ -13631,93 +13131,29 @@ Map<String, DateSymbols> jalaliSymbolMap() => {
           WEEKENDRANGE: const [6, 6],
           FIRSTWEEKCUTOFFDAY: 5),
       // Date/time formatting symbols for locale te.
-      "te": new DateSymbols(
+      "te": DateSymbols(
           NAME: "te",
-          ERAS: const ['క్రీపూ', 'క్రీశ'],
-          ERANAMES: const ['క్రీస్తు పూర్వం', 'క్రీస్తు శకం'],
-          NARROWMONTHS: const [
-            'జ',
-            'ఫి',
-            'మా',
-            'ఏ',
-            'మే',
-            'జూ',
-            'జు',
-            'ఆ',
-            'సె',
-            'అ',
-            'న',
-            'డి'
-          ],
-          STANDALONENARROWMONTHS: const [
-            'జ',
-            'ఫి',
-            'మా',
-            'ఏ',
-            'మే',
-            'జూ',
-            'జు',
-            'ఆ',
-            'సె',
-            'అ',
-            'న',
-            'డి'
-          ],
+          ERAS: const ['సౌ.వ.', 'సౌ.వ.'],
+          ERANAMES: const ['సౌర వత్సరం', 'సౌర వత్సరం'],
+          NARROWMONTHS: const ['ఫ', 'ఒ', 'ఖ', 'త', 'మ', 'ష', 'మ', 'అ', 'అ', 'డ', 'బ', 'ఎ'],
+          STANDALONENARROWMONTHS: const ['ఫ', 'ఒ', 'ఖ', 'త', 'మ', 'ష', 'మ', 'అ', 'అ', 'డ', 'బ', 'ఎ'],
           MONTHS: const [
-            'జనవరి',
-            'ఫిబ్రవరి',
-            'మార్చి',
-            'ఏప్రిల్',
-            'మే',
-            'జూన్',
-            'జులై',
-            'ఆగస్టు',
-            'సెప్టెంబర్',
-            'అక్టోబర్',
-            'నవంబర్',
-            'డిసెంబర్'
+            'ఫర్వర్దిన్', 'ఒర్దిబెహెష్ట్', 'ఖోర్దాద్', 'తిర్',
+            'మొర్దాద్', 'షహ్రివర్', 'మెహ్ర్', 'అబాన్',
+            'అజార్', 'డేయ్', 'బహ్మన్', 'ఎస్ఫండ్'
           ],
           STANDALONEMONTHS: const [
-            'జనవరి',
-            'ఫిబ్రవరి',
-            'మార్చి',
-            'ఏప్రిల్',
-            'మే',
-            'జూన్',
-            'జులై',
-            'ఆగస్టు',
-            'సెప్టెంబర్',
-            'అక్టోబర్',
-            'నవంబర్',
-            'డిసెంబర్'
+            'ఫర్వర్దిన్', 'ఒర్దిబెహెష్ట్', 'ఖోర్దాద్', 'తిర్',
+            'మొర్దాద్', 'షహ్రివర్', 'మెహ్ర్', 'అబాన్',
+            'అజార్', 'డేయ్', 'బహ్మన్', 'ఎస్ఫండ్'
           ],
           SHORTMONTHS: const [
-            'జన',
-            'ఫిబ్ర',
-            'మార్చి',
-            'ఏప్రి',
-            'మే',
-            'జూన్',
-            'జులై',
-            'ఆగ',
-            'సెప్టెం',
-            'అక్టో',
-            'నవం',
-            'డిసెం'
+            'ఫర్', 'ఒర్', 'ఖో', 'తి', 'మొ', 'ష',
+            'మె', 'అబా', 'అజా', 'డే', 'బ', 'ఎ'
           ],
           STANDALONESHORTMONTHS: const [
-            'జన',
-            'ఫిబ్ర',
-            'మార్చి',
-            'ఏప్రి',
-            'మే',
-            'జూన్',
-            'జులై',
-            'ఆగ',
-            'సెప్టెం',
-            'అక్టో',
-            'నవం',
-            'డిసెం'
+            'ఫర్', 'ఒర్', 'ఖో', 'తి', 'మొ', 'ష',
+            'మె', 'అబా', 'అజా', 'డే', 'బ', 'ఎ'
           ],
           WEEKDAYS: const [
             'ఆదివారం',
@@ -13790,93 +13226,29 @@ Map<String, DateSymbols> jalaliSymbolMap() => {
           WEEKENDRANGE: const [6, 6],
           FIRSTWEEKCUTOFFDAY: 5),
       // Date/time formatting symbols for locale th.
-      "th": new DateSymbols(
+      "th": DateSymbols(
           NAME: "th",
-          ERAS: const ['ก่อน ค.ศ.', 'ค.ศ.'],
-          ERANAMES: const ['ปีก่อนคริสตกาล', 'คริสต์ศักราช'],
-          NARROWMONTHS: const [
-            'ม.ค.',
-            'ก.พ.',
-            'มี.ค.',
-            'เม.ย.',
-            'พ.ค.',
-            'มิ.ย.',
-            'ก.ค.',
-            'ส.ค.',
-            'ก.ย.',
-            'ต.ค.',
-            'พ.ย.',
-            'ธ.ค.'
-          ],
-          STANDALONENARROWMONTHS: const [
-            'ม.ค.',
-            'ก.พ.',
-            'มี.ค.',
-            'เม.ย.',
-            'พ.ค.',
-            'มิ.ย.',
-            'ก.ค.',
-            'ส.ค.',
-            'ก.ย.',
-            'ต.ค.',
-            'พ.ย.',
-            'ธ.ค.'
-          ],
+          ERAS: const ['ส.ค.', 'ส.ค.'],
+          ERANAMES: const ['ปีสุริยคติ', 'ปีสุริยคติ'],
+          NARROWMONTHS: const ['ฟ', 'อ', 'ค', 'ท', 'ม', 'ช', 'ม', 'อ', 'อ', 'ด', 'บ', 'เ'],
+          STANDALONENARROWMONTHS: const ['ฟ', 'อ', 'ค', 'ท', 'ม', 'ช', 'ม', 'อ', 'อ', 'ด', 'บ', 'เ'],
           MONTHS: const [
-            'มกราคม',
-            'กุมภาพันธ์',
-            'มีนาคม',
-            'เมษายน',
-            'พฤษภาคม',
-            'มิถุนายน',
-            'กรกฎาคม',
-            'สิงหาคม',
-            'กันยายน',
-            'ตุลาคม',
-            'พฤศจิกายน',
-            'ธันวาคม'
+            'ฟาร์วาร์ดิน', 'ออร์ดีเบเฮชต์', 'คอร์แดด', 'ทีร์',
+            'มอร์แดด', 'ชาห์ริวาร์', 'เมห์ร์', 'อาบาน',
+            'อาซาร์', 'เดย์', 'บาห์มัน', 'เอสฟานด์'
           ],
           STANDALONEMONTHS: const [
-            'มกราคม',
-            'กุมภาพันธ์',
-            'มีนาคม',
-            'เมษายน',
-            'พฤษภาคม',
-            'มิถุนายน',
-            'กรกฎาคม',
-            'สิงหาคม',
-            'กันยายน',
-            'ตุลาคม',
-            'พฤศจิกายน',
-            'ธันวาคม'
+            'ฟาร์วาร์ดิน', 'ออร์ดีเบเฮชต์', 'คอร์แดด', 'ทีร์',
+            'มอร์แดด', 'ชาห์ริวาร์', 'เมห์ร์', 'อาบาน',
+            'อาซาร์', 'เดย์', 'บาห์มัน', 'เอสฟานด์'
           ],
           SHORTMONTHS: const [
-            'ม.ค.',
-            'ก.พ.',
-            'มี.ค.',
-            'เม.ย.',
-            'พ.ค.',
-            'มิ.ย.',
-            'ก.ค.',
-            'ส.ค.',
-            'ก.ย.',
-            'ต.ค.',
-            'พ.ย.',
-            'ธ.ค.'
+            'ฟาร์', 'ออร์', 'คอร์', 'ทีร์', 'มอร์', 'ชา',
+            'เมห์', 'อาบา', 'อาซา', 'เดย์', 'บา', 'เอส'
           ],
           STANDALONESHORTMONTHS: const [
-            'ม.ค.',
-            'ก.พ.',
-            'มี.ค.',
-            'เม.ย.',
-            'พ.ค.',
-            'มิ.ย.',
-            'ก.ค.',
-            'ส.ค.',
-            'ก.ย.',
-            'ต.ค.',
-            'พ.ย.',
-            'ธ.ค.'
+            'ฟาร์', 'ออร์', 'คอร์', 'ทีร์', 'มอร์', 'ชา',
+            'เมห์', 'อาบา', 'อาซา', 'เดย์', 'บา', 'เอส'
           ],
           WEEKDAYS: const [
             'วันอาทิตย์',
@@ -13928,93 +13300,33 @@ Map<String, DateSymbols> jalaliSymbolMap() => {
           WEEKENDRANGE: const [5, 6],
           FIRSTWEEKCUTOFFDAY: 5),
       // Date/time formatting symbols for locale tl.
-      "tl": new DateSymbols(
+      "tl": DateSymbols(
           NAME: "tl",
-          ERAS: const ['BC', 'AD'],
-          ERANAMES: const ['Before Christ', 'Anno Domini'],
+          ERAS: const ['TS', 'TS'],
+          ERANAMES: const ['Taong Solar', 'Taong Solar'],
           NARROWMONTHS: const [
-            'Ene',
-            'Peb',
-            'Mar',
-            'Abr',
-            'May',
-            'Hun',
-            'Hul',
-            'Ago',
-            'Set',
-            'Okt',
-            'Nob',
-            'Dis'
+            'F', 'O', 'K', 'T', 'M', 'S', 'M', 'A', 'A', 'D', 'B', 'E'
           ],
           STANDALONENARROWMONTHS: const [
-            'E',
-            'P',
-            'M',
-            'A',
-            'M',
-            'Hun',
-            'Hul',
-            'Ago',
-            'Set',
-            'Okt',
-            'Nob',
-            'Dis'
+            'F', 'O', 'K', 'T', 'M', 'S', 'M', 'A', 'A', 'D', 'B', 'E'
           ],
           MONTHS: const [
-            'Enero',
-            'Pebrero',
-            'Marso',
-            'Abril',
-            'Mayo',
-            'Hunyo',
-            'Hulyo',
-            'Agosto',
-            'Setyembre',
-            'Oktubre',
-            'Nobyembre',
-            'Disyembre'
+            'Farvardin', 'Ordibehest', 'Kordad', 'Tir',
+            'Mordad', 'Shahrivar', 'Mehr', 'Aban',
+            'Azar', 'Dey', 'Bahman', 'Esfand'
           ],
           STANDALONEMONTHS: const [
-            'Enero',
-            'Pebrero',
-            'Marso',
-            'Abril',
-            'Mayo',
-            'Hunyo',
-            'Hulyo',
-            'Agosto',
-            'Setyembre',
-            'Oktubre',
-            'Nobyembre',
-            'Disyembre'
+            'Farvardin', 'Ordibehest', 'Kordad', 'Tir',
+            'Mordad', 'Shahrivar', 'Mehr', 'Aban',
+            'Azar', 'Dey', 'Bahman', 'Esfand'
           ],
           SHORTMONTHS: const [
-            'Ene',
-            'Peb',
-            'Mar',
-            'Abr',
-            'May',
-            'Hun',
-            'Hul',
-            'Ago',
-            'Set',
-            'Okt',
-            'Nob',
-            'Dis'
+            'Far', 'Ord', 'Kor', 'Tir', 'Mor', 'Sha',
+            'Meh', 'Aba', 'Aza', 'Dey', 'Bah', 'Esf'
           ],
           STANDALONESHORTMONTHS: const [
-            'Ene',
-            'Peb',
-            'Mar',
-            'Abr',
-            'May',
-            'Hun',
-            'Hul',
-            'Ago',
-            'Set',
-            'Okt',
-            'Nob',
-            'Dis'
+            'Far', 'Ord', 'Kor', 'Tir', 'Mor', 'Sha',
+            'Meh', 'Aba', 'Aza', 'Dey', 'Bah', 'Esf'
           ],
           WEEKDAYS: const [
             'Linggo',
@@ -14100,93 +13412,33 @@ Map<String, DateSymbols> jalaliSymbolMap() => {
           WEEKENDRANGE: const [5, 6],
           FIRSTWEEKCUTOFFDAY: 5),
       // Date/time formatting symbols for locale tr.
-      "tr": new DateSymbols(
+      "tr": DateSymbols(
           NAME: "tr",
-          ERAS: const ['MÖ', 'MS'],
-          ERANAMES: const ['Milattan Önce', 'Milattan Sonra'],
+          ERAS: const ['GY', 'GY'],
+          ERANAMES: const ['Güneş Yılı', 'Güneş Yılı'],
           NARROWMONTHS: const [
-            'O',
-            'Ş',
-            'M',
-            'N',
-            'M',
-            'H',
-            'T',
-            'A',
-            'E',
-            'E',
-            'K',
-            'A'
+            'F', 'O', 'H', 'T', 'M', 'Ş', 'M', 'A', 'A', 'D', 'B', 'E'
           ],
           STANDALONENARROWMONTHS: const [
-            'O',
-            'Ş',
-            'M',
-            'N',
-            'M',
-            'H',
-            'T',
-            'A',
-            'E',
-            'E',
-            'K',
-            'A'
+            'F', 'O', 'H', 'T', 'M', 'Ş', 'M', 'A', 'A', 'D', 'B', 'E'
           ],
           MONTHS: const [
-            'Ocak',
-            'Şubat',
-            'Mart',
-            'Nisan',
-            'Mayıs',
-            'Haziran',
-            'Temmuz',
-            'Ağustos',
-            'Eylül',
-            'Ekim',
-            'Kasım',
-            'Aralık'
+            'Farvardin', 'Ordibeheşt', 'Hordad', 'Tir',
+            'Mordad', 'Şehrivar', 'Mehr', 'Aban',
+            'Azar', 'Dey', 'Bahman', 'Esfand'
           ],
           STANDALONEMONTHS: const [
-            'Ocak',
-            'Şubat',
-            'Mart',
-            'Nisan',
-            'Mayıs',
-            'Haziran',
-            'Temmuz',
-            'Ağustos',
-            'Eylül',
-            'Ekim',
-            'Kasım',
-            'Aralık'
+            'Farvardin', 'Ordibeheşt', 'Hordad', 'Tir',
+            'Mordad', 'Şehrivar', 'Mehr', 'Aban',
+            'Azar', 'Dey', 'Bahman', 'Esfand'
           ],
           SHORTMONTHS: const [
-            'Oca',
-            'Şub',
-            'Mar',
-            'Nis',
-            'May',
-            'Haz',
-            'Tem',
-            'Ağu',
-            'Eyl',
-            'Eki',
-            'Kas',
-            'Ara'
+            'Far', 'Ord', 'Hor', 'Tir', 'Mor', 'Şeh',
+            'Meh', 'Aba', 'Aza', 'Dey', 'Bah', 'Esf'
           ],
           STANDALONESHORTMONTHS: const [
-            'Oca',
-            'Şub',
-            'Mar',
-            'Nis',
-            'May',
-            'Haz',
-            'Tem',
-            'Ağu',
-            'Eyl',
-            'Eki',
-            'Kas',
-            'Ara'
+            'Far', 'Ord', 'Hor', 'Tir', 'Mor', 'Şeh',
+            'Meh', 'Aba', 'Aza', 'Dey', 'Bah', 'Esf'
           ],
           WEEKDAYS: const [
             'Pazar',
