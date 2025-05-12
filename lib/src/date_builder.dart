@@ -7,9 +7,7 @@ import 'package:general_datetime/general_datetime.dart';
 /// A class for holding onto the data for a date so that it can be built
 /// up incrementally.
 class DateBuilder {
-  // Default the date values to the EPOCH so that there's a valid date
-  // in case the format doesn't set them.
-  int year = 1970,
+  int year = 1349,
       month = 1,
       day = 1,
       dayOfYear = 0,
@@ -21,23 +19,16 @@ class DateBuilder {
   bool utc = false;
 
   /// Whether the century portion of [year] is ambiguous.
-  ///
   /// Ignored if `year < 0` or `year >= 100`.
   bool _hasAmbiguousCentury = false;
 
   bool get _hasCentury => !_hasAmbiguousCentury || year < 0 || year >= 100;
-
-  /// The locale, kept for logging purposes when there's an error.
-  final String _locale;
 
   /// The date result produced from [asDate].
   ///
   /// Kept as a field to cache the result and to reduce the possibility of error
   /// after we've verified.
   GeneralDateTimeInterface? _date;
-
-  /// The number of times we've retried, for error reporting.
-  int _retried = 0;
 
   /// Is this constructing a pure date.
   ///
@@ -60,50 +51,34 @@ class DateBuilder {
 
   GeneralDateTimeInterface generalDateTime;
 
-  DateBuilder(this._locale, this.generalDateTime);
+  DateBuilder(this.generalDateTime);
 
   // Functions that exist just to be closurized so we can pass them to a general
   // method.
-  void setYear(int x) {
-    year = x;
-  }
+  void setYear(int x) => year = x;
 
   /// Sets whether [year] should be treated as ambiguous because it lacks a
   /// century.
   set hasAmbiguousCentury(bool isAmbiguous) =>
       _hasAmbiguousCentury = isAmbiguous;
 
-  void setMonth(int x) {
-    month = x;
-  }
+  void setMonth(int x) => month = x;
 
-  void setDay(int x) {
-    day = x;
-  }
+  void setDay(int x) => day = x;
 
-  void setDayOfYear(int x) {
-    dayOfYear = x;
-  }
+  void setDayOfYear(int x) => dayOfYear = x;
 
   /// If [dayOfYear] has been set, return it, otherwise return [day], indicating
   /// the day of the month.
   int get dayOrDayOfYear => dayOfYear == 0 ? day : dayOfYear;
 
-  void setHour(int x) {
-    hour = x;
-  }
+  void setHour(int x) => hour = x;
 
-  void setMinute(int x) {
-    minute = x;
-  }
+  void setMinute(int x) => minute = x;
 
-  void setSecond(int x) {
-    second = x;
-  }
+  void setSecond(int x) => second = x;
 
-  void setFractionalSecond(int x) {
-    fractionalSecond = x;
-  }
+  void setFractionalSecond(int x) => fractionalSecond = x;
 
   int get hour24 => pm ? hour + 12 : hour;
 
@@ -150,12 +125,8 @@ class DateBuilder {
       var parsedDescription = parsed == null ? '' : ' Date parsed as $parsed.';
       var errorDescription =
           'Error parsing $originalInput, invalid $desc value: $value'
-          ' in $_locale'
           ' with time zone offset ${parsed?.timeZoneOffset ?? 'unknown'}.'
           ' Expected value between $min and $max.$parsedDescription.';
-      if (_retried > 0) {
-        errorDescription += ' Failed after $_retried retries.';
-      }
       throw FormatException(errorDescription);
     }
   }
@@ -166,57 +137,31 @@ class DateBuilder {
   /// exception is if the resulting [DateTime] otherwise would represent an
   /// invalid date (e.g. February 29 of a non-leap year).
   GeneralDateTimeInterface _offsetYear(
-      GeneralDateTimeInterface dateTime, int offsetYears) {
-    int newYear = dateTime.year + offsetYears;
-
-    return switch (dateTime) {
-      JalaliDateTime _ => JalaliDateTime(
-          newYear,
+          GeneralDateTimeInterface dateTime, int offsetYears) =>
+      _typeSelector(
+          dateTime,
+          dateTime.year + offsetYears,
           dateTime.month,
           dateTime.day,
           dateTime.hour,
           dateTime.minute,
           dateTime.second,
           dateTime.millisecond,
-          dateTime.microsecond),
-      HijriDateTime _ => HijriDateTime(
-          newYear,
-          dateTime.month,
-          dateTime.day,
-          dateTime.hour,
-          dateTime.minute,
-          dateTime.second,
-          dateTime.millisecond,
-          dateTime.microsecond),
-      _ => throw UnsupportedError("Unknown date type")
-    };
-  }
+          dateTime.microsecond);
 
   /// Return a date built using our values. If no date portion is set,
   /// use the 'Epoch' of January 1, 1970.
-  GeneralDateTimeInterface asDate({int retries = 3}) {
-    // can crash the VM, e.g. large month values.
+  GeneralDateTimeInterface asDate() {
     if (_date != null) return _date!;
-    GeneralDateTimeInterface preliminaryResult = JalaliDateTime(
-      _estimatedYear,
-      month,
-      dayOrDayOfYear,
-      hour24,
-      minute,
-      second,
-      fractionalSecond
-    );
-    if (utc && _hasCentury) {
-      _date = preliminaryResult;
-    }
-    // else {
-    //   _date = _correctForErrors(preliminaryResult, retries);
-    // }
+    GeneralDateTimeInterface preliminaryResult = JalaliDateTime(_estimatedYear,
+        month, dayOrDayOfYear, hour24, minute, second, fractionalSecond);
+    if (utc && _hasCentury) _date = preliminaryResult;
     return _date!;
   }
 
   int get _estimatedYear {
-    GeneralDateTimeInterface preliminaryResult(int year) => JalaliDateTime(
+    GeneralDateTimeInterface preliminaryResult(int year) => _typeSelector(
+        generalDateTime,
         year,
         generalDateTime.month,
         generalDateTime.day,
@@ -265,10 +210,8 @@ class DateBuilder {
   /// Given a local DateTime, check for errors and try to compensate for them if
   /// possible.
   GeneralDateTimeInterface _correctForErrors(GeneralDateTimeInterface result) {
-
     var leapYear = result.isLeapYear;
     var resultDayOfYear = result.dayOfYear;
-
 
     if (dateOnly && result.hour != 0) {
       // This could be a flake, try again.
@@ -311,6 +254,24 @@ class DateBuilder {
     }
     // None of our corrections applied, just return the uncorrected date.
     return result;
+  }
+
+  GeneralDateTimeInterface _typeSelector(
+      GeneralDateTimeInterface type,
+      int year,
+      int month,
+      int day,
+      int hour,
+      int minute,
+      int second,
+      int millisecond,
+      int microsecond) {
+    if (type is JalaliDateTime)
+      return JalaliDateTime(
+          year, month, day, hour, minute, second, millisecond, microsecond);
+
+    return JalaliDateTime(
+        year, month, day, hour, minute, second, millisecond, microsecond);
   }
 }
 

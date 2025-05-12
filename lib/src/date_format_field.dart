@@ -95,9 +95,7 @@ class _DateFormatLiteralField extends _DateFormatField {
   _DateFormatLiteralField(super.pattern, super.parent);
 
   @override
-  void parse(StringStack input, DateBuilder dateFields) {
-    parseLiteral(input);
-  }
+  void parse(StringStack input, DateBuilder dateFields) => parseLiteral(input);
 
   @override
   void parseLoose(StringStack input, DateBuilder dateFields) =>
@@ -117,9 +115,7 @@ class _DateFormatQuotedField extends _DateFormatField {
         super(_patchQuotes(pattern), parent);
 
   @override
-  void parse(StringStack input, DateBuilder dateFields) {
-    parseLiteral(input);
-  }
+  void parse(StringStack input, DateBuilder dateFields) => parseLiteral(input);
 
   @override
   void parseLoose(StringStack input, DateBuilder dateFields) =>
@@ -245,28 +241,24 @@ class _LoosePatternField extends _DateFormatPatternField {
  * to determine what to do.
  */
 class _DateFormatPatternField extends _DateFormatField {
-  _DateFormatPatternField(pattern, parent) : super(pattern, parent);
+  _DateFormatPatternField(super.pattern, super.parent);
 
   /// Format date according to our specification and return the result.
   @override
-  String format(GeneralDateTimeInterface date) {
-    return formatField(date);
-  }
+  String format(GeneralDateTimeInterface date) => formatField(date);
 
   /// Parse the date according to our specification and put the result
   /// into the correct place in dateFields.
   @override
-  void parse(StringStack input, DateBuilder dateFields) {
-    parseField(input, dateFields);
-  }
+  void parse(StringStack input, DateBuilder dateFields) =>
+      parseField(input, dateFields);
 
   /// Parse the date according to our specification and put the result
   /// into the correct place in dateFields. Allow looser parsing, accepting
   /// case-insensitive input and skipped delimiters.
   @override
-  void parseLoose(StringStack input, DateBuilder dateFields) {
-    _LoosePatternField(pattern, parent).parse(input, dateFields);
-  }
+  void parseLoose(StringStack input, DateBuilder dateFields) =>
+      _LoosePatternField(pattern, parent).parse(input, dateFields);
 
   bool? _forDate;
 
@@ -539,7 +531,6 @@ class _DateFormatPatternField extends _DateFormatField {
   }
 
   void parseAmPm(StringStack input, DateBuilder dateFields) {
-    // If we see a 'PM' note it in an extra field.
     var ampm = parseEnumeratedString(input, symbols.AMPMS);
     if (ampm == 1) dateFields.pm = true;
   }
@@ -656,8 +647,6 @@ class _DateFormatPatternField extends _DateFormatField {
 
       /// "Narrow" - `T` for en-US
       == 5 => symbols.NARROWWEEKDAYS,
-
-      ///TODO(mosum): Introduce "Short" - `Tu` for en-US
       >= 6 =>
         throw UnsupportedError('"Short" weekdays are currently not supported.'),
       int() => throw AssertionError('unreachable'),

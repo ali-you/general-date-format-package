@@ -215,247 +215,6 @@ class GeneralDateFormat {
     addPattern(newPattern);
   }
 
-  /// Return a string representing [date] formatted according to our locale
-  /// and internal format.
-  String format(GeneralDateTimeInterface date) {
-    initializeDateSymbols(date);
-    var result = StringBuffer();
-    for (var field in _formatFields) {
-      result.write(field.format(date));
-    }
-    return result.toString();
-  }
-
-  /// Given user input, attempt to parse the [inputString] into the anticipated
-  /// format, treating it as being in the local timezone.
-  ///
-  /// If [inputString] does not match our format, throws a [FormatException].
-  /// This will accept dates whose values are not strictly valid, or strings
-  /// with additional characters (including whitespace) after a valid date. For
-  /// stricter parsing, use [parseStrict].
-  /// TODO: implement this
-  // DateTime parse(String inputString, [bool utc = false]) =>
-  //     _parse(inputString, utc: utc, strict: false);
-
-  /// Given user input, attempt to parse the [inputString] into the anticipated
-  /// format, treating it as being in the local timezone.
-  ///
-  /// If [inputString] does not match our format, returns `null`.
-  /// This will accept dates whose values are not strictly valid, or strings
-  /// with additional characters (including whitespace) after a valid date. For
-  /// stricter parsing, use [tryParseStrict].
-  /// TODO: implement this
-  // DateTime? tryParse(String inputString, [bool utc = false]) {
-  //   try {
-  //     return parse(inputString, utc);
-  //   } on FormatException {
-  //     return null;
-  //   }
-  // }
-
-  /// Given user input, attempt to parse the [inputString] 'loosely' into the
-  /// anticipated format, accepting some variations from the strict format.
-  ///
-  /// If [inputString] is accepted by [parseStrict], just return the result. If
-  /// not, attempt to parse it, but accepting either upper or lower case,
-  /// allowing delimiters to be missing and replaced or supplemented with
-  /// whitespace, and allowing arbitrary amounts of whitespace wherever
-  /// whitespace is permitted. Note that this does not allow trailing
-  /// characters, the way [parse] does.  It also does not allow alternative
-  /// names for months or weekdays other than those the format knows about. The
-  /// restrictions are quite arbitrary and it's not known how well they'll work
-  /// for locales that aren't English-like.
-  ///
-  /// If [inputString] does not parse, this throws a [FormatException].
-  ///
-  /// For example, this will accept
-  ///
-  ///       GeneralDateFormat.yMMMd('en_US').parseLoose('SEp   3 2014');
-  ///       GeneralDateFormat.yMd('en_US').parseLoose('09    03/2014');
-  ///       GeneralDateFormat.yMd('en_US').parseLoose('09 / 03 / 2014');
-  ///
-  /// It will NOT accept
-  ///
-  ///       // 'Sept' is not a valid month name.
-  ///       GeneralDateFormat.yMMMd('en_US').parseLoose('Sept 3, 2014');
-  /// TODO: implement this
-  // DateTime parseLoose(String inputString, [bool utc = false]) {
-  //   try {
-  //     return _parse(inputString, utc: utc, strict: true);
-  //   } on FormatException {
-  //     return _parseLoose(inputString.toLowerCase(), utc);
-  //   }
-  // }
-
-  /// Given user input, attempt to parse the [inputString] 'loosely' into the
-  /// anticipated format, accepting some variations from the strict format.
-  ///
-  /// If [inputString] is accepted by [tryParseStrict], just return the result. If
-  /// not, attempt to parse it, but accepting either upper or lower case,
-  /// allowing delimiters to be missing and replaced or supplemented with
-  /// whitespace, and allowing arbitrary amounts of whitespace wherever
-  /// whitespace is permitted. Note that this does not allow trailing
-  /// characters, the way [tryParse] does.  It also does not allow alternative
-  /// names for months or weekdays other than those the format knows about. The
-  /// restrictions are quite arbitrary and it's not known how well they'll work
-  /// for locales that aren't English-like.
-  ///
-  /// If [inputString] does not parse, this returns `null`.
-  ///
-  /// For example, this will accept
-  ///
-  ///       GeneralDateFormat.yMMMd('en_US').tryParseLoose('SEp   3 2014');
-  ///       GeneralDateFormat.yMd('en_US').tryParseLoose('09    03/2014');
-  ///       GeneralDateFormat.yMd('en_US').tryParseLoose('09 / 03 / 2014');
-  ///
-  /// It will NOT accept
-  ///
-  ///       // 'Sept' is not a valid month name.
-  ///       GeneralDateFormat.yMMMd('en_US').tryParseLoose('Sept 3, 2014');
-  /// TODO: implement this
-  // DateTime? tryParseLoose(String inputString, [bool utc = false]) {
-  //   try {
-  //     return parseLoose(inputString, utc);
-  //   } on FormatException {
-  //     return null;
-  //   }
-  // }
-
-  /// TODO: implement this
-  // DateTime _parseLoose(String inputString, bool utc) {
-  //   var dateFields = DateBuilder(locale, dateTimeConstructor);
-  //   if (utc) dateFields.utc = true;
-  //   var stack = StringStack(inputString);
-  //   for (var field in _formatFields) {
-  //     field.parseLoose(stack, dateFields);
-  //   }
-  //   if (!stack.atEnd) {
-  //     throw FormatException(
-  //         'Characters remaining after date parsing in $inputString');
-  //   }
-  //   dateFields.verify(inputString);
-  //   return dateFields.asDate();
-  // }
-
-  /// Given user input, attempt to parse the [inputString] into the anticipated
-  /// format, treating it as being in the local timezone.
-  ///
-  /// If [inputString] does not match our format, throws a [FormatException].
-  /// This will reject dates whose values are not strictly valid, even if the
-  /// DateTime constructor will accept them. It will also reject strings with
-  /// additional characters (including whitespace) after a valid date. For
-  /// looser parsing, use [parse].
-  /// TODO: implement this
-  // DateTime parseStrict(String inputString, [bool utc = false]) =>
-  //     _parse(inputString, utc: utc, strict: true);
-
-  /// Given user input, attempt to parse the [inputString] into the anticipated
-  /// format, treating it as being in the local timezone.
-  ///
-  /// If [inputString] does not match our format, returns `null`.
-  /// This will reject dates whose values are not strictly valid, even if the
-  /// DateTime constructor will accept them. It will also reject strings with
-  /// additional characters (including whitespace) after a valid date. For
-  /// looser parsing, use [tryParse].
-  /// TODO: implement this
-  // DateTime? tryParseStrict(String inputString, [bool utc = false]) {
-  //   try {
-  //     return parseStrict(inputString, utc);
-  //   } on FormatException {
-  //     return null;
-  //   }
-  // }
-
-  /// TODO: implement this
-  // DateTime _parse(String inputString, {bool utc = false, bool strict = false}) {
-  //   // TODO(alanknight): The Closure code refers to special parsing of numeric
-  //   // values with no delimiters, which we currently don't do. Should we?
-  //   var dateFields = DateBuilder(locale, dateTimeConstructor);
-  //   if (utc) dateFields.utc = true;
-  //   dateFields.dateOnly = dateOnly;
-  //   var stack = StringStack(inputString);
-  //   for (var field in _formatFields) {
-  //     field.parse(stack, dateFields);
-  //   }
-  //   if (strict && !stack.atEnd) {
-  //     throw FormatException(
-  //         'Characters remaining after date parsing in $inputString');
-  //   }
-  //   if (strict) dateFields.verify(inputString);
-  //   return dateFields.asDate();
-  // }
-
-  /// Does our format only date fields, and no time fields.
-  ///
-  /// For example, 'yyyy-MM-dd' would be true, but 'dd hh:mm' would be false.
-  bool get dateOnly => _dateOnly ??= _checkDateOnly;
-  bool? _dateOnly;
-
-  bool get _checkDateOnly => _formatFields.every((each) => each.forDate);
-
-  /// Given user input, attempt to parse the [inputString] into the anticipated
-  /// format, treating it as being in UTC.
-  /// If [inputString] does not match our format, throws a [FormatException].
-  ///
-  /// The canonical Dart style name
-  /// is [parseUtc], but [parseUTC] is retained
-  /// for backward-compatibility.
-  /// TODO: implement this
-  // DateTime parseUTC(String inputString) => parse(inputString, true);
-
-  /// Given user input, attempt to parse the [inputString] into the anticipated
-  /// format, treating it as being in UTC.
-  /// If [inputString] does not match our format, throws a [FormatException].
-  ///
-  /// The canonical Dart style name
-  /// is [parseUtc], but [parseUTC] is retained
-  /// for backward-compatibility.
-  /// TODO: implement this
-  // DateTime parseUtc(String inputString) => parse(inputString, true);
-
-  /// Given user input, attempt to parse the [inputString] into the anticipated
-  /// format, treating it as being in UTC.
-  /// If [inputString] does not match our format, returns `null`.
-  /// TODO: implement this
-  // DateTime? tryParseUtc(String inputString) {
-  //   try {
-  //     return parseUtc(inputString);
-  //   } on FormatException {
-  //     return null;
-  //   }
-  // }
-
-  /// Return the locale code in which we operate, e.g. 'en_US' or 'pt'.
-  String get locale => _locale;
-
-  /// Returns a list of all locales for which we have date formatting
-  /// information.
-  static List<String> allLocalesWithSymbols() => symbolList;
-
-  /// The named constructors for this class are all conveniences for creating
-  /// instances using one of the known 'skeleton' formats, and having code
-  /// completion support for discovering those formats.
-  /// So,
-  ///
-  /// ```dart
-  /// GeneralDateFormat.yMd('en_US')
-  /// ```
-  ///
-  /// is equivalent to
-  ///
-  /// ```dart
-  /// GeneralDateFormat('yMd', 'en_US')
-  /// ```
-  ///
-  /// To create a compound format you can use these constructors in combination
-  /// with the 'add_*' methods below. e.g.
-  ///
-  /// ```dart
-  /// GeneralDateFormat.yMd().add_Hms();
-  /// ```
-  ///
-  /// If the optional [locale] is omitted, the format will be created using the
-  /// default locale in [Intl.systemLocale].
   GeneralDateFormat.d([locale]) : this('d', locale);
 
   GeneralDateFormat.E([locale]) : this('E', locale);
@@ -525,6 +284,265 @@ class GeneralDateFormat {
   GeneralDateFormat.jm([locale]) : this('jm', locale);
 
   GeneralDateFormat.jms([locale]) : this('jms', locale);
+
+  /// Return a string representing [date] formatted according to our locale
+  /// and internal format.
+  String format(GeneralDateTimeInterface date) {
+    initializeDateSymbols(date);
+    var result = StringBuffer();
+    for (var field in _formatFields) {
+      result.write(field.format(date));
+    }
+    return result.toString();
+  }
+
+  /// Given user input, attempt to parse the [inputString] into the anticipated
+  /// format, treating it as being in the local timezone.
+  ///
+  /// If [inputString] does not match our format, throws a [FormatException].
+  /// This will accept dates whose values are not strictly valid, or strings
+  /// with additional characters (including whitespace) after a valid date. For
+  /// stricter parsing, use [parseStrict].
+  /// TODO: implement this
+  GeneralDateTimeInterface parse(
+          String inputString, GeneralDateTimeInterface dateTimeType,
+          [bool utc = false]) =>
+      _parse(inputString, dateTimeType, utc: utc, strict: false);
+
+  /// Given user input, attempt to parse the [inputString] into the anticipated
+  /// format, treating it as being in the local timezone.
+  ///
+  /// If [inputString] does not match our format, returns `null`.
+  /// This will accept dates whose values are not strictly valid, or strings
+  /// with additional characters (including whitespace) after a valid date. For
+  /// stricter parsing, use [tryParseStrict].
+  /// TODO: implement this
+  GeneralDateTimeInterface? tryParse(
+      String inputString, GeneralDateTimeInterface dateTimeType,
+      [bool utc = false]) {
+    try {
+      return parse(inputString, dateTimeType, utc);
+    } on FormatException {
+      return null;
+    }
+  }
+
+  /// Given user input, attempt to parse the [inputString] 'loosely' into the
+  /// anticipated format, accepting some variations from the strict format.
+  ///
+  /// If [inputString] is accepted by [parseStrict], just return the result. If
+  /// not, attempt to parse it, but accepting either upper or lower case,
+  /// allowing delimiters to be missing and replaced or supplemented with
+  /// whitespace, and allowing arbitrary amounts of whitespace wherever
+  /// whitespace is permitted. Note that this does not allow trailing
+  /// characters, the way [parse] does.  It also does not allow alternative
+  /// names for months or weekdays other than those the format knows about. The
+  /// restrictions are quite arbitrary and it's not known how well they'll work
+  /// for locales that aren't English-like.
+  ///
+  /// If [inputString] does not parse, this throws a [FormatException].
+  ///
+  /// For example, this will accept
+  ///
+  ///       GeneralDateFormat.yMMMd('en_US').parseLoose('SEp   3 2014');
+  ///       GeneralDateFormat.yMd('en_US').parseLoose('09    03/2014');
+  ///       GeneralDateFormat.yMd('en_US').parseLoose('09 / 03 / 2014');
+  ///
+  /// It will NOT accept
+  ///
+  ///       // 'Sept' is not a valid month name.
+  ///       GeneralDateFormat.yMMMd('en_US').parseLoose('Sept 3, 2014');
+  /// TODO: implement this
+  GeneralDateTimeInterface parseLoose(
+      String inputString, GeneralDateTimeInterface dateTimeType,
+      [bool utc = false]) {
+    try {
+      return _parse(inputString, dateTimeType, utc: utc, strict: true);
+    } on FormatException {
+      return _parseLoose(inputString.toLowerCase(), dateTimeType, utc);
+    }
+  }
+
+  /// Given user input, attempt to parse the [inputString] 'loosely' into the
+  /// anticipated format, accepting some variations from the strict format.
+  ///
+  /// If [inputString] is accepted by [tryParseStrict], just return the result. If
+  /// not, attempt to parse it, but accepting either upper or lower case,
+  /// allowing delimiters to be missing and replaced or supplemented with
+  /// whitespace, and allowing arbitrary amounts of whitespace wherever
+  /// whitespace is permitted. Note that this does not allow trailing
+  /// characters, the way [tryParse] does.  It also does not allow alternative
+  /// names for months or weekdays other than those the format knows about. The
+  /// restrictions are quite arbitrary and it's not known how well they'll work
+  /// for locales that aren't English-like.
+  ///
+  /// If [inputString] does not parse, this returns `null`.
+  ///
+  /// For example, this will accept
+  ///
+  ///       GeneralDateFormat.yMMMd('en_US').tryParseLoose('SEp   3 2014');
+  ///       GeneralDateFormat.yMd('en_US').tryParseLoose('09    03/2014');
+  ///       GeneralDateFormat.yMd('en_US').tryParseLoose('09 / 03 / 2014');
+  ///
+  /// It will NOT accept
+  ///
+  ///       // 'Sept' is not a valid month name.
+  ///       GeneralDateFormat.yMMMd('en_US').tryParseLoose('Sept 3, 2014');
+  /// TODO: implement this
+  GeneralDateTimeInterface? tryParseLoose(
+      String inputString, GeneralDateTimeInterface dateTimeType,
+      [bool utc = false]) {
+    try {
+      return parseLoose(inputString, dateTimeType, utc);
+    } on FormatException {
+      return null;
+    }
+  }
+
+  /// TODO: implement this
+  GeneralDateTimeInterface _parseLoose(
+      String inputString, GeneralDateTimeInterface dateTimeType, bool utc) {
+    var dateFields = DateBuilder(dateTimeType);
+    if (utc) dateFields.utc = true;
+    var stack = StringStack(inputString);
+    for (var field in _formatFields) {
+      field.parseLoose(stack, dateFields);
+    }
+    if (!stack.atEnd) {
+      throw FormatException(
+          'Characters remaining after date parsing in $inputString');
+    }
+    dateFields.verify(inputString);
+    return dateFields.asDate();
+  }
+
+  /// Given user input, attempt to parse the [inputString] into the anticipated
+  /// format, treating it as being in the local timezone.
+  ///
+  /// If [inputString] does not match our format, throws a [FormatException].
+  /// This will reject dates whose values are not strictly valid, even if the
+  /// DateTime constructor will accept them. It will also reject strings with
+  /// additional characters (including whitespace) after a valid date. For
+  /// looser parsing, use [parse].
+  /// TODO: implement this
+  GeneralDateTimeInterface parseStrict(
+          String inputString, GeneralDateTimeInterface dateTimeType,
+          [bool utc = false]) =>
+      _parse(inputString, dateTimeType, utc: utc, strict: true);
+
+  /// Given user input, attempt to parse the [inputString] into the anticipated
+  /// format, treating it as being in the local timezone.
+  ///
+  /// If [inputString] does not match our format, returns `null`.
+  /// This will reject dates whose values are not strictly valid, even if the
+  /// DateTime constructor will accept them. It will also reject strings with
+  /// additional characters (including whitespace) after a valid date. For
+  /// looser parsing, use [tryParse].
+  /// TODO: implement this
+  GeneralDateTimeInterface? tryParseStrict(
+      String inputString, GeneralDateTimeInterface dateTimeType,
+      [bool utc = false]) {
+    try {
+      return parseStrict(inputString, dateTimeType, utc);
+    } on FormatException {
+      return null;
+    }
+  }
+
+  GeneralDateTimeInterface _parse(
+      String inputString, GeneralDateTimeInterface dateTimeType,
+      {bool utc = false, bool strict = false}) {
+    var dateFields = DateBuilder(dateTimeType);
+    if (utc) dateFields.utc = true;
+    dateFields.dateOnly = dateOnly;
+    var stack = StringStack(inputString);
+    for (var field in _formatFields) {
+      field.parse(stack, dateFields);
+    }
+    if (strict && !stack.atEnd) {
+      throw FormatException(
+          'Characters remaining after date parsing in $inputString');
+    }
+    if (strict) dateFields.verify(inputString);
+    return dateFields.asDate();
+  }
+
+  /// Does our format only date fields, and no time fields.
+  ///
+  /// For example, 'yyyy-MM-dd' would be true, but 'dd hh:mm' would be false.
+  bool get dateOnly => _dateOnly ??= _checkDateOnly;
+  bool? _dateOnly;
+
+  bool get _checkDateOnly => _formatFields.every((each) => each.forDate);
+
+  /// Given user input, attempt to parse the [inputString] into the anticipated
+  /// format, treating it as being in UTC.
+  /// If [inputString] does not match our format, throws a [FormatException].
+  ///
+  /// The canonical Dart style name
+  /// is [parseUtc], but [parseUTC] is retained
+  /// for backward-compatibility.
+  /// TODO: implement this
+  GeneralDateTimeInterface parseUTC(
+          String inputString, GeneralDateTimeInterface dateTimeType) =>
+      parse(inputString, dateTimeType, true);
+
+  /// Given user input, attempt to parse the [inputString] into the anticipated
+  /// format, treating it as being in UTC.
+  /// If [inputString] does not match our format, throws a [FormatException].
+  ///
+  /// The canonical Dart style name
+  /// is [parseUtc], but [parseUTC] is retained
+  /// for backward-compatibility.
+  /// TODO: implement this
+  GeneralDateTimeInterface parseUtc(
+          String inputString, GeneralDateTimeInterface dateTimeType) =>
+      parse(inputString, dateTimeType, true);
+
+  /// Given user input, attempt to parse the [inputString] into the anticipated
+  /// format, treating it as being in UTC.
+  /// If [inputString] does not match our format, returns `null`.
+  /// TODO: implement this
+  GeneralDateTimeInterface? tryParseUtc(
+      String inputString, GeneralDateTimeInterface dateTimeType) {
+    try {
+      return parseUtc(inputString, dateTimeType);
+    } on FormatException {
+      return null;
+    }
+  }
+
+  /// Return the locale code in which we operate, e.g. 'en_US' or 'pt'.
+  String get locale => _locale;
+
+  /// Returns a list of all locales for which we have date formatting
+  /// information.
+  static List<String> allLocalesWithSymbols() => symbolList;
+
+  /// The named constructors for this class are all conveniences for creating
+  /// instances using one of the known 'skeleton' formats, and having code
+  /// completion support for discovering those formats.
+  /// So,
+  ///
+  /// ```dart
+  /// GeneralDateFormat.yMd('en_US')
+  /// ```
+  ///
+  /// is equivalent to
+  ///
+  /// ```dart
+  /// GeneralDateFormat('yMd', 'en_US')
+  /// ```
+  ///
+  /// To create a compound format you can use these constructors in combination
+  /// with the 'add_*' methods below. e.g.
+  ///
+  /// ```dart
+  /// GeneralDateFormat.yMd().add_Hms();
+  /// ```
+  ///
+  /// If the optional [locale] is omitted, the format will be created using the
+  /// default locale in [Intl.systemLocale].
 
   /// NOT YET IMPLEMENTED.
   // TODO(https://github.com/dart-lang/intl/issues/74)

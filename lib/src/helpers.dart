@@ -1,15 +1,3 @@
-/// Type for the callback action when a message translation is not found.
-typedef MessageIfAbsent = String? Function(
-    String? messageText, List<Object>? args);
-
-abstract class MessageLookup {
-  String? lookupMessage(String? messageText, String? locale, String? name,
-      List<Object>? args, String? meaning,
-      {MessageIfAbsent? ifAbsent});
-
-  void addLocale(String localeName, Function findLocale);
-}
-
 class LocaleDataException implements Exception {
   final String message;
 
@@ -17,14 +5,6 @@ class LocaleDataException implements Exception {
 
   @override
   String toString() => 'LocaleDataException: $message';
-}
-
-/// If a message is a string literal without interpolation, compute
-/// a name based on that and the meaning, if present.
-// NOTE: THIS LOGIC IS DUPLICATED IN intl_translation AND THE TWO MUST MATCH.
-String? computeMessageName(String? name, String? text, String? meaning) {
-  if (name != null && name != '') return name;
-  return meaning == null ? text : '${text}_$meaning';
 }
 
 /// Returns an index of a separator between language and region.
@@ -43,12 +23,9 @@ String canonicalizedLocale(String? aLocale) {
   if (aLocale.length < 5) return aLocale;
 
   var separatorIndex = _separatorIndex(aLocale);
-  if (separatorIndex == -1) {
-    return aLocale;
-  }
+  if (separatorIndex == -1) return aLocale;
   var language = aLocale.substring(0, separatorIndex);
   var region = aLocale.substring(separatorIndex + 1);
-  // If it's longer than three it's something odd, so don't touch it.
   if (region.length <= 3) region = region.toUpperCase();
   return '${language}_$region';
 }
@@ -70,13 +47,7 @@ String? verifiedLocale(String? newLocale, bool Function(String) localeExists) {
       return localeFallback;
     }
   }
-  return _throwLocaleError(newLocale);
-}
-
-/// The default action if a locale isn't found in verifiedLocale. Throw
-/// an exception indicating the locale isn't correct.
-String _throwLocaleError(String localeName) {
-  throw ArgumentError('Invalid locale "$localeName"');
+  throw ArgumentError('Invalid locale "$newLocale"');
 }
 
 /// Return the other code for a current-deprecated locale pair. This helps in
@@ -106,16 +77,10 @@ String deprecatedLocale(String aLocale) {
 
 /// Return the short version of a locale name, e.g. 'en_US' => 'en'
 String shortLocale(String aLocale) {
-  if (aLocale.length < 2) {
-    return aLocale;
-  }
+  if (aLocale.length < 2) return aLocale;
   var separatorIndex = _separatorIndex(aLocale);
   if (separatorIndex == -1) {
-    if (aLocale.length < 4) {
-      return aLocale.toLowerCase();
-    } else {
-      return aLocale;
-    }
+    return (aLocale.length < 4) ? aLocale.toLowerCase() : aLocale;
   }
   return aLocale.substring(0, separatorIndex).toLowerCase();
 }
