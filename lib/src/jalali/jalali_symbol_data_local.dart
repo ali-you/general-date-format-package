@@ -284,10 +284,10 @@ Map<String, DateSymbols> jalaliSymbolMap() => {
           STANDALONENARROWWEEKDAYS: const ['ی', 'د', 'س', 'چ', 'پ', 'ج', 'ش'],
           SHORTQUARTERS: const ['س‌م۱', 'س‌م۲', 'س‌م۳', 'س‌م۴'],
           QUARTERS: const [
-            'سه‌ماههٔ اول',
-            'سه‌ماههٔ دوم',
-            'سه‌ماههٔ سوم',
-            'سه‌ماههٔ چهارم'
+            'سه‌ماهه اول',
+            'سه‌ماهه دوم',
+            'سه‌ماهه سوم',
+            'سه‌ماهه چهارم'
           ],
           AMPMS: const ['ق.ظ.', 'ب.ظ.'],
           DATEFORMATS: const ['EEEE d MMMM y', 'd MMMM y', 'd MMM y', 'y/M/d'],
@@ -6423,10 +6423,10 @@ Map<String, DateSymbols> jalaliSymbolMap() => {
           STANDALONENARROWWEEKDAYS: const ['ی', 'د', 'س', 'چ', 'پ', 'ج', 'ش'],
           SHORTQUARTERS: const ['س‌م۱', 'س‌م۲', 'س‌م۳', 'س‌م۴'],
           QUARTERS: const [
-            'سه‌ماههٔ اول',
-            'سه‌ماههٔ دوم',
-            'سه‌ماههٔ سوم',
-            'سه‌ماههٔ چهارم'
+            'سه‌ماهه اول',
+            'سه‌ماهه دوم',
+            'سه‌ماهه سوم',
+            'سه‌ماهه چهارم'
           ],
           AMPMS: const ['ق.ظ.', 'ب.ظ.'],
           DATEFORMATS: const ['EEEE d MMMM y', 'd MMMM y', 'd MMM y', 'y/M/d'],

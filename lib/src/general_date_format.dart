@@ -215,6 +215,31 @@ class GeneralDateFormat {
     addPattern(newPattern);
   }
 
+  /// The named constructors for this class are all conveniences for creating
+  /// instances using one of the known 'skeleton' formats, and having code
+  /// completion support for discovering those formats.
+  /// So,
+  ///
+  /// ```dart
+  /// GeneralDateFormat.yMd('en_US')
+  /// ```
+  ///
+  /// is equivalent to
+  ///
+  /// ```dart
+  /// GeneralDateFormat('yMd', 'en_US')
+  /// ```
+  ///
+  /// To create a compound format you can use these constructors in combination
+  /// with the 'add_*' methods below. e.g.
+  ///
+  /// ```dart
+  /// GeneralDateFormat.yMd().add_Hms();
+  /// ```
+  ///
+  /// If the optional [locale] is omitted, the format will be created using the
+  /// default locale in [Intl.systemLocale].
+
   GeneralDateFormat.d([locale]) : this('d', locale);
 
   GeneralDateFormat.E([locale]) : this('E', locale);
@@ -284,6 +309,28 @@ class GeneralDateFormat {
   GeneralDateFormat.jm([locale]) : this('jm', locale);
 
   GeneralDateFormat.jms([locale]) : this('jms', locale);
+
+  /// NOT YET IMPLEMENTED.
+  // TODO(https://github.com/dart-lang/intl/issues/74)
+  GeneralDateFormat.jmv([locale]) : this('jmv', locale);
+
+  /// NOT YET IMPLEMENTED.
+  // TODO(https://github.com/dart-lang/intl/issues/74)
+  GeneralDateFormat.jmz([locale]) : this('jmz', locale);
+
+  /// NOT YET IMPLEMENTED.
+  // TODO(https://github.com/dart-lang/intl/issues/74)
+  GeneralDateFormat.jv([locale]) : this('jv', locale);
+
+  /// NOT YET IMPLEMENTED.
+  // TODO(https://github.com/dart-lang/intl/issues/74)
+  GeneralDateFormat.jz([locale]) : this('jz', locale);
+
+  GeneralDateFormat.m([locale]) : this('m', locale);
+
+  GeneralDateFormat.ms([locale]) : this('ms', locale);
+
+  GeneralDateFormat.s([locale]) : this('s', locale);
 
   /// Return a string representing [date] formatted according to our locale
   /// and internal format.
@@ -518,53 +565,6 @@ class GeneralDateFormat {
   /// Returns a list of all locales for which we have date formatting
   /// information.
   static List<String> allLocalesWithSymbols() => symbolList;
-
-  /// The named constructors for this class are all conveniences for creating
-  /// instances using one of the known 'skeleton' formats, and having code
-  /// completion support for discovering those formats.
-  /// So,
-  ///
-  /// ```dart
-  /// GeneralDateFormat.yMd('en_US')
-  /// ```
-  ///
-  /// is equivalent to
-  ///
-  /// ```dart
-  /// GeneralDateFormat('yMd', 'en_US')
-  /// ```
-  ///
-  /// To create a compound format you can use these constructors in combination
-  /// with the 'add_*' methods below. e.g.
-  ///
-  /// ```dart
-  /// GeneralDateFormat.yMd().add_Hms();
-  /// ```
-  ///
-  /// If the optional [locale] is omitted, the format will be created using the
-  /// default locale in [Intl.systemLocale].
-
-  /// NOT YET IMPLEMENTED.
-  // TODO(https://github.com/dart-lang/intl/issues/74)
-  GeneralDateFormat.jmv([locale]) : this('jmv', locale);
-
-  /// NOT YET IMPLEMENTED.
-  // TODO(https://github.com/dart-lang/intl/issues/74)
-  GeneralDateFormat.jmz([locale]) : this('jmz', locale);
-
-  /// NOT YET IMPLEMENTED.
-  // TODO(https://github.com/dart-lang/intl/issues/74)
-  GeneralDateFormat.jv([locale]) : this('jv', locale);
-
-  /// NOT YET IMPLEMENTED.
-  // TODO(https://github.com/dart-lang/intl/issues/74)
-  GeneralDateFormat.jz([locale]) : this('jz', locale);
-
-  GeneralDateFormat.m([locale]) : this('m', locale);
-
-  GeneralDateFormat.ms([locale]) : this('ms', locale);
-
-  GeneralDateFormat.s([locale]) : this('s', locale);
 
   /// The 'add_*' methods append a particular skeleton to the format, or set
   /// it as the only format if none was previously set. These are primarily
