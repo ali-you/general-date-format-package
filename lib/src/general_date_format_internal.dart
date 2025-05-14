@@ -1,7 +1,7 @@
 import 'package:general_date_format/src/symbols/hijri_symbol_data_local.dart';
 import 'package:general_datetime/general_datetime.dart';
 import 'date_symbols.dart';
-import 'symbols//jalali_symbol_data_local.dart';
+import 'symbols/jalali_symbol_data_local.dart';
 
 Map<String, DateSymbols>? _dateTimeSymbols;
 
