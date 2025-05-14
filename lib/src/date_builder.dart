@@ -105,10 +105,6 @@ class DateBuilder {
     var minimumDate = dateOnly && date.hour == 1 ? 0 : date.hour;
     _verify(hour24, minimumDate, date.hour, 'hour', s, date);
     if (dayOfYear > 0) {
-      // We have an ordinal date, compute the corresponding date for the result
-      // and compare to that.
-      // var leapYear = date_computation.isLeapYear(date);
-      var leapYear = generalDateTime.isLeapYear;
       var correspondingDay = generalDateTime.dayOfYear;
       _verify(
           dayOfYear, correspondingDay, correspondingDay, 'dayOfYear', s, date);
@@ -207,55 +203,6 @@ class DateBuilder {
     return estimatedYear;
   }
 
-  /// Given a local DateTime, check for errors and try to compensate for them if
-  /// possible.
-  GeneralDateTimeInterface _correctForErrors(GeneralDateTimeInterface result) {
-    var leapYear = result.isLeapYear;
-    var resultDayOfYear = result.dayOfYear;
-
-    if (dateOnly && result.hour != 0) {
-      // This could be a flake, try again.
-      var tryAgain = asDate();
-      if (tryAgain != result) {
-        // Trying again gave a different answer, so presumably it worked.
-        return tryAgain;
-      }
-
-      // Trying again didn't work, try to force the offset.
-      int expectedDayOfYear = generalDateTime.dayOfYear;
-
-      // If we're _dateOnly, then hours should be zero, but might have been
-      // offset to e.g. 11:00pm the previous day. Add that time back in. This
-      // might be because of an erratic error, but it might also be because of a
-      // time zone (Brazil) where there is no midnight at a daylight savings
-      // time transition. In that case we will retry, but eventually give up and
-      // return 1:00am on the correct date.
-      var daysPrevious = expectedDayOfYear - resultDayOfYear;
-      // For example, if it's the day before at 11:00pm, we offset by (24 - 23),
-      // so +1. If it's the same day at 1:00am, we offset by (0 - 1), so -1.
-      var offset = (daysPrevious * 24) - result.hour;
-      GeneralDateTimeInterface adjusted = result.add(Duration(hours: offset));
-      // Check if the adjustment worked. This can fail on a time zone transition
-      // where midnight doesn't exist.
-      if (adjusted.hour == 0) {
-        return adjusted;
-      }
-      // Adjusting did not work. Just check if the adjusted date is right. And
-      // if it's not, just give up and return [result]. The scenario where this
-      // might correctly happen is if we're in a Brazil time zone, jump forward
-      // to 1:00 am because of a DST transition, and trying to go backwards 1
-      // hour takes us back to 11:00pm the day before. In that case the 1:00am
-      // answer on the correct date is preferable.
-      var adjustedDayOfYear = adjusted.dayOfYear;
-      if (adjustedDayOfYear != expectedDayOfYear) {
-        return result;
-      }
-      return adjusted;
-    }
-    // None of our corrections applied, just return the uncorrected date.
-    return result;
-  }
-
   GeneralDateTimeInterface _typeSelector(
       GeneralDateTimeInterface type,
       int year,
@@ -266,15 +213,12 @@ class DateBuilder {
       int second,
       int millisecond,
       int microsecond) {
-    if (type is JalaliDateTime)
+    if (type is JalaliDateTime) {
       return JalaliDateTime(
           year, month, day, hour, minute, second, millisecond, microsecond);
+    }
 
     return JalaliDateTime(
         year, month, day, hour, minute, second, millisecond, microsecond);
   }
 }
-
-// /// Defines a function type for creating DateTime instances.
-// typedef _DateTimeConstructor = DateTime Function(int year, int month, int day,
-//     int hour24, int minute, int second, int fractionalSecond, bool utc);

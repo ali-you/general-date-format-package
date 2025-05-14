@@ -1,7 +1,6 @@
 import 'package:general_date_format/src/common/date_time_patterns.dart';
 import 'package:general_date_format/src/common/symbol_list.dart';
 import 'package:general_datetime/general_datetime.dart';
-import 'package:meta/meta.dart';
 
 import 'date_builder.dart';
 import 'date_symbols.dart';
@@ -738,7 +737,7 @@ class GeneralDateFormat {
   List<_DateFormatField> get _formatFields {
     if (_formatFieldsPrivate == null) {
       if (_pattern == null) _useDefaultPattern();
-      _formatFieldsPrivate = parsePattern(_pattern!);
+      _formatFieldsPrivate = _parsePattern(_pattern!);
     }
     return _formatFieldsPrivate!;
   }
@@ -934,10 +933,7 @@ class GeneralDateFormat {
           ];
 
   /// Parse the template pattern and return a list of field objects.
-  @visibleForTesting
-  @Deprecated('clients should not depend on this internal method')
-  // ignore: library_private_types_in_public_api
-  List<_DateFormatField> parsePattern(String pattern) {
+  List<_DateFormatField> _parsePattern(String pattern) {
     return _parsePatternHelper(pattern).reversed.toList();
   }
 
