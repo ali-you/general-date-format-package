@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.1.3]
+- Updated `README.md` and documentation
+
 ## [0.1.2]
 - Some optimizations applied
 - Updated `README.md` and documentation
