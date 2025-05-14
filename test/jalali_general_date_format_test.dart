@@ -569,7 +569,7 @@ void main() {
 
   group(
     "Functions Testing (add_X) - fa locale",
-        () {
+    () {
       final date = JalaliDateTime(1402, 2, 11, 23, 59, 30, 789, 123);
       final locale = 'fa';
 
@@ -582,11 +582,13 @@ void main() {
       });
 
       test('add_EEEE formats full weekday', () {
-        expect(GeneralDateFormat(null, locale).add_EEEE().format(date), 'دوشنبه');
+        expect(
+            GeneralDateFormat(null, locale).add_EEEE().format(date), 'دوشنبه');
       });
 
       test('add_LLL formats standalone abbreviated month', () {
-        expect(GeneralDateFormat("y", locale).add_LLL().format(date), '۱۴۰۲ ارد');
+        expect(
+            GeneralDateFormat("y", locale).add_LLL().format(date), '۱۴۰۲ ارد');
       });
 
       test('add_LLLL formats standalone full month', () {
@@ -605,7 +607,8 @@ void main() {
       });
 
       test('add_MEd formats weekday and month/day', () {
-        expect(GeneralDateFormat(null, locale).add_MEd().format(date), 'دوش ۲/۱۱');
+        expect(
+            GeneralDateFormat(null, locale).add_MEd().format(date), 'دوش ۲/۱۱');
       });
 
       test('add_MMM formats abbreviated month', () {
@@ -613,23 +616,28 @@ void main() {
       });
 
       test('add_MMMd formats abbreviated month and day', () {
-        expect(GeneralDateFormat(null, locale).add_MMMd().format(date), '۱۱ ارد');
+        expect(
+            GeneralDateFormat(null, locale).add_MMMd().format(date), '۱۱ ارد');
       });
 
       test('add_MMMEd formats abbreviated weekday + month + day', () {
-        expect(GeneralDateFormat(null, locale).add_MMMEd().format(date), 'دوش ۱۱ ارد');
+        expect(GeneralDateFormat(null, locale).add_MMMEd().format(date),
+            'دوش ۱۱ ارد');
       });
 
       test('add_MMMM formats full month name', () {
-        expect(GeneralDateFormat(null, locale).add_MMMM().format(date), 'اردیبهشت');
+        expect(GeneralDateFormat(null, locale).add_MMMM().format(date),
+            'اردیبهشت');
       });
 
       test('add_MMMMd formats full month + day', () {
-        expect(GeneralDateFormat(null, locale).add_MMMMd().format(date), '۱۱ اردیبهشت');
+        expect(GeneralDateFormat(null, locale).add_MMMMd().format(date),
+            '۱۱ اردیبهشت');
       });
 
       test('add_MMMMEEEEd formats full weekday + full month + day', () {
-        expect(GeneralDateFormat(null, locale).add_MMMMEEEEd().format(date), 'دوشنبه ۱۱ اردیبهشت');
+        expect(GeneralDateFormat(null, locale).add_MMMMEEEEd().format(date),
+            'دوشنبه ۱۱ اردیبهشت');
       });
 
       test('add_QQQ formats short quarter', () {
@@ -637,7 +645,8 @@ void main() {
       });
 
       test('add_QQQQ formats full quarter', () {
-        expect(GeneralDateFormat(null, locale).add_QQQQ().format(date), 'سه‌ماهه اول');
+        expect(GeneralDateFormat(null, locale).add_QQQQ().format(date),
+            'سه‌ماهه اول');
       });
 
       test('add_y formats year', () {
@@ -649,43 +658,53 @@ void main() {
       });
 
       test('add_yMd formats full numeric date', () {
-        expect(GeneralDateFormat(null, locale).add_yMd().format(date), '۱۴۰۲/۲/۱۱');
+        expect(GeneralDateFormat(null, locale).add_yMd().format(date),
+            '۱۴۰۲/۲/۱۱');
       });
 
       test('add_yMEd formats weekday + full numeric date', () {
-        expect(GeneralDateFormat(null, locale).add_yMEd().format(date), 'دوش ۱۴۰۲/۲/۱۱');
+        expect(GeneralDateFormat(null, locale).add_yMEd().format(date),
+            'دوش ۱۴۰۲/۲/۱۱');
       });
 
       test('add_yMMM formats year and abbreviated month', () {
-        expect(GeneralDateFormat(null, locale).add_yMMM().format(date), 'ارد ۱۴۰۲');
+        expect(GeneralDateFormat(null, locale).add_yMMM().format(date),
+            'ارد ۱۴۰۲');
       });
 
       test('add_yMMMd formats abbreviated month + day + year', () {
-        expect(GeneralDateFormat(null, locale).add_yMMMd().format(date), '۱۱ ارد ۱۴۰۲');
+        expect(GeneralDateFormat(null, locale).add_yMMMd().format(date),
+            '۱۱ ارد ۱۴۰۲');
       });
 
       test('add_yMMMEd formats weekday + month + day + year', () {
-        expect(GeneralDateFormat(null, locale).add_yMMMEd().format(date), 'دوش ۱۱ ارد ۱۴۰۲');
+        expect(GeneralDateFormat(null, locale).add_yMMMEd().format(date),
+            'دوش ۱۱ ارد ۱۴۰۲');
       });
 
       test('add_yMMMM formats full month + year', () {
-        expect(GeneralDateFormat(null, locale).add_yMMMM().format(date), 'اردیبهشت ۱۴۰۲');
+        expect(GeneralDateFormat(null, locale).add_yMMMM().format(date),
+            'اردیبهشت ۱۴۰۲');
       });
 
       test('add_yMMMMd formats full month + day + year', () {
-        expect(GeneralDateFormat(null, locale).add_yMMMMd().format(date), '۱۱ اردیبهشت ۱۴۰۲');
+        expect(GeneralDateFormat(null, locale).add_yMMMMd().format(date),
+            '۱۱ اردیبهشت ۱۴۰۲');
       });
 
       test('add_yMMMMEEEEd formats weekday + full month + day + year', () {
-        expect(GeneralDateFormat(null, locale).add_yMMMMEEEEd().format(date), 'دوشنبه ۱۱ اردیبهشت ۱۴۰۲');
+        expect(GeneralDateFormat(null, locale).add_yMMMMEEEEd().format(date),
+            'دوشنبه ۱۱ اردیبهشت ۱۴۰۲');
       });
 
       test('add_yQQQ formats year + short quarter', () {
-        expect(GeneralDateFormat(null, locale).add_yQQQ().format(date), 'سه‌ماهه اول ۱۴۰۲');
+        expect(GeneralDateFormat(null, locale).add_yQQQ().format(date),
+            'سه‌ماهه اول ۱۴۰۲');
       });
 
       test('add_yQQQQ formats year + full quarter', () {
-        expect(GeneralDateFormat(null, locale).add_yQQQQ().format(date), 'سه‌ماهه اول ۱۴۰۲');
+        expect(GeneralDateFormat(null, locale).add_yQQQQ().format(date),
+            'سه‌ماهه اول ۱۴۰۲');
       });
 
       test('add_H formats 24-hour', () {
@@ -697,7 +716,8 @@ void main() {
       });
 
       test('add_Hms formats hour + minute + second', () {
-        expect(GeneralDateFormat(null, locale).add_Hms().format(date), '۲۳:۵۹:۳۰');
+        expect(
+            GeneralDateFormat(null, locale).add_Hms().format(date), '۲۳:۵۹:۳۰');
       });
 
       test('add_j formats localized hour', () {
@@ -709,7 +729,8 @@ void main() {
       });
 
       test('add_jms formats localized hour:minute:second', () {
-        expect(GeneralDateFormat(null, locale).add_jms().format(date), '۲۳:۵۹:۳۰');
+        expect(
+            GeneralDateFormat(null, locale).add_jms().format(date), '۲۳:۵۹:۳۰');
       });
 
       test('add_m formats minute', () {
@@ -725,5 +746,4 @@ void main() {
       });
     },
   );
-
 }
