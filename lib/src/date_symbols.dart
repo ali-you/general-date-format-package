@@ -106,10 +106,6 @@ class DateSymbols {
       required this.QUARTERS,
       required this.AMPMS,
       this.ZERODIGIT,
-      // TODO(alanknight): These formats are taken from Closure,
-      // where there's only a fixed set of available formats.
-      // Here we have the patterns separately. These should
-      // either be used, or removed.
       required this.DATEFORMATS,
       required this.TIMEFORMATS,
       this.AVAILABLEFORMATS,
@@ -118,8 +114,6 @@ class DateSymbols {
       required this.FIRSTWEEKCUTOFFDAY,
       required this.DATETIMEFORMATS});
 
-  // TODO(alanknight): Replace this with use of a more general serialization
-  // facility once one is available. Issue 4926.
   factory DateSymbols.deserializeFromMap(Map<dynamic, dynamic> map) {
     List<String> getStringList(String name) => List<String>.from(map[name]);
 
@@ -154,8 +148,6 @@ class DateSymbols {
   }
 
   Map<String, dynamic> serializeToMap() {
-    // Don't write default ZERODIGIT, conserves space, but also minimize file
-    // churn.
     var basicMap = _serializeToMap();
     if (ZERODIGIT != null && ZERODIGIT != '') {
       basicMap['ZERODIGIT'] = ZERODIGIT;
@@ -335,7 +327,6 @@ final DateSymbols en_USSymbols = DateSymbols(
       '{1}, {0}',
     ]);
 
-// ignore: constant_identifier_names
 const Map<String, String> en_USPatterns = {
   'd': 'd', // DAY
   'E': 'ccc', // ABBR_WEEKDAY

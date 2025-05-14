@@ -1,7 +1,3 @@
-// Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
-// for details. All rights reserved. Use of this source code is governed by a
-// BSD-style license that can be found in the LICENSE file.
-
 import 'package:general_datetime/general_datetime.dart';
 
 /// A class for holding onto the data for a date so that it can be built
@@ -43,11 +39,6 @@ class DateBuilder {
 
   // We do set it, the analyzer just can't tell.
   bool dateOnly = false;
-
-  // /// The function we will call to create a DateTime from its component pieces.
-  // ///
-  // /// This is normally only modified in tests that want to introduce errors.
-  // final _DateTimeConstructor _dateTimeConstructor;
 
   GeneralDateTimeInterface generalDateTime;
 

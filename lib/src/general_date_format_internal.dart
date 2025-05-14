@@ -1,6 +1,7 @@
+import 'package:general_date_format/src/symbols/hijri_symbol_data_local.dart';
 import 'package:general_datetime/general_datetime.dart';
 import 'date_symbols.dart';
-import 'jalali/jalali_symbol_data_local.dart';
+import 'symbols//jalali_symbol_data_local.dart';
 
 Map<String, DateSymbols>? _dateTimeSymbols;
 
@@ -32,8 +33,6 @@ void initializeDateSymbols(GeneralDateTimeInterface calendar) {
       lastCalendar != calendar ||
       _dateTimeSymbols == null) {
     if (calendar is JalaliDateTime) dateTimeSymbols = jalaliSymbolMap();
-
-    /// TODO: implement for Hijri calendar
-    // if (calendar is HijriDateTime) dateTimeSymbols = jalaliSymbolMap();
+    if (calendar is HijriDateTime) dateTimeSymbols = hijriSymbolMap();
   }
 }

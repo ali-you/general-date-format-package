@@ -86,8 +86,8 @@ Check the documentation for more advanced usage and available formats.
 
 Full documentation can be found at
 
-- [GitHub Repository](https://github.com/ali-you/general-date-format-package).
-- [API Reference on pub.dev](https://pub.dev/documentation/general_date_format/latest/).
+- [GitHub Repository](https://github.com/ali-you/general-date-format-package)
+- [API Reference on pub.dev](https://pub.dev/documentation/general_date_format/latest/)
 
 ## Related Packages
 

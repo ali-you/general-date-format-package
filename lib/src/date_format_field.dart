@@ -1,7 +1,3 @@
-// Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
-// for details. All rights reserved. Use of this source code is governed by a
-// BSD-style license that can be found in the LICENSE file.
-
 part of 'general_date_format.dart';
 
 /// This is a private class internal to DateFormat which is used for formatting
@@ -35,11 +31,7 @@ abstract class _DateFormatField {
   String toString() => pattern;
 
   /// Format date according to our specification and return the result.
-  String format(GeneralDateTimeInterface date) {
-    // Default implementation in the superclass, works for both types of
-    // literal patterns, and is overridden by _DateFormatPatternField.
-    return pattern;
-  }
+  String format(GeneralDateTimeInterface date) => pattern;
 
   /// Abstract method for subclasses to implementing parsing for their format.
   void parse(StringStack input, DateBuilder dateFields);
@@ -67,12 +59,10 @@ abstract class _DateFormatField {
   /// arbitrary additional whitespace may be added before/after the literal.
   void parseLiteralLoose(StringStack input) {
     _trimWhitespace(input);
-
     var found = input.peek(_trimmedPattern.length);
     if (found == _trimmedPattern) {
       input.pop(_trimmedPattern.length);
     }
-
     _trimWhitespace(input);
   }
 
@@ -83,9 +73,8 @@ abstract class _DateFormatField {
   }
 
   /// Throw a format exception with an error message indicating the position.
-  Never throwFormatException(StringStack stack) {
-    throw FormatException('Trying to read $this from $stack');
-  }
+  Never throwFormatException(StringStack stack) =>
+      throw FormatException('Trying to read $this from $stack');
 }
 
 /// Represents a literal field - a sequence of characters that doesn't
@@ -139,7 +128,7 @@ class _DateFormatQuotedField extends _DateFormatField {
 /// conform to the pattern, e.g. the pattern calls for Sep we might accept
 /// sep, september, sEPTember. Doesn't affect numeric fields.
 class _LoosePatternField extends _DateFormatPatternField {
-  _LoosePatternField(String pattern, parent) : super(pattern, parent);
+  _LoosePatternField(super.pattern, super.parent);
 
   /// Parse from a list of possibilities, but case-insensitively.
   /// Assumes that input is lower case.
@@ -654,7 +643,6 @@ class _DateFormatPatternField extends _DateFormatField {
   }
 
   void parseDayOfWeek(StringStack input) {
-    // This is IGNORED, but we still have to skip over it the correct amount.
     var possibilities = width >= 4 ? symbols.WEEKDAYS : symbols.SHORTWEEKDAYS;
     parseEnumeratedString(input, possibilities);
   }
