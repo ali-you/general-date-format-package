@@ -32,7 +32,7 @@ void initializeDateSymbols(GeneralDateTimeInterface calendar) {
   if (lastCalendar == null ||
       lastCalendar != calendar ||
       _dateTimeSymbols == null) {
-    if (calendar is JalaliDateTime) dateTimeSymbols = jalaliSymbolMap();
-    if (calendar is HijriDateTime) dateTimeSymbols = hijriSymbolMap();
+    if (calendar is JalaliDateTime) dateTimeSymbols = jalaliSymbolMap;
+    if (calendar is HijriDateTime) dateTimeSymbols = hijriSymbolMap;
   }
 }

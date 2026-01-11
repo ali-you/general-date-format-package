@@ -1,5 +1,5 @@
 /// List of all locale supported by package
-List<String> get symbolList => [
+List<String> get symbolList => const [
       "en_ISO",
       "af",
       "am",
