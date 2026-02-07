@@ -36,3 +36,13 @@ void initializeDateSymbols(GeneralDateTimeInterface calendar) {
     if (calendar is HijriDateTime) dateTimeSymbols = hijriSymbolMap;
   }
 }
+
+Map<String, Map<String, String>>? _dateTimePatterns;
+
+Map<String, Map<String, String>> get dateTimePatterns =>
+    _dateTimePatterns ?? (throw Exception("Patterns is not initialized"));
+
+/// Set the dateTimePatterns and invalidate cache.
+set dateTimePatterns(Map<String, Map<String, String>> patterns) {
+  _dateTimePatterns = patterns;
+}

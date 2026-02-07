@@ -1,4 +1,5 @@
 import 'package:general_date_format/src/common/date_time_patterns.dart';
+import 'package:general_date_format/src/general_date_format_internal.dart';
 import 'package:general_date_format/src/symbols/jalali_symbol_data_local.dart';
 
 import '../date_symbols.dart';
@@ -11,6 +12,9 @@ bool _dateGeneralDataInitialized = false;
 /// invocations have no effect.
 void loadDateIntlDataIfNotLoaded() {
   if (!_dateGeneralDataInitialized) {
+    initializeDateSymbols(calendar);
+    dateTimeSymbols = dateTimePatternMap;
+
     jalaliSymbolMap.forEach((String locale, DateSymbols symbols) {
       // Perform initialization.
       assert(jalaliSymbolMap.containsKey(locale));
