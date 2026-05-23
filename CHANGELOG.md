@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.1]
+- Updated `general_datetime` dependency to `^2.1.0`
+- Improved internal date symbol processing and helper utilities
+- Refined pattern parsing logic in `StringStack`
+- Synchronized Android build configurations for the example project
+
 ## [1.0.0]
 - Initial stable release
 - Added support for a wide range of locales
