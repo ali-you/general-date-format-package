@@ -6,20 +6,20 @@ void main() {
   group(
     "Date (Year, Month, Day, Week, Quarter) Format Constructors Testing",
     () {
-      JalaliDateTime jalaliNow = JalaliDateTime(1400, 2, 11);
+      PersianDateTime persianNow = PersianDateTime(1400, 2, 11);
       test('Month and Day Constructors', () {
-        String M = GeneralDateFormat.M().format(jalaliNow);
-        String d = GeneralDateFormat.d().format(jalaliNow);
-        String MMM = GeneralDateFormat.MMM().format(jalaliNow);
-        String MMMM = GeneralDateFormat.MMMM().format(jalaliNow);
-        String y = GeneralDateFormat.y().format(jalaliNow);
-        String E = GeneralDateFormat.E().format(jalaliNow);
-        String EEEE = GeneralDateFormat.EEEE().format(jalaliNow);
-        String EEEEE = GeneralDateFormat.EEEEE().format(jalaliNow);
-        String LLL = GeneralDateFormat.LLL().format(jalaliNow);
-        String LLLL = GeneralDateFormat.LLLL().format(jalaliNow);
-        String QQQ = GeneralDateFormat.QQQ().format(jalaliNow);
-        String QQQQ = GeneralDateFormat.QQQQ().format(jalaliNow);
+        String M = GeneralDateFormat.M().format(persianNow);
+        String d = GeneralDateFormat.d().format(persianNow);
+        String MMM = GeneralDateFormat.MMM().format(persianNow);
+        String MMMM = GeneralDateFormat.MMMM().format(persianNow);
+        String y = GeneralDateFormat.y().format(persianNow);
+        String E = GeneralDateFormat.E().format(persianNow);
+        String EEEE = GeneralDateFormat.EEEE().format(persianNow);
+        String EEEEE = GeneralDateFormat.EEEEE().format(persianNow);
+        String LLL = GeneralDateFormat.LLL().format(persianNow);
+        String LLLL = GeneralDateFormat.LLLL().format(persianNow);
+        String QQQ = GeneralDateFormat.QQQ().format(persianNow);
+        String QQQQ = GeneralDateFormat.QQQQ().format(persianNow);
         expect(d, "11");
         expect(M, "2");
         expect(MMM, "Ord");
@@ -34,18 +34,18 @@ void main() {
         expect(QQQQ, "1st quarter");
       });
       test('Month and Day Constructors With "fa" Locale', () {
-        String M = GeneralDateFormat.M("fa").format(jalaliNow);
-        String d = GeneralDateFormat.d("fa").format(jalaliNow);
-        String MMM = GeneralDateFormat.MMM("fa").format(jalaliNow);
-        String MMMM = GeneralDateFormat.MMMM("fa").format(jalaliNow);
-        String y = GeneralDateFormat.y("fa").format(jalaliNow);
-        String E = GeneralDateFormat.E("fa").format(jalaliNow);
-        String EEEE = GeneralDateFormat.EEEE("fa").format(jalaliNow);
-        String EEEEE = GeneralDateFormat.EEEEE("fa").format(jalaliNow);
-        String LLL = GeneralDateFormat.LLL("fa").format(jalaliNow);
-        String LLLL = GeneralDateFormat.LLLL("fa").format(jalaliNow);
-        String QQQ = GeneralDateFormat.QQQ("fa").format(jalaliNow);
-        String QQQQ = GeneralDateFormat.QQQQ("fa").format(jalaliNow);
+        String M = GeneralDateFormat.M("fa").format(persianNow);
+        String d = GeneralDateFormat.d("fa").format(persianNow);
+        String MMM = GeneralDateFormat.MMM("fa").format(persianNow);
+        String MMMM = GeneralDateFormat.MMMM("fa").format(persianNow);
+        String y = GeneralDateFormat.y("fa").format(persianNow);
+        String E = GeneralDateFormat.E("fa").format(persianNow);
+        String EEEE = GeneralDateFormat.EEEE("fa").format(persianNow);
+        String EEEEE = GeneralDateFormat.EEEEE("fa").format(persianNow);
+        String LLL = GeneralDateFormat.LLL("fa").format(persianNow);
+        String LLLL = GeneralDateFormat.LLLL("fa").format(persianNow);
+        String QQQ = GeneralDateFormat.QQQ("fa").format(persianNow);
+        String QQQQ = GeneralDateFormat.QQQQ("fa").format(persianNow);
         expect(d, "۱۱");
         expect(M, "۲");
         expect(MMM, "ارد");
@@ -65,22 +65,22 @@ void main() {
   group(
     "Time Format Constructors Testing",
     () {
-      JalaliDateTime jalaliNow = JalaliDateTime(1400, 2, 11, 2, 2, 2, 2, 2);
+      PersianDateTime persianNow = PersianDateTime(1400, 2, 11, 2, 2, 2, 2, 2);
       test('Time Constructors', () {
-        String H = GeneralDateFormat.H().format(jalaliNow);
-        String j = GeneralDateFormat.j().format(jalaliNow);
-        String m = GeneralDateFormat.m().format(jalaliNow);
-        String s = GeneralDateFormat.s().format(jalaliNow);
+        String H = GeneralDateFormat.H().format(persianNow);
+        String j = GeneralDateFormat.j().format(persianNow);
+        String m = GeneralDateFormat.m().format(persianNow);
+        String s = GeneralDateFormat.s().format(persianNow);
         expect(H, "02");
         expect(j, "2 AM");
         expect(m, "2");
         expect(s, "2");
       });
       test('Time Constructors With "fa" Locale', () {
-        String H = GeneralDateFormat.H("fa").format(jalaliNow);
-        String j = GeneralDateFormat.j("fa").format(jalaliNow);
-        String m = GeneralDateFormat.m("fa").format(jalaliNow);
-        String s = GeneralDateFormat.s("fa").format(jalaliNow);
+        String H = GeneralDateFormat.H("fa").format(persianNow);
+        String j = GeneralDateFormat.j("fa").format(persianNow);
+        String m = GeneralDateFormat.m("fa").format(persianNow);
+        String s = GeneralDateFormat.s("fa").format(persianNow);
         expect(H, "۲");
         expect(j, "۲");
         expect(m, "۲");
@@ -92,14 +92,14 @@ void main() {
   group(
     "Composition Format Constructors Testing",
     () {
-      JalaliDateTime jalaliNow = JalaliDateTime(1400, 2, 11, 2, 2, 2, 2, 2);
+      PersianDateTime persianNow = PersianDateTime(1400, 2, 11, 2, 2, 2, 2, 2);
       test('Composition Month, Day, Weekday Constructors', () {
-        String Md = GeneralDateFormat.Md().format(jalaliNow);
-        String MEd = GeneralDateFormat.MEd().format(jalaliNow);
-        String MMMd = GeneralDateFormat.MMMd().format(jalaliNow);
-        String MMMEd = GeneralDateFormat.MMMEd().format(jalaliNow);
-        String MMMMd = GeneralDateFormat.MMMMd().format(jalaliNow);
-        String MMMMEEEEd = GeneralDateFormat.MMMMEEEEd().format(jalaliNow);
+        String Md = GeneralDateFormat.Md().format(persianNow);
+        String MEd = GeneralDateFormat.MEd().format(persianNow);
+        String MMMd = GeneralDateFormat.MMMd().format(persianNow);
+        String MMMEd = GeneralDateFormat.MMMEd().format(persianNow);
+        String MMMMd = GeneralDateFormat.MMMMd().format(persianNow);
+        String MMMMEEEEd = GeneralDateFormat.MMMMEEEEd().format(persianNow);
         expect(Md, "2/11");
         expect(MEd, "Sat, 2/11");
         expect(MMMd, "Ord 11");
@@ -108,12 +108,12 @@ void main() {
         expect(MMMMEEEEd, "Saturday, Ordibehesht 11");
       });
       test('Composition Month, Day, Weekday Constructors With "fa" Locale', () {
-        String Md = GeneralDateFormat.Md("fa").format(jalaliNow);
-        String MEd = GeneralDateFormat.MEd("fa").format(jalaliNow);
-        String MMMd = GeneralDateFormat.MMMd("fa").format(jalaliNow);
-        String MMMEd = GeneralDateFormat.MMMEd("fa").format(jalaliNow);
-        String MMMMd = GeneralDateFormat.MMMMd("fa").format(jalaliNow);
-        String MMMMEEEEd = GeneralDateFormat.MMMMEEEEd("fa").format(jalaliNow);
+        String Md = GeneralDateFormat.Md("fa").format(persianNow);
+        String MEd = GeneralDateFormat.MEd("fa").format(persianNow);
+        String MMMd = GeneralDateFormat.MMMd("fa").format(persianNow);
+        String MMMEd = GeneralDateFormat.MMMEd("fa").format(persianNow);
+        String MMMMd = GeneralDateFormat.MMMMd("fa").format(persianNow);
+        String MMMMEEEEd = GeneralDateFormat.MMMMEEEEd("fa").format(persianNow);
         expect(Md, "۲/۱۱");
         expect(MEd, "شنب ۲/۱۱");
         expect(MMMd, "۱۱ ارد");
@@ -122,17 +122,17 @@ void main() {
         expect(MMMMEEEEd, "شنبه ۱۱ اردیبهشت");
       });
       test('Composition Year, Month, Day, Weekday, Quarter Constructors', () {
-        String yM = GeneralDateFormat.yM().format(jalaliNow);
-        String yMd = GeneralDateFormat.yMd().format(jalaliNow);
-        String yMEd = GeneralDateFormat.yMEd().format(jalaliNow);
-        String yMMM = GeneralDateFormat.yMMM().format(jalaliNow);
-        String yMMMd = GeneralDateFormat.yMMMd().format(jalaliNow);
-        String yMMMEd = GeneralDateFormat.yMMMEd().format(jalaliNow);
-        String yMMMM = GeneralDateFormat.yMMMM().format(jalaliNow);
-        String yMMMMd = GeneralDateFormat.yMMMMd().format(jalaliNow);
-        String yMMMMEEEEd = GeneralDateFormat.yMMMMEEEEd().format(jalaliNow);
-        String yQQQ = GeneralDateFormat.yQQQ().format(jalaliNow);
-        String yQQQQ = GeneralDateFormat.yQQQQ().format(jalaliNow);
+        String yM = GeneralDateFormat.yM().format(persianNow);
+        String yMd = GeneralDateFormat.yMd().format(persianNow);
+        String yMEd = GeneralDateFormat.yMEd().format(persianNow);
+        String yMMM = GeneralDateFormat.yMMM().format(persianNow);
+        String yMMMd = GeneralDateFormat.yMMMd().format(persianNow);
+        String yMMMEd = GeneralDateFormat.yMMMEd().format(persianNow);
+        String yMMMM = GeneralDateFormat.yMMMM().format(persianNow);
+        String yMMMMd = GeneralDateFormat.yMMMMd().format(persianNow);
+        String yMMMMEEEEd = GeneralDateFormat.yMMMMEEEEd().format(persianNow);
+        String yQQQ = GeneralDateFormat.yQQQ().format(persianNow);
+        String yQQQQ = GeneralDateFormat.yQQQQ().format(persianNow);
         expect(yM, "2/1400");
         expect(yMd, "2/11/1400");
         expect(yMEd, "Sat, 2/11/1400");
@@ -148,18 +148,18 @@ void main() {
       test(
           'Composition Year, Month, Day, Weekday, Quarter Constructors With "fa" Locale',
           () {
-        String yM = GeneralDateFormat.yM("fa").format(jalaliNow);
-        String yMd = GeneralDateFormat.yMd("fa").format(jalaliNow);
-        String yMEd = GeneralDateFormat.yMEd("fa").format(jalaliNow);
-        String yMMM = GeneralDateFormat.yMMM("fa").format(jalaliNow);
-        String yMMMd = GeneralDateFormat.yMMMd("fa").format(jalaliNow);
-        String yMMMEd = GeneralDateFormat.yMMMEd("fa").format(jalaliNow);
-        String yMMMM = GeneralDateFormat.yMMMM("fa").format(jalaliNow);
-        String yMMMMd = GeneralDateFormat.yMMMMd("fa").format(jalaliNow);
+        String yM = GeneralDateFormat.yM("fa").format(persianNow);
+        String yMd = GeneralDateFormat.yMd("fa").format(persianNow);
+        String yMEd = GeneralDateFormat.yMEd("fa").format(persianNow);
+        String yMMM = GeneralDateFormat.yMMM("fa").format(persianNow);
+        String yMMMd = GeneralDateFormat.yMMMd("fa").format(persianNow);
+        String yMMMEd = GeneralDateFormat.yMMMEd("fa").format(persianNow);
+        String yMMMM = GeneralDateFormat.yMMMM("fa").format(persianNow);
+        String yMMMMd = GeneralDateFormat.yMMMMd("fa").format(persianNow);
         String yMMMMEEEEd =
-            GeneralDateFormat.yMMMMEEEEd("fa").format(jalaliNow);
-        String yQQQ = GeneralDateFormat.yQQQ("fa").format(jalaliNow);
-        String yQQQQ = GeneralDateFormat.yQQQQ("fa").format(jalaliNow);
+            GeneralDateFormat.yMMMMEEEEd("fa").format(persianNow);
+        String yQQQ = GeneralDateFormat.yQQQ("fa").format(persianNow);
+        String yQQQQ = GeneralDateFormat.yQQQQ("fa").format(persianNow);
         expect(yM, "۱۴۰۰/۲");
         expect(yMd, "۱۴۰۰/۲/۱۱");
         expect(yMEd, "شنب ۱۴۰۰/۲/۱۱");
@@ -173,11 +173,11 @@ void main() {
         expect(yQQQQ, "سه‌ماهه اول ۱۴۰۰");
       });
       test('Time Constructors', () {
-        String Hm = GeneralDateFormat.Hm().format(jalaliNow);
-        String Hms = GeneralDateFormat.Hms().format(jalaliNow);
-        String jm = GeneralDateFormat.jm().format(jalaliNow);
-        String jms = GeneralDateFormat.jms().format(jalaliNow);
-        String ms = GeneralDateFormat.ms().format(jalaliNow);
+        String Hm = GeneralDateFormat.Hm().format(persianNow);
+        String Hms = GeneralDateFormat.Hms().format(persianNow);
+        String jm = GeneralDateFormat.jm().format(persianNow);
+        String jms = GeneralDateFormat.jms().format(persianNow);
+        String ms = GeneralDateFormat.ms().format(persianNow);
         expect(Hm, "02:02");
         expect(Hms, "02:02:02");
         expect(jm, "2:02 AM");
@@ -185,11 +185,11 @@ void main() {
         expect(ms, "02:02");
       });
       test('Time Constructors With "fa" Locale', () {
-        String Hm = GeneralDateFormat.Hm("fa").format(jalaliNow);
-        String Hms = GeneralDateFormat.Hms("fa").format(jalaliNow);
-        String jm = GeneralDateFormat.jm("fa").format(jalaliNow);
-        String jms = GeneralDateFormat.jms("fa").format(jalaliNow);
-        String ms = GeneralDateFormat.ms("fa").format(jalaliNow);
+        String Hm = GeneralDateFormat.Hm("fa").format(persianNow);
+        String Hms = GeneralDateFormat.Hms("fa").format(persianNow);
+        String jm = GeneralDateFormat.jm("fa").format(persianNow);
+        String jms = GeneralDateFormat.jms("fa").format(persianNow);
+        String ms = GeneralDateFormat.ms("fa").format(persianNow);
         expect(Hm, "۲:۰۲");
         expect(Hms, "۲:۰۲:۰۲");
         expect(jm, "۲:۰۲");
@@ -203,7 +203,7 @@ void main() {
     "Full Customize Pattern Testing",
     () {
       test('GeneralDateFormat formats all date/time components correctly', () {
-        final date = JalaliDateTime(1402, 2, 2, 14, 4, 5, 60, 7);
+        final date = PersianDateTime(1402, 2, 2, 14, 4, 5, 60, 7);
         final p =
             "yyyy yy MMMM MMM MM M dd d c hh h HH H mm m ss s SSS SS S a EEEEE EEEE EEE EE E";
         final formatted = GeneralDateFormat(p).format(date);
@@ -241,7 +241,7 @@ void main() {
       });
 
       test('GeneralDateFormat handles all ICU-like symbols correctly', () {
-        final date = JalaliDateTime(1402, 4, 10, 23);
+        final date = PersianDateTime(1402, 4, 10, 23);
         final p = "G GGGG yyyy y MM M dd d c h H k K EEEE E D a Q QQ QQQ QQQQ";
         final formatted = GeneralDateFormat(p).format(date);
         final values = {
@@ -272,7 +272,7 @@ void main() {
       });
 
       test('Full DateTime With Delimiter', () {
-        final date = JalaliDateTime(1402, 2, 11, 23, 12, 45);
+        final date = PersianDateTime(1402, 2, 11, 23, 12, 45);
         String res = GeneralDateFormat("yyyy/MM/dd HH:mm:ss EEEE").format(date);
         expect(res, "1402/02/11 23:12:45 Monday");
       });
@@ -284,7 +284,7 @@ void main() {
     () {
       test('GeneralDateFormat formats all date/time components correctly in fa',
           () {
-        final date = JalaliDateTime(1402, 2, 2, 14, 4, 5, 60, 7);
+        final date = PersianDateTime(1402, 2, 2, 14, 4, 5, 60, 7);
         final p =
             "yyyy yy MMMM MMM MM M dd d c hh h HH H mm m ss s SSS SS S a EEEEE EEEE EEE EE E";
         final formatted = GeneralDateFormat(p, 'fa').format(date);
@@ -323,7 +323,7 @@ void main() {
 
       test('GeneralDateFormat handles all ICU-like symbols correctly in fa',
           () {
-        final date = JalaliDateTime(1402, 4, 10, 23);
+        final date = PersianDateTime(1402, 4, 10, 23);
         final p =
             "G GGGG yyyy y MM M dd d c h H k K EEEE EEEEE D a Q QQ QQQ QQQQ";
         final formatted = GeneralDateFormat(p, 'fa').format(date);
@@ -356,7 +356,7 @@ void main() {
       });
 
       test('Full DateTime With Delimiter in fa', () {
-        final date = JalaliDateTime(1402, 2, 11, 23, 12, 45);
+        final date = PersianDateTime(1402, 2, 11, 23, 12, 45);
         String res =
             GeneralDateFormat("yyyy/MM/dd HH:mm:ss EEEE", 'fa').format(date);
         expect(res, "۱۴۰۲/۰۲/۱۱ ۲۳:۱۲:۴۵ دوشنبه");
@@ -367,7 +367,7 @@ void main() {
   group("Formatting Stress Tests", () {
     // Test full RTL formatting with Persian numerals
     test('Persian RTL Complexity', () {
-      final date = JalaliDateTime(1402, 7, 15, 14, 45, 30, 500);
+      final date = PersianDateTime(1402, 7, 15, 14, 45, 30, 500);
       final formatted =
           GeneralDateFormat("yyyy/MMMM/dd EEEE - HH:mm:ss.SSS a", "fa")
               .format(date);
@@ -377,13 +377,13 @@ void main() {
 
     // Test midnight/noon edge cases
     test('Time Extremes', () {
-      final midnight = JalaliDateTime(1402, 1, 1, 0, 0);
+      final midnight = PersianDateTime(1402, 1, 1, 0, 0);
       expect(GeneralDateFormat("h:mm a").format(midnight), "12:00 AM");
     });
 
     // Test numeric formatting edge cases
     test('Numeric Padding', () {
-      final date = JalaliDateTime(5, 3, 7, 3, 9);
+      final date = PersianDateTime(5, 3, 7, 3, 9);
       expect(
           GeneralDateFormat("yy/MM/dd hh:mm").format(date), "05/03/07 03:09");
       expect(GeneralDateFormat("y/M/d H:m", "fa").format(date), "۵/۳/۷ ۳:۹");
@@ -391,14 +391,14 @@ void main() {
 
     // Test escape characters
     test('Format Literals', () {
-      final date = JalaliDateTime(1402, 1, 1);
+      final date = PersianDateTime(1402, 1, 1);
       expect(GeneralDateFormat("'Year:' yyyy 'at' HH:mm").format(date),
           "Year: 1402 at 00:00");
     });
 
     // Test microsecond precision
     test('Fractional Seconds', () {
-      final date = JalaliDateTime(1, 1, 1, 1, 1, 1, 1, 123456);
+      final date = PersianDateTime(1, 1, 1, 1, 1, 1, 1, 123456);
       expect(GeneralDateFormat("SSSSSS", "en_ISO").format(date), "124000");
       expect(GeneralDateFormat("SSS", "fa").format(date), "۱۲۴");
     });
@@ -407,7 +407,7 @@ void main() {
   group(
     "Functions Testing (add_X)",
     () {
-      final date = JalaliDateTime(1402, 2, 11, 23, 59, 30, 789, 123);
+      final date = PersianDateTime(1402, 2, 11, 23, 59, 30, 789, 123);
 
       test('add_d formats day in month', () {
         expect(GeneralDateFormat("M").add_d().format(date), '2 11');
@@ -570,7 +570,7 @@ void main() {
   group(
     "Functions Testing (add_X) - fa locale",
     () {
-      final date = JalaliDateTime(1402, 2, 11, 23, 59, 30, 789, 123);
+      final date = PersianDateTime(1402, 2, 11, 23, 59, 30, 789, 123);
       final locale = 'fa';
 
       test('add_d formats day in month', () {

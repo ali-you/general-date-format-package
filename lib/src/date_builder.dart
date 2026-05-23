@@ -24,7 +24,7 @@ class DateBuilder {
   ///
   /// Kept as a field to cache the result and to reduce the possibility of error
   /// after we've verified.
-  GeneralDateTimeInterface? _date;
+  DateTime? _date;
 
   /// Is this constructing a pure date.
   ///
@@ -40,7 +40,7 @@ class DateBuilder {
   // We do set it, the analyzer just can't tell.
   bool dateOnly = false;
 
-  GeneralDateTimeInterface generalDateTime;
+  DateTime generalDateTime;
 
   DateBuilder(this.generalDateTime);
 
@@ -96,7 +96,7 @@ class DateBuilder {
     var minimumDate = dateOnly && date.hour == 1 ? 0 : date.hour;
     _verify(hour24, minimumDate, date.hour, 'hour', s, date);
     if (dayOfYear > 0) {
-      var correspondingDay = generalDateTime.dayOfYear;
+      var correspondingDay = (generalDateTime as PersianDateTime).dayOfYear;
       _verify(
           dayOfYear, correspondingDay, correspondingDay, 'dayOfYear', s, date);
     } else {
@@ -107,7 +107,7 @@ class DateBuilder {
   }
 
   void _verify(int value, int min, int max, String desc, String originalInput,
-      [GeneralDateTimeInterface? parsed]) {
+      [DateTime? parsed]) {
     if (value < min || value > max) {
       var parsedDescription = parsed == null ? '' : ' Date parsed as $parsed.';
       var errorDescription =
@@ -123,8 +123,8 @@ class DateBuilder {
   /// All other fields of the [DateTime] normally will remain unaffected.  An
   /// exception is if the resulting [DateTime] otherwise would represent an
   /// invalid date (e.g. February 29 of a non-leap year).
-  GeneralDateTimeInterface _offsetYear(
-          GeneralDateTimeInterface dateTime, int offsetYears) =>
+  DateTime _offsetYear(
+          DateTime dateTime, int offsetYears) =>
       _typeSelector(
           dateTime,
           dateTime.year + offsetYears,
@@ -138,16 +138,16 @@ class DateBuilder {
 
   /// Return a date built using our values. If no date portion is set,
   /// use the 'Epoch' of January 1, 1970.
-  GeneralDateTimeInterface asDate() {
+  DateTime asDate() {
     if (_date != null) return _date!;
-    GeneralDateTimeInterface preliminaryResult = JalaliDateTime(_estimatedYear,
+    DateTime preliminaryResult = PersianDateTime(_estimatedYear,
         month, dayOrDayOfYear, hour24, minute, second, fractionalSecond);
     if (utc && _hasCentury) _date = preliminaryResult;
     return _date!;
   }
 
   int get _estimatedYear {
-    GeneralDateTimeInterface preliminaryResult(int year) => _typeSelector(
+    DateTime preliminaryResult(int year) => _typeSelector(
         generalDateTime,
         year,
         generalDateTime.month,
@@ -161,14 +161,14 @@ class DateBuilder {
     if (_hasCentury) {
       estimatedYear = year;
     } else {
-      GeneralDateTimeInterface now = GeneralDateTimeInterface.now();
+      DateTime now = PersianDateTime.now();
       if (utc) {
         now = now.toUtc();
       }
 
       const int lookBehindYears = 80;
-      GeneralDateTimeInterface lowerDate = _offsetYear(now, -lookBehindYears);
-      GeneralDateTimeInterface upperDate =
+      DateTime lowerDate = _offsetYear(now, -lookBehindYears);
+      DateTime upperDate =
           _offsetYear(now, 100 - lookBehindYears);
       var lowerCentury = (lowerDate.year ~/ 100) * 100;
       var upperCentury = (upperDate.year ~/ 100) * 100;
@@ -194,8 +194,8 @@ class DateBuilder {
     return estimatedYear;
   }
 
-  GeneralDateTimeInterface _typeSelector(
-      GeneralDateTimeInterface type,
+  DateTime _typeSelector(
+      DateTime type,
       int year,
       int month,
       int day,
@@ -204,12 +204,12 @@ class DateBuilder {
       int second,
       int millisecond,
       int microsecond) {
-    if (type is JalaliDateTime) {
-      return JalaliDateTime(
+    if (type is PersianDateTime) {
+      return PersianDateTime(
           year, month, day, hour, minute, second, millisecond, microsecond);
     }
 
-    return JalaliDateTime(
+    return PersianDateTime(
         year, month, day, hour, minute, second, millisecond, microsecond);
   }
 }

@@ -333,7 +333,7 @@ class GeneralDateFormat {
 
   /// Return a string representing [date] formatted according to our locale
   /// and internal format.
-  String format(GeneralDateTimeInterface date) {
+  String format(DateTime date) {
     initializeDateSymbols(date);
     var result = StringBuffer();
     for (var field in _formatFields) {
@@ -350,8 +350,8 @@ class GeneralDateFormat {
   /// with additional characters (including whitespace) after a valid date. For
   /// stricter parsing, use [parseStrict].
   /// TODO: implement this
-  GeneralDateTimeInterface parse(
-          String inputString, GeneralDateTimeInterface dateTimeType,
+  DateTime parse(
+          String inputString, DateTime dateTimeType,
           [bool utc = false]) =>
       _parse(inputString, dateTimeType, utc: utc, strict: false);
 
@@ -363,8 +363,8 @@ class GeneralDateFormat {
   /// with additional characters (including whitespace) after a valid date. For
   /// stricter parsing, use [tryParseStrict].
   /// TODO: implement this
-  GeneralDateTimeInterface? tryParse(
-      String inputString, GeneralDateTimeInterface dateTimeType,
+  DateTime? tryParse(
+      String inputString, DateTime dateTimeType,
       [bool utc = false]) {
     try {
       return parse(inputString, dateTimeType, utc);
@@ -399,8 +399,8 @@ class GeneralDateFormat {
   ///       // 'Sept' is not a valid month name.
   ///       GeneralDateFormat.yMMMd('en_US').parseLoose('Sept 3, 2014');
   /// TODO: implement this
-  GeneralDateTimeInterface parseLoose(
-      String inputString, GeneralDateTimeInterface dateTimeType,
+  DateTime parseLoose(
+      String inputString, DateTime dateTimeType,
       [bool utc = false]) {
     try {
       return _parse(inputString, dateTimeType, utc: utc, strict: true);
@@ -435,8 +435,8 @@ class GeneralDateFormat {
   ///       // 'Sept' is not a valid month name.
   ///       GeneralDateFormat.yMMMd('en_US').tryParseLoose('Sept 3, 2014');
   /// TODO: implement this
-  GeneralDateTimeInterface? tryParseLoose(
-      String inputString, GeneralDateTimeInterface dateTimeType,
+  DateTime? tryParseLoose(
+      String inputString, DateTime dateTimeType,
       [bool utc = false]) {
     try {
       return parseLoose(inputString, dateTimeType, utc);
@@ -446,8 +446,8 @@ class GeneralDateFormat {
   }
 
   /// TODO: implement this
-  GeneralDateTimeInterface _parseLoose(
-      String inputString, GeneralDateTimeInterface dateTimeType, bool utc) {
+  DateTime _parseLoose(
+      String inputString, DateTime dateTimeType, bool utc) {
     var dateFields = DateBuilder(dateTimeType);
     if (utc) dateFields.utc = true;
     var stack = StringStack(inputString);
@@ -471,8 +471,8 @@ class GeneralDateFormat {
   /// additional characters (including whitespace) after a valid date. For
   /// looser parsing, use [parse].
   /// TODO: implement this
-  GeneralDateTimeInterface parseStrict(
-          String inputString, GeneralDateTimeInterface dateTimeType,
+  DateTime parseStrict(
+          String inputString, DateTime dateTimeType,
           [bool utc = false]) =>
       _parse(inputString, dateTimeType, utc: utc, strict: true);
 
@@ -485,8 +485,8 @@ class GeneralDateFormat {
   /// additional characters (including whitespace) after a valid date. For
   /// looser parsing, use [tryParse].
   /// TODO: implement this
-  GeneralDateTimeInterface? tryParseStrict(
-      String inputString, GeneralDateTimeInterface dateTimeType,
+  DateTime? tryParseStrict(
+      String inputString, DateTime dateTimeType,
       [bool utc = false]) {
     try {
       return parseStrict(inputString, dateTimeType, utc);
@@ -495,8 +495,8 @@ class GeneralDateFormat {
     }
   }
 
-  GeneralDateTimeInterface _parse(
-      String inputString, GeneralDateTimeInterface dateTimeType,
+  DateTime _parse(
+      String inputString, DateTime dateTimeType,
       {bool utc = false, bool strict = false}) {
     var dateFields = DateBuilder(dateTimeType);
     if (utc) dateFields.utc = true;
@@ -529,8 +529,8 @@ class GeneralDateFormat {
   /// is [parseUtc], but [parseUTC] is retained
   /// for backward-compatibility.
   /// TODO: implement this
-  GeneralDateTimeInterface parseUTC(
-          String inputString, GeneralDateTimeInterface dateTimeType) =>
+  DateTime parseUTC(
+          String inputString, DateTime dateTimeType) =>
       parse(inputString, dateTimeType, true);
 
   /// Given user input, attempt to parse the [inputString] into the anticipated
@@ -541,16 +541,16 @@ class GeneralDateFormat {
   /// is [parseUtc], but [parseUTC] is retained
   /// for backward-compatibility.
   /// TODO: implement this
-  GeneralDateTimeInterface parseUtc(
-          String inputString, GeneralDateTimeInterface dateTimeType) =>
+  DateTime parseUtc(
+          String inputString, DateTime dateTimeType) =>
       parse(inputString, dateTimeType, true);
 
   /// Given user input, attempt to parse the [inputString] into the anticipated
   /// format, treating it as being in UTC.
   /// If [inputString] does not match our format, returns `null`.
   /// TODO: implement this
-  GeneralDateTimeInterface? tryParseUtc(
-      String inputString, GeneralDateTimeInterface dateTimeType) {
+  DateTime? tryParseUtc(
+      String inputString, DateTime dateTimeType) {
     try {
       return parseUtc(inputString, dateTimeType);
     } on FormatException {

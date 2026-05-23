@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.0]
+- Initial stable release
+- Added support for a wide range of locales
+- Internal optimizations for pattern parsing and string handling
+- Updated example project with latest Android configurations
+- Documentation improvements and added `LICENSE`
+
 ## [0.1.3]
 - Updated `README.md` and documentation
 

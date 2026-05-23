@@ -22,18 +22,18 @@ DateSymbols? cachedDateSymbols;
 String? lastDateSymbolLocale;
 
 /// Which calendar type was last used.
-GeneralDateTimeInterface? lastCalendar;
+DateTime? lastCalendar;
 
 /// Initialize the symbols dictionary. This should be passed a function that
 /// creates and returns the symbol data. We take a function so that if
 /// initializing the data is an expensive operation it need only be done once,
 /// no matter how many times this method is called.
-void initializeDateSymbols(GeneralDateTimeInterface calendar) {
+void initializeDateSymbols(DateTime calendar) {
   if (lastCalendar == null ||
       lastCalendar != calendar ||
       _dateTimeSymbols == null) {
-    if (calendar is JalaliDateTime) dateTimeSymbols = jalaliSymbolMap;
-    if (calendar is HijriDateTime) dateTimeSymbols = hijriSymbolMap;
+    if (calendar is PersianDateTime) dateTimeSymbols = persianDateSymbolMap;
+    if (calendar is HijriDateTime) dateTimeSymbols = hijriDateSymbolMap;
   }
 }
 

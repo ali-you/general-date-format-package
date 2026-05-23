@@ -3,7 +3,7 @@ import "../date_symbols.dart";
 /// Returns a Map from locale names to the DateSymbols instance for
 /// that locale. Internal use only. Call initializeDateFormatting
 /// instead.
-final Map<String, DateSymbols> hijriSymbolMap = {
+final Map<String, DateSymbols> hijriDateSymbolMap = {
       // Date/time formatting symbols for locale en_ISO.
       "en_ISO": DateSymbols(
           NAME: 'en_ISO',

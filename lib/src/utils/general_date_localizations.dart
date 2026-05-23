@@ -15,9 +15,9 @@ void loadDateIntlDataIfNotLoaded() {
     initializeDateSymbols(calendar);
     dateTimeSymbols = dateTimePatternMap;
 
-    jalaliSymbolMap.forEach((String locale, DateSymbols symbols) {
+    persianDateSymbolMap.forEach((String locale, DateSymbols symbols) {
       // Perform initialization.
-      assert(jalaliSymbolMap.containsKey(locale));
+      assert(persianDateSymbolMap.containsKey(locale));
       date_symbol_data_custom.initializeDateFormattingCustom(
         locale: locale,
         symbols: symbols,

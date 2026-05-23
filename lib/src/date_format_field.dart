@@ -31,7 +31,7 @@ abstract class _DateFormatField {
   String toString() => pattern;
 
   /// Format date according to our specification and return the result.
-  String format(GeneralDateTimeInterface date) => pattern;
+  String format(DateTime date) => pattern;
 
   /// Abstract method for subclasses to implementing parsing for their format.
   void parse(StringStack input, DateBuilder dateFields);
@@ -234,7 +234,7 @@ class _DateFormatPatternField extends _DateFormatField {
 
   /// Format date according to our specification and return the result.
   @override
-  String format(GeneralDateTimeInterface date) => formatField(date);
+  String format(DateTime date) => formatField(date);
 
   /// Parse the date according to our specification and put the result
   /// into the correct place in dateFields.
@@ -332,7 +332,7 @@ class _DateFormatPatternField extends _DateFormatField {
   }
 
   /// Formatting logic if we are of type FIELD
-  String formatField(GeneralDateTimeInterface date) {
+  String formatField(DateTime date) {
     switch (pattern[0]) {
       case 'a':
         return formatAmPm(date);
@@ -376,12 +376,12 @@ class _DateFormatPatternField extends _DateFormatField {
   /// Return the symbols for our current locale.
   DateSymbols get symbols => parent.dateSymbols;
 
-  String formatEra(GeneralDateTimeInterface date) {
+  String formatEra(DateTime date) {
     var era = date.year > 0 ? 1 : 0;
     return width >= 4 ? symbols.ERANAMES[era] : symbols.ERAS[era];
   }
 
-  String formatYear(GeneralDateTimeInterface date) {
+  String formatYear(DateTime date) {
     var year = date.year;
     if (year < 0) year = -year;
     return width == 2 ? padTo(2, year % 100) : padTo(width, year);
@@ -465,7 +465,7 @@ class _DateFormatPatternField extends _DateFormatField {
     builder.hasAmbiguousCentury = width == 2;
   }
 
-  String formatMonth(GeneralDateTimeInterface date) {
+  String formatMonth(DateTime date) {
     switch (width) {
       case 5:
         return symbols.NARROWMONTHS[date.month - 1];
@@ -496,12 +496,12 @@ class _DateFormatPatternField extends _DateFormatField {
     dateFields.month = parseEnumeratedString(input, possibilities) + 1;
   }
 
-  String format24Hours(GeneralDateTimeInterface date) {
+  String format24Hours(DateTime date) {
     var hour = date.hour == 0 ? 24 : date.hour;
     return padTo(width, hour);
   }
 
-  String formatFractionalSeconds(GeneralDateTimeInterface date) {
+  String formatFractionalSeconds(DateTime date) {
     // Always print at least 3 digits. If the width is greater, append 0s
     var basic = padTo(3, date.millisecond);
     if (width - 3 > 0) {
@@ -512,7 +512,7 @@ class _DateFormatPatternField extends _DateFormatField {
     }
   }
 
-  String formatAmPm(GeneralDateTimeInterface date) {
+  String formatAmPm(DateTime date) {
     var hours = date.hour;
     var index = (hours >= 12) && (hours < 24) ? 1 : 0;
     var ampm = symbols.AMPMS;
@@ -524,7 +524,7 @@ class _DateFormatPatternField extends _DateFormatField {
     if (ampm == 1) dateFields.pm = true;
   }
 
-  String format1To12Hours(GeneralDateTimeInterface date) {
+  String format1To12Hours(DateTime date) {
     var hours = date.hour;
     if (date.hour > 12) hours = hours - 12;
     if (hours == 0) hours = 12;
@@ -536,13 +536,13 @@ class _DateFormatPatternField extends _DateFormatField {
     if (dateFields.hour == 12) dateFields.hour = 0;
   }
 
-  String format0To11Hours(GeneralDateTimeInterface date) =>
+  String format0To11Hours(DateTime date) =>
       padTo(width, date.hour % 12);
 
-  String format0To23Hours(GeneralDateTimeInterface date) =>
+  String format0To23Hours(DateTime date) =>
       padTo(width, date.hour);
 
-  String formatStandaloneDay(GeneralDateTimeInterface date) {
+  String formatStandaloneDay(DateTime date) {
     switch (width) {
       case 5:
         return symbols.STANDALONENARROWWEEKDAYS[date.weekday % 7];
@@ -574,7 +574,7 @@ class _DateFormatPatternField extends _DateFormatField {
     parseEnumeratedString(input, possibilities);
   }
 
-  String formatStandaloneMonth(GeneralDateTimeInterface date) {
+  String formatStandaloneMonth(DateTime date) {
     switch (width) {
       case 5:
         return symbols.STANDALONENARROWMONTHS[date.month - 1];
@@ -605,7 +605,7 @@ class _DateFormatPatternField extends _DateFormatField {
     dateFields.month = parseEnumeratedString(input, possibilities) + 1;
   }
 
-  String formatQuarter(GeneralDateTimeInterface date) {
+  String formatQuarter(DateTime date) {
     var quarter = ((date.month - 1) / 3).truncate();
     switch (width) {
       case 4:
@@ -617,15 +617,15 @@ class _DateFormatPatternField extends _DateFormatField {
     }
   }
 
-  String formatDayOfMonth(GeneralDateTimeInterface date) {
+  String formatDayOfMonth(DateTime date) {
     return padTo(width, date.day);
   }
 
-  String formatDayOfYear(GeneralDateTimeInterface date) =>
-      padTo(width, date.dayOfYear);
+  String formatDayOfYear(DateTime date) =>
+      padTo(width, (date as PersianDateTime).dayOfYear);
 
   /// See also http://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table
-  String formatDayOfWeek(GeneralDateTimeInterface date) {
+  String formatDayOfWeek(DateTime date) {
     // Note that Dart's weekday returns 1 for Monday and 7 for Sunday.
     return switch (width) {
       /// "Abbreviated" - `Tue` for en-US
@@ -652,10 +652,10 @@ class _DateFormatPatternField extends _DateFormatField {
     parseEnumeratedString(input, possibilities);
   }
 
-  String formatMinutes(GeneralDateTimeInterface date) =>
+  String formatMinutes(DateTime date) =>
       padTo(width, date.minute);
 
-  String formatSeconds(GeneralDateTimeInterface date) =>
+  String formatSeconds(DateTime date) =>
       padTo(width, date.second);
 
   /// Return a string representation of the object padded to the left with
