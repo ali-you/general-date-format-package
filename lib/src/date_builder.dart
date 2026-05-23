@@ -123,25 +123,23 @@ class DateBuilder {
   /// All other fields of the [DateTime] normally will remain unaffected.  An
   /// exception is if the resulting [DateTime] otherwise would represent an
   /// invalid date (e.g. February 29 of a non-leap year).
-  DateTime _offsetYear(
-          DateTime dateTime, int offsetYears) =>
-      _typeSelector(
-          dateTime,
-          dateTime.year + offsetYears,
-          dateTime.month,
-          dateTime.day,
-          dateTime.hour,
-          dateTime.minute,
-          dateTime.second,
-          dateTime.millisecond,
-          dateTime.microsecond);
+  DateTime _offsetYear(DateTime dateTime, int offsetYears) => _typeSelector(
+      dateTime,
+      dateTime.year + offsetYears,
+      dateTime.month,
+      dateTime.day,
+      dateTime.hour,
+      dateTime.minute,
+      dateTime.second,
+      dateTime.millisecond,
+      dateTime.microsecond);
 
   /// Return a date built using our values. If no date portion is set,
   /// use the 'Epoch' of January 1, 1970.
   DateTime asDate() {
     if (_date != null) return _date!;
-    DateTime preliminaryResult = PersianDateTime(_estimatedYear,
-        month, dayOrDayOfYear, hour24, minute, second, fractionalSecond);
+    DateTime preliminaryResult = PersianDateTime(_estimatedYear, month,
+        dayOrDayOfYear, hour24, minute, second, fractionalSecond);
     if (utc && _hasCentury) _date = preliminaryResult;
     return _date!;
   }
@@ -168,8 +166,7 @@ class DateBuilder {
 
       const int lookBehindYears = 80;
       DateTime lowerDate = _offsetYear(now, -lookBehindYears);
-      DateTime upperDate =
-          _offsetYear(now, 100 - lookBehindYears);
+      DateTime upperDate = _offsetYear(now, 100 - lookBehindYears);
       var lowerCentury = (lowerDate.year ~/ 100) * 100;
       var upperCentury = (upperDate.year ~/ 100) * 100;
       estimatedYear = upperCentury + year;
@@ -194,16 +191,8 @@ class DateBuilder {
     return estimatedYear;
   }
 
-  DateTime _typeSelector(
-      DateTime type,
-      int year,
-      int month,
-      int day,
-      int hour,
-      int minute,
-      int second,
-      int millisecond,
-      int microsecond) {
+  DateTime _typeSelector(DateTime type, int year, int month, int day, int hour,
+      int minute, int second, int millisecond, int microsecond) {
     if (type is PersianDateTime) {
       return PersianDateTime(
           year, month, day, hour, minute, second, millisecond, microsecond);

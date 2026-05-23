@@ -350,8 +350,7 @@ class GeneralDateFormat {
   /// with additional characters (including whitespace) after a valid date. For
   /// stricter parsing, use [parseStrict].
   /// TODO: implement this
-  DateTime parse(
-          String inputString, DateTime dateTimeType,
+  DateTime parse(String inputString, DateTime dateTimeType,
           [bool utc = false]) =>
       _parse(inputString, dateTimeType, utc: utc, strict: false);
 
@@ -363,8 +362,7 @@ class GeneralDateFormat {
   /// with additional characters (including whitespace) after a valid date. For
   /// stricter parsing, use [tryParseStrict].
   /// TODO: implement this
-  DateTime? tryParse(
-      String inputString, DateTime dateTimeType,
+  DateTime? tryParse(String inputString, DateTime dateTimeType,
       [bool utc = false]) {
     try {
       return parse(inputString, dateTimeType, utc);
@@ -399,8 +397,7 @@ class GeneralDateFormat {
   ///       // 'Sept' is not a valid month name.
   ///       GeneralDateFormat.yMMMd('en_US').parseLoose('Sept 3, 2014');
   /// TODO: implement this
-  DateTime parseLoose(
-      String inputString, DateTime dateTimeType,
+  DateTime parseLoose(String inputString, DateTime dateTimeType,
       [bool utc = false]) {
     try {
       return _parse(inputString, dateTimeType, utc: utc, strict: true);
@@ -435,8 +432,7 @@ class GeneralDateFormat {
   ///       // 'Sept' is not a valid month name.
   ///       GeneralDateFormat.yMMMd('en_US').tryParseLoose('Sept 3, 2014');
   /// TODO: implement this
-  DateTime? tryParseLoose(
-      String inputString, DateTime dateTimeType,
+  DateTime? tryParseLoose(String inputString, DateTime dateTimeType,
       [bool utc = false]) {
     try {
       return parseLoose(inputString, dateTimeType, utc);
@@ -446,8 +442,7 @@ class GeneralDateFormat {
   }
 
   /// TODO: implement this
-  DateTime _parseLoose(
-      String inputString, DateTime dateTimeType, bool utc) {
+  DateTime _parseLoose(String inputString, DateTime dateTimeType, bool utc) {
     var dateFields = DateBuilder(dateTimeType);
     if (utc) dateFields.utc = true;
     var stack = StringStack(inputString);
@@ -471,8 +466,7 @@ class GeneralDateFormat {
   /// additional characters (including whitespace) after a valid date. For
   /// looser parsing, use [parse].
   /// TODO: implement this
-  DateTime parseStrict(
-          String inputString, DateTime dateTimeType,
+  DateTime parseStrict(String inputString, DateTime dateTimeType,
           [bool utc = false]) =>
       _parse(inputString, dateTimeType, utc: utc, strict: true);
 
@@ -485,8 +479,7 @@ class GeneralDateFormat {
   /// additional characters (including whitespace) after a valid date. For
   /// looser parsing, use [tryParse].
   /// TODO: implement this
-  DateTime? tryParseStrict(
-      String inputString, DateTime dateTimeType,
+  DateTime? tryParseStrict(String inputString, DateTime dateTimeType,
       [bool utc = false]) {
     try {
       return parseStrict(inputString, dateTimeType, utc);
@@ -495,8 +488,7 @@ class GeneralDateFormat {
     }
   }
 
-  DateTime _parse(
-      String inputString, DateTime dateTimeType,
+  DateTime _parse(String inputString, DateTime dateTimeType,
       {bool utc = false, bool strict = false}) {
     var dateFields = DateBuilder(dateTimeType);
     if (utc) dateFields.utc = true;
@@ -529,8 +521,7 @@ class GeneralDateFormat {
   /// is [parseUtc], but [parseUTC] is retained
   /// for backward-compatibility.
   /// TODO: implement this
-  DateTime parseUTC(
-          String inputString, DateTime dateTimeType) =>
+  DateTime parseUTC(String inputString, DateTime dateTimeType) =>
       parse(inputString, dateTimeType, true);
 
   /// Given user input, attempt to parse the [inputString] into the anticipated
@@ -541,16 +532,14 @@ class GeneralDateFormat {
   /// is [parseUtc], but [parseUTC] is retained
   /// for backward-compatibility.
   /// TODO: implement this
-  DateTime parseUtc(
-          String inputString, DateTime dateTimeType) =>
+  DateTime parseUtc(String inputString, DateTime dateTimeType) =>
       parse(inputString, dateTimeType, true);
 
   /// Given user input, attempt to parse the [inputString] into the anticipated
   /// format, treating it as being in UTC.
   /// If [inputString] does not match our format, returns `null`.
   /// TODO: implement this
-  DateTime? tryParseUtc(
-      String inputString, DateTime dateTimeType) {
+  DateTime? tryParseUtc(String inputString, DateTime dateTimeType) {
     try {
       return parseUtc(inputString, dateTimeType);
     } on FormatException {

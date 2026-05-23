@@ -536,11 +536,9 @@ class _DateFormatPatternField extends _DateFormatField {
     if (dateFields.hour == 12) dateFields.hour = 0;
   }
 
-  String format0To11Hours(DateTime date) =>
-      padTo(width, date.hour % 12);
+  String format0To11Hours(DateTime date) => padTo(width, date.hour % 12);
 
-  String format0To23Hours(DateTime date) =>
-      padTo(width, date.hour);
+  String format0To23Hours(DateTime date) => padTo(width, date.hour);
 
   String formatStandaloneDay(DateTime date) {
     switch (width) {
@@ -652,11 +650,9 @@ class _DateFormatPatternField extends _DateFormatField {
     parseEnumeratedString(input, possibilities);
   }
 
-  String formatMinutes(DateTime date) =>
-      padTo(width, date.minute);
+  String formatMinutes(DateTime date) => padTo(width, date.minute);
 
-  String formatSeconds(DateTime date) =>
-      padTo(width, date.second);
+  String formatSeconds(DateTime date) => padTo(width, date.second);
 
   /// Return a string representation of the object padded to the left with
   /// zeros. Primarily useful for numbers.
