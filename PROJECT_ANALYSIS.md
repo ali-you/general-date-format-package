@@ -7,14 +7,20 @@ fixes calendar-specific symbols, Gregorian handling, Hijri names/eras, local
 and UTC parsing, day-of-year validation, compact patterns, hour ranges,
 two-digit years, pattern cache invalidation and invalid quoted patterns.
 It also replaces the counter example, corrects documentation, and adds CI
-analysis/formatting checks. Time-zone patterns now fail explicitly and remain
+analysis/formatting checks. Persian and Hijri Material localization delegates
+now integrate calendar formatting, strict input parsing and Flutter translations
+with the companion package's calendar delegates. Time-zone patterns fail explicitly and remain
 unsupported; fractional precision remains milliseconds for intl compatibility.
 
-Validation after the fixes: 130 package tests passed with the hosted dependency
-and 130 with the local general_date override. Static analysis reported no
-issues. A widget test covers the example's three calendars and locale switching.
-The original suite contributed 95 tests; 35 calendar/parsing regression tests
-were added. All 120 locales are exercised for each of the three calendars.
+Validation after the fixes and comprehensive test expansion: 488 package tests
+passed with the hosted dependency and 488 with the local general_date override.
+216 tests are tagged critical. Measured package line coverage is 94.3%.
+Static analysis reported no issues. Three widget tests cover the example's
+three calendars, locale switching, and Persian/Hijri picker dialogs.
+The original suite contributed 95 tests; 36 calendar/parsing regression tests,
+319 comprehensive tests and 38 Material localization tests were added.
+All 120 locales are exercised for each
+of the three calendars. See TESTING.md for the suite and timezone CI details.
 
 Hijri data is generated from pinned CLDR 48.0.0 with a reproducible Python
 generator and Unicode license notice. The normal dependency still uses hosted

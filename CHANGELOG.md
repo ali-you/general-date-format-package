@@ -1,6 +1,15 @@
 # Changelog
 
 ## Unreleased
+- Added Persian and Hijri Material localization delegates using calendar-aware
+  date formats, translated Flutter labels, native digits and strict input parsing.
+- Demonstrate both localized calendar pickers in the example and test their
+  integration with calendar delegates and date input fields.
+- Preserve signed Persian years when formatting and parsing extended dates.
+- Added 319 comprehensive tests, including critical boundary/parser cases,
+  all-locale round trips, seeded date generation, and timezone CI coverage.
+- Keep native-digit input parseable with ASCII output; require textual fields in
+  loose parsing and allow flexible whitespace inside localized names.
 - Fixed Gregorian symbol selection and removed shared calendar state.
 - Replaced copied Persian data with Unicode CLDR 48 Hijri month and era names.
 - Implemented local, UTC, strict and loose parsing for all three supported calendars.

@@ -99,11 +99,80 @@ final format = GeneralDateFormat('yyyy-MM-dd', 'fa')..useNativeDigits = false;
 - Time-zone patterns `z`, `Z`, `v` and their skeleton constructors throw
   `UnsupportedError`; UTC/local date construction is supported.
 - Unclosed quoted patterns throw `FormatException`.
-- This package formats strings; Flutter date-picker integration needs matching
-  `MaterialLocalizations` and calendar delegates from `general_datetime`.
+- Flutter date pickers need matching Material localizations and the calendar
+  delegates from `general_datetime`; see the integration below.
 
 The [example](example/lib/main.dart) demonstrates formatting and strict UTC
-parsing for all three calendars, with English, Persian and Arabic selection.
+parsing for all three calendars, with English, Persian and Arabic selection,
+plus Persian and Hijri date pickers.
+
+## Material calendar localization delegates
+
+`PersianCalendarMaterialLocalizations.delegate` and
+`HijriCalendarMaterialLocalizations.delegate` provide calendar-aware date
+formatting and strict parsing, translated Material labels, localized numbers,
+weekday names and locale-specific first-day-of-week conventions. They support
+locales available in both this package and Flutter's Material translations.
+Import them from `general_date_format.dart` or `localizations.dart`.
+
+For an app using one calendar, place its delegate **before** Flutter's global
+delegates:
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:general_date_format/general_date_format.dart';
+import 'package:general_datetime/delegates.dart';
+import 'package:general_datetime/general_datetime.dart';
+
+MaterialApp(
+  locale: const Locale('fa'),
+  supportedLocales: const [Locale('en'), Locale('fa'), Locale('ar')],
+  localizationsDelegates: const [
+    PersianCalendarMaterialLocalizations.delegate,
+    ...GlobalMaterialLocalizations.delegates,
+  ],
+  home: Scaffold(body: CalendarDatePicker(
+    initialDate: PersianDateTime(1403, 1, 1),
+    firstDate: PersianDateTime(1400),
+    lastDate: PersianDateTime(1410, 12, 29),
+    calendarDelegate: const PersianCalendarDelegate(),
+    onDateChanged: (date) {},
+  )),
+);
+```
+
+Add `flutter_localizations: {sdk: flutter}` to your app's dependencies when
+importing Flutter's global delegates directly. Supply `PersianDateTime` or
+`HijriDateTime` values to the corresponding picker. Gregorian instants can be
+converted with the calendar's `fromDateTime` factory before opening the picker.
+
+For an app that opens several calendar types, keep global delegates in the app
+and override Material localizations for each dialog:
+
+```dart
+final selected = await showDatePicker(
+  context: context,
+  initialDate: HijriDateTime(1446, 9, 1),
+  firstDate: HijriDateTime(1440),
+  lastDate: HijriDateTime(1450, 12, 29),
+  calendarDelegate: const HijriCalendarDelegate(),
+  builder: (context, child) => Localizations.override(
+    context: context,
+    locale: const Locale('ar'),
+    delegates: const [HijriCalendarMaterialLocalizations.delegate],
+    child: child!,
+  ),
+);
+```
+
+Only the first delegate for `MaterialLocalizations` is loaded in a localization
+scope; install one calendar delegate per picker. For ASCII dates and numeric
+labels, use `const PersianCalendarMaterialLocalizationsDelegate(useNativeDigits:
+false)` or the corresponding Hijri delegate. These delegates use locale-specific
+compact date patterns, rather than the fixed English `dd/mm/yyyy` pattern of
+`general_datetime`'s `Default...` localizations. Invalid compact input returns
+`null`; parsed values use local time and retain the selected calendar type.
 
 ## Developing with a local calendar package
 
@@ -117,6 +186,9 @@ dependency_overrides:
 
 Run `flutter pub get`, `flutter analyze`, and `flutter test`. Remove the override
 and resolve again to verify the hosted dependency before a release.
+
+See [TESTING.md](TESTING.md) for the comprehensive suites, the fast
+`flutter test --tags critical` command, coverage, and timezone CI matrix.
 
 To regenerate Hijri data, run `python tool/generate_hijri_symbols.py`. It uses
 pinned CLDR 48.0.0 data and caches downloaded source files in `.dart_tool/cldr-48`.

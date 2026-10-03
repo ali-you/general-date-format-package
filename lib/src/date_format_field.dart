@@ -134,13 +134,30 @@ class _LoosePatternField extends _DateFormatPatternField {
   /// Assumes that input is lower case.
   @override
   int parseEnumeratedString(StringStack input, List<String> possibilities) {
-    var lowercasePossibilities =
-        possibilities.map((x) => x.toLowerCase()).toList();
-    try {
-      return super.parseEnumeratedString(input, lowercasePossibilities);
-    } on FormatException {
-      return -1;
+    final result = _tryParseEnumeratedString(input, possibilities);
+    if (result < 0) throwFormatException(input);
+    return result;
+  }
+
+  int _tryParseEnumeratedString(StringStack input, List<String> possibilities) {
+    var result = -1;
+    var length = 0;
+    for (var index = 0; index < possibilities.length; index++) {
+      // Names may contain spaces (e.g. Hijri "Jum. II"). Apply loose
+      // whitespace rules inside the name as well as between fields.
+      final pattern = possibilities[index]
+          .toLowerCase()
+          .split(RegExp(r'\s+'))
+          .map(RegExp.escape)
+          .join(r'\s+');
+      final match = RegExp('^$pattern').firstMatch(input.peekAll());
+      if (match != null && match.end > 0 && match.end >= length) {
+        result = index;
+        length = match.end;
+      }
     }
+    if (result >= 0) input.pop(length);
+    return result;
   }
 
   /// Parse a month name, case-insensitively, and set it in [dateFields].
@@ -153,7 +170,7 @@ class _LoosePatternField extends _DateFormatPatternField {
     }
     var possibilities = [symbols.MONTHS, symbols.SHORTMONTHS];
     for (var monthNames in possibilities) {
-      var month = parseEnumeratedString(input, monthNames);
+      var month = _tryParseEnumeratedString(input, monthNames);
       if (month != -1) {
         dateFields.month = month + 1;
         return;
@@ -173,14 +190,16 @@ class _LoosePatternField extends _DateFormatPatternField {
     }
     var possibilities = [
       symbols.STANDALONEWEEKDAYS,
-      symbols.STANDALONESHORTWEEKDAYS
+      symbols.STANDALONESHORTWEEKDAYS,
+      symbols.STANDALONENARROWWEEKDAYS,
     ];
     for (var dayNames in possibilities) {
-      var day = parseEnumeratedString(input, dayNames);
+      var day = _tryParseEnumeratedString(input, dayNames);
       if (day != -1) {
         return;
       }
     }
+    throwFormatException(input);
   }
 
   /// Parse a standalone month name, case-insensitively, and set it in
@@ -196,7 +215,7 @@ class _LoosePatternField extends _DateFormatPatternField {
       symbols.STANDALONESHORTMONTHS
     ];
     for (var monthNames in possibilities) {
-      var month = parseEnumeratedString(input, monthNames);
+      var month = _tryParseEnumeratedString(input, monthNames);
       if (month != -1) {
         dateFields.month = month + 1;
         return;
@@ -215,11 +234,12 @@ class _LoosePatternField extends _DateFormatPatternField {
       symbols.NARROWWEEKDAYS
     ];
     for (var dayNames in possibilities) {
-      var day = parseEnumeratedString(input, dayNames);
+      var day = _tryParseEnumeratedString(input, dayNames);
       if (day != -1) {
         return;
       }
     }
+    throwFormatException(input);
   }
 }
 
@@ -399,9 +419,8 @@ class _DateFormatPatternField extends _DateFormatField {
     var year = date.year;
     if (date is! GeneralDateTimeInterface && year <= 0) {
       year = 1 - year;
-    } else if (year < 0) {
-      year = -year;
     }
+    if (year < 0) return '-${padTo(width, year.abs())}';
     return width == 2 ? padTo(2, year % 100) : padTo(width, year);
   }
 
@@ -430,12 +449,12 @@ class _DateFormatPatternField extends _DateFormatField {
     final source = fixedWidth
         ? inputStack.peek(pattern[0] == 'S' && width < 3 ? 3 : width)
         : inputStack.peekAll();
-    var string = parent.digitMatcher.stringMatch(source);
+    var string = parent._parseDigitMatcher.stringMatch(source);
     if (string == null || string.isEmpty) {
       return throwFormatException(inputStack);
     }
     inputStack.pop(string.length);
-    final zeroDigit = parent.localeZeroCodeUnit;
+    final zeroDigit = (symbols.ZERODIGIT ?? '0').codeUnitAt(0);
     if (zeroDigit != '0'.codeUnitAt(0)) {
       var codeUnits = string.codeUnits;
       string = String.fromCharCodes(List.generate(
@@ -475,9 +494,12 @@ class _DateFormatPatternField extends _DateFormatField {
   }
 
   void parseYear(StringStack input, DateBuilder builder) {
+    final negative = builder.generalDateTime is GeneralDateTimeInterface &&
+        input.startsWith('-');
+    if (negative) input.pop();
     final digits = _readDigits(input);
-    builder.year = int.parse(digits);
-    builder.hasAmbiguousCentury = width == 2 && digits.length == 2;
+    builder.year = int.parse(digits) * (negative ? -1 : 1);
+    builder.hasAmbiguousCentury = !negative && width == 2 && digits.length == 2;
   }
 
   String formatMonth(DateTime date) {

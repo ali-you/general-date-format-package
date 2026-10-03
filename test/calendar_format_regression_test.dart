@@ -264,4 +264,23 @@ void main() {
     expect(GeneralDateFormat('yyyy G').parseUtc('0044 BC', selector).year, -43);
     expect(GeneralDateFormat('yyyy G').format(DateTime.utc(-43)), '0044 BC');
   });
+
+  test('Signed Persian years retain their sign in numeric and compact patterns',
+      () {
+    for (final locale in ['en', 'fa', 'ar']) {
+      for (final pattern in ['yyyy-MM-dd', 'yyyyMMdd', 'yy-MM-dd']) {
+        final date = PersianDateTime(-61, 2, 31);
+        final format = GeneralDateFormat(pattern, locale);
+        final text = format.format(date);
+        expect(text, startsWith('-'));
+        expectFields(
+            format.parseStrict(text, PersianDateTime(1400), true), date);
+      }
+    }
+    // Native Gregorian years continue to use their era rather than a sign.
+    expect(
+        GeneralDateFormat('yyyy-MM-dd')
+            .tryParseStrict('-0061-01-01', DateTime(2000)),
+        isNull);
+  });
 }

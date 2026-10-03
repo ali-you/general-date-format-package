@@ -1,8 +1,5 @@
-/// This file is startup of general_date_format library
-/// you can use the package consider the example
-
+/// Calendar-aware Material localizations for Flutter date pickers.
 library;
 
-export 'src/general_date_format.dart';
 export 'src/localizations/hijri_calendar_material_localizations.dart';
 export 'src/localizations/persian_calendar_material_localizations.dart';

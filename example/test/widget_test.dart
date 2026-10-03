@@ -18,4 +18,33 @@ void main() {
     expect(find.text('۱۴۰۳/۰۱/۰۱'), findsOneWidget);
     expect(find.textContaining('رمضان'), findsOneWidget);
   });
+
+  for (final calendar in ['Persian', 'Hijri']) {
+    testWidgets('Opens and confirms a $calendar picker in Persian',
+        (tester) async {
+      await tester.pumpWidget(const MyApp());
+      await tester.pumpAndSettle();
+      await tester.tap(find.byType(DropdownButton<String>));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Persian').hitTestable());
+      await tester.pumpAndSettle();
+      final button = find.byKey(ValueKey('pick-$calendar'));
+      await tester.ensureVisible(button);
+      await tester.pumpAndSettle();
+      await tester.tap(button);
+      await tester.pumpAndSettle();
+      expect(find.byType(DatePickerDialog), findsOneWidget);
+      expect(find.textContaining(calendar == 'Persian' ? 'فروردین' : 'رمضان'),
+          findsWidgets);
+      final material = MaterialLocalizations.of(
+          tester.element(find.byType(DatePickerDialog)));
+      expect(Directionality.of(tester.element(find.byType(DatePickerDialog))),
+          TextDirection.rtl);
+      await tester.tap(find.text(material.okButtonLabel));
+      await tester.pumpAndSettle();
+      expect(find.byType(DatePickerDialog), findsNothing);
+      expect(find.textContaining('Selected $calendar:'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    });
+  }
 }

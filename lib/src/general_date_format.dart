@@ -852,6 +852,15 @@ class GeneralDateFormat {
 
   RegExp? _digitMatcher;
 
+  /// Input accepts locale digits independently of the output preference.
+  RegExp get _parseDigitMatcher {
+    final zero = dateSymbols.ZERODIGIT ?? '0';
+    return _digitMatchers.putIfAbsent(zero, () {
+      final nine = String.fromCharCode(zero.codeUnitAt(0) + 9);
+      return RegExp('^[0-9$zero-$nine]+');
+    });
+  }
+
   /// A regular expression which matches against digits for this locale.
   RegExp get digitMatcher {
     if (_digitMatcher != null) return _digitMatcher!;

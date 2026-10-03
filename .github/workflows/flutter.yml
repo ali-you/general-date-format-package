@@ -9,6 +9,12 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        timezone: [UTC, Asia/Tehran, America/New_York]
+    env:
+      TZ: ${{ matrix.timezone }}
 
     steps:
       - name: Checkout code

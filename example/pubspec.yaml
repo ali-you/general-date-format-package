@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   general_datetime: ^2.1.0
   general_date_format:
     path: ../
