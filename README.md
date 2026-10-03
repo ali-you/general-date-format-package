@@ -7,9 +7,13 @@ Requires Flutter 3.32 or newer. Add the packages to your app:
 
 ```yaml
 dependencies:
-  general_date_format: ^1.0.1
-  general_datetime: ^2.1.0
+  general_date_format: ^2.0.0
+  general_datetime: ^3.0.0
 ```
+
+These versions are being prepared in the source repositories. Until they are
+published, use both local checkouts as described below. The formatter requires
+the corrected datetime core; general_datetime 2.1.0 is no longer supported.
 
 ## Formatting
 
@@ -176,16 +180,25 @@ compact date patterns, rather than the fixed English `dd/mm/yyyy` pattern of
 
 ## Developing with a local calendar package
 
-For development only, create an uncommitted `pubspec_overrides.yaml`:
+Keep the two checkouts beside each other as `general_date` and
+`general_date_format`. Copy the tracked override templates for the package and
+example before resolving dependencies (PowerShell):
 
-```yaml
-dependency_overrides:
-  general_datetime:
-    path: D:/StudioProjects/general_date
+```powershell
+Copy-Item pubspec_overrides.yaml.example pubspec_overrides.yaml
+Copy-Item example/pubspec_overrides.yaml.example example/pubspec_overrides.yaml
+flutter pub get
+Push-Location example
+flutter pub get
+Pop-Location
 ```
 
-Run `flutter pub get`, `flutter analyze`, and `flutter test`. Remove the override
-and resolve again to verify the hosted dependency before a release.
+The ignored overrides resolve the corrected core through relative paths. They
+do not change the publishable dependency constraint `general_datetime: ^3.0.0`.
+Run `flutter analyze` and `flutter test` against this pair. Publish
+general_datetime 3.0.0 first, then remove the local overrides, resolve and verify
+the hosted 3.x dependency before publishing general_date_format 2.0.0. Without a
+3.x release or local override, resolution must fail rather than select 2.1.0.
 
 See [TESTING.md](TESTING.md) for the comprehensive suites, the fast
 `flutter test --tags critical` command, coverage, and timezone CI matrix.

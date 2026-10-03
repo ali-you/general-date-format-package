@@ -1,6 +1,11 @@
 # Changelog
 
-## Unreleased
+## [2.0.0] — release preparation
+- Breaking: require general_datetime ^3.0.0, excluding the defective published
+  2.1.0 chronology and instant contracts. Publish general_datetime first.
+- Remove the old Hijri UTC workaround and use the corrected core directly.
+- Add dependency-contract regressions for Umm al-Qura conversion, UTC parsing,
+  native equality, and supported range APIs.
 - Added Persian and Hijri Material localization delegates using calendar-aware
   date formats, translated Flutter labels, native digits and strict input parsing.
 - Demonstrate both localized calendar pickers in the example and test their

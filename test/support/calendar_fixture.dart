@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:general_datetime/general_datetime.dart';
 
-/// Keep integration tests on the API shared by hosted and local calendars.
+/// Calendar construction shared by formatter integration tests.
 enum CalendarFixture {
   gregorian(2024),
   persian(1403),

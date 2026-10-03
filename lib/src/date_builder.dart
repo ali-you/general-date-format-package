@@ -30,15 +30,7 @@ class DateBuilder {
       return PersianDateTime.fromDateTime(date);
     }
     if (generalDateTime is HijriDateTime) {
-      final converted = HijriDateTime.fromDateTime(date);
-      return _construct(
-          converted.year,
-          converted.month,
-          converted.day,
-          converted.hour,
-          converted.minute,
-          converted.second,
-          converted.millisecond);
+      return HijriDateTime.fromDateTime(date);
     }
     return date;
   }
@@ -159,18 +151,10 @@ class DateBuilder {
               year, month, day, hour, minute, second, millisecond);
     }
     if (generalDateTime is HijriDateTime) {
-      final result = utc
+      return utc
           ? HijriDateTime.utc(
               year, month, day, hour, minute, second, millisecond)
           : HijriDateTime(year, month, day, hour, minute, second, millisecond);
-      if (!utc || result.isUtc) return result;
-      // Hosted general_datetime 2.1.0 loses UTC during Hijri normalization.
-      // Its ISO parser preserves it; use already-normalized calendar fields.
-      String two(int value) => '$value'.padLeft(2, '0');
-      return HijriDateTime.parse('${result.year.toString().padLeft(4, '0')}-'
-          '${two(result.month)}-${two(result.day)}T${two(result.hour)}:'
-          '${two(result.minute)}:${two(result.second)}.'
-          '${result.millisecond.toString().padLeft(3, '0')}Z');
     }
     return utc
         ? DateTime.utc(year, month, day, hour, minute, second, millisecond)

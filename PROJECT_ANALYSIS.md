@@ -1,5 +1,13 @@
 # general_date_format project analysis
 
+## Dependency follow-up
+
+The issue checklist now requires general_datetime 3.x and prepares formatter
+2.0.0. Local package/example overrides select the neighboring corrected source;
+the old hosted-2.1.0 Hijri workaround has been removed. The descriptions of
+hosted 2.1.0 below record the earlier review and do not describe the current
+dependency policy. See [the current checklist](../general_date/CALENDAR_ISSUES_CHECKLIST.md).
+
 ## Fix status
 
 The findings below record the original review. The subsequent implementation

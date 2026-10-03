@@ -17,12 +17,14 @@ cd example
 flutter test
 ```
 
-The package has 488 tests, including 216 tagged `critical`: 131 formatting and
+The package has 493 tests, including 221 tagged `critical`: 131 formatting and
 regression tests, 319 boundary/contract/locale/state tests, and 38 Material
-localization integration tests. The example has three widget tests.
+localization integration tests, plus five corrected-core dependency-contract
+tests. The example has three widget tests.
 
 | Suite | Coverage |
 | --- | --- |
+| `dependency_contract_test.dart` | Independent Umm al-Qura conversion anchor, the reported negative-day regression, strict UTC parsing, symmetric native equality/hash keys, finite supported bounds |
 | `calendar_boundaries_test.dart` | Gregorian leap centuries, Persian long/short months, every month's last valid day, every ordinal day in two years per calendar, all 24 hours, all quarters, fractional precision, BC/AD, weekdays |
 | `parsing_contract_test.dart` | Malformed and oversized input, invalid dates/times, throwing and nullable APIs, permissive/strict/loose differences, compact fields, selector defaults, century cutoffs, quoting, missing textual fields, unsupported patterns |
 | `formatter_state_test.dart` | Alternating calendars, failure recovery, unregistered calendars, native-digit toggles and defaults, pattern mutation, UTC/local instants, midnight DST jumps and nonexistent wall times |
@@ -42,25 +44,31 @@ they do not prove that every CI timezone has passed.
 
 ## Local calendar integration
 
-The same suite works with the hosted `general_datetime` dependency and the local
-project. To test the local project, create an uncommitted
-`pubspec_overrides.yaml`:
+The suite requires corrected `general_datetime` 3.x. Hosted 2.1.0 is deliberately
+excluded. To use the neighboring local project, copy the tracked templates:
 
-```yaml
-dependency_overrides:
-  general_datetime:
-    path: D:/StudioProjects/general_date
+```powershell
+Copy-Item pubspec_overrides.yaml.example pubspec_overrides.yaml
+Copy-Item example/pubspec_overrides.yaml.example example/pubspec_overrides.yaml
+flutter pub get
+Push-Location example
+flutter pub get
+Pop-Location
 ```
 
-Run `flutter pub get` and `flutter test`. Remove the override, resolve again,
-and rerun the suite to verify the hosted package. Avoid committing the override.
+The overrides are ignored and use relative paths. Run `flutter test` from the
+package directory. Once general_datetime 3.0.0 is published, remove the
+overrides, resolve again, and rerun the suite to verify the hosted 3.x package.
+The dependency-contract tests prevent a field-only formatter round trip from
+masking an incorrect chronology or native-instant contract.
 
 ## Scope and limitations
 
 Tests validate formatting and parsing against the selected calendar dependency.
 Persian/Hijri arithmetic and conversion algorithms belong to `general_datetime`;
-month lengths can differ between its hosted and local implementations. Fixed
-Gregorian and Persian month fixtures supplement the integration checks.
+the published 3.x release and its matching source must use the same chronology.
+Fixed Gregorian and Persian month fixtures and the independent Umm al-Qura
+anchor supplement the integration checks.
 
 Some translated abbreviated/narrow month names are shared by multiple months.
 Locale tests require those ambiguous names to retain their spelling and date

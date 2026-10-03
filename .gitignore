@@ -29,3 +29,7 @@ migrate_working_dir/
 .flutter-plugins
 .flutter-plugins-dependencies
 build/
+
+# Local development resolution; templates are tracked instead.
+/pubspec_overrides.yaml
+/example/pubspec_overrides.yaml
