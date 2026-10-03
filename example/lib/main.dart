@@ -32,9 +32,9 @@ class _FormatExampleState extends State<FormatExample> {
   @override
   Widget build(BuildContext context) {
     final dates = <String, DateTime>{
-      'Gregorian': DateTime(2024, 3, 20, 13, 5),
-      'Persian': PersianDateTime(1403, 1, 1, 13, 5),
-      'Hijri': HijriDateTime(1446, 9, 1, 13, 5),
+      'Gregorian': DateTime.now(),
+      'Persian': PersianDateTime.now(),
+      'Hijri': HijriDateTime(1448, 4, 21),
     };
     return Scaffold(
       appBar: AppBar(title: const Text('General Date Format')),
