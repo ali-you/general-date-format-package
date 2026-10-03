@@ -1,16 +1,10 @@
-# example
+# General Date Format example
 
-A new Flutter project.
+Run `flutter pub get` and `flutter run` from this directory.
 
-## Getting Started
+The app shows explicit numeric patterns, locale-aware date/time skeletons and
+strict UTC parsing for Gregorian, Persian and Hijri dates. Select English,
+Persian or Arabic to change the language and native digits.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+`DateTime`, `PersianDateTime` and `HijriDateTime` select the calendar. Formatting
+does not convert calendars; use `general_datetime` for conversion.

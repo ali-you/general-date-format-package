@@ -1,5 +1,6 @@
 name: example
-description: "A new Flutter project."
+description: "Gregorian, Persian and Hijri formatting and parsing examples."
+publish_to: none
 version: 1.0.0+1
 
 environment:
@@ -8,9 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.8
   general_datetime: ^2.1.0
-  ambient_light: ^0.1.4
   general_date_format:
     path: ../
 

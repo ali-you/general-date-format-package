@@ -12,17 +12,26 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          # flutter-version: 2.29.0
           channel: stable
           architecture: x64
 
       - name: Install dependencies
         run: flutter pub get
 
+      - name: Analyze package and example
+        run: flutter analyze
+
+      - name: Check Dart formatting
+        run: dart format --output=none --set-exit-if-changed lib test example/lib example/test
+
       - name: Run tests
+        run: flutter test
+
+      - name: Run example tests
+        working-directory: example
         run: flutter test

@@ -1,7 +1,12 @@
 /// Returns a Map from locale names to another Map that goes from skeletons
 /// to the locale-specific formatting patterns.
 /// Internal use only. Call initializeDateFormatting instead.
-Map<String, Map<String, String>> get dateTimePatternMap => {
+final _dateTimePatternMap = _createDateTimePatternMap();
+
+/// Reuses the locale patterns between formatter instances.
+Map<String, Map<String, String>> get dateTimePatternMap => _dateTimePatternMap;
+
+Map<String, Map<String, String>> _createDateTimePatternMap() => {
       /// Extended set of localized date/time patterns for locale af.
       'af': const {
         'd': 'd', // DAY

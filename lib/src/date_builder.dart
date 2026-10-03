@@ -1,204 +1,179 @@
+import 'package:clock/clock.dart';
 import 'package:general_datetime/general_datetime.dart';
 
-/// A class for holding onto the data for a date so that it can be built
-/// up incrementally.
+import 'general_date_format_internal.dart';
+
+/// Calendar-aware construction and validation of parsed date fields.
 class DateBuilder {
-  int year = 1349,
-      month = 1,
-      day = 1,
-      dayOfYear = 0,
-      hour = 0,
-      minute = 0,
-      second = 0,
-      fractionalSecond = 0;
-  bool pm = false;
-  bool utc = false;
-
-  /// Whether the century portion of [year] is ambiguous.
-  /// Ignored if `year < 0` or `year >= 100`.
+  late int year, month, day;
+  int dayOfYear = 0, hour = 0, minute = 0, second = 0, fractionalSecond = 0;
+  bool pm = false, utc = false, dateOnly = false;
   bool _hasAmbiguousCentury = false;
-
-  bool get _hasCentury => !_hasAmbiguousCentury || year < 0 || year >= 100;
-
-  /// The date result produced from [asDate].
-  ///
-  /// Kept as a field to cache the result and to reduce the possibility of error
-  /// after we've verified.
+  bool hasDayOfYear = false;
+  int? hourMinimum, hourMaximum;
+  int? _inputHour;
+  int? era;
   DateTime? _date;
+  int? _resolvedYear;
+  final DateTime generalDateTime;
 
-  /// Is this constructing a pure date.
-  ///
-  /// This is important because some locales change times at midnight,
-  /// e.g. Brazil. So if we try to create a DateTime representing a date at
-  /// midnight on the day of transition it will jump forward or back 1 hour.  If
-  /// it jumps forward that's mostly harmless if we only care about the
-  /// date. But if it jumps backwards that will change the date, which is
-  /// bad. Compensate by adjusting the time portion forward. But only do that
-  /// when we're explicitly trying to construct a date, which we can tell from
-  /// the format.
+  DateBuilder(this.generalDateTime) {
+    calendarType(generalDateTime);
+    final epoch = _inCalendar(DateTime.utc(1970));
+    year = epoch.year;
+    month = epoch.month;
+    day = epoch.day;
+  }
 
-  // We do set it, the analyzer just can't tell.
-  bool dateOnly = false;
+  DateTime _inCalendar(DateTime date) {
+    if (generalDateTime is PersianDateTime) {
+      return PersianDateTime.fromDateTime(date);
+    }
+    if (generalDateTime is HijriDateTime) {
+      final converted = HijriDateTime.fromDateTime(date);
+      return _construct(
+          converted.year,
+          converted.month,
+          converted.day,
+          converted.hour,
+          converted.minute,
+          converted.second,
+          converted.millisecond);
+    }
+    return date;
+  }
 
-  DateTime generalDateTime;
-
-  DateBuilder(this.generalDateTime);
-
-  // Functions that exist just to be closurized so we can pass them to a general
-  // method.
   void setYear(int x) => year = x;
-
-  /// Sets whether [year] should be treated as ambiguous because it lacks a
-  /// century.
-  set hasAmbiguousCentury(bool isAmbiguous) =>
-      _hasAmbiguousCentury = isAmbiguous;
-
+  set hasAmbiguousCentury(bool value) => _hasAmbiguousCentury = value;
   void setMonth(int x) => month = x;
-
   void setDay(int x) => day = x;
-
-  void setDayOfYear(int x) => dayOfYear = x;
-
-  /// If [dayOfYear] has been set, return it, otherwise return [day], indicating
-  /// the day of the month.
-  int get dayOrDayOfYear => dayOfYear == 0 ? day : dayOfYear;
+  void setDayOfYear(int x) {
+    dayOfYear = x;
+    hasDayOfYear = true;
+  }
 
   void setHour(int x) => hour = x;
-
   void setMinute(int x) => minute = x;
-
   void setSecond(int x) => second = x;
-
   void setFractionalSecond(int x) => fractionalSecond = x;
 
+  /// Retain the original value so strict parsing checks the token's range.
+  void setPatternHour(int value, int minimum, int maximum) {
+    _inputHour = value;
+    hourMinimum = minimum;
+    hourMaximum = maximum;
+    hour = value;
+  }
+
+  int get dayOrDayOfYear => hasDayOfYear ? dayOfYear : day;
   int get hour24 => pm ? hour + 12 : hour;
 
-  /// Verify that we correspond to a valid date. This will reject out of
-  /// range values, even if the DateTime constructor would accept them. An
-  /// invalid message will result in throwing a [FormatException].
-  void verify(String s) {
-    _verify(month, 1, 12, 'month', s);
-    _verify(hour24, 0, 23, 'hour', s);
-    _verify(minute, 0, 59, 'minute', s);
-    _verify(second, 0, 59, 'second', s);
-    _verify(fractionalSecond, 0, 999, 'fractional second', s);
-    // Verifying the day is tricky, because it depends on the month. Create
-    // our resulting date and then verify that our values agree with it
-    // as an additional verification. And since we're doing that, also
-    // check the year, which we otherwise can't verify, and the hours,
-    // which will catch cases like '14:00:00 PM'.
-    var date = asDate();
-    // On rare occasions, possibly related to DST boundaries, a parsed date will
-    // come out as 1:00am. We compensate for the case of going backwards in
-    // _correctForErrors, but we may not be able to compensate for a midnight
-    // that doesn't exist. So tolerate an hour value of zero or one in these
-    // cases.
-    var minimumDate = dateOnly && date.hour == 1 ? 0 : date.hour;
-    _verify(hour24, minimumDate, date.hour, 'hour', s, date);
-    if (dayOfYear > 0) {
-      var correspondingDay = (generalDateTime as PersianDateTime).dayOfYear;
-      _verify(
-          dayOfYear, correspondingDay, correspondingDay, 'dayOfYear', s, date);
+  void verify(String input) {
+    _verify(month, 1, 12, 'month', input);
+    if (_inputHour != null) {
+      _verify(_inputHour!, hourMinimum!, hourMaximum!, 'hour', input);
+    }
+    _verify(hour24, 0, 23, 'hour', input);
+    _verify(minute, 0, 59, 'minute', input);
+    _verify(second, 0, 59, 'second', input);
+    _verify(fractionalSecond, 0, 999, 'fractional second', input);
+    final date = asDate();
+    final minimumHour = dateOnly && date.hour == 1 ? 0 : date.hour;
+    _verify(hour24, minimumHour, date.hour, 'hour', input);
+    if (hasDayOfYear) {
+      final actual = calendarDayOfYear(date);
+      _verify(dayOfYear, actual, actual, 'dayOfYear', input);
     } else {
-      // We have the day of the month, compare directly.
-      _verify(day, date.day, date.day, 'day', s, date);
+      _verify(day, date.day, date.day, 'day', input);
+      _verify(month, date.month, date.month, 'month', input);
     }
-    _verify(_estimatedYear, date.year, date.year, 'year', s, date);
+    _verify(_estimatedYear, date.year, date.year, 'year', input);
   }
 
-  void _verify(int value, int min, int max, String desc, String originalInput,
-      [DateTime? parsed]) {
-    if (value < min || value > max) {
-      var parsedDescription = parsed == null ? '' : ' Date parsed as $parsed.';
-      var errorDescription =
-          'Error parsing $originalInput, invalid $desc value: $value'
-          ' with time zone offset ${parsed?.timeZoneOffset ?? 'unknown'}.'
-          ' Expected value between $min and $max.$parsedDescription.';
-      throw FormatException(errorDescription);
+  void _verify(
+      int value, int minimum, int maximum, String field, String input) {
+    if (value < minimum || value > maximum) {
+      throw FormatException(
+          'Invalid $field: $value (expected $minimum..$maximum)', input);
     }
   }
 
-  /// Offsets a [DateTime] by a specified number of years.
-  ///
-  /// All other fields of the [DateTime] normally will remain unaffected.  An
-  /// exception is if the resulting [DateTime] otherwise would represent an
-  /// invalid date (e.g. February 29 of a non-leap year).
-  DateTime _offsetYear(DateTime dateTime, int offsetYears) => _typeSelector(
-      dateTime,
-      dateTime.year + offsetYears,
-      dateTime.month,
-      dateTime.day,
-      dateTime.hour,
-      dateTime.minute,
-      dateTime.second,
-      dateTime.millisecond,
-      dateTime.microsecond);
-
-  /// Return a date built using our values. If no date portion is set,
-  /// use the 'Epoch' of January 1, 1970.
   DateTime asDate() {
     if (_date != null) return _date!;
-    DateTime preliminaryResult = PersianDateTime(_estimatedYear, month,
-        dayOrDayOfYear, hour24, minute, second, fractionalSecond);
-    if (utc && _hasCentury) _date = preliminaryResult;
+    try {
+      _date = _construct(_estimatedYear, hasDayOfYear ? 1 : month,
+          dayOrDayOfYear, hour24, minute, second, fractionalSecond);
+    } on ArgumentError catch (error) {
+      throw FormatException('Date outside the calendar range: $error');
+    }
     return _date!;
   }
 
-  int get _estimatedYear {
-    DateTime preliminaryResult(int year) => _typeSelector(
-        generalDateTime,
-        year,
-        generalDateTime.month,
-        generalDateTime.day,
-        generalDateTime.hour,
-        generalDateTime.minute,
-        generalDateTime.second,
-        generalDateTime.millisecond,
-        generalDateTime.microsecond);
-    int estimatedYear;
-    if (_hasCentury) {
-      estimatedYear = year;
-    } else {
-      DateTime now = PersianDateTime.now();
-      if (utc) {
-        now = now.toUtc();
-      }
+  int get _estimatedYear => _resolvedYear ??= _estimateYear();
 
-      const int lookBehindYears = 80;
-      DateTime lowerDate = _offsetYear(now, -lookBehindYears);
-      DateTime upperDate = _offsetYear(now, 100 - lookBehindYears);
-      var lowerCentury = (lowerDate.year ~/ 100) * 100;
-      var upperCentury = (upperDate.year ~/ 100) * 100;
-      estimatedYear = upperCentury + year;
-
-      // Our interval must be half-open since there otherwise could be ambiguity
-      // for a date that is exactly 20 years in the future or exactly 80 years
-      // in the past (mod 100).  We'll treat the lower-bound date as the
-      // exclusive bound because:
-      // * It's farther away from the present, and we're less likely to care
-      //   about it.
-      // * By the time this function exits, time will have advanced to favor
-      //   the upper-bound date.
-      //
-      // We don't actually need to check both bounds.
-      if (preliminaryResult(upperCentury + year).compareTo(upperDate) <= 0) {
-        // Within range.
-        assert(preliminaryResult(upperCentury + year).compareTo(lowerDate) > 0);
-      } else {
-        estimatedYear = lowerCentury + year;
-      }
+  int _estimateYear() {
+    if (era == 0 && generalDateTime is! GeneralDateTimeInterface) {
+      return 1 - year;
     }
-    return estimatedYear;
+    if (!_hasAmbiguousCentury || year < 0 || year >= 100) return year;
+    final now = _inCalendar(utc ? clock.now().toUtc() : clock.now().toLocal());
+    final upper = _construct(now.year + 20, now.month, now.day, now.hour,
+        now.minute, now.second, now.millisecond);
+    var candidate = (upper.year ~/ 100) * 100 + year;
+    // Compare calendar fields, without relying on DateTime subclass internals.
+    final candidateDate = _construct(candidate, hasDayOfYear ? 1 : month,
+        dayOrDayOfYear, hour24, minute, second, fractionalSecond);
+    final inputFields = [
+      candidateDate.year,
+      candidateDate.month,
+      candidateDate.day,
+      candidateDate.hour,
+      candidateDate.minute,
+      candidateDate.second,
+      candidateDate.millisecond
+    ];
+    final upperFields = [
+      upper.year,
+      upper.month,
+      upper.day,
+      upper.hour,
+      upper.minute,
+      upper.second,
+      upper.millisecond
+    ];
+    for (var i = 0; i < inputFields.length; i++) {
+      if (inputFields[i] == upperFields[i]) continue;
+      if (inputFields[i] > upperFields[i]) candidate -= 100;
+      break;
+    }
+    return candidate;
   }
 
-  DateTime _typeSelector(DateTime type, int year, int month, int day, int hour,
-      int minute, int second, int millisecond, int microsecond) {
-    if (type is PersianDateTime) {
-      return PersianDateTime(
-          year, month, day, hour, minute, second, millisecond, microsecond);
+  DateTime _construct(int year, int month, int day, int hour, int minute,
+      int second, int millisecond) {
+    if (generalDateTime is PersianDateTime) {
+      return utc
+          ? PersianDateTime.utc(
+              year, month, day, hour, minute, second, millisecond)
+          : PersianDateTime(
+              year, month, day, hour, minute, second, millisecond);
     }
-
-    return PersianDateTime(
-        year, month, day, hour, minute, second, millisecond, microsecond);
+    if (generalDateTime is HijriDateTime) {
+      final result = utc
+          ? HijriDateTime.utc(
+              year, month, day, hour, minute, second, millisecond)
+          : HijriDateTime(year, month, day, hour, minute, second, millisecond);
+      if (!utc || result.isUtc) return result;
+      // Hosted general_datetime 2.1.0 loses UTC during Hijri normalization.
+      // Its ISO parser preserves it; use already-normalized calendar fields.
+      String two(int value) => '$value'.padLeft(2, '0');
+      return HijriDateTime.parse('${result.year.toString().padLeft(4, '0')}-'
+          '${two(result.month)}-${two(result.day)}T${two(result.hour)}:'
+          '${two(result.minute)}:${two(result.second)}.'
+          '${result.millisecond.toString().padLeft(3, '0')}Z');
+    }
+    return utc
+        ? DateTime.utc(year, month, day, hour, minute, second, millisecond)
+        : DateTime(year, month, day, hour, minute, second, millisecond);
   }
 }

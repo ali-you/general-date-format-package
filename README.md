@@ -1,107 +1,127 @@
-# General Date Format Package
+# General Date Format
 
-<a href="https://pub.dev/packages/general_date_format">
-   <img src="https://img.shields.io/pub/v/general_date_format?label=pub.dev&labelColor=333940&logo=dart">
-</a>
-<a href="https://github.com/ali-you/general-date-format-package/issues">
-   <img alt="Issues" src="https://img.shields.io/github/issues/ali-you/general-date-format-package?color=0088ff" />
-</a>
-<a href="https://github.com/ali-you/general-date-format-package/issues?q=is%3Aclosed">
-   <img alt="Issues" src="https://img.shields.io/github/issues-closed/ali-you/general-date-format-package?color=0088ff" />
-</a>
-<!-- <a href="https://github.com/ali-you/ambient-light-plugin/pulls">
-   <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/ali-you/ambient-light-plugin?color=0088ff" />
-</a> -->
-<a href="https://github.com/ali-you/general-date-format-package/pulls">
-   <img alt="GitHub Pull Requests" src="https://badgen.net/github/prs/ali-you/general-date-format-package" />
-</a>
-<a href="https://github.com/ali-you/general-date-format-package/blob/main/LICENSE" rel="ugc">
-   <img src="https://img.shields.io/github/license/ali-you/general-date-format-package?color=#007A88&amp;labelColor=333940;" alt="GitHub">
-</a>
-<a href="https://github.com/ali-you/general-date-format-package">
-   <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/ali-you/general-date-format-package">
-</a>
+Localized formatting and parsing for Gregorian `DateTime`, `PersianDateTime`
+(Jalali), and `HijriDateTime`, with an API similar to `intl.DateFormat`.
 
-![Flutter CI](https://github.com/ali-you/general-date-format-package/actions/workflows/flutter.yml/badge.svg)
-
-A Flutter package for flexible and generalized date formatting, extending the capabilities of the
-`general_datetime` package. It provides an intuitive and powerful way to format dates across various
-calendar systems (like Jalali and Gregorian) and locales.
-
-## Features
-
-- Locale-aware formatting (e.g., Persian, English, Arabic).
-- Support for multiple calendar systems (e.g., Jalali, Gregorian, etc.).
-- Simple, consistent syntax similar to intl.DateFormat.
-- Supports standard formatting symbols (yyyy, MM, dd, HH, etc.).
-- Extendable and suitable for both DateTime and custom date models like JalaliDateTime.
-
-## Installation
-
-To use this plugin, you can add it to your Flutter project in one of two ways:
-
-### 1. Add to `pubspec.yaml`
-
-Include the following dependency in your `pubspec.yaml` file:
+Requires Flutter 3.32 or newer. Add the packages to your app:
 
 ```yaml
 dependencies:
-  general_date_format: <latest_version>
-
+  general_date_format: ^1.0.1
+  general_datetime: ^2.1.0
 ```
 
-### 2. Add directly from the terminal
-
-Run the following command to add the plugin directly to your project:
-
-```bash
-flutter pub add general_date_format
-```
-
-## Usage
-
-Here's an example of how to use the package to format a date:
+## Formatting
 
 ```dart
 import 'package:general_date_format/general_date_format.dart';
+import 'package:general_datetime/general_datetime.dart';
 
-void main() {
-  final jalali = JalaliDateTime.now();
-  final formatted = GeneralDateFormat.format(jalali, 'yyyy/MM/dd');
-  print(formatted); // Example: 1402/02/11
-}
+final persian = PersianDateTime(1403, 1, 1, 13, 5);
+final hijri = HijriDateTime(1446, 9, 1);
+final gregorian = DateTime(2025, 3, 1);
+
+print(GeneralDateFormat('yyyy/MM/dd', 'fa').format(persian));
+// ۱۴۰۳/۰۱/۰۱
+print(GeneralDateFormat('MMMM G', 'en').format(hijri));
+// Ramadan AH
+print(GeneralDateFormat('yyyy-MM-dd MMMM', 'en').format(gregorian));
+// 2025-03-01 March
 ```
 
-### Formatting Options
+The **date object's type chooses the calendar**. The locale chooses language,
+field order and digits. Formatting does not convert calendars. Use
+`PersianDateTime.fromDateTime` or `HijriDateTime.fromDateTime` for conversion.
+Calendar calculations, supported year ranges and normalization are provided by
+`general_datetime` and depend on the version you install.
 
-You can use various formatting patterns, such as:
+Use named skeleton constructors for locale-aware ordering:
 
-- `'yyyy-MM-dd'` for a full date.
-- `'HH:mm:ss'` for time.
-- And other custom patterns based on your needs.
+```dart
+final format = GeneralDateFormat.yMMMMEEEEd('fa').add_Hm();
+final text = format.format(PersianDateTime(1403, 1, 1, 13, 5));
+```
 
-Check the documentation for more advanced usage and available formats.
+Explicit patterns such as `yyyy-MM-dd HH:mm:ss` retain their field order.
+Supported fields include `y`, `M`, `L`, `d`, `D`, `E`, `c`, `G`, `Q`, `H`, `h`,
+`K`, `k`, `m`, `s`, `S`, and `a`. Quote literal text with single quotes; double
+quotes inside the literal to emit a single quote: `'o''clock'`.
 
-## Documentation
+## Parsing
 
-Full documentation can be found at
+Pass a date instance to select the result's calendar. Its fields do not set
+parsed values. `parse` permits overflow and trailing text; `parseStrict`
+rejects invalid fields and trailing text. The default result uses local time.
 
-- [GitHub Repository](https://github.com/ali-you/general-date-format-package)
-- [API Reference on pub.dev](https://pub.dev/documentation/general_date_format/latest/)
+```dart
+final format = GeneralDateFormat('yyyy/MM/dd', 'fa');
+final selector = PersianDateTime(1400);
+final local = format.parseStrict('۱۴۰۳/۰۱/۰۱', selector);
+final utc = format.parseStrict('۱۴۰۳/۰۱/۰۱', selector, true);
+final alsoUtc = format.parseUtc('۱۴۰۳/۰۱/۰۱', selector);
+final invalid = format.tryParseStrict('۱۴۰۳/۱۳/۰۱', selector); // null
+```
 
-## Related Packages
+Use `DateTime(2000)` for Gregorian parsing or `HijriDateTime(1440)` for Hijri
+parsing. `parseLoose` also accepts case differences in names and flexible
+whitespace. `tryParse`, `tryParseStrict`, `tryParseLoose`, and `tryParseUtc`
+return `null` on invalid input.
 
-- [`general_datetime`](https://pub.dev/packages/general_datetime): Generalized abstraction over
-  different calendar systems.
-- [`intl`](https://pub.dev/packages/intl): Provides internationalization and localization support.
+Fixed-width compact patterns such as `yyyyMMddHHmmss` are supported. Two-digit
+`yy` years select the century in the interval from 80 years before to 20 years
+after the current date, using the result's calendar. Other year widths and
+inputs with other than two digits are literal years. Tests can control this
+window with `package:clock`.
 
-## Issues
+Missing date fields default to the Gregorian epoch date represented in the
+selected calendar. Fractional seconds retain millisecond precision: `S`, `SS`,
+and `SSS` emit three digits; longer widths append zeros, like `intl`. Parsing
+short fractions pads on the right and longer fractions truncates to milliseconds.
 
-Feel free to open issues and submit pull requests.
-For any issues or feature requests, please check
-the [issues page](https://github.com/ali-you/general-date-format-package/issues).
+## Locales and digits
+
+The default locale is `en_US`. Supported locale codes are available from
+`GeneralDateFormat.allLocalesWithSymbols()`; region aliases fall back to their
+language when necessary. The package includes 120 locales, and Hijri month and
+era names are generated from Unicode CLDR 48. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+Native digits are enabled by default where locale data supplies them. Parsing
+accepts either ASCII or native digits for the selected locale. To format ASCII:
+
+```dart
+final format = GeneralDateFormat('yyyy-MM-dd', 'fa')..useNativeDigits = false;
+```
+
+## Limits and Flutter integration
+
+- Supported calendars are Gregorian, Persian, and Hijri. Implementing
+  `GeneralDateTimeInterface` alone does not register additional calendars.
+- Time-zone patterns `z`, `Z`, `v` and their skeleton constructors throw
+  `UnsupportedError`; UTC/local date construction is supported.
+- Unclosed quoted patterns throw `FormatException`.
+- This package formats strings; Flutter date-picker integration needs matching
+  `MaterialLocalizations` and calendar delegates from `general_datetime`.
+
+The [example](example/lib/main.dart) demonstrates formatting and strict UTC
+parsing for all three calendars, with English, Persian and Arabic selection.
+
+## Developing with a local calendar package
+
+For development only, create an uncommitted `pubspec_overrides.yaml`:
+
+```yaml
+dependency_overrides:
+  general_datetime:
+    path: D:/StudioProjects/general_date
+```
+
+Run `flutter pub get`, `flutter analyze`, and `flutter test`. Remove the override
+and resolve again to verify the hosted dependency before a release.
+
+To regenerate Hijri data, run `python tool/generate_hijri_symbols.py`. It uses
+pinned CLDR 48.0.0 data and caches downloaded source files in `.dart_tool/cldr-48`.
 
 ## License
 
-This project is licensed under the BSD 3-Clause License. See the [LICENSE](LICENSE) file for more
-details.
+BSD 3-Clause; see [LICENSE](LICENSE). Unicode data carries the notice in
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

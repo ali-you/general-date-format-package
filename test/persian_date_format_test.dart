@@ -1,3 +1,6 @@
+// Test names mirror the intl-compatible format constructors.
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:general_date_format/general_date_format.dart';
 import 'package:general_datetime/general_datetime.dart';

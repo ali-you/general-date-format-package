@@ -1,3 +1,6 @@
+// Symbol field names follow intl's serialized date data schema.
+// ignore_for_file: non_constant_identifier_names, constant_identifier_names
+
 class DateSymbols {
   String NAME;
   List<String>

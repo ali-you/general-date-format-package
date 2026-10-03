@@ -209,12 +209,11 @@ class _LoosePatternField extends _DateFormatPatternField {
   /// Assumes that input is lower case. Doesn't do anything
   @override
   void parseDayOfWeek(StringStack input) {
-    // This is IGNORED, but we still have to skip over it the correct amount.
-    if (width <= 2) {
-      handleNumericField(input, (x) => x);
-      return;
-    }
-    var possibilities = [symbols.WEEKDAYS, symbols.SHORTWEEKDAYS];
+    var possibilities = [
+      symbols.WEEKDAYS,
+      symbols.SHORTWEEKDAYS,
+      symbols.NARROWWEEKDAYS
+    ];
     for (var dayNames in possibilities) {
       var day = parseEnumeratedString(input, dayNames);
       if (day != -1) {
@@ -247,7 +246,14 @@ class _DateFormatPatternField extends _DateFormatField {
   /// case-insensitive input and skipped delimiters.
   @override
   void parseLoose(StringStack input, DateBuilder dateFields) =>
-      _LoosePatternField(pattern, parent).parse(input, dateFields);
+      (_LoosePatternField(pattern, parent)..fixedWidth = fixedWidth)
+          .parse(input, dateFields);
+
+  bool fixedWidth = false;
+
+  bool get isNumeric =>
+      'ydDHhKkmsS'.contains(pattern[0]) ||
+      ('MLQc'.contains(pattern[0]) && width <= 2);
 
   bool? _forDate;
 
@@ -283,19 +289,24 @@ class _DateFormatPatternField extends _DateFormatField {
           parseDayOfWeek(input);
           break;
         case 'G':
-          parseEra(input);
+          parseEra(input, builder);
           break; // era
         case 'h':
           parse1To12Hours(input, builder);
           break;
         case 'H':
-          handleNumericField(input, builder.setHour);
+          handleNumericField(
+              input, (value) => builder.setPatternHour(value, 0, 23));
           break; // hour 0-23
         case 'K':
-          handleNumericField(input, builder.setHour);
+          handleNumericField(
+              input, (value) => builder.setPatternHour(value, 0, 11));
           break; //hour 0-11
         case 'k':
-          handleNumericField(input, builder.setHour, -1);
+          handleNumericField(input, (value) {
+            builder.setPatternHour(value, 1, 24);
+            if (value == 24) builder.hour = 0;
+          });
           break; //hr 1-24
         case 'L':
           parseStandaloneMonth(input, builder);
@@ -307,9 +318,12 @@ class _DateFormatPatternField extends _DateFormatField {
           handleNumericField(input, builder.setMinute);
           break; // minutes
         case 'Q':
-          break; // quarter
+          parseQuarter(input, builder);
+          break;
         case 'S':
-          handleNumericField(input, builder.setFractionalSecond);
+          final digits = _readDigits(input);
+          builder.setFractionalSecond(
+              int.parse(digits.padRight(3, '0').substring(0, 3)));
           break;
         case 's':
           handleNumericField(input, builder.setSecond);
@@ -326,7 +340,7 @@ class _DateFormatPatternField extends _DateFormatField {
         default:
           return;
       }
-    } catch (e) {
+    } on FormatException {
       throwFormatException(input);
     }
   }
@@ -383,7 +397,11 @@ class _DateFormatPatternField extends _DateFormatField {
 
   String formatYear(DateTime date) {
     var year = date.year;
-    if (year < 0) year = -year;
+    if (date is! GeneralDateTimeInterface && year <= 0) {
+      year = 1 - year;
+    } else if (year < 0) {
+      year = -year;
+    }
     return width == 2 ? padTo(2, year % 100) : padTo(width, year);
   }
 
@@ -403,36 +421,32 @@ class _DateFormatPatternField extends _DateFormatField {
     void Function(int) setter, [
     int offset = 0,
   ]) {
-    var result = _nextInteger(
-      inputStack,
-      parent.digitMatcher,
-      parent.localeZeroCodeUnit,
-    );
-    setter(result + offset);
+    setter(int.parse(_readDigits(inputStack)) + offset);
   }
 
-  /// Read as much content as [digitMatcher] matches from the current position,
-  /// and parse the result as an integer, advancing the index.
-  ///
-  /// The regular expression [digitMatcher] is used to find the substring which
-  /// matches an integer.
-  /// The codeUnit of the local zero [zeroDigit] is used to anchor the parsing
-  /// into digits.
-  int _nextInteger(StringStack inputStack, RegExp digitMatcher, int zeroDigit) {
-    var string = digitMatcher.stringMatch(inputStack.peekAll());
+  /// Read numeric input, bounding adjacent numeric fields by their width,
+  /// and normalize ASCII/native digits to ASCII for integer conversion.
+  String _readDigits(StringStack inputStack) {
+    final source = fixedWidth
+        ? inputStack.peek(pattern[0] == 'S' && width < 3 ? 3 : width)
+        : inputStack.peekAll();
+    var string = parent.digitMatcher.stringMatch(source);
     if (string == null || string.isEmpty) {
       return throwFormatException(inputStack);
     }
     inputStack.pop(string.length);
+    final zeroDigit = parent.localeZeroCodeUnit;
     if (zeroDigit != '0'.codeUnitAt(0)) {
       var codeUnits = string.codeUnits;
       string = String.fromCharCodes(List.generate(
         codeUnits.length,
-        (index) => codeUnits[index] - zeroDigit + '0'.codeUnitAt(0),
+        (index) => codeUnits[index] >= 48 && codeUnits[index] <= 57
+            ? codeUnits[index]
+            : codeUnits[index] - zeroDigit + 48,
         growable: false,
       ));
     }
-    return int.parse(string);
+    return string;
   }
 
   /// We are given [input] as a stack from which we want to read a date. We
@@ -461,8 +475,9 @@ class _DateFormatPatternField extends _DateFormatField {
   }
 
   void parseYear(StringStack input, DateBuilder builder) {
-    handleNumericField(input, builder.setYear);
-    builder.hasAmbiguousCentury = width == 2;
+    final digits = _readDigits(input);
+    builder.year = int.parse(digits);
+    builder.hasAmbiguousCentury = width == 2 && digits.length == 2;
   }
 
   String formatMonth(DateTime date) {
@@ -532,7 +547,8 @@ class _DateFormatPatternField extends _DateFormatField {
   }
 
   void parse1To12Hours(StringStack input, DateBuilder dateFields) {
-    handleNumericField(input, dateFields.setHour);
+    handleNumericField(
+        input, (value) => dateFields.setPatternHour(value, 1, 12));
     if (dateFields.hour == 12) dateFields.hour = 0;
   }
 
@@ -620,7 +636,7 @@ class _DateFormatPatternField extends _DateFormatField {
   }
 
   String formatDayOfYear(DateTime date) =>
-      padTo(width, (date as PersianDateTime).dayOfYear);
+      padTo(width, calendarDayOfYear(date));
 
   /// See also http://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table
   String formatDayOfWeek(DateTime date) {
@@ -641,13 +657,28 @@ class _DateFormatPatternField extends _DateFormatField {
   }
 
   void parseDayOfWeek(StringStack input) {
-    var possibilities = width >= 4 ? symbols.WEEKDAYS : symbols.SHORTWEEKDAYS;
+    var possibilities = width == 5
+        ? symbols.NARROWWEEKDAYS
+        : width >= 4
+            ? symbols.WEEKDAYS
+            : symbols.SHORTWEEKDAYS;
     parseEnumeratedString(input, possibilities);
   }
 
-  void parseEra(StringStack input) {
+  void parseEra(StringStack input, DateBuilder builder) {
     var possibilities = width >= 4 ? symbols.ERANAMES : symbols.ERAS;
-    parseEnumeratedString(input, possibilities);
+    builder.era = parseEnumeratedString(input, possibilities);
+  }
+
+  void parseQuarter(StringStack input, DateBuilder builder) {
+    final quarter = width >= 3
+        ? parseEnumeratedString(
+                input, width == 3 ? symbols.SHORTQUARTERS : symbols.QUARTERS) +
+            1
+        : int.parse(_readDigits(input));
+    if (quarter < 1 || quarter > 4) throwFormatException(input);
+    builder.month = (quarter - 1) * 3 + 1;
+    builder.day = 1;
   }
 
   String formatMinutes(DateTime date) => padTo(width, date.minute);

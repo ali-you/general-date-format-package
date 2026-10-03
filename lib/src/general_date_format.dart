@@ -1,3 +1,6 @@
+// Keep intl-compatible constructor, method and constant names.
+// ignore_for_file: non_constant_identifier_names, constant_identifier_names
+
 import 'package:general_date_format/src/common/date_time_patterns.dart';
 import 'package:general_date_format/src/common/symbol_list.dart';
 import 'package:general_datetime/general_datetime.dart';
@@ -18,7 +21,7 @@ part 'date_format_field.dart';
 /// Formatting dates in the default 'en_US' format.
 ///
 /// ```dart
-/// print(GeneralDateFormat.yMMMd().format(JalaliDateTime.now()));
+/// print(GeneralDateFormat.yMMMd().format(PersianDateTime.now()));
 /// ```
 ///
 /// This library uses the ICU/JDK date/time pattern specification both for
@@ -237,7 +240,7 @@ class GeneralDateFormat {
   /// ```
   ///
   /// If the optional [locale] is omitted, the format will be created using the
-  /// default locale in [Intl.systemLocale].
+  /// default locale, en_US.
 
   GeneralDateFormat.d([locale]) : this('d', locale);
 
@@ -334,7 +337,7 @@ class GeneralDateFormat {
   /// Return a string representing [date] formatted according to our locale
   /// and internal format.
   String format(DateTime date) {
-    initializeDateSymbols(date);
+    _selectCalendar(date);
     var result = StringBuffer();
     for (var field in _formatFields) {
       result.write(field.format(date));
@@ -349,7 +352,6 @@ class GeneralDateFormat {
   /// This will accept dates whose values are not strictly valid, or strings
   /// with additional characters (including whitespace) after a valid date. For
   /// stricter parsing, use [parseStrict].
-  /// TODO: implement this
   DateTime parse(String inputString, DateTime dateTimeType,
           [bool utc = false]) =>
       _parse(inputString, dateTimeType, utc: utc, strict: false);
@@ -361,7 +363,6 @@ class GeneralDateFormat {
   /// This will accept dates whose values are not strictly valid, or strings
   /// with additional characters (including whitespace) after a valid date. For
   /// stricter parsing, use [tryParseStrict].
-  /// TODO: implement this
   DateTime? tryParse(String inputString, DateTime dateTimeType,
       [bool utc = false]) {
     try {
@@ -388,15 +389,14 @@ class GeneralDateFormat {
   ///
   /// For example, this will accept
   ///
-  ///       GeneralDateFormat.yMMMd('en_US').parseLoose('SEp   3 2014');
-  ///       GeneralDateFormat.yMd('en_US').parseLoose('09    03/2014');
-  ///       GeneralDateFormat.yMd('en_US').parseLoose('09 / 03 / 2014');
+  ///       GeneralDateFormat.yMMMd('en_US').parseLoose('SEp   3 2014', DateTime(2000));
+  ///       GeneralDateFormat.yMd('en_US').parseLoose('09    03/2014', DateTime(2000));
+  ///       GeneralDateFormat.yMd('en_US').parseLoose('09 / 03 / 2014', DateTime(2000));
   ///
   /// It will NOT accept
   ///
   ///       // 'Sept' is not a valid month name.
-  ///       GeneralDateFormat.yMMMd('en_US').parseLoose('Sept 3, 2014');
-  /// TODO: implement this
+  ///       GeneralDateFormat.yMMMd('en_US').parseLoose('Sept 3, 2014', DateTime(2000));
   DateTime parseLoose(String inputString, DateTime dateTimeType,
       [bool utc = false]) {
     try {
@@ -423,15 +423,14 @@ class GeneralDateFormat {
   ///
   /// For example, this will accept
   ///
-  ///       GeneralDateFormat.yMMMd('en_US').tryParseLoose('SEp   3 2014');
-  ///       GeneralDateFormat.yMd('en_US').tryParseLoose('09    03/2014');
-  ///       GeneralDateFormat.yMd('en_US').tryParseLoose('09 / 03 / 2014');
+  ///       GeneralDateFormat.yMMMd('en_US').tryParseLoose('SEp   3 2014', DateTime(2000));
+  ///       GeneralDateFormat.yMd('en_US').tryParseLoose('09    03/2014', DateTime(2000));
+  ///       GeneralDateFormat.yMd('en_US').tryParseLoose('09 / 03 / 2014', DateTime(2000));
   ///
   /// It will NOT accept
   ///
   ///       // 'Sept' is not a valid month name.
-  ///       GeneralDateFormat.yMMMd('en_US').tryParseLoose('Sept 3, 2014');
-  /// TODO: implement this
+  ///       GeneralDateFormat.yMMMd('en_US').tryParseLoose('Sept 3, 2014', DateTime(2000));
   DateTime? tryParseLoose(String inputString, DateTime dateTimeType,
       [bool utc = false]) {
     try {
@@ -441,10 +440,11 @@ class GeneralDateFormat {
     }
   }
 
-  /// TODO: implement this
   DateTime _parseLoose(String inputString, DateTime dateTimeType, bool utc) {
+    _selectCalendar(dateTimeType);
     var dateFields = DateBuilder(dateTimeType);
     if (utc) dateFields.utc = true;
+    dateFields.dateOnly = dateOnly;
     var stack = StringStack(inputString);
     for (var field in _formatFields) {
       field.parseLoose(stack, dateFields);
@@ -465,7 +465,6 @@ class GeneralDateFormat {
   /// DateTime constructor will accept them. It will also reject strings with
   /// additional characters (including whitespace) after a valid date. For
   /// looser parsing, use [parse].
-  /// TODO: implement this
   DateTime parseStrict(String inputString, DateTime dateTimeType,
           [bool utc = false]) =>
       _parse(inputString, dateTimeType, utc: utc, strict: true);
@@ -478,7 +477,6 @@ class GeneralDateFormat {
   /// DateTime constructor will accept them. It will also reject strings with
   /// additional characters (including whitespace) after a valid date. For
   /// looser parsing, use [tryParse].
-  /// TODO: implement this
   DateTime? tryParseStrict(String inputString, DateTime dateTimeType,
       [bool utc = false]) {
     try {
@@ -490,6 +488,7 @@ class GeneralDateFormat {
 
   DateTime _parse(String inputString, DateTime dateTimeType,
       {bool utc = false, bool strict = false}) {
+    _selectCalendar(dateTimeType);
     var dateFields = DateBuilder(dateTimeType);
     if (utc) dateFields.utc = true;
     dateFields.dateOnly = dateOnly;
@@ -520,7 +519,6 @@ class GeneralDateFormat {
   /// The canonical Dart style name
   /// is [parseUtc], but [parseUTC] is retained
   /// for backward-compatibility.
-  /// TODO: implement this
   DateTime parseUTC(String inputString, DateTime dateTimeType) =>
       parse(inputString, dateTimeType, true);
 
@@ -531,14 +529,12 @@ class GeneralDateFormat {
   /// The canonical Dart style name
   /// is [parseUtc], but [parseUTC] is retained
   /// for backward-compatibility.
-  /// TODO: implement this
   DateTime parseUtc(String inputString, DateTime dateTimeType) =>
       parse(inputString, dateTimeType, true);
 
   /// Given user input, attempt to parse the [inputString] into the anticipated
   /// format, treating it as being in UTC.
   /// If [inputString] does not match our format, returns `null`.
-  /// TODO: implement this
   DateTime? tryParseUtc(String inputString, DateTime dateTimeType) {
     try {
       return parseUtc(inputString, dateTimeType);
@@ -774,12 +770,10 @@ class GeneralDateFormat {
     // cache patterns for that locale could be a good optimization.
     // If we have already parsed the format fields, reset them.
     _formatFieldsPrivate = null;
+    _dateOnly = null;
     if (inputPattern == null) return this;
-    if (!_availableSkeletons.containsKey(inputPattern)) {
-      _appendPattern(inputPattern, separator);
-    } else {
-      _appendPattern(_availableSkeletons[inputPattern], separator);
-    }
+    _appendPattern(
+        _availableSkeletons[inputPattern] ?? inputPattern, separator);
     return this;
   }
 
@@ -787,24 +781,26 @@ class GeneralDateFormat {
   String? get pattern => _pattern;
 
   /// Return the skeletons for our current locale.
-  Map<dynamic, dynamic> get _availableSkeletons =>
+  Map<String, String> get _availableSkeletons =>
       dateTimePatternMap[locale] ??
       (throw Exception("Date Patten not founded"));
 
-  /// Return the [DateSymbols] information for the locale.
-  ///
-  /// This can be useful to find lists like the names of weekdays or months in a
-  /// locale, but the structure of this data may change, and it's generally
-  /// better to go through the [format] and [parse] APIs.
-  ///
-  /// If the locale isn't present, or is uninitialized, throws.
-  DateSymbols get dateSymbols {
-    if (_locale != lastDateSymbolLocale) {
-      lastDateSymbolLocale = _locale;
-      cachedDateSymbols = dateTimeSymbols[_locale];
-    }
-    return cachedDateSymbols!;
+  CalendarType _calendar = CalendarType.gregorian;
+
+  void _selectCalendar(DateTime date) {
+    final selected = calendarType(date);
+    if (selected == _calendar) return;
+    _calendar = selected;
+    _digitMatcher = null;
+    _localeZeroCodeUnit = null;
+    _localeZero = null;
   }
+
+  /// Symbols for this locale and the most recent format/parse calendar.
+  /// Before the first call, Gregorian symbols are returned. This is useful
+  /// for lists of month or weekday names; prefer [format] and [parse] when
+  /// formatting or parsing dates.
+  DateSymbols get dateSymbols => symbolsFor(_calendar, locale);
 
   static final Map<String, bool> _useNativeDigitsByDefault = {};
 
@@ -879,7 +875,7 @@ class GeneralDateFormat {
 
   // Does this use non-ASCII digits, e.g. Eastern Arabic.
   bool get usesNativeDigits =>
-      useNativeDigits && _localeZeroCodeUnit != '0'.codeUnitAt(0);
+      useNativeDigits && localeZeroCodeUnit != '0'.codeUnitAt(0);
 
   /// Does this use ASCII digits
   bool get usesAsciiDigits => !usesNativeDigits;
@@ -891,7 +887,9 @@ class GeneralDateFormat {
     var newDigits = List<int>.filled(numberString.length, 0);
     var oldDigits = numberString.codeUnits;
     for (var i = 0; i < numberString.length; i++) {
-      newDigits[i] = oldDigits[i] + localeZeroCodeUnit - '0'.codeUnitAt(0);
+      newDigits[i] = oldDigits[i] >= 48 && oldDigits[i] <= 57
+          ? oldDigits[i] + localeZeroCodeUnit - 48
+          : oldDigits[i];
     }
     return String.fromCharCodes(newDigits);
   }
@@ -904,7 +902,7 @@ class GeneralDateFormat {
         .map((i) => localeZeroCodeUnit + i)
         .toList();
     var localeDigitsString = String.fromCharCodes(localeDigits);
-    return RegExp('^[$localeDigitsString]+');
+    return RegExp('^[0-9$localeDigitsString]+');
   }
 
   /// Return true if the locale exists, or if it is null. The null case
@@ -923,20 +921,31 @@ class GeneralDateFormat {
 
   /// Parse the template pattern and return a list of field objects.
   List<_DateFormatField> _parsePattern(String pattern) {
-    return _parsePatternHelper(pattern).reversed.toList();
-  }
-
-  /// Recursive helper for parsing the template pattern.
-  List<_DateFormatField> _parsePatternHelper(String pattern) {
-    if (pattern.isEmpty) return [];
-
-    var matched = _match(pattern);
-    if (matched == null) return [];
-
-    var parsed =
-        _parsePatternHelper(pattern.substring(matched.fullPattern().length));
-    parsed.add(matched);
-    return parsed;
+    final fields = <_DateFormatField>[];
+    var remaining = pattern;
+    while (remaining.isNotEmpty) {
+      final field = _match(remaining);
+      if (field == null) {
+        throw FormatException('Invalid or unclosed quoted pattern', pattern);
+      }
+      if ('vzZ'.contains(field.pattern[0]) &&
+          field is _DateFormatPatternField) {
+        throw UnsupportedError('Time-zone patterns are not supported.');
+      }
+      fields.add(field);
+      remaining = remaining.substring(field.fullPattern().length);
+    }
+    for (var i = 0; i + 1 < fields.length; i++) {
+      final field = fields[i];
+      final next = fields[i + 1];
+      if (field is _DateFormatPatternField &&
+          next is _DateFormatPatternField &&
+          field.isNumeric &&
+          next.isNumeric) {
+        field.fixedWidth = true;
+      }
+    }
+    return fields;
   }
 
   /// Find elements in a string that are patterns for specific fields.
