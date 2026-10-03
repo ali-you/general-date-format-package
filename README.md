@@ -164,6 +164,12 @@ importing Flutter's global delegates directly. Supply `PersianDateTime` or
 `HijriDateTime` values to the corresponding picker. Gregorian instants can be
 converted with the calendar's `fromDateTime` factory before opening the picker.
 
+The core calendar delegates enforce matching runtime types for all date inputs,
+comparisons, ranges, and non-null parser results. Incompatible values throw
+`ArgumentError`; invalid text still parses to null. Use the corresponding calendar
+localization delegate below, and explicitly convert Gregorian/other-calendar
+instants with `fromDateTime` before passing them to the arithmetic delegate.
+
 For an app that opens several calendar types, keep global delegates in the app
 and override Material localizations for each dialog:
 
