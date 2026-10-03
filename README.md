@@ -51,6 +51,19 @@ Supported fields include `y`, `M`, `L`, `d`, `D`, `E`, `c`, `G`, `Q`, `H`, `h`,
 `K`, `k`, `m`, `s`, `S`, and `a`. Quote literal text with single quotes; double
 quotes inside the literal to emit a single quote: `'o''clock'`.
 
+### Editing calendar dates before formatting
+
+For values held in a `DateTime` variable (including picker callbacks), use the
+core package's `CalendarDateUtils.copyWith(date, day: 2)` or
+`CalendarDateUtils.dateOnly(date)`. They retain the Persian/Hijri calendar and
+UTC/local mode. Import `package:general_datetime/general_datetime.dart` for
+these helpers.
+
+Dart's `.copyWith` extension on a `DateTime`-typed variable and Flutter's
+`DateUtils` helpers reconstruct Gregorian dates from custom calendar fields.
+Use `CalendarDateUtils.toGregorian(date)` before calling external Gregorian
+helpers, then explicitly convert back to the desired calendar if needed.
+
 ## Parsing
 
 Pass a date instance to select the result's calendar. Its fields do not set

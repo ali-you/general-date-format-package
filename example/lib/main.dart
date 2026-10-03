@@ -34,7 +34,7 @@ class _FormatExampleState extends State<FormatExample> {
     final dates = <String, DateTime>{
       'Gregorian': DateTime.now(),
       'Persian': PersianDateTime.now(),
-      'Hijri': HijriDateTime(1448, 4, 21),
+      'Hijri': HijriDateTime.now(),
     };
     return Scaffold(
       appBar: AppBar(title: const Text('General Date Format')),
