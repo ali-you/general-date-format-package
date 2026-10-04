@@ -2,8 +2,8 @@ import 'package:general_datetime/general_datetime.dart';
 
 import 'date_symbols.dart';
 import 'symbols/gregorian_symbol_data_local.dart';
-import 'symbols/hijri_symbol_data_local.dart';
-import 'symbols/jalali_symbol_data_local.dart';
+import 'symbols/hijri_calendar_symbol_data_local.dart';
+import 'symbols/persian_calendar_symbol_data_local.dart';
 
 enum CalendarType { gregorian, persian, hijri }
 

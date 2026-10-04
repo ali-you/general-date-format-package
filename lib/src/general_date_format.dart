@@ -804,6 +804,10 @@ class GeneralDateFormat {
   /// Before the first call, Gregorian symbols are returned. This is useful
   /// for lists of month or weekday names; prefer [format] and [parse] when
   /// formatting or parsing dates.
+  ///
+  /// Symbols and their collections are immutable and shared by locale/calendar.
+  /// [DateSymbols.serializeToMap] returns a detached snapshot for callers that
+  /// need to transform names for their own UI; it does not customize formatting.
   DateSymbols get dateSymbols => symbolsFor(_calendar, locale);
 
   static final Map<String, bool> _useNativeDigitsByDefault = {};

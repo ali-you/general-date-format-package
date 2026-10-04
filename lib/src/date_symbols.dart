@@ -1,9 +1,10 @@
 // Symbol field names follow intl's serialized date data schema.
 // ignore_for_file: non_constant_identifier_names, constant_identifier_names
 
+/// Immutable locale symbols with defensive copies of all collection inputs.
 class DateSymbols {
-  String NAME;
-  List<String>
+  final String NAME;
+  final List<String>
 
       /// The short name of the era, e.g. 'BC' or 'AD'
       ERAS,
@@ -75,47 +76,75 @@ class DateSymbols {
 
       /// The ways date and time formats can be combined for this locale.
       DATETIMEFORMATS;
-  Map<String, String>? AVAILABLEFORMATS;
+  final Map<String, String>? AVAILABLEFORMATS;
 
   /// The first day of the week, in ISO 8601 style, where the first day of the
   /// week, i.e. index 0, is Monday.
-  int FIRSTDAYOFWEEK;
+  final int FIRSTDAYOFWEEK;
 
   /// Which days are weekend days, integers where 0=Monday.
   ///
   /// For example, [5, 6] to mean Saturday and Sunday are weekend days.
-  List<int> WEEKENDRANGE;
-  int FIRSTWEEKCUTOFFDAY;
+  final List<int> WEEKENDRANGE;
+  final int FIRSTWEEKCUTOFFDAY;
 
-  String? ZERODIGIT;
+  final String? ZERODIGIT;
 
-  DateSymbols(
-      {required this.NAME,
-      required this.ERAS,
-      required this.ERANAMES,
-      required this.NARROWMONTHS,
-      required this.STANDALONENARROWMONTHS,
-      required this.MONTHS,
-      required this.STANDALONEMONTHS,
-      required this.SHORTMONTHS,
-      required this.STANDALONESHORTMONTHS,
-      required this.WEEKDAYS,
-      required this.STANDALONEWEEKDAYS,
-      required this.SHORTWEEKDAYS,
-      required this.STANDALONESHORTWEEKDAYS,
-      required this.NARROWWEEKDAYS,
-      required this.STANDALONENARROWWEEKDAYS,
-      required this.SHORTQUARTERS,
-      required this.QUARTERS,
-      required this.AMPMS,
-      this.ZERODIGIT,
-      required this.DATEFORMATS,
-      required this.TIMEFORMATS,
-      this.AVAILABLEFORMATS,
-      required this.FIRSTDAYOFWEEK,
-      required this.WEEKENDRANGE,
-      required this.FIRSTWEEKCUTOFFDAY,
-      required this.DATETIMEFORMATS});
+  DateSymbols({
+    required this.NAME,
+    required List<String> ERAS,
+    required List<String> ERANAMES,
+    required List<String> NARROWMONTHS,
+    required List<String> STANDALONENARROWMONTHS,
+    required List<String> MONTHS,
+    required List<String> STANDALONEMONTHS,
+    required List<String> SHORTMONTHS,
+    required List<String> STANDALONESHORTMONTHS,
+    required List<String> WEEKDAYS,
+    required List<String> STANDALONEWEEKDAYS,
+    required List<String> SHORTWEEKDAYS,
+    required List<String> STANDALONESHORTWEEKDAYS,
+    required List<String> NARROWWEEKDAYS,
+    required List<String> STANDALONENARROWWEEKDAYS,
+    required List<String> SHORTQUARTERS,
+    required List<String> QUARTERS,
+    required List<String> AMPMS,
+    required List<String> DATEFORMATS,
+    required List<String> TIMEFORMATS,
+    required List<String> DATETIMEFORMATS,
+    this.ZERODIGIT,
+    Map<String, String>? AVAILABLEFORMATS,
+    required this.FIRSTDAYOFWEEK,
+    required List<int> WEEKENDRANGE,
+    required this.FIRSTWEEKCUTOFFDAY,
+  })  : ERAS = List<String>.unmodifiable(ERAS),
+        ERANAMES = List<String>.unmodifiable(ERANAMES),
+        NARROWMONTHS = List<String>.unmodifiable(NARROWMONTHS),
+        STANDALONENARROWMONTHS =
+            List<String>.unmodifiable(STANDALONENARROWMONTHS),
+        MONTHS = List<String>.unmodifiable(MONTHS),
+        STANDALONEMONTHS = List<String>.unmodifiable(STANDALONEMONTHS),
+        SHORTMONTHS = List<String>.unmodifiable(SHORTMONTHS),
+        STANDALONESHORTMONTHS =
+            List<String>.unmodifiable(STANDALONESHORTMONTHS),
+        WEEKDAYS = List<String>.unmodifiable(WEEKDAYS),
+        STANDALONEWEEKDAYS = List<String>.unmodifiable(STANDALONEWEEKDAYS),
+        SHORTWEEKDAYS = List<String>.unmodifiable(SHORTWEEKDAYS),
+        STANDALONESHORTWEEKDAYS =
+            List<String>.unmodifiable(STANDALONESHORTWEEKDAYS),
+        NARROWWEEKDAYS = List<String>.unmodifiable(NARROWWEEKDAYS),
+        STANDALONENARROWWEEKDAYS =
+            List<String>.unmodifiable(STANDALONENARROWWEEKDAYS),
+        SHORTQUARTERS = List<String>.unmodifiable(SHORTQUARTERS),
+        QUARTERS = List<String>.unmodifiable(QUARTERS),
+        AMPMS = List<String>.unmodifiable(AMPMS),
+        DATEFORMATS = List<String>.unmodifiable(DATEFORMATS),
+        TIMEFORMATS = List<String>.unmodifiable(TIMEFORMATS),
+        DATETIMEFORMATS = List<String>.unmodifiable(DATETIMEFORMATS),
+        AVAILABLEFORMATS = AVAILABLEFORMATS == null
+            ? null
+            : Map<String, String>.unmodifiable(AVAILABLEFORMATS),
+        WEEKENDRANGE = List<int>.unmodifiable(WEEKENDRANGE);
 
   factory DateSymbols.deserializeFromMap(Map<dynamic, dynamic> map) {
     List<String> getStringList(String name) => List<String>.from(map[name]);
@@ -160,30 +189,32 @@ class DateSymbols {
 
   Map<String, dynamic> _serializeToMap() => {
         'NAME': NAME,
-        'ERAS': ERAS,
-        'ERANAMES': ERANAMES,
-        'NARROWMONTHS': NARROWMONTHS,
-        'STANDALONENARROWMONTHS': STANDALONENARROWMONTHS,
-        'MONTHS': MONTHS,
-        'STANDALONEMONTHS': STANDALONEMONTHS,
-        'SHORTMONTHS': SHORTMONTHS,
-        'STANDALONESHORTMONTHS': STANDALONESHORTMONTHS,
-        'WEEKDAYS': WEEKDAYS,
-        'STANDALONEWEEKDAYS': STANDALONEWEEKDAYS,
-        'SHORTWEEKDAYS': SHORTWEEKDAYS,
-        'STANDALONESHORTWEEKDAYS': STANDALONESHORTWEEKDAYS,
-        'NARROWWEEKDAYS': NARROWWEEKDAYS,
-        'STANDALONENARROWWEEKDAYS': STANDALONENARROWWEEKDAYS,
-        'SHORTQUARTERS': SHORTQUARTERS,
-        'QUARTERS': QUARTERS,
-        'AMPMS': AMPMS,
-        'DATEFORMATS': DATEFORMATS,
-        'TIMEFORMATS': TIMEFORMATS,
-        'AVAILABLEFORMATS': AVAILABLEFORMATS,
+        'ERAS': [...ERAS],
+        'ERANAMES': [...ERANAMES],
+        'NARROWMONTHS': [...NARROWMONTHS],
+        'STANDALONENARROWMONTHS': [...STANDALONENARROWMONTHS],
+        'MONTHS': [...MONTHS],
+        'STANDALONEMONTHS': [...STANDALONEMONTHS],
+        'SHORTMONTHS': [...SHORTMONTHS],
+        'STANDALONESHORTMONTHS': [...STANDALONESHORTMONTHS],
+        'WEEKDAYS': [...WEEKDAYS],
+        'STANDALONEWEEKDAYS': [...STANDALONEWEEKDAYS],
+        'SHORTWEEKDAYS': [...SHORTWEEKDAYS],
+        'STANDALONESHORTWEEKDAYS': [...STANDALONESHORTWEEKDAYS],
+        'NARROWWEEKDAYS': [...NARROWWEEKDAYS],
+        'STANDALONENARROWWEEKDAYS': [...STANDALONENARROWWEEKDAYS],
+        'SHORTQUARTERS': [...SHORTQUARTERS],
+        'QUARTERS': [...QUARTERS],
+        'AMPMS': [...AMPMS],
+        'DATEFORMATS': [...DATEFORMATS],
+        'TIMEFORMATS': [...TIMEFORMATS],
+        'AVAILABLEFORMATS': AVAILABLEFORMATS == null
+            ? null
+            : Map<String, String>.from(AVAILABLEFORMATS!),
         'FIRSTDAYOFWEEK': FIRSTDAYOFWEEK,
-        'WEEKENDRANGE': WEEKENDRANGE,
+        'WEEKENDRANGE': [...WEEKENDRANGE],
         'FIRSTWEEKCUTOFFDAY': FIRSTWEEKCUTOFFDAY,
-        'DATETIMEFORMATS': DATETIMEFORMATS,
+        'DATETIMEFORMATS': [...DATETIMEFORMATS],
       };
 
   @override

@@ -1,6 +1,16 @@
 # Changelog
 
 ## [2.0.0] — release preparation
+- Make the example sample one injectable native clock per screen, deriving
+  Gregorian, Persian, and Hijri displays from the same instant. Freeze widget
+  fixtures and verify midnight/rebuild consistency and exact picker selections.
+- Correct Afrikaans Persian month/era names using generated Unicode CLDR 48
+  data. Reconcile all Persian weekday, quarter, time, and week metadata with
+  intl's shared locale tables; document generation and source conventions.
+  Persian abbreviated weekdays and quarter spellings now match intl.
+- Breaking: DateSymbols fields and collections are immutable. Callers can read
+  shared symbols or transform detached serializeToMap snapshots for their own
+  UI, but cannot customize formatting by mutating global locale data.
 - Preserve supported locale scripts during fallback in formatting, parsing and
   Material date/number adapters. Normalize language/script/region components,
   retain regional patterns, and map Chinese scripts to compatible regional data.

@@ -7,7 +7,11 @@ import 'package:general_datetime/general_datetime.dart';
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key, this.now});
+
+  /// Optional native clock, sampled once when the example screen is created.
+  /// Omit this to use the current local time; tests can supply a frozen clock.
+  final DateTime Function()? now;
 
   @override
   Widget build(BuildContext context) => MaterialApp(
@@ -15,12 +19,15 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(colorSchemeSeed: Colors.indigo),
         localizationsDelegates: GlobalMaterialLocalizations.delegates,
         supportedLocales: const [Locale('en'), Locale('fa'), Locale('ar')],
-        home: const FormatExample(),
+        home: FormatExample(now: now),
       );
 }
 
 class FormatExample extends StatefulWidget {
-  const FormatExample({super.key});
+  const FormatExample({super.key, this.now});
+
+  /// Clock for the screen's initial snapshot; rebuilds retain that snapshot.
+  final DateTime Function()? now;
 
   @override
   State<FormatExample> createState() => _FormatExampleState();
@@ -28,14 +35,21 @@ class FormatExample extends StatefulWidget {
 
 class _FormatExampleState extends State<FormatExample> {
   String locale = 'en';
+  late final Map<String, DateTime> _dates;
+
+  @override
+  void initState() {
+    super.initState();
+    final instant = (widget.now ?? DateTime.now)();
+    _dates = {
+      'Gregorian': instant,
+      'Persian': PersianDateTime.fromDateTime(instant),
+      'Hijri': HijriDateTime.fromDateTime(instant),
+    };
+  }
 
   @override
   Widget build(BuildContext context) {
-    final dates = <String, DateTime>{
-      'Gregorian': DateTime.now(),
-      'Persian': PersianDateTime.now(),
-      'Hijri': HijriDateTime.now(),
-    };
     return Scaffold(
       appBar: AppBar(title: const Text('General Date Format')),
       body: ListView(
@@ -52,7 +66,7 @@ class _FormatExampleState extends State<FormatExample> {
             ],
             onChanged: (value) => setState(() => locale = value!),
           ),
-          for (final entry in dates.entries)
+          for (final entry in _dates.entries)
             _calendarCard(entry.key, entry.value),
         ],
       ),

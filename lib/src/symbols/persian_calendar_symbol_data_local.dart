@@ -1,9 +1,48 @@
-import "../date_symbols.dart";
+import 'package:intl/date_symbol_data_local.dart' as intl_data;
+
+import '../date_symbols.dart';
+import 'persian_af_calendar_data.dart';
+
+/// Persian calendar names with shared language/week metadata from intl.
+/// Afrikaans calendar names are generated from Unicode CLDR 48. Other calendar
+/// names retain the legacy table below; see tool/README.md for provenance.
+final Map<String, DateSymbols> persianDateSymbolMap = Map.unmodifiable({
+  for (final entry in _legacyPersianDateSymbolMap.entries)
+    entry.key: _localizedSymbols(entry.key, entry.value),
+});
+
+DateSymbols _localizedSymbols(String locale, DateSymbols legacy) {
+  final data = legacy.serializeToMap();
+  final language = intl_data.dateTimeSymbolMap()[locale]!.serializeToMap();
+  for (final key in [
+    'WEEKDAYS',
+    'STANDALONEWEEKDAYS',
+    'SHORTWEEKDAYS',
+    'STANDALONESHORTWEEKDAYS',
+    'NARROWWEEKDAYS',
+    'STANDALONENARROWWEEKDAYS',
+    'SHORTQUARTERS',
+    'QUARTERS',
+    'AMPMS',
+    'TIMEFORMATS',
+    'DATETIMEFORMATS',
+    'FIRSTDAYOFWEEK',
+    'WEEKENDRANGE',
+    'FIRSTWEEKCUTOFFDAY',
+  ]) {
+    data[key] = language[key];
+  }
+  if (locale == 'af') {
+    data.addAll(persianAfCalendarData);
+    data['DATEFORMATS'] = language['DATEFORMATS'];
+  }
+  return DateSymbols.deserializeFromMap(data);
+}
 
 /// Returns a Map from locale names to the DateSymbols instance for
 /// that locale. Internal use only. Call initializeDateFormatting
 /// instead.
-final Map<String, DateSymbols> persianDateSymbolMap = {
+final Map<String, DateSymbols> _legacyPersianDateSymbolMap = {
   // Date/time formatting symbols for locale en_ISO.
   "en_ISO": DateSymbols(
       NAME: 'en_ISO',

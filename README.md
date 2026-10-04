@@ -39,6 +39,20 @@ field order and digits. Formatting does not convert calendars. Use
 Calendar calculations, supported year ranges and normalization are provided by
 `general_datetime` and depend on the version you install.
 
+Persian weekday names, quarters, AM/PM markers, time formats and week metadata
+use the same `intl` locale source as Gregorian and Hijri. Afrikaans Persian
+month and era names are generated from pinned Unicode CLDR 48. For provenance,
+regeneration commands, and the `en_MY`/`en_ISO` conventions, see
+[Locale data sources](tool/README.md). Existing Persian abbreviated weekday and
+quarter spellings may change to match the shared locale data.
+
+`dateSymbols` exposes immutable fields, lists, and maps for the formatter's most
+recently selected calendar (Gregorian before its first format/parse call).
+Assignments to symbol fields are no longer supported. To adapt labels for your
+own UI, use `dateSymbols.serializeToMap()`: it returns a detached snapshot,
+including nested collections. Editing that snapshot does not customize the
+formatter or affect other instances.
+
 Use named skeleton constructors for locale-aware ordering:
 
 ```dart
@@ -160,6 +174,12 @@ final format = GeneralDateFormat('yyyy-MM-dd', 'fa')..useNativeDigits = false;
 The [example](example/lib/main.dart) demonstrates formatting and strict UTC
 parsing for all three calendars, with English, Persian and Arabic selection,
 plus Persian and Hijri date pickers.
+
+The example samples one native clock when its screen is created and derives
+all three displayed calendars from that instant. Locale changes and picker
+rebuilds retain the snapshot. Tests inject a fixed clock with
+`MyApp(now: () => DateTime.utc(2024, 3, 20, 12, 34))`; the default app uses local
+`DateTime.now`. Recreating the screen samples the clock again.
 
 ## Material calendar localization delegates
 

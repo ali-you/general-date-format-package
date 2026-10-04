@@ -56,11 +56,11 @@ void main() {
         expect(LLL, "ارد");
         expect(LLLL, "اردیبهشت");
         expect(y, "۱۴۰۰");
-        expect(E, "شنب");
+        expect(E, "شنبه");
         expect(EEEE, "شنبه");
         expect(EEEEE, "ش");
         expect(QQQ, "س‌م۱");
-        expect(QQQQ, "سه‌ماهه اول");
+        expect(QQQQ, "سه‌ماههٔ اول");
       });
     },
   );
@@ -118,9 +118,9 @@ void main() {
         String MMMMd = GeneralDateFormat.MMMMd("fa").format(persianNow);
         String MMMMEEEEd = GeneralDateFormat.MMMMEEEEd("fa").format(persianNow);
         expect(Md, "۲/۱۱");
-        expect(MEd, "شنب ۲/۱۱");
+        expect(MEd, "شنبه ۲/۱۱");
         expect(MMMd, "۱۱ ارد");
-        expect(MMMEd, "شنب ۱۱ ارد");
+        expect(MMMEd, "شنبه ۱۱ ارد");
         expect(MMMMd, "۱۱ اردیبهشت");
         expect(MMMMEEEEd, "شنبه ۱۱ اردیبهشت");
       });
@@ -165,15 +165,15 @@ void main() {
         String yQQQQ = GeneralDateFormat.yQQQQ("fa").format(persianNow);
         expect(yM, "۱۴۰۰/۲");
         expect(yMd, "۱۴۰۰/۲/۱۱");
-        expect(yMEd, "شنب ۱۴۰۰/۲/۱۱");
+        expect(yMEd, "شنبه ۱۴۰۰/۲/۱۱");
         expect(yMMM, "ارد ۱۴۰۰");
         expect(yMMMd, "۱۱ ارد ۱۴۰۰");
-        expect(yMMMEd, "شنب ۱۱ ارد ۱۴۰۰");
+        expect(yMMMEd, "شنبه ۱۱ ارد ۱۴۰۰");
         expect(yMMMM, "اردیبهشت ۱۴۰۰");
         expect(yMMMMd, "۱۱ اردیبهشت ۱۴۰۰");
         expect(yMMMMEEEEd, "شنبه ۱۱ اردیبهشت ۱۴۰۰");
-        expect(yQQQ, "سه‌ماهه اول ۱۴۰۰");
-        expect(yQQQQ, "سه‌ماهه اول ۱۴۰۰");
+        expect(yQQQ, "سه‌ماههٔ اول ۱۴۰۰");
+        expect(yQQQQ, "سه‌ماههٔ اول ۱۴۰۰");
       });
       test('Time Constructors', () {
         String Hm = GeneralDateFormat.Hm().format(persianNow);
@@ -316,9 +316,9 @@ void main() {
           'a': 'ب.ظ.',
           'EEEEE': 'ش',
           'EEEE': 'شنبه',
-          'EEE': 'شنب',
-          'EE': 'شنب',
-          'E': 'شنب',
+          'EEE': 'شنبه',
+          'EE': 'شنبه',
+          'E': 'شنبه',
         };
         final expected = values.entries.map((e) => e.value).join(' ');
         expect(formatted, expected);
@@ -352,7 +352,7 @@ void main() {
           'Q': '۲',
           'QQ': '۰۲',
           'QQQ': 'س‌م۲',
-          'QQQQ': 'سه‌ماهه دوم',
+          'QQQQ': 'سه‌ماههٔ دوم',
         };
         final expected = values.entries.map((e) => e.value).join(' ');
         expect(formatted, expected);
@@ -581,7 +581,7 @@ void main() {
       });
 
       test('add_E formats abbreviated weekday', () {
-        expect(GeneralDateFormat(null, locale).add_E().format(date), 'دوش');
+        expect(GeneralDateFormat(null, locale).add_E().format(date), 'دوشنبه');
       });
 
       test('add_EEEE formats full weekday', () {
@@ -610,8 +610,8 @@ void main() {
       });
 
       test('add_MEd formats weekday and month/day', () {
-        expect(
-            GeneralDateFormat(null, locale).add_MEd().format(date), 'دوش ۲/۱۱');
+        expect(GeneralDateFormat(null, locale).add_MEd().format(date),
+            'دوشنبه ۲/۱۱');
       });
 
       test('add_MMM formats abbreviated month', () {
@@ -625,7 +625,7 @@ void main() {
 
       test('add_MMMEd formats abbreviated weekday + month + day', () {
         expect(GeneralDateFormat(null, locale).add_MMMEd().format(date),
-            'دوش ۱۱ ارد');
+            'دوشنبه ۱۱ ارد');
       });
 
       test('add_MMMM formats full month name', () {
@@ -649,7 +649,7 @@ void main() {
 
       test('add_QQQQ formats full quarter', () {
         expect(GeneralDateFormat(null, locale).add_QQQQ().format(date),
-            'سه‌ماهه اول');
+            'سه‌ماههٔ اول');
       });
 
       test('add_y formats year', () {
@@ -667,7 +667,7 @@ void main() {
 
       test('add_yMEd formats weekday + full numeric date', () {
         expect(GeneralDateFormat(null, locale).add_yMEd().format(date),
-            'دوش ۱۴۰۲/۲/۱۱');
+            'دوشنبه ۱۴۰۲/۲/۱۱');
       });
 
       test('add_yMMM formats year and abbreviated month', () {
@@ -682,7 +682,7 @@ void main() {
 
       test('add_yMMMEd formats weekday + month + day + year', () {
         expect(GeneralDateFormat(null, locale).add_yMMMEd().format(date),
-            'دوش ۱۱ ارد ۱۴۰۲');
+            'دوشنبه ۱۱ ارد ۱۴۰۲');
       });
 
       test('add_yMMMM formats full month + year', () {
@@ -702,12 +702,12 @@ void main() {
 
       test('add_yQQQ formats year + short quarter', () {
         expect(GeneralDateFormat(null, locale).add_yQQQ().format(date),
-            'سه‌ماهه اول ۱۴۰۲');
+            'سه‌ماههٔ اول ۱۴۰۲');
       });
 
       test('add_yQQQQ formats year + full quarter', () {
         expect(GeneralDateFormat(null, locale).add_yQQQQ().format(date),
-            'سه‌ماهه اول ۱۴۰۲');
+            'سه‌ماههٔ اول ۱۴۰۲');
       });
 
       test('add_H formats 24-hour', () {
