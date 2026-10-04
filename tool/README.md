@@ -1,5 +1,10 @@
 # Locale data sources
 
+Canonical symbol and pattern tables live in
+`packages/general_date_format_core/lib/src`. The generators below write there;
+the Flutter wrapper forwards to those same libraries. Both distributed cores
+retain their data-license notices.
+
 Gregorian symbols use the resolved `intl` package's generated locale tables.
 Persian and Hijri share those tables' weekday names, quarters, AM/PM markers,
 time/date-time formats, first weekday, weekend range, and first-week cutoff.

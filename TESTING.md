@@ -1,5 +1,16 @@
 # Testing
 
+The pure Dart formatter lives in `packages/general_date_format_core`. Copy its
+`pubspec_overrides.yaml.example` to `pubspec_overrides.yaml` to select the
+neighboring unpublished `general_datetime_core`, then run `dart pub get`,
+`dart analyze`, and `dart test` from that package directory. Its tests verify
+the absence of Flutter packages in the dependency graph as well as independent
+calendar fixtures, localized parsing, and strict-parser guards.
+
+Both cores include a CLI example runnable with `dart run example/cli.dart` and
+compilable with `dart compile exe`. The Flutter suites below exercise the same
+implementations through public compatibility exports and Material adapters.
+
 Run from the package directory after `flutter pub get`:
 
 ```sh

@@ -1,6 +1,11 @@
 # Changelog
 
 ## [2.0.0] — release preparation
+- Extract formatting, parsing, locale resolution, and symbol data into pure Dart
+  `general_date_format_core` 1.0.0, depending on `general_datetime_core` 1.0.0.
+  Keep existing public formatter imports and Material localization delegates in
+  the Flutter wrapper, with shared formatter/date type identities. Locale
+  generators now write the canonical tables in the Dart core package.
 - Make the example sample one injectable native clock per screen, deriving
   Gregorian, Persian, and Hijri displays from the same instant. Freeze widget
   fixtures and verify midnight/rebuild consistency and exact picker selections.

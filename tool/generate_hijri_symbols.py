@@ -18,7 +18,7 @@ def fetch(url):
 
 
 def main():
-    locales = re.findall(r'"([^"]+)"', (ROOT / "lib/src/common/symbol_list.dart").read_text())
+    locales = re.findall(r'"([^"]+)"', (ROOT / "packages/general_date_format_core/lib/src/common/symbol_list.dart").read_text())
     index = CACHE / "locales.json"
     if not index.exists():
         index.write_bytes(fetch("https://api.github.com/repos/unicode-org/cldr-json/contents/"
@@ -71,7 +71,7 @@ def main():
         text.extend(f"    {dart(key)}: {dart(value)}," for key, value in values.items())
         text.append("  },")
     text.append("};\n")
-    (ROOT / "lib/src/symbols/hijri_calendar_data.dart").write_text("\n".join(text), encoding="utf-8")
+    (ROOT / "packages/general_date_format_core/lib/src/symbols/hijri_calendar_data.dart").write_text("\n".join(text), encoding="utf-8")
     license_path = ROOT / "THIRD_PARTY_NOTICES.md"
     license_path.write_text("# Third-party data\n\nThe generated Hijri month and era names are derived from "
                            "[Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0/"

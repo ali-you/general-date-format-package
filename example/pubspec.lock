@@ -79,6 +79,13 @@ packages:
       relative: true
     source: path
     version: "2.0.0"
+  general_date_format_core:
+    dependency: "direct overridden"
+    description:
+      path: "../packages/general_date_format_core"
+      relative: true
+    source: path
+    version: "1.0.0"
   general_datetime:
     dependency: "direct main"
     description:
@@ -86,6 +93,13 @@ packages:
       relative: true
     source: path
     version: "3.0.0"
+  general_datetime_core:
+    dependency: "direct overridden"
+    description:
+      path: "../../general_date/packages/general_datetime_core"
+      relative: true
+    source: path
+    version: "1.0.0"
   intl:
     dependency: transitive
     description:

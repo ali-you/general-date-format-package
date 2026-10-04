@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ("https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/"
           "cldr-json/cldr-cal-persian-full/main/af/ca-persian.json")
 CACHE = ROOT / ".dart_tool/cldr-48/persian-af.json"
-OUTPUT = ROOT / "lib/src/symbols/persian_af_calendar_data.dart"
+OUTPUT = ROOT / "packages/general_date_format_core/lib/src/symbols/persian_af_calendar_data.dart"
 
 
 def main():

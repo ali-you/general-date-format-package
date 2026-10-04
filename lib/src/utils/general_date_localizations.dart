@@ -1,4 +1,2 @@
-/// Legacy internal initialization hook. Locale data is now loaded lazily by
-/// GeneralDateFormat, so callers no longer need an explicit initialization step.
-@Deprecated('GeneralDateFormat loads its calendar data lazily.')
-void loadDateIntlDataIfNotLoaded() {}
+// Compatibility forwarding library; implementation lives in general_date_format_core.
+export 'package:general_date_format_core/src/utils/general_date_localizations.dart';

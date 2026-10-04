@@ -7,6 +7,33 @@ on:
     branches: [ main ]
 
 jobs:
+  dart-core:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/general_date_format_core
+    steps:
+      - uses: actions/checkout@v4
+      - name: Checkout chronology source
+        uses: actions/checkout@v4
+        with:
+          repository: ali-you/general-date-package
+          path: .dart_tool/calendar_dependencies/general_date
+      - uses: dart-lang/setup-dart@v1
+      - name: Resolve the standalone Dart pair
+        run: |
+          cat > pubspec_overrides.yaml <<EOF
+          dependency_overrides:
+            general_datetime_core:
+              path: $GITHUB_WORKSPACE/.dart_tool/calendar_dependencies/general_date/packages/general_datetime_core
+          EOF
+          dart pub get
+      - run: dart format --output=none --set-exit-if-changed lib test example
+      - run: dart analyze
+      - run: dart test
+      - run: dart compile exe example/cli.dart -o .dart_tool/calendar_cli
+      - run: .dart_tool/calendar_cli
+
   test:
     runs-on: ubuntu-latest
     strategy:
@@ -20,6 +47,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Checkout chronology source
+        uses: actions/checkout@v4
+        with:
+          repository: ali-you/general-date-package
+          path: .dart_tool/calendar_dependencies/general_date
+
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
@@ -27,13 +60,30 @@ jobs:
           architecture: x64
 
       - name: Install dependencies
-        run: flutter pub get
+        run: |
+          cat > pubspec_overrides.yaml <<EOF
+          dependency_overrides:
+            general_datetime:
+              path: $GITHUB_WORKSPACE/.dart_tool/calendar_dependencies/general_date
+            general_datetime_core:
+              path: $GITHUB_WORKSPACE/.dart_tool/calendar_dependencies/general_date/packages/general_datetime_core
+            general_date_format_core:
+              path: $GITHUB_WORKSPACE/packages/general_date_format_core
+          EOF
+          cp pubspec_overrides.yaml example/pubspec_overrides.yaml
+          cat > packages/general_date_format_core/pubspec_overrides.yaml <<EOF
+          dependency_overrides:
+            general_datetime_core:
+              path: $GITHUB_WORKSPACE/.dart_tool/calendar_dependencies/general_date/packages/general_datetime_core
+          EOF
+          (cd packages/general_date_format_core && dart pub get)
+          flutter pub get
 
       - name: Analyze package and example
         run: flutter analyze
 
       - name: Check Dart formatting
-        run: dart format --output=none --set-exit-if-changed lib test example/lib example/test
+        run: dart format --output=none --set-exit-if-changed lib test example/lib example/test packages/general_date_format_core
 
       - name: Run tests
         run: flutter test

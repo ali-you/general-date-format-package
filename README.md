@@ -17,6 +17,18 @@ the corrected datetime core; general_datetime 2.1.0 is no longer supported.
 
 ## Formatting
 
+### Dart servers and command-line applications
+
+Use [`general_date_format_core`](packages/general_date_format_core/README.md)
+and `general_datetime_core` for formatting and chronology without Flutter.
+Their version 1.0.0 releases are prepared locally; the linked README provides
+path dependencies, overrides, and standalone Dart test/CLI commands.
+
+This Flutter package retains its existing public formatter and localization
+imports. It re-exports the Dart core's exact `GeneralDateFormat` type and adds
+the Material adapters. Date classes are likewise shared through
+`general_datetime_core`, preserving runtime calendar selection across imports.
+
 ```dart
 import 'package:general_date_format/general_date_format.dart';
 import 'package:general_datetime/general_datetime.dart';
@@ -276,12 +288,19 @@ flutter pub get
 Pop-Location
 ```
 
-The ignored overrides resolve the corrected core through relative paths. They
-do not change the publishable dependency constraint `general_datetime: ^3.0.0`.
-Run `flutter analyze` and `flutter test` against this pair. Publish
-general_datetime 3.0.0 first, then remove the local overrides, resolve and verify
-the hosted 3.x dependency before publishing general_date_format 2.0.0. Without a
-3.x release or local override, resolution must fail rather than select 2.1.0.
+The ignored overrides resolve both Flutter packages and both extracted Dart
+cores through relative paths. Dependency manifests retain publishable hosted
+version constraints. Run `flutter analyze` and `flutter test` against this pair.
+For core development, also copy the template inside
+`packages/general_date_format_core` and run its `dart pub get`, `dart analyze`,
+and `dart test` there. An external application must provide all needed overrides
+itself; dependency overrides are not inherited from these packages.
+
+Publish `general_datetime_core` 1.0.0 first. Then publish
+`general_date_format_core` 1.0.0 and `general_datetime` 3.0.0, both of which depend
+on it. Publish `general_date_format` 2.0.0 after verifying those hosted releases
+without local overrides. Until publication, resolution requires the documented
+overrides and must not fall back to the defective general_datetime 2.1.0.
 
 See [TESTING.md](TESTING.md) for the comprehensive suites, the fast
 `flutter test --tags critical` command, coverage, and timezone CI matrix.
