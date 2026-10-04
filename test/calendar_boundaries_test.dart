@@ -144,20 +144,28 @@ void main() {
           }
         });
 
-        test('subsecond zeros, padding and truncation', () {
+        test('subsecond precision, exact zero padding and truncation', () {
           for (final width in [1, 2, 3, 6, 9]) {
             final format =
                 GeneralDateFormat('yyyy-MM-dd HH:mm:ss.${'S' * width}');
             for (final millisecond in [0, 1, 9, 10, 99, 100, 500, 999]) {
               final date = calendar.date(
                   calendar.baseYear, 1, 1, 0, 0, 0, millisecond, 321);
-              final fraction = millisecond.toString().padLeft(3, '0') +
-                  '0' * (width > 3 ? width - 3 : 0);
+              final milliseconds = millisecond.toString().padLeft(3, '0');
+              final suffix =
+                  width > 3 ? '321${'0' * (width > 6 ? width - 6 : 0)}' : '';
+              final fraction = '$milliseconds$suffix';
               final text = '${calendar.baseYear}-01-01 00:00:00.$fraction';
               expect(format.format(date), text);
               expectCalendarFields(
-                  format.parseStrict(text, calendar.selector, true), date,
-                  utc: true);
+                  format.parseStrict(text, calendar.selector, true),
+                  calendar.date(calendar.baseYear, 1, 1, 0, 0, 0, millisecond,
+                      width > 3 ? 321 : 0),
+                  utc: true,
+                  microsecond: width > 3 ? 321 : 0);
+              expect(
+                  format.parseStrict(text, calendar.selector, true).microsecond,
+                  width > 3 ? 321 : 0);
             }
           }
           final format = GeneralDateFormat('yyyy-MM-dd ss.SSSSSS');
@@ -168,7 +176,8 @@ void main() {
                 calendar.selector,
                 true);
             expect(parsed.millisecond, entry.value);
-            expect(parsed.microsecond, 0);
+            expect(parsed.microsecond,
+                entry.key.length > 3 ? int.parse(entry.key.substring(3)) : 0);
           }
         });
       });

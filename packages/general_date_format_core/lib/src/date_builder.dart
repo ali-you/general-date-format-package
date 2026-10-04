@@ -7,6 +7,7 @@ import 'general_date_format_internal.dart';
 class DateBuilder {
   late int year, month, day;
   int dayOfYear = 0, hour = 0, minute = 0, second = 0, fractionalSecond = 0;
+  int microsecond = 0;
   bool pm = false, utc = false, dateOnly = false;
   bool _hasAmbiguousCentury = false;
   bool hasDayOfYear = false;
@@ -102,7 +103,12 @@ class DateBuilder {
   }
 
   void setFractionalSecond(int x) {
-    fractionalSecond = x;
+    setFractionalMicroseconds(x * 1000);
+  }
+
+  void setFractionalMicroseconds(int x) {
+    fractionalSecond = x ~/ 1000;
+    microsecond = x % 1000;
     _recordTime('fractional second', x);
   }
 
@@ -163,11 +169,11 @@ class DateBuilder {
       _verify(actual, hour24, hour24, 'repeated hour', input);
     }
     for (final entry in _timeInputs.entries) {
-      final maximum = entry.key == 'fractional second' ? 999 : 59;
+      final maximum = entry.key == 'fractional second' ? 999999 : 59;
       final expected = switch (entry.key) {
         'minute' => minute,
         'second' => second,
-        _ => fractionalSecond,
+        _ => fractionalSecond * 1000 + microsecond,
       };
       for (final value in entry.value) {
         _verify(value, 0, maximum, entry.key, input);
@@ -244,7 +250,7 @@ class DateBuilder {
     if (_date != null) return _date!;
     try {
       _date = _construct(_estimatedYear, _constructionMonth, dayOrDayOfYear,
-          hour24, minute, second, fractionalSecond);
+          hour24, minute, second, fractionalSecond, microsecond);
     } on ArgumentError catch (error) {
       throw FormatException('Date outside the calendar range: $error');
     }
@@ -266,7 +272,7 @@ class DateBuilder {
     var candidate = (upper.year ~/ 100) * 100 + year;
     // Compare calendar fields, without relying on DateTime subclass internals.
     final candidateDate = _construct(candidate, _constructionMonth,
-        dayOrDayOfYear, hour24, minute, second, fractionalSecond);
+        dayOrDayOfYear, hour24, minute, second, fractionalSecond, microsecond);
     final inputFields = [
       candidateDate.year,
       candidateDate.month,
@@ -274,7 +280,8 @@ class DateBuilder {
       candidateDate.hour,
       candidateDate.minute,
       candidateDate.second,
-      candidateDate.millisecond
+      candidateDate.millisecond,
+      candidateDate.microsecond
     ];
     final upperFields = [
       upper.year,
@@ -283,7 +290,8 @@ class DateBuilder {
       upper.hour,
       upper.minute,
       upper.second,
-      upper.millisecond
+      upper.millisecond,
+      upper.microsecond
     ];
     for (var i = 0; i < inputFields.length; i++) {
       if (inputFields[i] == upperFields[i]) continue;
@@ -296,26 +304,30 @@ class DateBuilder {
   DateTime _makeCenturyWindowEnd() {
     final now = _inCalendar(utc ? clock.now().toUtc() : clock.now().toLocal());
     return _construct(now.year + 20, now.month, now.day, now.hour, now.minute,
-        now.second, now.millisecond);
+        now.second, now.millisecond, now.microsecond);
   }
 
   DateTime _construct(int year, int month, int day, int hour, int minute,
-      int second, int millisecond) {
+      int second, int millisecond,
+      [int microsecond = 0]) {
     if (generalDateTime is PersianDateTime) {
       return utc
           ? PersianDateTime.utc(
-              year, month, day, hour, minute, second, millisecond)
+              year, month, day, hour, minute, second, millisecond, microsecond)
           : PersianDateTime(
-              year, month, day, hour, minute, second, millisecond);
+              year, month, day, hour, minute, second, millisecond, microsecond);
     }
     if (generalDateTime is HijriDateTime) {
       return utc
           ? HijriDateTime.utc(
-              year, month, day, hour, minute, second, millisecond)
-          : HijriDateTime(year, month, day, hour, minute, second, millisecond);
+              year, month, day, hour, minute, second, millisecond, microsecond)
+          : HijriDateTime(
+              year, month, day, hour, minute, second, millisecond, microsecond);
     }
     return utc
-        ? DateTime.utc(year, month, day, hour, minute, second, millisecond)
-        : DateTime(year, month, day, hour, minute, second, millisecond);
+        ? DateTime.utc(
+            year, month, day, hour, minute, second, millisecond, microsecond)
+        : DateTime(
+            year, month, day, hour, minute, second, millisecond, microsecond);
   }
 }

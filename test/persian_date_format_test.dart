@@ -25,9 +25,9 @@ void main() {
         String QQQQ = GeneralDateFormat.QQQQ().format(persianNow);
         expect(d, "11");
         expect(M, "2");
-        expect(MMM, "Ord");
+        expect(MMM, "Ordibehesht");
         expect(MMMM, "Ordibehesht");
-        expect(LLL, "Ord");
+        expect(LLL, "Ordibehesht");
         expect(LLLL, "Ordibehesht");
         expect(y, "1400");
         expect(E, "Sat");
@@ -51,9 +51,9 @@ void main() {
         String QQQQ = GeneralDateFormat.QQQQ("fa").format(persianNow);
         expect(d, "۱۱");
         expect(M, "۲");
-        expect(MMM, "ارد");
+        expect(MMM, "اردیبهشت");
         expect(MMMM, "اردیبهشت");
-        expect(LLL, "ارد");
+        expect(LLL, "اردیبهشت");
         expect(LLLL, "اردیبهشت");
         expect(y, "۱۴۰۰");
         expect(E, "شنبه");
@@ -105,8 +105,8 @@ void main() {
         String MMMMEEEEd = GeneralDateFormat.MMMMEEEEd().format(persianNow);
         expect(Md, "2/11");
         expect(MEd, "Sat, 2/11");
-        expect(MMMd, "Ord 11");
-        expect(MMMEd, "Sat, Ord 11");
+        expect(MMMd, "Ordibehesht 11");
+        expect(MMMEd, "Sat, Ordibehesht 11");
         expect(MMMMd, "Ordibehesht 11");
         expect(MMMMEEEEd, "Saturday, Ordibehesht 11");
       });
@@ -119,8 +119,8 @@ void main() {
         String MMMMEEEEd = GeneralDateFormat.MMMMEEEEd("fa").format(persianNow);
         expect(Md, "۲/۱۱");
         expect(MEd, "شنبه ۲/۱۱");
-        expect(MMMd, "۱۱ ارد");
-        expect(MMMEd, "شنبه ۱۱ ارد");
+        expect(MMMd, "۱۱ اردیبهشت");
+        expect(MMMEd, "شنبه ۱۱ اردیبهشت");
         expect(MMMMd, "۱۱ اردیبهشت");
         expect(MMMMEEEEd, "شنبه ۱۱ اردیبهشت");
       });
@@ -139,9 +139,9 @@ void main() {
         expect(yM, "2/1400");
         expect(yMd, "2/11/1400");
         expect(yMEd, "Sat, 2/11/1400");
-        expect(yMMM, "Ord 1400");
-        expect(yMMMd, "Ord 11, 1400");
-        expect(yMMMEd, "Sat, Ord 11, 1400");
+        expect(yMMM, "Ordibehesht 1400");
+        expect(yMMMd, "Ordibehesht 11, 1400");
+        expect(yMMMEd, "Sat, Ordibehesht 11, 1400");
         expect(yMMMM, "Ordibehesht 1400");
         expect(yMMMMd, "Ordibehesht 11, 1400");
         expect(yMMMMEEEEd, "Saturday, Ordibehesht 11, 1400");
@@ -166,9 +166,9 @@ void main() {
         expect(yM, "۱۴۰۰/۲");
         expect(yMd, "۱۴۰۰/۲/۱۱");
         expect(yMEd, "شنبه ۱۴۰۰/۲/۱۱");
-        expect(yMMM, "ارد ۱۴۰۰");
-        expect(yMMMd, "۱۱ ارد ۱۴۰۰");
-        expect(yMMMEd, "شنبه ۱۱ ارد ۱۴۰۰");
+        expect(yMMM, "اردیبهشت ۱۴۰۰");
+        expect(yMMMd, "۱۱ اردیبهشت ۱۴۰۰");
+        expect(yMMMEd, "شنبه ۱۱ اردیبهشت ۱۴۰۰");
         expect(yMMMM, "اردیبهشت ۱۴۰۰");
         expect(yMMMMd, "۱۱ اردیبهشت ۱۴۰۰");
         expect(yMMMMEEEEd, "شنبه ۱۱ اردیبهشت ۱۴۰۰");
@@ -215,7 +215,7 @@ void main() {
           'yyyy': '1402', // Full year
           'yy': '02', // Last two digits of year
           'MMMM': 'Ordibehesht', // Full month name
-          'MMM': 'Ord', // Abbreviated month name
+          'MMM': 'Ordibehesht', // Abbreviated month name
           'MM': '02', // Two-digit month
           'M': '2', // One-digit month
           'dd': '02', // Two-digit day
@@ -248,8 +248,8 @@ void main() {
         final p = "G GGGG yyyy y MM M dd d c h H k K EEEE E D a Q QQ QQQ QQQQ";
         final formatted = GeneralDateFormat(p).format(date);
         final values = {
-          'G': 'S.Y.',
-          'GGGG': 'Solar Year',
+          'G': 'AP',
+          'GGGG': 'AP',
           'yyyy': '1402',
           'y': '1402',
           'MM': '04',
@@ -296,7 +296,7 @@ void main() {
           'yyyy': '۱۴۰۲',
           'yy': '۰۲',
           'MMMM': 'اردیبهشت',
-          'MMM': 'ارد',
+          'MMM': 'اردیبهشت',
           'MM': '۰۲',
           'M': '۲',
           'dd': '۰۲',
@@ -332,8 +332,8 @@ void main() {
         final formatted = GeneralDateFormat(p, 'fa').format(date);
 
         final values = {
-          'G': 'خ.',
-          'GGGG': 'خورشیدی',
+          'G': 'ه‍.ش.',
+          'GGGG': 'هجری شمسی',
           'yyyy': '۱۴۰۲',
           'y': '۱۴۰۲',
           'MM': '۰۴',
@@ -402,7 +402,7 @@ void main() {
     // Test microsecond precision
     test('Fractional Seconds', () {
       final date = PersianDateTime(1, 1, 1, 1, 1, 1, 1, 123456);
-      expect(GeneralDateFormat("SSSSSS", "en_ISO").format(date), "124000");
+      expect(GeneralDateFormat("SSSSSS", "en_ISO").format(date), "124456");
       expect(GeneralDateFormat("SSS", "fa").format(date), "۱۲۴");
     });
   });
@@ -425,7 +425,8 @@ void main() {
       });
 
       test('add_LLL formats standalone abbreviated month', () {
-        expect(GeneralDateFormat("y").add_LLL().format(date), '1402 Ord');
+        expect(
+            GeneralDateFormat("y").add_LLL().format(date), '1402 Ordibehesht');
       });
 
       test('add_LLLL formats standalone full month', () {
@@ -446,15 +447,16 @@ void main() {
       });
 
       test('add_MMM formats abbreviated month name', () {
-        expect(GeneralDateFormat().add_MMM().format(date), 'Ord');
+        expect(GeneralDateFormat().add_MMM().format(date), 'Ordibehesht');
       });
 
       test('add_MMMd formats abbreviated month name and day', () {
-        expect(GeneralDateFormat().add_MMMd().format(date), 'Ord 11');
+        expect(GeneralDateFormat().add_MMMd().format(date), 'Ordibehesht 11');
       });
 
       test('add_MMMEd formats abbreviated weekday + month + day', () {
-        expect(GeneralDateFormat().add_MMMEd().format(date), 'Mon, Ord 11');
+        expect(GeneralDateFormat().add_MMMEd().format(date),
+            'Mon, Ordibehesht 11');
       });
 
       test('add_MMMM formats full month name', () {
@@ -495,16 +497,17 @@ void main() {
       });
 
       test('add_yMMM formats year and abbreviated month', () {
-        expect(GeneralDateFormat().add_yMMM().format(date), 'Ord 1402');
+        expect(GeneralDateFormat().add_yMMM().format(date), 'Ordibehesht 1402');
       });
 
       test('add_yMMMd formats abbreviated month + day + year', () {
-        expect(GeneralDateFormat().add_yMMMd().format(date), 'Ord 11, 1402');
+        expect(GeneralDateFormat().add_yMMMd().format(date),
+            'Ordibehesht 11, 1402');
       });
 
       test('add_yMMMEd formats weekday + month + day + year', () {
-        expect(
-            GeneralDateFormat().add_yMMMEd().format(date), 'Mon, Ord 11, 1402');
+        expect(GeneralDateFormat().add_yMMMEd().format(date),
+            'Mon, Ordibehesht 11, 1402');
       });
 
       test('add_yMMMM formats full month + year', () {
@@ -590,8 +593,8 @@ void main() {
       });
 
       test('add_LLL formats standalone abbreviated month', () {
-        expect(
-            GeneralDateFormat("y", locale).add_LLL().format(date), '۱۴۰۲ ارد');
+        expect(GeneralDateFormat("y", locale).add_LLL().format(date),
+            '۱۴۰۲ اردیبهشت');
       });
 
       test('add_LLLL formats standalone full month', () {
@@ -615,17 +618,18 @@ void main() {
       });
 
       test('add_MMM formats abbreviated month', () {
-        expect(GeneralDateFormat(null, locale).add_MMM().format(date), 'ارد');
+        expect(
+            GeneralDateFormat(null, locale).add_MMM().format(date), 'اردیبهشت');
       });
 
       test('add_MMMd formats abbreviated month and day', () {
-        expect(
-            GeneralDateFormat(null, locale).add_MMMd().format(date), '۱۱ ارد');
+        expect(GeneralDateFormat(null, locale).add_MMMd().format(date),
+            '۱۱ اردیبهشت');
       });
 
       test('add_MMMEd formats abbreviated weekday + month + day', () {
         expect(GeneralDateFormat(null, locale).add_MMMEd().format(date),
-            'دوشنبه ۱۱ ارد');
+            'دوشنبه ۱۱ اردیبهشت');
       });
 
       test('add_MMMM formats full month name', () {
@@ -672,17 +676,17 @@ void main() {
 
       test('add_yMMM formats year and abbreviated month', () {
         expect(GeneralDateFormat(null, locale).add_yMMM().format(date),
-            'ارد ۱۴۰۲');
+            'اردیبهشت ۱۴۰۲');
       });
 
       test('add_yMMMd formats abbreviated month + day + year', () {
         expect(GeneralDateFormat(null, locale).add_yMMMd().format(date),
-            '۱۱ ارد ۱۴۰۲');
+            '۱۱ اردیبهشت ۱۴۰۲');
       });
 
       test('add_yMMMEd formats weekday + month + day + year', () {
         expect(GeneralDateFormat(null, locale).add_yMMMEd().format(date),
-            'دوشنبه ۱۱ ارد ۱۴۰۲');
+            'دوشنبه ۱۱ اردیبهشت ۱۴۰۲');
       });
 
       test('add_yMMMM formats full month + year', () {

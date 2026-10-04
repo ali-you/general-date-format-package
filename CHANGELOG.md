@@ -1,6 +1,16 @@
 # Changelog
 
 ## [2.0.0] — release preparation
+- Preserve microseconds with six fractional-second digits and native digits.
+  Strict/loose parsing rejects nonzero precision beyond six digits; ordinary
+  parsing truncates it. Legacy one-to-three-digit output remains millisecond
+  based, and wider patterns pad exact zeros after microseconds.
+- Generate Persian and Umm al-Qura locale names from checksum-locked CLDR 48
+  inputs. Retain shared skeleton patterns and documented compatibility overrides,
+  preserve attribution, and add deterministic generation checks.
+- Add pinned peer-repository CI, Flutter adapter compatibility coverage, and a
+  reproducible native release performance baseline. Published-dependency and
+  device/browser matrix execution remain release verification steps.
 - Extract formatting, parsing, locale resolution, and symbol data into pure Dart
   `general_date_format_core` 1.0.0, depending on `general_datetime_core` 1.0.0.
   Keep existing public formatter imports and Material localization delegates in

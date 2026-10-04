@@ -45,7 +45,7 @@ enum CalendarFixture {
 /// Compare calendar fields explicitly: subclass equality/epoch conversion is
 /// owned by general_datetime, whereas this package promises field preservation.
 void expectCalendarFields(DateTime actual, DateTime expected,
-    {required bool utc, String? reason}) {
+    {required bool utc, String? reason, int microsecond = 0}) {
   expect(actual.runtimeType, expected.runtimeType, reason: reason);
   expect(actual.isUtc, utc, reason: reason);
   expect([
@@ -65,6 +65,6 @@ void expectCalendarFields(DateTime actual, DateTime expected,
     expected.minute,
     expected.second,
     expected.millisecond,
-    0, // Patterns retain milliseconds, not sub-millisecond precision.
+    microsecond, // The pattern determines the expected fractional precision.
   ], reason: reason);
 }

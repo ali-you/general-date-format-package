@@ -1,93 +1,122 @@
-name: Flutter CI
-
+name: Calendar formatter CI
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
-
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      hosted:
+        description: Verify published releases without development overrides
+        type: boolean
+        default: false
+permissions:
+  contents: read
 jobs:
-  dart-core:
+  pair:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: packages/general_date_format_core
+    outputs:
+      repository: ${{ steps.pin.outputs.repository }}
+      revision: ${{ steps.pin.outputs.revision }}
     steps:
       - uses: actions/checkout@v4
-      - name: Checkout chronology source
-        uses: actions/checkout@v4
+      - id: pin
+        run: |
+          python - <<'PY'
+          import json, os, re
+          pin = json.load(open('.github/calendar_pair.json'))
+          assert re.fullmatch(r'[0-9a-f]{40}', pin['peerRevision'])
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('repository=' + pin['peerRepository'] + '\nrevision=' + pin['peerRevision'] + '\n')
+          PY
+  dart-core:
+    needs: pair
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        sdk: ['3.4.0', stable]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
-          repository: ali-you/general-date-package
+          repository: ${{ needs.pair.outputs.repository }}
+          ref: ${{ needs.pair.outputs.revision }}
           path: .dart_tool/calendar_dependencies/general_date
       - uses: dart-lang/setup-dart@v1
-      - name: Resolve the standalone Dart pair
-        run: |
-          cat > pubspec_overrides.yaml <<EOF
-          dependency_overrides:
-            general_datetime_core:
-              path: $GITHUB_WORKSPACE/.dart_tool/calendar_dependencies/general_date/packages/general_datetime_core
-          EOF
-          dart pub get
-      - run: dart format --output=none --set-exit-if-changed lib test example
-      - run: dart analyze
-      - run: dart test
-      - run: dart compile exe example/cli.dart -o .dart_tool/calendar_cli
-      - run: .dart_tool/calendar_cli
-
+        with:
+          sdk: ${{ matrix.sdk }}
+      - run: python tool/resolve_calendar_pair.py --chronology "$GITHUB_WORKSPACE/.dart_tool/calendar_dependencies/general_date" --formatter "$GITHUB_WORKSPACE"
+      - run: dart pub get && dart analyze && dart test && dart compile exe example/cli.dart -o .dart_tool/calendar_cli && .dart_tool/calendar_cli
+        working-directory: packages/general_date_format_core
   test:
+    needs: pair
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
+        flutter: ['3.32.0', '']
         timezone: [UTC, Asia/Tehran, America/New_York]
     env:
       TZ: ${{ matrix.timezone }}
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Checkout chronology source
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
-          repository: ali-you/general-date-package
+          repository: ${{ needs.pair.outputs.repository }}
+          ref: ${{ needs.pair.outputs.revision }}
           path: .dart_tool/calendar_dependencies/general_date
-
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
+      - uses: subosito/flutter-action@v2
         with:
           channel: stable
-          architecture: x64
-
-      - name: Install dependencies
+          flutter-version: ${{ matrix.flutter }}
+      - name: Resolve and record exact source pair
         run: |
-          cat > pubspec_overrides.yaml <<EOF
-          dependency_overrides:
-            general_datetime:
-              path: $GITHUB_WORKSPACE/.dart_tool/calendar_dependencies/general_date
-            general_datetime_core:
-              path: $GITHUB_WORKSPACE/.dart_tool/calendar_dependencies/general_date/packages/general_datetime_core
-            general_date_format_core:
-              path: $GITHUB_WORKSPACE/packages/general_date_format_core
-          EOF
-          cp pubspec_overrides.yaml example/pubspec_overrides.yaml
-          cat > packages/general_date_format_core/pubspec_overrides.yaml <<EOF
-          dependency_overrides:
-            general_datetime_core:
-              path: $GITHUB_WORKSPACE/.dart_tool/calendar_dependencies/general_date/packages/general_datetime_core
-          EOF
-          (cd packages/general_date_format_core && dart pub get)
+          python tool/resolve_calendar_pair.py --chronology "$GITHUB_WORKSPACE/.dart_tool/calendar_dependencies/general_date" --formatter "$GITHUB_WORKSPACE"
+          git rev-parse HEAD
+          git -C .dart_tool/calendar_dependencies/general_date rev-parse HEAD
           flutter pub get
-
-      - name: Analyze package and example
-        run: flutter analyze
-
-      - name: Check Dart formatting
-        run: dart format --output=none --set-exit-if-changed lib test example/lib example/test packages/general_date_format_core
-
-      - name: Run tests
-        run: flutter test
-
-      - name: Run example tests
+          (cd packages/general_date_format_core && dart pub get)
+          (cd example && flutter pub get)
+      - if: matrix.flutter == ''
+        run: dart format --output=none --set-exit-if-changed lib test example/lib example/test packages/general_date_format_core tool/export_locale_policy.dart
+      - run: flutter analyze
+      - run: flutter test --dart-define=CALENDAR_TEST_TZ=${{ matrix.timezone }}
+      - run: flutter test
         working-directory: example
-        run: flutter test
+  browser:
+    needs: pair
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        compiler: [javascript, wasm]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{ needs.pair.outputs.repository }}
+          ref: ${{ needs.pair.outputs.revision }}
+          path: .dart_tool/calendar_dependencies/general_date
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - run: python tool/resolve_calendar_pair.py --chronology "$GITHUB_WORKSPACE/.dart_tool/calendar_dependencies/general_date" --formatter "$GITHUB_WORKSPACE"
+      - run: flutter pub get
+      - run: flutter test --platform chrome ${{ matrix.compiler == 'wasm' && '--wasm' || '' }} test/platform_formatter_smoke_test.dart
+  locale-data:
+    needs: pair
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+      - run: python tool/generate_calendar_data.py --check
+      - run: python tool/generate_persian_af_symbols.py --check
+  hosted-pair:
+    if: github.event_name == 'workflow_dispatch' && inputs.hosted
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - run: flutter pub get
+      - run: flutter test test/dependency_contract_test.dart test/core_package_identity_test.dart

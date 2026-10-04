@@ -341,8 +341,14 @@ class _DateFormatPatternField extends _DateFormatField {
           break;
         case 'S':
           final digits = _readDigits(input);
-          builder.setFractionalSecond(
-              int.parse(digits.padRight(3, '0').substring(0, 3)));
+          if (builder.strict &&
+              digits.length > 6 &&
+              digits.substring(6).contains(RegExp('[1-9]'))) {
+            throw const FormatException(
+                'Fraction exceeds microsecond precision');
+          }
+          builder.setFractionalMicroseconds(
+              int.parse(digits.padRight(6, '0').substring(0, 6)));
           break;
         case 's':
           handleNumericField(input, builder.setSecond);
@@ -539,14 +545,15 @@ class _DateFormatPatternField extends _DateFormatField {
   }
 
   String formatFractionalSeconds(DateTime date) {
-    // Always print at least 3 digits. If the width is greater, append 0s
-    var basic = padTo(3, date.millisecond);
-    if (width - 3 > 0) {
-      var extra = padTo(width - 3, 0);
-      return basic + extra;
-    } else {
-      return basic;
-    }
+    // Preserve the existing minimum of three digits; wider fields retain
+    // microseconds, truncate to the requested width, then pad exact zeros.
+    final precision = width < 3 ? 3 : width;
+    final exact =
+        (date.millisecond * 1000 + date.microsecond).toString().padLeft(6, '0');
+    final fraction = precision <= 6
+        ? exact.substring(0, precision)
+        : exact.padRight(precision, '0');
+    return parent._localizeDigits(fraction);
   }
 
   String formatAmPm(DateTime date) {

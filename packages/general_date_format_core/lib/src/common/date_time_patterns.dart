@@ -1,5868 +1,5618 @@
-/// Returns a Map from locale names to another Map that goes from skeletons
-/// to the locale-specific formatting patterns.
-/// Internal use only. Call initializeDateFormatting instead.
-final _dateTimePatternMap = _createDateTimePatternMap();
+// Generated from pinned CLDR 48 and tool/locale_compatibility.json.
+// Input hashes: tool/cldr_sources.lock.json. See THIRD_PARTY_NOTICES.md.
+const _dateTimePatternMap = <String, Map<String, String>>{
+  "af": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "dd-MM",
+    "MEd": "EEE d/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM-y",
+    "yMd": "y-M-d",
+    "yMEd": "EEE y-MM-dd",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "am": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "M/d",
+    "MEd": "EEE፣ M/d",
+    "MMM": "LLL",
+    "MMMd": "MMM d",
+    "MMMEd": "EEE፣ MMM d",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM d",
+    "MMMMEEEEd": "EEEE፣ MMMM d",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE፣ d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE፣ MMM d y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "y MMMM d, EEEE",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "ar": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d‏/M",
+    "MEd": "EEE، d‏/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE، d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE، d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M‏/y",
+    "yMd": "d‏/M‏/y",
+    "yMEd": "EEE، d‏/M‏/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE، d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE، d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "ar_DZ": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d‏/M",
+    "MEd": "EEE، d‏/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE، d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE، d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M‏/y",
+    "yMd": "d‏/M‏/y",
+    "yMEd": "EEE، d‏/M‏/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE، d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE، d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "ar_EG": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d‏/M",
+    "MEd": "EEE، d‏/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE، d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE، d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M‏/y",
+    "yMd": "d‏/M‏/y",
+    "yMEd": "EEE، d‏/M‏/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE، d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE، d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "az": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "dd.MM",
+    "MEd": "dd.MM, EEE",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "d MMM, EEE",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "d MMMM, EEEE",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM.y",
+    "yMd": "dd.MM.y",
+    "yMEd": "dd.MM.y, EEE",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "d MMM y, EEE",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "d MMMM y, EEEE",
+    "yQQQ": "y QQQ",
+    "yQQQQ": "y QQQQ",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "be": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d.M",
+    "MEd": "EEE, d.M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M.y",
+    "yMd": "d.M.y",
+    "yMEd": "EEE, d.M.y",
+    "yMMM": "LLL y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d MMM y",
+    "yMMMM": "LLLL y",
+    "yMMMMd": "d MMMM y 'г'.",
+    "yMMMMEEEEd": "EEEE, d MMMM y 'г'.",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm.ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "bg": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d.MM",
+    "MEd": "EEE, d.MM",
+    "MMM": "MM",
+    "MMMd": "d.MM",
+    "MMMEd": "EEE, d.MM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y 'г'.",
+    "yM": "MM.y 'г'.",
+    "yMd": "d.MM.y 'г'.",
+    "yMEd": "EEE, d.MM.y 'г'.",
+    "yMMM": "MM.y 'г'.",
+    "yMMMd": "d.MM.y 'г'.",
+    "yMMMEd": "EEE, d.MM.y 'г'.",
+    "yMMMM": "MMMM y 'г'.",
+    "yMMMMd": "d MMMM y 'г'.",
+    "yMMMMEEEEd": "EEEE, d MMMM y 'г'.",
+    "yQQQ": "QQQ y 'г'.",
+    "yQQQQ": "QQQQ y 'г'.",
+    "H": "HH 'ч'.",
+    "Hm": "HH:mm 'ч'.",
+    "Hms": "HH:mm:ss 'ч'.",
+    "j": "HH 'ч'.",
+    "jm": "HH:mm 'ч'.",
+    "jms": "HH:mm:ss 'ч'.",
+    "jmv": "HH:mm 'ч'. v",
+    "jmz": "HH:mm 'ч'. z",
+    "jz": "HH 'ч'. z",
+    "m": "m",
+    "ms": "m:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "bn": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE, d-M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE, d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM, y",
+    "yMMMEd": "EEE, d MMM, y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM, y",
+    "yMMMMEEEEd": "EEEE, d MMMM, y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "br": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "MM",
+    "Md": "dd/MM",
+    "MEd": "EEE dd/MM",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM/y",
+    "yMd": "dd/MM/y",
+    "yMEd": "EEE dd/MM/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "bs": {
+    "d": "d.",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d.M.",
+    "MEd": "EEE, d.M.",
+    "MMM": "LLL",
+    "MMMd": "d. MMM",
+    "MMMEd": "EEE, d. MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d. MMMM",
+    "MMMMEEEEd": "EEEE, d. MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y.",
+    "yM": "MM/y",
+    "yMd": "d.M.y.",
+    "yMEd": "EEE, d.M.y.",
+    "yMMM": "MMM y.",
+    "yMMMd": "d. MMM y.",
+    "yMMMEd": "EEE, d. MMM y.",
+    "yMMMM": "LLLL y.",
+    "yMMMMd": "d. MMMM y.",
+    "yMMMMEEEEd": "EEEE, d. MMMM y.",
+    "yQQQ": "QQQ y.",
+    "yQQQQ": "QQQQ y.",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm (v)",
+    "jmz": "HH:mm (z)",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "ca": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE d/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE, d/M/y",
+    "yMMM": "LLL 'del' y",
+    "yMMMd": "d MMM 'del' y",
+    "yMMMEd": "EEE, d MMM y",
+    "yMMMM": "LLLL 'del' y",
+    "yMMMMd": "d MMMM 'del' y",
+    "yMMMMEEEEd": "EEEE, d MMMM 'del' y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "H:mm",
+    "Hms": "H:mm:ss",
+    "j": "H",
+    "jm": "H:mm",
+    "jms": "H:mm:ss",
+    "jmv": "H:mm v",
+    "jmz": "H:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "chr": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "M/d",
+    "MEd": "EEE, M/d",
+    "MMM": "LLL",
+    "MMMd": "MMM d",
+    "MMMEd": "EEE, MMM d",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM d",
+    "MMMMEEEEd": "EEEE, MMMM d",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "M/d/y",
+    "yMEd": "EEE, M/d/y",
+    "yMMM": "MMM y",
+    "yMMMd": "MMM d, y",
+    "yMMMEd": "EEE, MMM d, y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "MMMM d, y",
+    "yMMMMEEEEd": "EEEE, MMMM d, y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "cs": {
+    "d": "d.",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d. M.",
+    "MEd": "EEE d. M.",
+    "MMM": "LLL",
+    "MMMd": "d. M.",
+    "MMMEd": "EEE d. M.",
+    "MMMM": "LLLL",
+    "MMMMd": "d. MMMM",
+    "MMMMEEEEd": "EEEE d. MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d. M. y",
+    "yMEd": "EEE d. M. y",
+    "yMMM": "LLLL y",
+    "yMMMd": "d. M. y",
+    "yMMMEd": "EEE d. M. y",
+    "yMMMM": "LLLL y",
+    "yMMMMd": "d. MMMM y",
+    "yMMMMEEEEd": "EEEE d. MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "H:mm",
+    "Hms": "H:mm:ss",
+    "j": "H",
+    "jm": "H:mm",
+    "jms": "H:mm:ss",
+    "jmv": "H:mm v",
+    "jmz": "H:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "cy": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE, d/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM d",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE, d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE, d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "da": {
+    "d": "d.",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "MMM",
+    "LLLL": "MMMM",
+    "M": "M",
+    "Md": "d.M",
+    "MEd": "EEE d.M",
+    "MMM": "MMM",
+    "MMMd": "d. MMM",
+    "MMMEd": "EEE d. MMM",
+    "MMMM": "MMMM",
+    "MMMMd": "d. MMMM",
+    "MMMMEEEEd": "EEEE d. MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M.y",
+    "yMd": "d.M.y",
+    "yMEd": "EEE d.M.y",
+    "yMMM": "MMM y",
+    "yMMMd": "d. MMM y",
+    "yMMMEd": "EEE d. MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d. MMMM y",
+    "yMMMMEEEEd": "EEEE 'den' d. MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH.mm",
+    "Hms": "HH.mm.ss",
+    "j": "H",
+    "jm": "HH.mm",
+    "jms": "HH.mm.ss",
+    "jmv": "HH.mm v",
+    "jmz": "HH.mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm.ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "de": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d.M.",
+    "MEd": "EEE, d.M.",
+    "MMM": "LLL",
+    "MMMd": "d. MMM",
+    "MMMEd": "EEE, d. MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d. MMMM",
+    "MMMMEEEEd": "EEEE, d. MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d.M.y",
+    "yMEd": "EEE, d.M.y",
+    "yMMM": "MMM y",
+    "yMMMd": "d. MMM y",
+    "yMMMEd": "EEE, d. MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d. MMMM y",
+    "yMMMMEEEEd": "EEEE, d. MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "HH 'Uhr'",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "HH 'Uhr'",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "HH 'Uhr' z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "de_AT": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d.M.",
+    "MEd": "EEE, d.M.",
+    "MMM": "LLL",
+    "MMMd": "d. MMM",
+    "MMMEd": "EEE, d. MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d. MMMM",
+    "MMMMEEEEd": "EEEE, d. MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d.M.y",
+    "yMEd": "EEE, d.M.y",
+    "yMMM": "MMM y",
+    "yMMMd": "d. MMM y",
+    "yMMMEd": "EEE, d. MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d. MMMM y",
+    "yMMMMEEEEd": "EEEE, d. MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "HH 'Uhr'",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "HH 'Uhr'",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "HH 'Uhr' z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "de_CH": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d.M.",
+    "MEd": "EEE, d.M.",
+    "MMM": "LLL",
+    "MMMd": "d. MMM",
+    "MMMEd": "EEE, d. MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d. MMMM",
+    "MMMMEEEEd": "EEEE, d. MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d.M.y",
+    "yMEd": "EEE, d.M.y",
+    "yMMM": "MMM y",
+    "yMMMd": "d. MMM y",
+    "yMMMEd": "EEE, d. MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d. MMMM y",
+    "yMMMMEEEEd": "EEEE, d. MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "HH 'Uhr'",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "HH 'Uhr'",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "HH 'Uhr' z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "el": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "MMM",
+    "LLLL": "MMMM",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE d/M",
+    "MMM": "MMM",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE d MMM",
+    "MMMM": "MMMM",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE d MMM y",
+    "yMMMM": "LLLL y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "en": {
+    "d": "d",
+    "E": "ccc",
+    "EEEE": "cccc",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "L",
+    "Md": "M/d",
+    "MEd": "EEE, M/d",
+    "MMM": "LLL",
+    "MMMd": "MMM d",
+    "MMMEd": "EEE, MMM d",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM d",
+    "MMMMEEEEd": "EEEE, MMMM d",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "M/d/y",
+    "yMEd": "EEE, M/d/y",
+    "yMMM": "MMM y",
+    "yMMMd": "MMM d, y",
+    "yMMMEd": "EEE, MMM d, y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "MMMM d, y",
+    "yMMMMEEEEd": "EEEE, MMMM d, y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "HH",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "en_AU": {
+    "d": "d",
+    "E": "ccc",
+    "EEEE": "cccc",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "L",
+    "Md": "d/M",
+    "MEd": "EEE, d/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM/y",
+    "yMd": "dd/MM/y",
+    "yMEd": "EEE, dd/MM/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "HH",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "en_CA": {
+    "d": "d",
+    "E": "ccc",
+    "EEEE": "cccc",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "L",
+    "Md": "MM-dd",
+    "MEd": "EEE, MM-dd",
+    "MMM": "LLL",
+    "MMMd": "MMM d",
+    "MMMEd": "EEE, MMM d",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM d",
+    "MMMMEEEEd": "EEEE, MMMM d",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "y-MM",
+    "yMd": "y-MM-dd",
+    "yMEd": "EEE, y-MM-dd",
+    "yMMM": "MMM y",
+    "yMMMd": "MMM d, y",
+    "yMMMEd": "EEE, MMM d, y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "MMMM d, y",
+    "yMMMMEEEEd": "EEEE, MMMM d, y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "HH",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "en_GB": {
+    "d": "d",
+    "E": "ccc",
+    "EEEE": "cccc",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "L",
+    "Md": "dd/MM",
+    "MEd": "EEE, dd/MM",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM/y",
+    "yMd": "dd/MM/y",
+    "yMEd": "EEE, dd/MM/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "HH",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "HH",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "HH z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "en_IE": {
+    "d": "d",
+    "E": "ccc",
+    "EEEE": "cccc",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "L",
+    "Md": "d/M",
+    "MEd": "EEE, d/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE, d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "HH",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "HH",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "HH z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "en_IN": {
+    "d": "d",
+    "E": "ccc",
+    "EEEE": "cccc",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "L",
+    "Md": "dd/MM",
+    "MEd": "EEE, dd/MM",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE, d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d MMM, y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE d MMMM, y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "HH",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "en_SG": {
+    "d": "d",
+    "E": "ccc",
+    "EEEE": "cccc",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "L",
+    "Md": "dd/MM",
+    "MEd": "EEE, dd/MM",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM/y",
+    "yMd": "dd/MM/y",
+    "yMEd": "EEE, dd/MM/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE, d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "HH",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "en_US": {
+    "d": "d",
+    "E": "ccc",
+    "EEEE": "cccc",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "L",
+    "Md": "M/d",
+    "MEd": "EEE, M/d",
+    "MMM": "LLL",
+    "MMMd": "MMM d",
+    "MMMEd": "EEE, MMM d",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM d",
+    "MMMMEEEEd": "EEEE, MMMM d",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "M/d/y",
+    "yMEd": "EEE, M/d/y",
+    "yMMM": "MMM y",
+    "yMMMd": "MMM d, y",
+    "yMMMEd": "EEE, MMM d, y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "MMMM d, y",
+    "yMMMMEEEEd": "EEEE, MMMM d, y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "HH",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "en_ZA": {
+    "d": "d",
+    "E": "ccc",
+    "EEEE": "cccc",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "L",
+    "Md": "MM/dd",
+    "MEd": "EEE, MM/dd",
+    "MMM": "LLL",
+    "MMMd": "dd MMM",
+    "MMMEd": "EEE, dd MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE, dd MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM/y",
+    "yMd": "y/MM/dd",
+    "yMEd": "EEE, y/MM/dd",
+    "yMMM": "MMM y",
+    "yMMMd": "dd MMM y",
+    "yMMMEd": "EEE, dd MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE, d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "HH",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "HH",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "HH z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "es": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE, d/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d 'de' MMMM",
+    "MMMMEEEEd": "EEEE, d 'de' MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE, d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d MMM y",
+    "yMMMM": "MMMM 'de' y",
+    "yMMMMd": "d 'de' MMMM 'de' y",
+    "yMMMMEEEEd": "EEEE, d 'de' MMMM 'de' y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ 'de' y",
+    "H": "H",
+    "Hm": "H:mm",
+    "Hms": "H:mm:ss",
+    "j": "H",
+    "jm": "H:mm",
+    "jms": "H:mm:ss",
+    "jmv": "H:mm v",
+    "jmz": "H:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "es_419": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE, d/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d 'de' MMMM",
+    "MMMMEEEEd": "EEEE, d 'de' MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d MMM y",
+    "yMMMM": "MMMM 'de' y",
+    "yMMMMd": "d 'de' MMMM 'de' y",
+    "yMMMMEEEEd": "EEEE, d 'de' MMMM 'de' y",
+    "yQQQ": "QQQ 'de' y",
+    "yQQQQ": "QQQQ 'de' y",
+    "H": "HH",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "es_ES": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE, d/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d 'de' MMMM",
+    "MMMMEEEEd": "EEEE, d 'de' MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE, d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d MMM y",
+    "yMMMM": "MMMM 'de' y",
+    "yMMMMd": "d 'de' MMMM 'de' y",
+    "yMMMMEEEEd": "EEEE, d 'de' MMMM 'de' y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ 'de' y",
+    "H": "H",
+    "Hm": "H:mm",
+    "Hms": "H:mm:ss",
+    "j": "H",
+    "jm": "H:mm",
+    "jms": "H:mm:ss",
+    "jmv": "H:mm v",
+    "jmz": "H:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "es_MX": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE, d/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE d 'de' MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d 'de' MMMM",
+    "MMMMEEEEd": "EEEE, d 'de' MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE, d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d 'de' MMM 'de' y",
+    "yMMMM": "MMMM 'de' y",
+    "yMMMMd": "d 'de' MMMM 'de' y",
+    "yMMMMEEEEd": "EEEE, d 'de' MMMM 'de' y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ 'de' y",
+    "H": "HH",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "es_US": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE, d/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d 'de' MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d 'de' MMMM",
+    "MMMMEEEEd": "EEEE, d 'de' MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE, d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d 'de' MMM 'de' y",
+    "yMMMM": "MMMM 'de' y",
+    "yMMMMd": "d 'de' MMMM 'de' y",
+    "yMMMMEEEEd": "EEEE, d 'de' MMMM 'de' y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ 'de' y",
+    "H": "HH",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "et": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "MMMM",
+    "LLLL": "MMMM",
+    "M": "M",
+    "Md": "d.M",
+    "MEd": "EEE, d.M",
+    "MMM": "MMMM",
+    "MMMd": "d. MMM",
+    "MMMEd": "EEE, d. MMM",
+    "MMMM": "MMMM",
+    "MMMMd": "d. MMMM",
+    "MMMMEEEEd": "EEEE, d. MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M.y",
+    "yMd": "d.M.y",
+    "yMEd": "EEE, d.M.y",
+    "yMMM": "MMM y",
+    "yMMMd": "d. MMM y",
+    "yMMMEd": "EEE, d. MMMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d. MMMM y",
+    "yMMMMEEEEd": "EEEE, d. MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "eu": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "M/d",
+    "MEd": "M/d, EEE",
+    "MMM": "LLL",
+    "MMMd": "MMM d('a')",
+    "MMMEd": "MMM d('a'), EEE",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM'ren' d('a')",
+    "MMMMEEEEd": "MMMM d('a'), EEEE",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "y/M",
+    "yMd": "y/M/d",
+    "yMEd": "y/M/d, EEE",
+    "yMMM": "y MMM",
+    "yMMMd": "y MMM d('a')",
+    "yMMMEd": "y MMM d('a'), EEE",
+    "yMMMM": "y('e')'ko' MMMM",
+    "yMMMMd": "y('e')'ko' MMMM'ren' d('a')",
+    "yMMMMEEEEd": "y('e')'ko' MMMM'ren' d('a'), EEEE",
+    "yQQQ": "y('e')'ko' QQQ",
+    "yQQQQ": "y('e')'ko' QQQQ",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H (z)",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "fa": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "M/d",
+    "MEd": "EEE M/d",
+    "MMM": "LLL",
+    "MMMd": "d LLL",
+    "MMMEd": "EEE d LLL",
+    "MMMM": "LLLL",
+    "MMMMd": "d LLLL",
+    "MMMMEEEEd": "EEEE d LLLL",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "y/M",
+    "yMd": "y/M/d",
+    "yMEd": "EEE y/M/d",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE d MMMM y",
+    "yQQQ": "QQQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "H:mm",
+    "Hms": "H:mm:ss",
+    "j": "H",
+    "jm": "H:mm",
+    "jms": "H:mm:ss",
+    "jmv": "H:mm v",
+    "jmz": "HH:mm (z)",
+    "jz": "H (z)",
+    "m": "m",
+    "ms": "m:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "fi": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d.M.",
+    "MEd": "EEE d.M.",
+    "MMM": "LLL",
+    "MMMd": "d. MMM",
+    "MMMEd": "ccc d. MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d. MMMM",
+    "MMMMEEEEd": "cccc d. MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "L.y",
+    "yMd": "d.M.y",
+    "yMEd": "EEE d.M.y",
+    "yMMM": "LLL y",
+    "yMMMd": "d. MMM y",
+    "yMMMEd": "EEE d. MMM y",
+    "yMMMM": "LLLL y",
+    "yMMMMd": "d. MMMM y",
+    "yMMMMEEEEd": "EEEE d. MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "H.mm",
+    "Hms": "H.mm.ss",
+    "j": "H",
+    "jm": "H.mm",
+    "jms": "H.mm.ss",
+    "jmv": "H.mm v",
+    "jmz": "H.mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "m.ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "fil": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "M/d",
+    "MEd": "EEE, M/d",
+    "MMM": "LLL",
+    "MMMd": "MMM d",
+    "MMMEd": "EEE, MMM d",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM d",
+    "MMMMEEEEd": "EEEE, MMMM d",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "M/d/y",
+    "yMEd": "EEE, M/d/y",
+    "yMMM": "MMM y",
+    "yMMMd": "MMM d, y",
+    "yMMMEd": "EEE, MMM d, y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "MMMM d, y",
+    "yMMMMEEEEd": "EEEE, MMMM d, y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "fr": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "dd/MM",
+    "MEd": "EEE dd/MM",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM/y",
+    "yMd": "dd/MM/y",
+    "yMEd": "EEE dd/MM/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "HH 'h'",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "HH 'h'",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "HH 'h' z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "fr_CA": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "MM-dd",
+    "MEd": "EEE MM-dd",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "y-MM",
+    "yMd": "y-MM-dd",
+    "yMEd": "EEE y-MM-dd",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "HH 'h'",
+    "Hm": "HH 'h' mm",
+    "Hms": "HH 'h' mm 'min' ss 's'",
+    "j": "HH 'h'",
+    "jm": "HH 'h' mm",
+    "jms": "HH 'h' mm 'min' ss 's'",
+    "jmv": "HH 'h' mm v",
+    "jmz": "HH 'h' mm z",
+    "jz": "HH 'h' z",
+    "m": "m",
+    "ms": "mm 'min' ss 's'",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "ga": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "LL",
+    "Md": "dd/MM",
+    "MEd": "EEE dd/MM",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM/y",
+    "yMd": "dd/MM/y",
+    "yMEd": "EEE dd/MM/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "gl": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE, d/M",
+    "MMM": "LLL",
+    "MMMd": "d 'de' MMM",
+    "MMMEd": "EEE, d 'de' MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d 'de' MMMM",
+    "MMMMEEEEd": "EEEE, d 'de' MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE, d/M/y",
+    "yMMM": "MMM 'de' y",
+    "yMMMd": "d 'de' MMM 'de' y",
+    "yMMMEd": "EEE, d 'de' MMM 'de' y",
+    "yMMMM": "MMMM 'de' y",
+    "yMMMMd": "d 'de' MMMM 'de' y",
+    "yMMMMEEEEd": "EEEE, d 'de' MMMM 'de' y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ 'de' y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "gsw": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d.M.",
+    "MEd": "EEE, d.M.",
+    "MMM": "LLL",
+    "MMMd": "d. MMM",
+    "MMMEd": "EEE d. MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d. MMMM",
+    "MMMMEEEEd": "EEEE d. MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "y-M",
+    "yMd": "d.M.y",
+    "yMEd": "EEE, y-M-d",
+    "yMMM": "MMM y",
+    "yMMMd": "y MMM d",
+    "yMMMEd": "EEE, d. MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d. MMMM y",
+    "yMMMMEEEEd": "EEEE, d. MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "gu": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE, d/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE, d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM, y",
+    "yMMMEd": "EEE, d MMM, y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM, y",
+    "yMMMMEEEEd": "EEEE, d MMMM, y",
+    "yQQQ": "y QQQ",
+    "yQQQQ": "y QQQQ",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "hh:mm a",
+    "jms": "hh:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "haw": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE, d/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM d",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE, d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d MMM y",
+    "yMMMM": "y MMMM",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE, d MMMM y",
+    "yQQQ": "y QQQ",
+    "yQQQQ": "y QQQQ",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "he": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d.M",
+    "MEd": "EEE, d.M",
+    "MMM": "LLL",
+    "MMMd": "d בMMM",
+    "MMMEd": "EEE, d בMMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d בMMMM",
+    "MMMMEEEEd": "EEEE, d בMMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M.y",
+    "yMd": "d.M.y",
+    "yMEd": "EEE, d.M.y",
+    "yMMM": "MMM y",
+    "yMMMd": "d בMMM y",
+    "yMMMEd": "EEE, d בMMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d בMMMM y",
+    "yMMMMEEEEd": "EEEE, d בMMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "H:mm",
+    "Hms": "H:mm:ss",
+    "j": "H",
+    "jm": "H:mm",
+    "jms": "H:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "hi": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE, d/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE, d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE, d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "hr": {
+    "d": "d.",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "L.",
+    "Md": "dd. MM.",
+    "MEd": "EEE, dd. MM.",
+    "MMM": "LLL",
+    "MMMd": "d. MMM",
+    "MMMEd": "EEE, d. MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d. MMMM",
+    "MMMMEEEEd": "EEEE, d. MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y.",
+    "yM": "MM. y.",
+    "yMd": "dd. MM. y.",
+    "yMEd": "EEE, dd. MM. y.",
+    "yMMM": "LLL y.",
+    "yMMMd": "d. MMM y.",
+    "yMMMEd": "EEE, d. MMM y.",
+    "yMMMM": "LLLL y.",
+    "yMMMMd": "d. MMMM y.",
+    "yMMMMEEEEd": "EEEE, d. MMMM y.",
+    "yQQQ": "QQQ y.",
+    "yQQQQ": "QQQQ y.",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H (z)",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "hu": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "M. d.",
+    "MEd": "M. d., EEE",
+    "MMM": "LLL",
+    "MMMd": "MMM d.",
+    "MMMEd": "MMM d., EEE",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM d.",
+    "MMMMEEEEd": "MMMM d., EEEE",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y.",
+    "yM": "y. M.",
+    "yMd": "y. MM. dd.",
+    "yMEd": "y. MM. dd., EEE",
+    "yMMM": "y. MMM",
+    "yMMMd": "y. MMM d.",
+    "yMMMEd": "y. MMM d., EEE",
+    "yMMMM": "y. MMMM",
+    "yMMMMd": "y. MMMM d.",
+    "yMMMMEEEEd": "y. MMMM d., EEEE",
+    "yQQQ": "y. QQQ",
+    "yQQQQ": "y. QQQQ",
+    "H": "H",
+    "Hm": "H:mm",
+    "Hms": "H:mm:ss",
+    "j": "H",
+    "jm": "H:mm",
+    "jms": "H:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "hy": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "dd.MM",
+    "MEd": "dd.MM, EEE",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "d MMM, EEE",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM d",
+    "MMMMEEEEd": "d MMMM, EEEE",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM.y",
+    "yMd": "dd.MM.y",
+    "yMEd": "d.MM.y թ., EEE",
+    "yMMM": "y թ. LLL",
+    "yMMMd": "d MMM, y թ.",
+    "yMMMEd": "y թ. MMM d, EEE",
+    "yMMMM": "y թ․ LLLL",
+    "yMMMMd": "d MMMM, y թ.",
+    "yMMMMEEEEd": "y թ. MMMM d, EEEE",
+    "yQQQ": "y թ. QQQ",
+    "yQQQQ": "y թ. QQQQ",
+    "H": "H",
+    "Hm": "H:mm",
+    "Hms": "H:mm:ss",
+    "j": "H",
+    "jm": "H:mm",
+    "jms": "H:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "id": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE, d/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE, d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE, d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH.mm",
+    "Hms": "HH.mm.ss",
+    "j": "H",
+    "jm": "HH.mm",
+    "jms": "HH.mm.ss",
+    "jmv": "HH.mm v",
+    "jmz": "HH.mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm.ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "in": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE, d/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE, d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE, d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH.mm",
+    "Hms": "HH.mm.ss",
+    "j": "H",
+    "jm": "HH.mm",
+    "jms": "HH.mm.ss",
+    "jmv": "HH.mm v",
+    "jmz": "HH.mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm.ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "is": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d.M.",
+    "MEd": "EEE, d.M.",
+    "MMM": "LLL",
+    "MMMd": "d. MMM",
+    "MMMEd": "EEE, d. MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d. MMMM",
+    "MMMMEEEEd": "EEEE, d. MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M. y",
+    "yMd": "d.M.y",
+    "yMEd": "EEE, d.M.y",
+    "yMMM": "MMM y",
+    "yMMMd": "d. MMM y",
+    "yMMMEd": "EEE, d. MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d. MMMM y",
+    "yMMMMEEEEd": "EEEE, d. MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "v – HH:mm",
+    "jmz": "z – HH:mm",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "it": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "dd/MM",
+    "MEd": "EEE dd/MM",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM/y",
+    "yMd": "dd/MM/y",
+    "yMEd": "EEE dd/MM/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "iw": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d.M",
+    "MEd": "EEE, d.M",
+    "MMM": "LLL",
+    "MMMd": "d בMMM",
+    "MMMEd": "EEE, d בMMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d בMMMM",
+    "MMMMEEEEd": "EEEE, d בMMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M.y",
+    "yMd": "d.M.y",
+    "yMEd": "EEE, d.M.y",
+    "yMMM": "MMM y",
+    "yMMMd": "d בMMM y",
+    "yMMMEd": "EEE, d בMMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d בMMMM y",
+    "yMMMMEEEEd": "EEEE, d בMMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "H:mm",
+    "Hms": "H:mm:ss",
+    "j": "H",
+    "jm": "H:mm",
+    "jms": "H:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "ja": {
+    "d": "d日",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "M月",
+    "LLLL": "M月",
+    "M": "M月",
+    "Md": "M/d",
+    "MEd": "M/d(EEE)",
+    "MMM": "M月",
+    "MMMd": "M月d日",
+    "MMMEd": "M月d日(EEE)",
+    "MMMM": "M月",
+    "MMMMd": "M月d日",
+    "MMMMEEEEd": "M月d日EEEE",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y年",
+    "yM": "y/M",
+    "yMd": "y/M/d",
+    "yMEd": "y/M/d(EEE)",
+    "yMMM": "y年M月",
+    "yMMMd": "y年M月d日",
+    "yMMMEd": "y年M月d日(EEE)",
+    "yMMMM": "y年M月",
+    "yMMMMd": "y年M月d日",
+    "yMMMMEEEEd": "y年M月d日EEEE",
+    "yQQQ": "y/QQQ",
+    "yQQQQ": "y年QQQQ",
+    "H": "H時",
+    "Hm": "H:mm",
+    "Hms": "H:mm:ss",
+    "j": "H時",
+    "jm": "H:mm",
+    "jms": "H:mm:ss",
+    "jmv": "H:mm v",
+    "jmz": "H:mm z",
+    "jz": "H時 z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "ka": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d.M",
+    "MEd": "EEE, d.M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M.y",
+    "yMd": "d.M.y",
+    "yMEd": "EEE, d.M.y",
+    "yMMM": "MMM. y",
+    "yMMMd": "d MMM. y",
+    "yMMMEd": "EEE, d MMM. y",
+    "yMMMM": "MMMM, y",
+    "yMMMMd": "d MMMM, y",
+    "yMMMMEEEEd": "EEEE, d MMMM, y",
+    "yQQQ": "QQQ, y",
+    "yQQQQ": "QQQQ, y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "kk": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "dd.MM",
+    "MEd": "dd.MM, EEE",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "d MMM, EEE",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "d MMMM, EEEE",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM.y",
+    "yMd": "dd.MM.y",
+    "yMEd": "dd.MM.y, EEE",
+    "yMMM": "y 'ж'. MMM",
+    "yMMMd": "y 'ж'. d MMM",
+    "yMMMEd": "y 'ж'. d MMM, EEE",
+    "yMMMM": "y 'ж'. MMMM",
+    "yMMMMd": "y 'ж'. d MMMM",
+    "yMMMMEEEEd": "y 'ж'. d MMMM, EEEE",
+    "yQQQ": "y 'ж'. QQQ",
+    "yQQQQ": "y 'ж'. QQQQ",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "km": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE d/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM d",
+    "MMMMEEEEd": "EEEE d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "kn": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "d/M, EEE",
+    "MMM": "LLL",
+    "MMMd": "MMM d",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE, M/d/y",
+    "yMMM": "MMM y",
+    "yMMMd": "MMM d,y",
+    "yMMMEd": "EEE, MMM d, y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "MMMM d, y",
+    "yMMMMEEEEd": "EEEE, MMMM d, y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "hh:mm a",
+    "jms": "hh:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "ko": {
+    "d": "d일",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M월",
+    "Md": "M. d.",
+    "MEd": "M. d. (EEE)",
+    "MMM": "LLL",
+    "MMMd": "MMM d일",
+    "MMMEd": "MMM d일 (EEE)",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM d일",
+    "MMMMEEEEd": "MMMM d일 EEEE",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y년",
+    "yM": "y. M.",
+    "yMd": "y. M. d.",
+    "yMEd": "y. M. d. (EEE)",
+    "yMMM": "y년 MMM",
+    "yMMMd": "y년 MMM d일",
+    "yMMMEd": "y년 MMM d일 (EEE)",
+    "yMMMM": "y년 MMMM",
+    "yMMMMd": "y년 MMMM d일",
+    "yMMMMEEEEd": "y년 MMMM d일 EEEE",
+    "yQQQ": "y년 QQQ",
+    "yQQQQ": "y년 QQQQ",
+    "H": "H시",
+    "Hm": "HH:mm",
+    "Hms": "H시 m분 s초",
+    "j": "a h시",
+    "jm": "a h:mm",
+    "jms": "a h:mm:ss",
+    "jmv": "a h:mm v",
+    "jmz": "a h:mm z",
+    "jz": "a h시 z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "ky": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "dd-MM",
+    "MEd": "dd-MM, EEE",
+    "MMM": "LLL",
+    "MMMd": "d-MMM",
+    "MMMEd": "d-MMM, EEE",
+    "MMMM": "LLLL",
+    "MMMMd": "d-MMMM",
+    "MMMMEEEEd": "d-MMMM, EEEE",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "y-MM",
+    "yMd": "y-dd-MM",
+    "yMEd": "y-dd-MM, EEE",
+    "yMMM": "y-'ж'. MMM",
+    "yMMMd": "y-'ж'. d-MMM",
+    "yMMMEd": "y-'ж'. d-MMM, EEE",
+    "yMMMM": "y-'ж'., MMMM",
+    "yMMMMd": "y-'ж'., d-MMMM",
+    "yMMMMEEEEd": "y-'ж'., d-MMMM, EEEE",
+    "yQQQ": "y-'ж'., QQQ",
+    "yQQQQ": "y-'ж'., QQQQ",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "ln": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE d/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM d",
+    "MMMMEEEEd": "EEEE d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE d MMM y",
+    "yMMMM": "y MMMM",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "m:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "lo": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE, d/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE, d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE, d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "H:mm",
+    "Hms": "H:mm:ss",
+    "j": "H",
+    "jm": "H:mm",
+    "jms": "H:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "lt": {
+    "d": "dd",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "MM",
+    "Md": "MM-d",
+    "MEd": "MM-dd, EEE",
+    "MMM": "MM",
+    "MMMd": "MM-dd",
+    "MMMEd": "MM-dd, EEE",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM d 'd'.",
+    "MMMMEEEEd": "MMMM d 'd'., EEEE",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "y-MM",
+    "yMd": "y-M-d",
+    "yMEd": "y-MM-dd, EEE",
+    "yMMM": "y-MM",
+    "yMMMd": "y-MM-dd",
+    "yMMMEd": "y-MM-dd, EEE",
+    "yMMMM": "y 'm'. LLLL",
+    "yMMMMd": "y 'm'. MMMM d 'd'.",
+    "yMMMMEEEEd": "y 'm'. MMMM d 'd'., EEEE",
+    "yQQQ": "y QQQ",
+    "yQQQQ": "y QQQQ",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm; v",
+    "jmz": "HH:mm; z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "lv": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "dd.MM.",
+    "MEd": "EEE, dd.MM.",
+    "MMM": "LLL",
+    "MMMd": "d. MMM",
+    "MMMEd": "EEE, d. MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d. MMMM",
+    "MMMMEEEEd": "EEEE, d. MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y. 'g'.",
+    "yM": "MM.y.",
+    "yMd": "d.MM.y.",
+    "yMEd": "EEE, d.MM.y.",
+    "yMMM": "y. 'g'. MMM",
+    "yMMMd": "y. 'g'. d. MMM",
+    "yMMMEd": "EEE, y. 'g'. d. MMM",
+    "yMMMM": "y. 'g'. MMMM",
+    "yMMMMd": "y. 'gada' d. MMMM",
+    "yMMMMEEEEd": "EEEE, y. 'gada' d. MMMM",
+    "yQQQ": "y. 'g'. QQQ",
+    "yQQQQ": "y. 'g'. QQQQ",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "mk": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d.M",
+    "MEd": "EEE, d.M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M.y",
+    "yMd": "d.M.y",
+    "yMEd": "EEE, d.M.y",
+    "yMMM": "MMM y 'г'.",
+    "yMMMd": "d MMM y 'г'.",
+    "yMMMEd": "EEE, d MMM y 'г'.",
+    "yMMMM": "MMMM y 'г'.",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE, d MMMM y",
+    "yQQQ": "QQQ y 'г'.",
+    "yQQQQ": "QQQQ y 'г'.",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "ml": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "d/M, EEE",
+    "MMM": "LLL",
+    "MMMd": "MMM d",
+    "MMMEd": "MMM d, EEE",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM d",
+    "MMMMEEEEd": "MMMM d, EEEE",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "y-M",
+    "yMd": "d/M/y",
+    "yMEd": "d-M-y, EEE",
+    "yMMM": "y MMM",
+    "yMMMd": "y, MMM d",
+    "yMMMEd": "y MMM d, EEE",
+    "yMMMM": "y MMMM",
+    "yMMMMd": "y, MMMM d",
+    "yMMMMEEEEd": "y, MMMM d, EEEE",
+    "yQQQ": "y QQQ",
+    "yQQQQ": "y QQQQ",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "mn": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "LLLLL",
+    "Md": "MMMMM/dd",
+    "MEd": "MMMMM/dd. EEE",
+    "MMM": "LLL",
+    "MMMd": "MMM'ын' d",
+    "MMMEd": "MMM'ын' d. EEE",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM'ын' d",
+    "MMMMEEEEd": "MMMM'ын' d. EEEE",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "y MMMMM",
+    "yMd": "y.MM.dd",
+    "yMEd": "y.MM.dd. EEE",
+    "yMMM": "y 'оны' MMM",
+    "yMMMd": "y 'оны' MMM'ын' d",
+    "yMMMEd": "y 'оны' MMM'ын' d. EEE",
+    "yMMMM": "y 'оны' MMMM",
+    "yMMMMd": "y 'оны' MMMM'ын' d",
+    "yMMMMEEEEd": "y 'оны' MMMM'ын' d, EEEE 'гараг'",
+    "yQQQ": "y 'оны' QQQ",
+    "yQQQQ": "y 'оны' QQQQ",
+    "H": "HH 'ц'",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "HH 'ц'",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm (v)",
+    "jmz": "HH:mm (z)",
+    "jz": "HH 'ц' (z)",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "mo": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "dd.MM",
+    "MEd": "EEE, dd.MM",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM.y",
+    "yMd": "dd.MM.y",
+    "yMEd": "EEE, dd.MM.y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE, d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "mr": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE, d/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE, d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM, y",
+    "yMMMEd": "EEE, d, MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM, y",
+    "yMMMMEEEEd": "EEEE, d MMMM, y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "H:mm",
+    "Hms": "H:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "ms": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d-M",
+    "MEd": "EEE, d-M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M-y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE, d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE, d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "mt": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "MM-dd",
+    "MEd": "EEE, M-d",
+    "MMM": "LLL",
+    "MMMd": "MMM d",
+    "MMMEd": "EEE, d 'ta'’ MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d 'ta'’ MMMM",
+    "MMMMEEEEd": "EEEE, d 'ta'’ MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "y-MM",
+    "yMd": "M/d/y",
+    "yMEd": "EEE, d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d 'ta'’ MMM, y",
+    "yMMMEd": "EEE, d 'ta'’ MMM, y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d 'ta'’ MMMM y",
+    "yMMMMEEEEd": "EEEE, d 'ta'’ MMMM y",
+    "yQQQ": "QQQ - y",
+    "yQQQQ": "QQQQ - y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "my": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "d/M၊ EEE",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "MMM d၊ EEE",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM d",
+    "MMMMEEEEd": "MMMM d ရက် EEEE",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "d/M/y၊ EEE",
+    "yMMM": "MMM y",
+    "yMMMd": "y၊ MMM d",
+    "yMMMEd": "y၊ MMM d၊ EEE",
+    "yMMMM": "y MMMM",
+    "yMMMMd": "y၊ MMMM d",
+    "yMMMMEEEEd": "y၊ MMMM d၊ EEEE",
+    "yQQQ": "y QQQ",
+    "yQQQQ": "y QQQQ",
+    "H": "H",
+    "Hm": "H:mm",
+    "Hms": "H:mm:ss",
+    "j": "H",
+    "jm": "H:mm",
+    "jms": "H:mm:ss",
+    "jmv": "v HH:mm",
+    "jmz": "z HH:mm",
+    "jz": "z H",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "nb": {
+    "d": "d.",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "L.",
+    "Md": "d.M.",
+    "MEd": "EEE d.M.",
+    "MMM": "LLL",
+    "MMMd": "d. MMM",
+    "MMMEd": "EEE d. MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d. MMMM",
+    "MMMMEEEEd": "EEEE d. MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M.y",
+    "yMd": "d.M.y",
+    "yMEd": "EEE d.M.y",
+    "yMMM": "MMM y",
+    "yMMMd": "d. MMM y",
+    "yMMMEd": "EEE d. MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d. MMMM y",
+    "yMMMMEEEEd": "EEEE d. MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "ne": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "MM-dd",
+    "MEd": "MM-dd, EEE",
+    "MMM": "LLL",
+    "MMMd": "MMM d",
+    "MMMEd": "MMM d, EEE",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM d",
+    "MMMMEEEEd": "MMMM d, EEEE",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "y-MM",
+    "yMd": "y/M/d",
+    "yMEd": "y-MM-dd, EEE",
+    "yMMM": "y MMM",
+    "yMMMd": "y MMM d",
+    "yMMMEd": "y MMM d, EEE",
+    "yMMMM": "y MMMM",
+    "yMMMMd": "y MMMM d",
+    "yMMMMEEEEd": "y MMMM d, EEEE",
+    "yQQQ": "y QQQ",
+    "yQQQQ": "y QQQQ",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "nl": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d-M",
+    "MEd": "EEE d-M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M-y",
+    "yMd": "d-M-y",
+    "yMEd": "EEE d-M-y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "no": {
+    "d": "d.",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "L.",
+    "Md": "d.M.",
+    "MEd": "EEE d.M.",
+    "MMM": "LLL",
+    "MMMd": "d. MMM",
+    "MMMEd": "EEE d. MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d. MMMM",
+    "MMMMEEEEd": "EEEE d. MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M.y",
+    "yMd": "d.M.y",
+    "yMEd": "EEE d.M.y",
+    "yMMM": "MMM y",
+    "yMMMd": "d. MMM y",
+    "yMMMEd": "EEE d. MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d. MMMM y",
+    "yMMMMEEEEd": "EEEE d. MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "no_NO": {
+    "d": "d.",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "L.",
+    "Md": "d.M.",
+    "MEd": "EEE d.M.",
+    "MMM": "LLL",
+    "MMMd": "d. MMM",
+    "MMMEd": "EEE d. MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d. MMMM",
+    "MMMMEEEEd": "EEEE d. MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M.y",
+    "yMd": "d.M.y",
+    "yMEd": "EEE d.M.y",
+    "yMMM": "MMM y",
+    "yMMMd": "d. MMM y",
+    "yMMMEd": "EEE d. MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d. MMMM y",
+    "yMMMMEEEEd": "EEEE d. MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "or": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "M/d",
+    "MEd": "EEE, M/d",
+    "MMM": "LLL",
+    "MMMd": "MMM d",
+    "MMMEd": "EEE, MMM d",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM d",
+    "MMMMEEEEd": "EEEE, MMMM d",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "M/d/y",
+    "yMEd": "EEE, M/d/y",
+    "yMMM": "MMM y",
+    "yMMMd": "MMM d, y",
+    "yMMMEd": "EEE, MMM d, y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "MMMM d, y",
+    "yMMMMEEEEd": "EEEE, MMMM d, y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "pa": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE, dd-MM.",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM d",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE, d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE, d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "pl": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d.MM",
+    "MEd": "EEE, d.MM",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM.y",
+    "yMd": "d.MM.y",
+    "yMEd": "EEE, d.MM.y",
+    "yMMM": "LLL y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d MMM y",
+    "yMMMM": "LLLL y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE, d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "pt": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "dd/MM",
+    "MEd": "EEE, dd/MM",
+    "MMM": "LLL",
+    "MMMd": "d 'de' MMM",
+    "MMMEd": "EEE, d 'de' MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d 'de' MMMM",
+    "MMMMEEEEd": "EEEE, d 'de' MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM/y",
+    "yMd": "dd/MM/y",
+    "yMEd": "EEE, dd/MM/y",
+    "yMMM": "MMM 'de' y",
+    "yMMMd": "d 'de' MMM 'de' y",
+    "yMMMEd": "EEE, d 'de' MMM 'de' y",
+    "yMMMM": "MMMM 'de' y",
+    "yMMMMd": "d 'de' MMMM 'de' y",
+    "yMMMMEEEEd": "EEEE, d 'de' MMMM 'de' y",
+    "yQQQ": "QQQ 'de' y",
+    "yQQQQ": "QQQQ 'de' y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "pt_BR": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "dd/MM",
+    "MEd": "EEE, dd/MM",
+    "MMM": "LLL",
+    "MMMd": "d 'de' MMM",
+    "MMMEd": "EEE, d 'de' MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d 'de' MMMM",
+    "MMMMEEEEd": "EEEE, d 'de' MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM/y",
+    "yMd": "dd/MM/y",
+    "yMEd": "EEE, dd/MM/y",
+    "yMMM": "MMM 'de' y",
+    "yMMMd": "d 'de' MMM 'de' y",
+    "yMMMEd": "EEE, d 'de' MMM 'de' y",
+    "yMMMM": "MMMM 'de' y",
+    "yMMMMd": "d 'de' MMMM 'de' y",
+    "yMMMMEEEEd": "EEEE, d 'de' MMMM 'de' y",
+    "yQQQ": "QQQ 'de' y",
+    "yQQQQ": "QQQQ 'de' y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "pt_PT": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "dd/MM",
+    "MEd": "EEE, dd/MM",
+    "MMM": "LLL",
+    "MMMd": "d/MM",
+    "MMMEd": "EEE, d/MM",
+    "MMMM": "LLLL",
+    "MMMMd": "d 'de' MMMM",
+    "MMMMEEEEd": "cccc, d 'de' MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM/y",
+    "yMd": "dd/MM/y",
+    "yMEd": "EEE, dd/MM/y",
+    "yMMM": "MM/y",
+    "yMMMd": "d/MM/y",
+    "yMMMEd": "EEE, d/MM/y",
+    "yMMMM": "MMMM 'de' y",
+    "yMMMMd": "d 'de' MMMM 'de' y",
+    "yMMMMEEEEd": "EEEE, d 'de' MMMM 'de' y",
+    "yQQQ": "QQQQ 'de' y",
+    "yQQQQ": "QQQQ 'de' y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "ro": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "dd.MM",
+    "MEd": "EEE, dd.MM",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM.y",
+    "yMd": "dd.MM.y",
+    "yMEd": "EEE, dd.MM.y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE, d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "ru": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "dd.MM",
+    "MEd": "EEE, dd.MM",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "ccc, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "cccc, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM.y",
+    "yMd": "dd.MM.y",
+    "yMEd": "ccc, dd.MM.y 'г'.",
+    "yMMM": "LLL y 'г'.",
+    "yMMMd": "d MMM y 'г'.",
+    "yMMMEd": "EEE, d MMM y 'г'.",
+    "yMMMM": "LLLL y 'г'.",
+    "yMMMMd": "d MMMM y 'г'.",
+    "yMMMMEEEEd": "EEEE, d MMMM y 'г'.",
+    "yQQQ": "QQQ y 'г'.",
+    "yQQQQ": "QQQQ y 'г'.",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "sh": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d. M.",
+    "MEd": "EEE, d. M.",
+    "MMM": "LLL",
+    "MMMd": "d. MMM",
+    "MMMEd": "EEE d. MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d. MMMM",
+    "MMMMEEEEd": "EEEE, d. MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y.",
+    "yM": "M. y.",
+    "yMd": "d. M. y.",
+    "yMEd": "EEE, d. M. y.",
+    "yMMM": "MMM y.",
+    "yMMMd": "d. MMM y.",
+    "yMMMEd": "EEE, d. MMM y.",
+    "yMMMM": "MMMM y.",
+    "yMMMMd": "d. MMMM y.",
+    "yMMMMEEEEd": "EEEE, d. MMMM y.",
+    "yQQQ": "QQQ y.",
+    "yQQQQ": "QQQQ y.",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "si": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "M-d",
+    "MEd": "M-d, EEE",
+    "MMM": "LLL",
+    "MMMd": "MMM d",
+    "MMMEd": "MMM d EEE",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM d",
+    "MMMMEEEEd": "MMMM d EEEE",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "y-M",
+    "yMd": "y-M-d",
+    "yMEd": "y-M-d, EEE",
+    "yMMM": "y MMM",
+    "yMMMd": "y MMM d",
+    "yMMMEd": "y MMM d, EEE",
+    "yMMMM": "y MMMM",
+    "yMMMMd": "y MMMM d",
+    "yMMMMEEEEd": "y MMMM d, EEEE",
+    "yQQQ": "y QQQ",
+    "yQQQQ": "y QQQQ",
+    "H": "H",
+    "Hm": "HH.mm",
+    "Hms": "HH.mm.ss",
+    "j": "H",
+    "jm": "HH.mm",
+    "jms": "HH.mm.ss",
+    "jmv": "HH.mm v",
+    "jmz": "HH.mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm.ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "sk": {
+    "d": "d.",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "L.",
+    "Md": "d. M.",
+    "MEd": "EEE d. M.",
+    "MMM": "LLL",
+    "MMMd": "d. M.",
+    "MMMEd": "EEE d. M.",
+    "MMMM": "LLLL",
+    "MMMMd": "d. MMMM",
+    "MMMMEEEEd": "EEEE d. MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d. M. y",
+    "yMEd": "EEE d. M. y",
+    "yMMM": "M/y",
+    "yMMMd": "d. M. y",
+    "yMMMEd": "EEE d. M. y",
+    "yMMMM": "LLLL y",
+    "yMMMMd": "d. MMMM y",
+    "yMMMMEEEEd": "EEEE d. MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "H:mm",
+    "Hms": "H:mm:ss",
+    "j": "H",
+    "jm": "H:mm",
+    "jms": "H:mm:ss",
+    "jmv": "H:mm v",
+    "jmz": "H:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "sl": {
+    "d": "d.",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d. M.",
+    "MEd": "EEE, d. M.",
+    "MMM": "LLL",
+    "MMMd": "d. MMM",
+    "MMMEd": "EEE, d. MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d. MMMM",
+    "MMMMEEEEd": "EEEE, d. MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d. M. y",
+    "yMEd": "EEE, d. M. y",
+    "yMMM": "MMM y",
+    "yMMMd": "d. MMM y",
+    "yMMMEd": "EEE, d. MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d. MMMM y",
+    "yMMMMEEEEd": "EEEE, d. MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "HH'h'",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "HH'h'",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "HH'h' z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "sq": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d.M",
+    "MEd": "EEE, d.M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M.y",
+    "yMd": "d.M.y",
+    "yMEd": "EEE, d.M.y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE, d MMMM y",
+    "yQQQ": "QQQ, y",
+    "yQQQQ": "QQQQ, y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a, v",
+    "jmz": "h:mm a, z",
+    "jz": "h a, z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "sr": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d. M.",
+    "MEd": "EEE, d. M.",
+    "MMM": "LLL",
+    "MMMd": "d. MMM",
+    "MMMEd": "EEE d. MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d. MMMM",
+    "MMMMEEEEd": "EEEE, d. MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y.",
+    "yM": "M. y.",
+    "yMd": "d. M. y.",
+    "yMEd": "EEE, d. M. y.",
+    "yMMM": "MMM y.",
+    "yMMMd": "d. MMM y.",
+    "yMMMEd": "EEE, d. MMM y.",
+    "yMMMM": "MMMM y.",
+    "yMMMMd": "d. MMMM y.",
+    "yMMMMEEEEd": "EEEE, d. MMMM y.",
+    "yQQQ": "QQQ y.",
+    "yQQQQ": "QQQQ y.",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "sr_Latn": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d. M.",
+    "MEd": "EEE, d. M.",
+    "MMM": "LLL",
+    "MMMd": "d. MMM",
+    "MMMEd": "EEE d. MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d. MMMM",
+    "MMMMEEEEd": "EEEE, d. MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y.",
+    "yM": "M. y.",
+    "yMd": "d. M. y.",
+    "yMEd": "EEE, d. M. y.",
+    "yMMM": "MMM y.",
+    "yMMMd": "d. MMM y.",
+    "yMMMEd": "EEE, d. MMM y.",
+    "yMMMM": "MMMM y.",
+    "yMMMMd": "d. MMMM y.",
+    "yMMMMEEEEd": "EEEE, d. MMMM y.",
+    "yQQQ": "QQQ y.",
+    "yQQQQ": "QQQQ y.",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "sv": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE d/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "y-M",
+    "yMd": "y-M-d",
+    "yMEd": "EEE, y-MM-dd",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "sw": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE, d/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE, d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE, d MMMM y",
+    "yQQQ": "y QQQ",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "ta": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "dd-MM, EEE",
+    "MMM": "LLL",
+    "MMMd": "MMM d",
+    "MMMEd": "MMM d, EEE",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "MMMM d, EEEE",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE, d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM, y",
+    "yMMMEd": "EEE, d MMM, y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM, y",
+    "yMMMMEEEEd": "EEEE, d MMMM, y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "a h",
+    "jm": "a h:mm",
+    "jms": "a h:mm:ss",
+    "jmv": "a h:mm v",
+    "jmz": "a h:mm z",
+    "jz": "a h z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "te": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "d/M, EEE",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "d MMM, EEE",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "d MMMM, EEEE",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "d/M/y, EEE",
+    "yMMM": "MMM y",
+    "yMMMd": "d, MMM y",
+    "yMMMEd": "d MMM, y, EEE",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM, y",
+    "yMMMMEEEEd": "d, MMMM y, EEEE",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "th": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE d/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEEที่ d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEEที่ d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ G y",
+    "H": "H",
+    "Hm": "HH:mm น.",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm น.",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "tl": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "M/d",
+    "MEd": "EEE, M/d",
+    "MMM": "LLL",
+    "MMMd": "MMM d",
+    "MMMEd": "EEE, MMM d",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM d",
+    "MMMMEEEEd": "EEEE, MMMM d",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "M/d/y",
+    "yMEd": "EEE, M/d/y",
+    "yMMM": "MMM y",
+    "yMMMd": "MMM d, y",
+    "yMMMEd": "EEE, MMM d, y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "MMMM d, y",
+    "yMMMMEEEEd": "EEEE, MMMM d, y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "tr": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "d/MM EEE",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "d MMM EEE",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "d MMMM EEEE",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM/y",
+    "yMd": "dd.MM.y",
+    "yMEd": "d.M.y EEE",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "d MMM y EEE",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "d MMMM y EEEE",
+    "yQQQ": "y QQQ",
+    "yQQQQ": "y QQQQ",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "uk": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "LL",
+    "Md": "dd.MM",
+    "MEd": "EEE, dd.MM",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM.y",
+    "yMd": "dd.MM.y",
+    "yMEd": "EEE, dd.MM.y",
+    "yMMM": "LLL y 'р'.",
+    "yMMMd": "d MMM y 'р'.",
+    "yMMMEd": "EEE, d MMM y 'р'.",
+    "yMMMM": "LLLL y 'р'.",
+    "yMMMMd": "d MMMM y 'р'.",
+    "yMMMMEEEEd": "EEEE, d MMMM y 'р'.",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y 'р'.",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "ur": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE، d/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE، d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE، d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE، d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM، y",
+    "yMMMEd": "EEE، d MMM، y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM، y",
+    "yMMMMEEEEd": "EEEE، d MMMM، y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "uz": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "LL",
+    "Md": "dd/MM",
+    "MEd": "EEE, dd/MM",
+    "MMM": "LLL",
+    "MMMd": "d-MMM",
+    "MMMEd": "EEE, d-MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d-MMMM",
+    "MMMMEEEEd": "EEEE, d-MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM.y",
+    "yMd": "dd/MM/y",
+    "yMEd": "EEE, dd/MM/y",
+    "yMMM": "MMM, y",
+    "yMMMd": "d-MMM, y",
+    "yMMMEd": "EEE, d-MMM, y",
+    "yMMMM": "MMMM, y",
+    "yMMMMd": "d-MMMM, y",
+    "yMMMMEEEEd": "EEEE, d-MMMM, y",
+    "yQQQ": "y, QQQ",
+    "yQQQQ": "y, QQQQ",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm (v)",
+    "jmz": "HH:mm (z)",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "vi": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE, d/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE, d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM, y",
+    "yMMMEd": "EEE, d MMM, y",
+    "yMMMM": "MMMM 'năm' y",
+    "yMMMMd": "d MMMM, y",
+    "yMMMMEEEEd": "EEEE, d MMMM, y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ 'năm' y",
+    "H": "HH 'giờ'",
+    "Hm": "H:mm",
+    "Hms": "HH:mm:ss",
+    "j": "HH 'giờ'",
+    "jm": "H:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "HH 'giờ' z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "zh": {
+    "d": "d日",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M月",
+    "Md": "M/d",
+    "MEd": "M/dEEE",
+    "MMM": "LLL",
+    "MMMd": "M月d日",
+    "MMMEd": "M月d日EEE",
+    "MMMM": "LLLL",
+    "MMMMd": "M月d日",
+    "MMMMEEEEd": "M月d日EEEE",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y年",
+    "yM": "y/M",
+    "yMd": "y/M/d",
+    "yMEd": "y/M/dEEE",
+    "yMMM": "y年M月",
+    "yMMMd": "y年M月d日",
+    "yMMMEd": "y年M月d日EEE",
+    "yMMMM": "y年M月",
+    "yMMMMd": "y年M月d日",
+    "yMMMMEEEEd": "y年M月d日EEEE",
+    "yQQQ": "y年第Q季度",
+    "yQQQQ": "y年第Q季度",
+    "H": "H时",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H时",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "v HH:mm",
+    "jmz": "z HH:mm",
+    "jz": "zH时",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "zh_CN": {
+    "d": "d日",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M月",
+    "Md": "M/d",
+    "MEd": "M/dEEE",
+    "MMM": "LLL",
+    "MMMd": "M月d日",
+    "MMMEd": "M月d日EEE",
+    "MMMM": "LLLL",
+    "MMMMd": "M月d日",
+    "MMMMEEEEd": "M月d日EEEE",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y年",
+    "yM": "y/M",
+    "yMd": "y/M/d",
+    "yMEd": "y/M/dEEE",
+    "yMMM": "y年M月",
+    "yMMMd": "y年M月d日",
+    "yMMMEd": "y年M月d日EEE",
+    "yMMMM": "y年M月",
+    "yMMMMd": "y年M月d日",
+    "yMMMMEEEEd": "y年M月d日EEEE",
+    "yQQQ": "y年第Q季度",
+    "yQQQQ": "y年第Q季度",
+    "H": "H时",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H时",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "v HH:mm",
+    "jmz": "z HH:mm",
+    "jz": "zH时",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "zh_HK": {
+    "d": "d日",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M月",
+    "Md": "d/M",
+    "MEd": "d/M（EEE）",
+    "MMM": "LLL",
+    "MMMd": "M月d日",
+    "MMMEd": "M月d日EEE",
+    "MMMM": "LLLL",
+    "MMMMd": "M月d日",
+    "MMMMEEEEd": "M月d日EEEE",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y年",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "d/M/y（EEE）",
+    "yMMM": "y年M月",
+    "yMMMd": "y年M月d日",
+    "yMMMEd": "y年M月d日EEE",
+    "yMMMM": "y年M月",
+    "yMMMMd": "y年M月d日",
+    "yMMMMEEEEd": "y年M月d日EEEE",
+    "yQQQ": "y年QQQ",
+    "yQQQQ": "y年QQQQ",
+    "H": "H時",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "ah時",
+    "jm": "ah:mm",
+    "jms": "ah:mm:ss",
+    "jmv": "ah:mm [v]",
+    "jmz": "ah:mm [z]",
+    "jz": "ah時 z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "zh_TW": {
+    "d": "d日",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M月",
+    "Md": "M/d",
+    "MEd": "M/d（EEE）",
+    "MMM": "LLL",
+    "MMMd": "M月d日",
+    "MMMEd": "M月d日 EEE",
+    "MMMM": "LLLL",
+    "MMMMd": "M月d日",
+    "MMMMEEEEd": "M月d日 EEEE",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y年",
+    "yM": "y/M",
+    "yMd": "y/M/d",
+    "yMEd": "y/M/d（EEE）",
+    "yMMM": "y年M月",
+    "yMMMd": "y年M月d日",
+    "yMMMEd": "y年M月d日 EEE",
+    "yMMMM": "y年M月",
+    "yMMMMd": "y年M月d日",
+    "yMMMMEEEEd": "y年M月d日 EEEE",
+    "yQQQ": "y年QQQ",
+    "yQQQQ": "y年QQQQ",
+    "H": "H時",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "ah時",
+    "jm": "ah:mm",
+    "jms": "ah:mm:ss",
+    "jmv": "ah:mm [v]",
+    "jmz": "ah:mm [z]",
+    "jz": "ah時 z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "zu": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "MM-dd",
+    "MEd": "MM-dd, EEE",
+    "MMM": "LLL",
+    "MMMd": "MMM d",
+    "MMMEd": "EEE, MMM d",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM d",
+    "MMMMEEEEd": "EEEE, MMMM d",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "y-MM",
+    "yMd": "M/d/y",
+    "yMEd": "y-MM-dd, EEE",
+    "yMMM": "MMM y",
+    "yMMMd": "MMM d, y",
+    "yMMMEd": "EEE, MMM d, y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "MMMM d, y",
+    "yMMMMEEEEd": "EEEE, MMMM d, y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "en_ISO": {
+    "d": "d",
+    "E": "ccc",
+    "EEEE": "cccc",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "L",
+    "Md": "M/d",
+    "MEd": "EEE, M/d",
+    "MMM": "LLL",
+    "MMMd": "MMM d",
+    "MMMEd": "EEE, MMM d",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM d",
+    "MMMMEEEEd": "EEEE, MMMM d",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "M/d/y",
+    "yMEd": "EEE, M/d/y",
+    "yMMM": "MMM y",
+    "yMMMd": "MMM d, y",
+    "yMMMEd": "EEE, MMM d, y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "MMMM d, y",
+    "yMMMMEEEEd": "EEEE, MMMM d, y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "HH",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "HH",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "HH z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "en_MY": {
+    "d": "d",
+    "E": "ccc",
+    "EEEE": "cccc",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "L",
+    "Md": "dd/MM",
+    "MEd": "EEE, dd/MM",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM/y",
+    "yMd": "dd/MM/y",
+    "yMEd": "EEE, dd/MM/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE, d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "HH",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "fr_CH": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "dd.MM.",
+    "MEd": "EEE, dd.MM.",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM.y",
+    "yMd": "dd.MM.y",
+    "yMEd": "EEE, dd.MM.y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE, d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "HH 'h'",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "HH 'h'",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "HH 'h' z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "it_CH": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "dd/MM",
+    "MEd": "EEE dd/MM",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM/y",
+    "yMd": "dd/MM/y",
+    "yMEd": "EEE dd/MM/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE, d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "ps": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "MM-dd",
+    "MEd": "MM-dd, EEE",
+    "MMM": "LLL",
+    "MMMd": "MMM d",
+    "MMMEd": "EEE, MMM d",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM d",
+    "MMMMEEEEd": "EEEE, MMMM d",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "y-MM",
+    "yMd": "y/M/d",
+    "yMEd": "y-MM-dd, EEE",
+    "yMMM": "y MMM",
+    "yMMMd": "y MMM d",
+    "yMMMEd": "y MMM d, EEE",
+    "yMMMM": "y MMMM",
+    "yMMMMd": "y MMMM d",
+    "yMMMMEEEEd": "EEEE د y د MMMM d",
+    "yQQQ": "y QQQ",
+    "yQQQQ": "y QQQQ",
+    "H": "H",
+    "Hm": "H:mm",
+    "Hms": "H:mm:ss",
+    "j": "H",
+    "jm": "H:mm",
+    "jms": "H:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "fur": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE d/M",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d 'di' MMMM",
+    "MMMMEEEEd": "EEEE d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE, d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "y MMM d",
+    "yMMMEd": "EEE d MMM y",
+    "yMMMM": "LLLL 'dal' y",
+    "yMMMMd": "d 'di' MMMM 'dal' y",
+    "yMMMMEEEEd": "EEEE d 'di' MMMM 'dal' y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "H:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "H:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "bm": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "MMM",
+    "LLLL": "MMMM",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "MM-dd, EEE",
+    "MMM": "MMM",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE d MMM",
+    "MMMM": "MMMM",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "m:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "as": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "dd-MM",
+    "MEd": "EEE, dd-MM",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM-y",
+    "yMd": "dd-MM-y",
+    "yMEd": "EEE, dd-MM-y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM, y",
+    "yMMMMEEEEd": "EEEE, d MMMM, y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "a h",
+    "jm": "a h:mm",
+    "jms": "a h:mm:ss",
+    "jmv": "a h:mm v",
+    "jmz": "a h:mm z",
+    "jz": "a h z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "mg": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "MMM",
+    "LLLL": "MMMM",
+    "M": "M",
+    "Md": "d/M",
+    "MEd": "EEE d/M",
+    "MMM": "MMM",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE d MMM",
+    "MMMM": "MMMM",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "y-M-d",
+    "yMEd": "EEE d/M/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "m:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "en_NZ": {
+    "d": "d",
+    "E": "ccc",
+    "EEEE": "cccc",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "L",
+    "Md": "d/M",
+    "MEd": "EEE, dd/MM",
+    "MMM": "LLL",
+    "MMMd": "d MMM",
+    "MMMEd": "EEE, d MMM",
+    "MMMM": "LLLL",
+    "MMMMd": "d MMMM",
+    "MMMMEEEEd": "EEEE, d MMMM",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "MM/y",
+    "yMd": "d/MM/y",
+    "yMEd": "EEE, dd/MM/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, d MMM y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE, d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "HH",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "h a",
+    "jm": "h:mm a",
+    "jms": "h:mm:ss a",
+    "jmv": "h:mm a v",
+    "jmz": "h:mm a z",
+    "jz": "h a z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  },
+  "nyn": {
+    "d": "d",
+    "E": "EEE",
+    "EEEE": "EEEE",
+    "LLL": "LLL",
+    "LLLL": "LLLL",
+    "M": "M",
+    "Md": "M/d",
+    "MEd": "EEE, M/d",
+    "MMM": "LLL",
+    "MMMd": "MMM d",
+    "MMMEd": "EEE, MMM d",
+    "MMMM": "LLLL",
+    "MMMMd": "MMMM d",
+    "MMMMEEEEd": "EEEE, MMMM d",
+    "QQQ": "QQQ",
+    "QQQQ": "QQQQ",
+    "y": "y",
+    "yM": "M/y",
+    "yMd": "d/M/y",
+    "yMEd": "EEE, M/d/y",
+    "yMMM": "MMM y",
+    "yMMMd": "d MMM y",
+    "yMMMEd": "EEE, MMM d, y",
+    "yMMMM": "MMMM y",
+    "yMMMMd": "d MMMM y",
+    "yMMMMEEEEd": "EEEE, d MMMM y",
+    "yQQQ": "QQQ y",
+    "yQQQQ": "QQQQ y",
+    "H": "H",
+    "Hm": "HH:mm",
+    "Hms": "HH:mm:ss",
+    "j": "H",
+    "jm": "HH:mm",
+    "jms": "HH:mm:ss",
+    "jmv": "HH:mm v",
+    "jmz": "HH:mm z",
+    "jz": "H z",
+    "m": "m",
+    "ms": "mm:ss",
+    "s": "s",
+    "v": "v",
+    "z": "z",
+    "zzzz": "zzzz",
+    "ZZZZ": "ZZZZ"
+  }
+};
 
-/// Reuses the locale patterns between formatter instances.
 Map<String, Map<String, String>> get dateTimePatternMap => _dateTimePatternMap;
-
-Map<String, Map<String, String>> _createDateTimePatternMap() => {
-      /// Extended set of localized date/time patterns for locale af.
-      'af': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'dd-MM', // NUM_MONTH_DAY
-        'MEd': 'EEE d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM-y', // YEAR_NUM_MONTH
-        'yMd': 'y-M-d', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE y-MM-dd', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale am.
-      'am': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'M/d', // NUM_MONTH_DAY
-        'MEd': 'EEE፣ M/d', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'MMM d', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE፣ MMM d', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM d', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE፣ MMMM d', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE፣ d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE፣ MMM d y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'y MMMM d, EEEE', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale ar.
-      'ar': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd‏/M', // NUM_MONTH_DAY
-        'MEd': 'EEE، d‏/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE، d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE، d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M‏/y', // YEAR_NUM_MONTH
-        'yMd': 'd‏/M‏/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE، d‏/M‏/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE، d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE، d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale ar_DZ.
-      'ar_DZ': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd‏/M', // NUM_MONTH_DAY
-        'MEd': 'EEE، d‏/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE، d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE، d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M‏/y', // YEAR_NUM_MONTH
-        'yMd': 'd‏/M‏/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE، d‏/M‏/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE، d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE، d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale ar_EG.
-      'ar_EG': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd‏/M', // NUM_MONTH_DAY
-        'MEd': 'EEE، d‏/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE، d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE، d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M‏/y', // YEAR_NUM_MONTH
-        'yMd': 'd‏/M‏/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE، d‏/M‏/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE، d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE، d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale az.
-      'az': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'dd.MM', // NUM_MONTH_DAY
-        'MEd': 'dd.MM, EEE', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'd MMM, EEE', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'd MMMM, EEEE', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM.y', // YEAR_NUM_MONTH
-        'yMd': 'dd.MM.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'dd.MM.y, EEE', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'd MMM y, EEE', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'd MMMM y, EEEE', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'y QQQ', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'y QQQQ', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale be.
-      'be': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd.M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d.M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M.y', // YEAR_NUM_MONTH
-        'yMd': 'd.M.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d.M.y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'LLL y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'LLLL y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y \'г\'.', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM y \'г\'.', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm.ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale bg.
-      'bg': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd.MM', // NUM_MONTH_DAY
-        'MEd': 'EEE, d.MM', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'MM', // ABBR_MONTH
-        'MMMd': 'd.MM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d.MM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y \'г\'.', // YEAR
-        'yM': 'MM.y \'г\'.', // YEAR_NUM_MONTH
-        'yMd': 'd.MM.y \'г\'.', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d.MM.y \'г\'.', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MM.y \'г\'.', // YEAR_ABBR_MONTH
-        'yMMMd': 'd.MM.y \'г\'.', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d.MM.y \'г\'.', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y \'г\'.', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y \'г\'.', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM y \'г\'.', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y \'г\'.', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y \'г\'.', // YEAR_QUARTER
-        'H': 'HH \'ч\'.', // HOUR24
-        'Hm': 'HH:mm \'ч\'.', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss \'ч\'.', // HOUR24_MINUTE_SECOND
-        'j': 'HH \'ч\'.', // HOUR
-        'jm': 'HH:mm \'ч\'.', // HOUR_MINUTE
-        'jms': 'HH:mm:ss \'ч\'.', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm \'ч\'. v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm \'ч\'. z', // HOUR_MINUTETZ
-        'jz': 'HH \'ч\'. z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale bn.
-      'bn': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d-M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM, y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM, y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM, y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM, y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale br.
-      'br': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'MM', // NUM_MONTH
-        'Md': 'dd/MM', // NUM_MONTH_DAY
-        'MEd': 'EEE dd/MM', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM/y', // YEAR_NUM_MONTH
-        'yMd': 'dd/MM/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE dd/MM/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale bs.
-      'bs': const {
-        'd': 'd.', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd.M.', // NUM_MONTH_DAY
-        'MEd': 'EEE, d.M.', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd. MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d. MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd. MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d. MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y.', // YEAR
-        'yM': 'MM/y', // YEAR_NUM_MONTH
-        'yMd': 'd.M.y.', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d.M.y.', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y.', // YEAR_ABBR_MONTH
-        'yMMMd': 'd. MMM y.', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d. MMM y.', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'LLLL y.', // YEAR_MONTH
-        'yMMMMd': 'd. MMMM y.', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d. MMMM y.', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y.', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y.', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm (v)', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm (z)', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale ca.
-      'ca': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'LLL \'del\' y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM \'del\' y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'LLLL \'del\' y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM \'del\' y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM \'del\' y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'H:mm', // HOUR24_MINUTE
-        'Hms': 'H:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'H:mm', // HOUR_MINUTE
-        'jms': 'H:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'H:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'H:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale chr.
-      'chr': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'M/d', // NUM_MONTH_DAY
-        'MEd': 'EEE, M/d', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'MMM d', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, MMM d', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM d', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, MMMM d', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'M/d/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, M/d/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'MMM d, y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, MMM d, y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'MMMM d, y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, MMMM d, y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale cs.
-      'cs': const {
-        'd': 'd.', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd. M.', // NUM_MONTH_DAY
-        'MEd': 'EEE d. M.', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd. M.', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d. M.', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd. MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d. MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd. M. y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE d. M. y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'LLLL y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd. M. y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d. M. y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'LLLL y', // YEAR_MONTH
-        'yMMMMd': 'd. MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE d. MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'H:mm', // HOUR24_MINUTE
-        'Hms': 'H:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'H:mm', // HOUR_MINUTE
-        'jms': 'H:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'H:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'H:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale cy.
-      'cy': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM d', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale da.
-      'da': const {
-        'd': 'd.', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'MMM', // ABBR_STANDALONE_MONTH
-        'LLLL': 'MMMM', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd.M', // NUM_MONTH_DAY
-        'MEd': 'EEE d.M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'MMM', // ABBR_MONTH
-        'MMMd': 'd. MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d. MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'MMMM', // MONTH
-        'MMMMd': 'd. MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d. MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M.y', // YEAR_NUM_MONTH
-        'yMd': 'd.M.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE d.M.y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd. MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d. MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd. MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE \'den\' d. MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH.mm', // HOUR24_MINUTE
-        'Hms': 'HH.mm.ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH.mm', // HOUR_MINUTE
-        'jms': 'HH.mm.ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH.mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH.mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm.ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale de.
-      'de': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd.M.', // NUM_MONTH_DAY
-        'MEd': 'EEE, d.M.', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd. MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d. MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd. MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d. MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd.M.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d.M.y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd. MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d. MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd. MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d. MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'HH \'Uhr\'', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'HH \'Uhr\'', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'HH \'Uhr\' z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale de_AT.
-      'de_AT': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd.M.', // NUM_MONTH_DAY
-        'MEd': 'EEE, d.M.', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd. MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d. MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd. MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d. MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd.M.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d.M.y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd. MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d. MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd. MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d. MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'HH \'Uhr\'', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'HH \'Uhr\'', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'HH \'Uhr\' z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale de_CH.
-      'de_CH': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd.M.', // NUM_MONTH_DAY
-        'MEd': 'EEE, d.M.', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd. MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d. MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd. MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d. MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd.M.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d.M.y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd. MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d. MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd. MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d. MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'HH \'Uhr\'', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'HH \'Uhr\'', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'HH \'Uhr\' z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale el.
-      'el': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'MMM', // ABBR_STANDALONE_MONTH
-        'LLLL': 'MMMM', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'MMM', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'MMMM', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'LLLL y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale en.
-      'en': const {
-        'd': 'd', // DAY
-        'E': 'ccc', // ABBR_WEEKDAY
-        'EEEE': 'cccc', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'L', // NUM_MONTH
-        'Md': 'M/d', // NUM_MONTH_DAY
-        'MEd': 'EEE, M/d', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'MMM d', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, MMM d', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM d', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, MMMM d', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'M/d/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, M/d/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'MMM d, y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, MMM d, y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'MMMM d, y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, MMMM d, y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'HH', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale en_AU.
-      'en_AU': const {
-        'd': 'd', // DAY
-        'E': 'ccc', // ABBR_WEEKDAY
-        'EEEE': 'cccc', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'L', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM/y', // YEAR_NUM_MONTH
-        'yMd': 'dd/MM/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, dd/MM/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'HH', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale en_CA.
-      'en_CA': const {
-        'd': 'd', // DAY
-        'E': 'ccc', // ABBR_WEEKDAY
-        'EEEE': 'cccc', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'L', // NUM_MONTH
-        'Md': 'MM-dd', // NUM_MONTH_DAY
-        'MEd': 'EEE, MM-dd', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'MMM d', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, MMM d', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM d', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, MMMM d', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'y-MM', // YEAR_NUM_MONTH
-        'yMd': 'y-MM-dd', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, y-MM-dd', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'MMM d, y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, MMM d, y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'MMMM d, y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, MMMM d, y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'HH', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale en_GB.
-      'en_GB': const {
-        'd': 'd', // DAY
-        'E': 'ccc', // ABBR_WEEKDAY
-        'EEEE': 'cccc', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'L', // NUM_MONTH
-        'Md': 'dd/MM', // NUM_MONTH_DAY
-        'MEd': 'EEE, dd/MM', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM/y', // YEAR_NUM_MONTH
-        'yMd': 'dd/MM/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, dd/MM/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'HH', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'HH', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'HH z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale en_IE.
-      'en_IE': const {
-        'd': 'd', // DAY
-        'E': 'ccc', // ABBR_WEEKDAY
-        'EEEE': 'cccc', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'L', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'HH', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'HH', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'HH z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale en_IN.
-      'en_IN': const {
-        'd': 'd', // DAY
-        'E': 'ccc', // ABBR_WEEKDAY
-        'EEEE': 'cccc', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'L', // NUM_MONTH
-        'Md': 'dd/MM', // NUM_MONTH_DAY
-        'MEd': 'EEE, dd/MM', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM, y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE d MMMM, y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'HH', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale en_SG.
-      'en_SG': const {
-        'd': 'd', // DAY
-        'E': 'ccc', // ABBR_WEEKDAY
-        'EEEE': 'cccc', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'L', // NUM_MONTH
-        'Md': 'dd/MM', // NUM_MONTH_DAY
-        'MEd': 'EEE, dd/MM', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM/y', // YEAR_NUM_MONTH
-        'yMd': 'dd/MM/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, dd/MM/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'HH', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale en_US.
-      'en_US': const {
-        'd': 'd', // DAY
-        'E': 'ccc', // ABBR_WEEKDAY
-        'EEEE': 'cccc', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'L', // NUM_MONTH
-        'Md': 'M/d', // NUM_MONTH_DAY
-        'MEd': 'EEE, M/d', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'MMM d', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, MMM d', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM d', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, MMMM d', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'M/d/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, M/d/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'MMM d, y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, MMM d, y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'MMMM d, y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, MMMM d, y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'HH', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale en_ZA.
-      'en_ZA': const {
-        'd': 'd', // DAY
-        'E': 'ccc', // ABBR_WEEKDAY
-        'EEEE': 'cccc', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'L', // NUM_MONTH
-        'Md': 'MM/dd', // NUM_MONTH_DAY
-        'MEd': 'EEE, MM/dd', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'dd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, dd MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, dd MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM/y', // YEAR_NUM_MONTH
-        'yMd': 'y/MM/dd', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, y/MM/dd', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'dd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, dd MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'HH', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'HH', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'HH z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale es.
-      'es': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd \'de\' MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d \'de\' MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM \'de\' y', // YEAR_MONTH
-        'yMMMMd': 'd \'de\' MMMM \'de\' y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d \'de\' MMMM \'de\' y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ \'de\' y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'H:mm', // HOUR24_MINUTE
-        'Hms': 'H:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'H:mm', // HOUR_MINUTE
-        'jms': 'H:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'H:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'H:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale es_419.
-      'es_419': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd \'de\' MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d \'de\' MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM \'de\' y', // YEAR_MONTH
-        'yMMMMd': 'd \'de\' MMMM \'de\' y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d \'de\' MMMM \'de\' y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ \'de\' y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ \'de\' y', // YEAR_QUARTER
-        'H': 'HH', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale es_ES.
-      'es_ES': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd \'de\' MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d \'de\' MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM \'de\' y', // YEAR_MONTH
-        'yMMMMd': 'd \'de\' MMMM \'de\' y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d \'de\' MMMM \'de\' y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ \'de\' y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'H:mm', // HOUR24_MINUTE
-        'Hms': 'H:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'H:mm', // HOUR_MINUTE
-        'jms': 'H:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'H:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'H:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale es_MX.
-      'es_MX': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d \'de\' MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd \'de\' MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d \'de\' MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d \'de\' MMM \'de\' y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM \'de\' y', // YEAR_MONTH
-        'yMMMMd': 'd \'de\' MMMM \'de\' y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d \'de\' MMMM \'de\' y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ \'de\' y', // YEAR_QUARTER
-        'H': 'HH', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale es_US.
-      'es_US': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d \'de\' MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd \'de\' MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d \'de\' MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d \'de\' MMM \'de\' y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM \'de\' y', // YEAR_MONTH
-        'yMMMMd': 'd \'de\' MMMM \'de\' y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d \'de\' MMMM \'de\' y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ \'de\' y', // YEAR_QUARTER
-        'H': 'HH', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale et.
-      'et': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'MMMM', // ABBR_STANDALONE_MONTH
-        'LLLL': 'MMMM', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd.M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d.M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'MMMM', // ABBR_MONTH
-        'MMMd': 'd. MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d. MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'MMMM', // MONTH
-        'MMMMd': 'd. MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d. MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M.y', // YEAR_NUM_MONTH
-        'yMd': 'd.M.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d.M.y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd. MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d. MMMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd. MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d. MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale eu.
-      'eu': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'M/d', // NUM_MONTH_DAY
-        'MEd': 'M/d, EEE', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'MMM d(\'a\')', // ABBR_MONTH_DAY
-        'MMMEd': 'MMM d(\'a\'), EEE', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM\'ren\' d(\'a\')', // MONTH_DAY
-        'MMMMEEEEd': 'MMMM d(\'a\'), EEEE', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'y/M', // YEAR_NUM_MONTH
-        'yMd': 'y/M/d', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'y/M/d, EEE', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'y MMM', // YEAR_ABBR_MONTH
-        'yMMMd': 'y MMM d(\'a\')', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'y MMM d(\'a\'), EEE', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'y(\'e\')\'ko\' MMMM', // YEAR_MONTH
-        'yMMMMd': 'y(\'e\')\'ko\' MMMM\'ren\' d(\'a\')', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'y(\'e\')\'ko\' MMMM\'ren\' d(\'a\'), EEEE',
-        // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'y(\'e\')\'ko\' QQQ', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'y(\'e\')\'ko\' QQQQ', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H (z)', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale fa.
-      'fa': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'M/d', // NUM_MONTH_DAY
-        'MEd': 'EEE M/d', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd LLL', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d LLL', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd LLLL', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d LLLL', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'y/M', // YEAR_NUM_MONTH
-        'yMd': 'y/M/d', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE y/M/d', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'H:mm', // HOUR24_MINUTE
-        'Hms': 'H:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'H:mm', // HOUR_MINUTE
-        'jms': 'H:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'H:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm (z)', // HOUR_MINUTETZ
-        'jz': 'H (z)', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale fi.
-      'fi': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd.M.', // NUM_MONTH_DAY
-        'MEd': 'EEE d.M.', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd. MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'ccc d. MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd. MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'cccc d. MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'L.y', // YEAR_NUM_MONTH
-        'yMd': 'd.M.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE d.M.y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'LLL y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd. MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d. MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'LLLL y', // YEAR_MONTH
-        'yMMMMd': 'd. MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE d. MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'H.mm', // HOUR24_MINUTE
-        'Hms': 'H.mm.ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'H.mm', // HOUR_MINUTE
-        'jms': 'H.mm.ss', // HOUR_MINUTE_SECOND
-        'jmv': 'H.mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'H.mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'm.ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale fil.
-      'fil': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'M/d', // NUM_MONTH_DAY
-        'MEd': 'EEE, M/d', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'MMM d', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, MMM d', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM d', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, MMMM d', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'M/d/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, M/d/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'MMM d, y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, MMM d, y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'MMMM d, y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, MMMM d, y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale fr.
-      'fr': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'dd/MM', // NUM_MONTH_DAY
-        'MEd': 'EEE dd/MM', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM/y', // YEAR_NUM_MONTH
-        'yMd': 'dd/MM/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE dd/MM/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'HH \'h\'', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'HH \'h\'', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'HH \'h\' z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale fr_CA.
-      'fr_CA': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'MM-dd', // NUM_MONTH_DAY
-        'MEd': 'EEE MM-dd', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'y-MM', // YEAR_NUM_MONTH
-        'yMd': 'y-MM-dd', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE y-MM-dd', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'HH \'h\'', // HOUR24
-        'Hm': 'HH \'h\' mm', // HOUR24_MINUTE
-        'Hms': 'HH \'h\' mm \'min\' ss \'s\'', // HOUR24_MINUTE_SECOND
-        'j': 'HH \'h\'', // HOUR
-        'jm': 'HH \'h\' mm', // HOUR_MINUTE
-        'jms': 'HH \'h\' mm \'min\' ss \'s\'', // HOUR_MINUTE_SECOND
-        'jmv': 'HH \'h\' mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH \'h\' mm z', // HOUR_MINUTETZ
-        'jz': 'HH \'h\' z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm \'min\' ss \'s\'', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale ga.
-      'ga': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'LL', // NUM_MONTH
-        'Md': 'dd/MM', // NUM_MONTH_DAY
-        'MEd': 'EEE dd/MM', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM/y', // YEAR_NUM_MONTH
-        'yMd': 'dd/MM/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE dd/MM/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale gl.
-      'gl': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd \'de\' MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d \'de\' MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd \'de\' MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d \'de\' MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM \'de\' y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd \'de\' MMM \'de\' y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d \'de\' MMM \'de\' y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM \'de\' y', // YEAR_MONTH
-        'yMMMMd': 'd \'de\' MMMM \'de\' y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d \'de\' MMMM \'de\' y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ \'de\' y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale gsw.
-      'gsw': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd.M.', // NUM_MONTH_DAY
-        'MEd': 'EEE, d.M.', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd. MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d. MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd. MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d. MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'y-M', // YEAR_NUM_MONTH
-        'yMd': 'd.M.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, y-M-d', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'y MMM d', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d. MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd. MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d. MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale gu.
-      'gu': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM, y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM, y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM, y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM, y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'y QQQ', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'y QQQQ', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'hh:mm a', // HOUR_MINUTE
-        'jms': 'hh:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale haw.
-      'haw': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM d', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'y MMMM', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'y QQQ', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'y QQQQ', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale he.
-      'he': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd.M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d.M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd בMMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d בMMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd בMMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d בMMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M.y', // YEAR_NUM_MONTH
-        'yMd': 'd.M.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d.M.y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd בMMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d בMMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd בMMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d בMMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'H:mm', // HOUR24_MINUTE
-        'Hms': 'H:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'H:mm', // HOUR_MINUTE
-        'jms': 'H:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale hi.
-      'hi': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale hr.
-      'hr': const {
-        'd': 'd.', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'L.', // NUM_MONTH
-        'Md': 'dd. MM.', // NUM_MONTH_DAY
-        'MEd': 'EEE, dd. MM.', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd. MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d. MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd. MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d. MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y.', // YEAR
-        'yM': 'MM. y.', // YEAR_NUM_MONTH
-        'yMd': 'dd. MM. y.', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, dd. MM. y.', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'LLL y.', // YEAR_ABBR_MONTH
-        'yMMMd': 'd. MMM y.', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d. MMM y.', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'LLLL y.', // YEAR_MONTH
-        'yMMMMd': 'd. MMMM y.', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d. MMMM y.', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y.', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y.', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H (z)', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale hu.
-      'hu': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'M. d.', // NUM_MONTH_DAY
-        'MEd': 'M. d., EEE', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'MMM d.', // ABBR_MONTH_DAY
-        'MMMEd': 'MMM d., EEE', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM d.', // MONTH_DAY
-        'MMMMEEEEd': 'MMMM d., EEEE', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y.', // YEAR
-        'yM': 'y. M.', // YEAR_NUM_MONTH
-        'yMd': 'y. MM. dd.', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'y. MM. dd., EEE', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'y. MMM', // YEAR_ABBR_MONTH
-        'yMMMd': 'y. MMM d.', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'y. MMM d., EEE', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'y. MMMM', // YEAR_MONTH
-        'yMMMMd': 'y. MMMM d.', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'y. MMMM d., EEEE', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'y. QQQ', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'y. QQQQ', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'H:mm', // HOUR24_MINUTE
-        'Hms': 'H:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'H:mm', // HOUR_MINUTE
-        'jms': 'H:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale hy.
-      'hy': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'dd.MM', // NUM_MONTH_DAY
-        'MEd': 'dd.MM, EEE', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'd MMM, EEE', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM d', // MONTH_DAY
-        'MMMMEEEEd': 'd MMMM, EEEE', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM.y', // YEAR_NUM_MONTH
-        'yMd': 'dd.MM.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'd.MM.y թ., EEE', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'y թ. LLL', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM, y թ.', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'y թ. MMM d, EEE', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'y թ․ LLLL', // YEAR_MONTH
-        'yMMMMd': 'd MMMM, y թ.', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'y թ. MMMM d, EEEE', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'y թ. QQQ', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'y թ. QQQQ', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'H:mm', // HOUR24_MINUTE
-        'Hms': 'H:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'H:mm', // HOUR_MINUTE
-        'jms': 'H:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale id.
-      'id': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH.mm', // HOUR24_MINUTE
-        'Hms': 'HH.mm.ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH.mm', // HOUR_MINUTE
-        'jms': 'HH.mm.ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH.mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH.mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm.ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale in.
-      'in': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH.mm', // HOUR24_MINUTE
-        'Hms': 'HH.mm.ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH.mm', // HOUR_MINUTE
-        'jms': 'HH.mm.ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH.mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH.mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm.ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale is.
-      'is': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd.M.', // NUM_MONTH_DAY
-        'MEd': 'EEE, d.M.', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd. MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d. MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd. MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d. MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M. y', // YEAR_NUM_MONTH
-        'yMd': 'd.M.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d.M.y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd. MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d. MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd. MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d. MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'v – HH:mm', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'z – HH:mm', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale it.
-      'it': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'dd/MM', // NUM_MONTH_DAY
-        'MEd': 'EEE dd/MM', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM/y', // YEAR_NUM_MONTH
-        'yMd': 'dd/MM/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE dd/MM/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale iw.
-      'iw': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd.M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d.M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd בMMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d בMMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd בMMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d בMMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M.y', // YEAR_NUM_MONTH
-        'yMd': 'd.M.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d.M.y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd בMMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d בMMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd בMMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d בMMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'H:mm', // HOUR24_MINUTE
-        'Hms': 'H:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'H:mm', // HOUR_MINUTE
-        'jms': 'H:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale ja.
-      'ja': const {
-        'd': 'd日', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'M月', // ABBR_STANDALONE_MONTH
-        'LLLL': 'M月', // STANDALONE_MONTH
-        'M': 'M月', // NUM_MONTH
-        'Md': 'M/d', // NUM_MONTH_DAY
-        'MEd': 'M/d(EEE)', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'M月', // ABBR_MONTH
-        'MMMd': 'M月d日', // ABBR_MONTH_DAY
-        'MMMEd': 'M月d日(EEE)', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'M月', // MONTH
-        'MMMMd': 'M月d日', // MONTH_DAY
-        'MMMMEEEEd': 'M月d日EEEE', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y年', // YEAR
-        'yM': 'y/M', // YEAR_NUM_MONTH
-        'yMd': 'y/M/d', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'y/M/d(EEE)', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'y年M月', // YEAR_ABBR_MONTH
-        'yMMMd': 'y年M月d日', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'y年M月d日(EEE)', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'y年M月', // YEAR_MONTH
-        'yMMMMd': 'y年M月d日', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'y年M月d日EEEE', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'y/QQQ', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'y年QQQQ', // YEAR_QUARTER
-        'H': 'H時', // HOUR24
-        'Hm': 'H:mm', // HOUR24_MINUTE
-        'Hms': 'H:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H時', // HOUR
-        'jm': 'H:mm', // HOUR_MINUTE
-        'jms': 'H:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'H:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'H:mm z', // HOUR_MINUTETZ
-        'jz': 'H時 z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale ka.
-      'ka': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd.M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d.M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M.y', // YEAR_NUM_MONTH
-        'yMd': 'd.M.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d.M.y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM. y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM. y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM. y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM, y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM, y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM, y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ, y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ, y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale kk.
-      'kk': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'dd.MM', // NUM_MONTH_DAY
-        'MEd': 'dd.MM, EEE', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'd MMM, EEE', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'd MMMM, EEEE', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM.y', // YEAR_NUM_MONTH
-        'yMd': 'dd.MM.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'dd.MM.y, EEE', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'y \'ж\'. MMM', // YEAR_ABBR_MONTH
-        'yMMMd': 'y \'ж\'. d MMM', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'y \'ж\'. d MMM, EEE', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'y \'ж\'. MMMM', // YEAR_MONTH
-        'yMMMMd': 'y \'ж\'. d MMMM', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'y \'ж\'. d MMMM, EEEE', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'y \'ж\'. QQQ', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'y \'ж\'. QQQQ', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale km.
-      'km': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM d', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale kn.
-      'kn': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'd/M, EEE', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'MMM d', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, M/d/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'MMM d,y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, MMM d, y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'MMMM d, y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, MMMM d, y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'hh:mm a', // HOUR_MINUTE
-        'jms': 'hh:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale ko.
-      'ko': const {
-        'd': 'd일', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M월', // NUM_MONTH
-        'Md': 'M. d.', // NUM_MONTH_DAY
-        'MEd': 'M. d. (EEE)', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'MMM d일', // ABBR_MONTH_DAY
-        'MMMEd': 'MMM d일 (EEE)', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM d일', // MONTH_DAY
-        'MMMMEEEEd': 'MMMM d일 EEEE', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y년', // YEAR
-        'yM': 'y. M.', // YEAR_NUM_MONTH
-        'yMd': 'y. M. d.', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'y. M. d. (EEE)', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'y년 MMM', // YEAR_ABBR_MONTH
-        'yMMMd': 'y년 MMM d일', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'y년 MMM d일 (EEE)', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'y년 MMMM', // YEAR_MONTH
-        'yMMMMd': 'y년 MMMM d일', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'y년 MMMM d일 EEEE', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'y년 QQQ', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'y년 QQQQ', // YEAR_QUARTER
-        'H': 'H시', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'H시 m분 s초', // HOUR24_MINUTE_SECOND
-        'j': 'a h시', // HOUR
-        'jm': 'a h:mm', // HOUR_MINUTE
-        'jms': 'a h:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'a h:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'a h:mm z', // HOUR_MINUTETZ
-        'jz': 'a h시 z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale ky.
-      'ky': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'dd-MM', // NUM_MONTH_DAY
-        'MEd': 'dd-MM, EEE', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd-MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'd-MMM, EEE', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd-MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'd-MMMM, EEEE', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'y-MM', // YEAR_NUM_MONTH
-        'yMd': 'y-dd-MM', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'y-dd-MM, EEE', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'y-\'ж\'. MMM', // YEAR_ABBR_MONTH
-        'yMMMd': 'y-\'ж\'. d-MMM', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'y-\'ж\'. d-MMM, EEE', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'y-\'ж\'., MMMM', // YEAR_MONTH
-        'yMMMMd': 'y-\'ж\'., d-MMMM', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'y-\'ж\'., d-MMMM, EEEE', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'y-\'ж\'., QQQ', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'y-\'ж\'., QQQQ', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale ln.
-      'ln': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM d', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'y MMMM', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale lo.
-      'lo': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'H:mm', // HOUR24_MINUTE
-        'Hms': 'H:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'H:mm', // HOUR_MINUTE
-        'jms': 'H:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale lt.
-      'lt': const {
-        'd': 'dd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'MM', // NUM_MONTH
-        'Md': 'MM-d', // NUM_MONTH_DAY
-        'MEd': 'MM-dd, EEE', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'MM', // ABBR_MONTH
-        'MMMd': 'MM-dd', // ABBR_MONTH_DAY
-        'MMMEd': 'MM-dd, EEE', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM d \'d\'.', // MONTH_DAY
-        'MMMMEEEEd': 'MMMM d \'d\'., EEEE', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'y-MM', // YEAR_NUM_MONTH
-        'yMd': 'y-M-d', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'y-MM-dd, EEE', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'y-MM', // YEAR_ABBR_MONTH
-        'yMMMd': 'y-MM-dd', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'y-MM-dd, EEE', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'y \'m\'. LLLL', // YEAR_MONTH
-        'yMMMMd': 'y \'m\'. MMMM d \'d\'.', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'y \'m\'. MMMM d \'d\'., EEEE', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'y QQQ', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'y QQQQ', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm; v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm; z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale lv.
-      'lv': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'dd.MM.', // NUM_MONTH_DAY
-        'MEd': 'EEE, dd.MM.', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd. MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d. MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd. MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d. MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y. \'g\'.', // YEAR
-        'yM': 'MM.y.', // YEAR_NUM_MONTH
-        'yMd': 'd.MM.y.', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d.MM.y.', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'y. \'g\'. MMM', // YEAR_ABBR_MONTH
-        'yMMMd': 'y. \'g\'. d. MMM', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, y. \'g\'. d. MMM', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'y. \'g\'. MMMM', // YEAR_MONTH
-        'yMMMMd': 'y. \'gada\' d. MMMM', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, y. \'gada\' d. MMMM', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'y. \'g\'. QQQ', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'y. \'g\'. QQQQ', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale mk.
-      'mk': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd.M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d.M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M.y', // YEAR_NUM_MONTH
-        'yMd': 'd.M.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d.M.y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y \'г\'.', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y \'г\'.', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y \'г\'.', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y \'г\'.', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y \'г\'.', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y \'г\'.', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale ml.
-      'ml': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'd/M, EEE', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'MMM d', // ABBR_MONTH_DAY
-        'MMMEd': 'MMM d, EEE', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM d', // MONTH_DAY
-        'MMMMEEEEd': 'MMMM d, EEEE', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'y-M', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'd-M-y, EEE', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'y MMM', // YEAR_ABBR_MONTH
-        'yMMMd': 'y, MMM d', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'y MMM d, EEE', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'y MMMM', // YEAR_MONTH
-        'yMMMMd': 'y, MMMM d', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'y, MMMM d, EEEE', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'y QQQ', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'y QQQQ', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale mn.
-      'mn': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'LLLLL', // NUM_MONTH
-        'Md': 'MMMMM/dd', // NUM_MONTH_DAY
-        'MEd': 'MMMMM/dd. EEE', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'MMM\'ын\' d', // ABBR_MONTH_DAY
-        'MMMEd': 'MMM\'ын\' d. EEE', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM\'ын\' d', // MONTH_DAY
-        'MMMMEEEEd': 'MMMM\'ын\' d. EEEE', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'y MMMMM', // YEAR_NUM_MONTH
-        'yMd': 'y.MM.dd', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'y.MM.dd. EEE', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'y \'оны\' MMM', // YEAR_ABBR_MONTH
-        'yMMMd': 'y \'оны\' MMM\'ын\' d', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'y \'оны\' MMM\'ын\' d. EEE',
-        // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'y \'оны\' MMMM', // YEAR_MONTH
-        'yMMMMd': 'y \'оны\' MMMM\'ын\' d', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'y \'оны\' MMMM\'ын\' d, EEEE \'гараг\'',
-        // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'y \'оны\' QQQ', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'y \'оны\' QQQQ', // YEAR_QUARTER
-        'H': 'HH \'ц\'', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'HH \'ц\'', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm (v)', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm (z)', // HOUR_MINUTETZ
-        'jz': 'HH \'ц\' (z)', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale mo.
-      'mo': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'dd.MM', // NUM_MONTH_DAY
-        'MEd': 'EEE, dd.MM', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM.y', // YEAR_NUM_MONTH
-        'yMd': 'dd.MM.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, dd.MM.y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale mr.
-      'mr': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM, y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d, MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM, y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM, y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'H:mm', // HOUR24_MINUTE
-        'Hms': 'H:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale ms.
-      'ms': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd-M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d-M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M-y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale mt.
-      'mt': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'MM-dd', // NUM_MONTH_DAY
-        'MEd': 'EEE, M-d', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'MMM d', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d \'ta\'’ MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd \'ta\'’ MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d \'ta\'’ MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'y-MM', // YEAR_NUM_MONTH
-        'yMd': 'M/d/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd \'ta\'’ MMM, y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d \'ta\'’ MMM, y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd \'ta\'’ MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d \'ta\'’ MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ - y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ - y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale my.
-      'my': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'd/M၊ EEE', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'MMM d၊ EEE', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM d', // MONTH_DAY
-        'MMMMEEEEd': 'MMMM d ရက် EEEE', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'd/M/y၊ EEE', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'y၊ MMM d', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'y၊ MMM d၊ EEE', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'y MMMM', // YEAR_MONTH
-        'yMMMMd': 'y၊ MMMM d', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'y၊ MMMM d၊ EEEE', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'y QQQ', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'y QQQQ', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'H:mm', // HOUR24_MINUTE
-        'Hms': 'H:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'H:mm', // HOUR_MINUTE
-        'jms': 'H:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'v HH:mm', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'z HH:mm', // HOUR_MINUTETZ
-        'jz': 'z H', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale nb.
-      'nb': const {
-        'd': 'd.', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'L.', // NUM_MONTH
-        'Md': 'd.M.', // NUM_MONTH_DAY
-        'MEd': 'EEE d.M.', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd. MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d. MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd. MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d. MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M.y', // YEAR_NUM_MONTH
-        'yMd': 'd.M.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE d.M.y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd. MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d. MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd. MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE d. MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale ne.
-      'ne': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'MM-dd', // NUM_MONTH_DAY
-        'MEd': 'MM-dd, EEE', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'MMM d', // ABBR_MONTH_DAY
-        'MMMEd': 'MMM d, EEE', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM d', // MONTH_DAY
-        'MMMMEEEEd': 'MMMM d, EEEE', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'y-MM', // YEAR_NUM_MONTH
-        'yMd': 'y/M/d', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'y-MM-dd, EEE', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'y MMM', // YEAR_ABBR_MONTH
-        'yMMMd': 'y MMM d', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'y MMM d, EEE', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'y MMMM', // YEAR_MONTH
-        'yMMMMd': 'y MMMM d', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'y MMMM d, EEEE', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'y QQQ', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'y QQQQ', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale nl.
-      'nl': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd-M', // NUM_MONTH_DAY
-        'MEd': 'EEE d-M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M-y', // YEAR_NUM_MONTH
-        'yMd': 'd-M-y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE d-M-y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale no.
-      'no': const {
-        'd': 'd.', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'L.', // NUM_MONTH
-        'Md': 'd.M.', // NUM_MONTH_DAY
-        'MEd': 'EEE d.M.', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd. MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d. MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd. MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d. MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M.y', // YEAR_NUM_MONTH
-        'yMd': 'd.M.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE d.M.y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd. MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d. MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd. MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE d. MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale no_NO.
-      'no_NO': const {
-        'd': 'd.', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'L.', // NUM_MONTH
-        'Md': 'd.M.', // NUM_MONTH_DAY
-        'MEd': 'EEE d.M.', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd. MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d. MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd. MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d. MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M.y', // YEAR_NUM_MONTH
-        'yMd': 'd.M.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE d.M.y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd. MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d. MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd. MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE d. MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale or.
-      'or': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'M/d', // NUM_MONTH_DAY
-        'MEd': 'EEE, M/d', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'MMM d', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, MMM d', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM d', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, MMMM d', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'M/d/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, M/d/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'MMM d, y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, MMM d, y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'MMMM d, y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, MMMM d, y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale pa.
-      'pa': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE, dd-MM.', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM d', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale pl.
-      'pl': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd.MM', // NUM_MONTH_DAY
-        'MEd': 'EEE, d.MM', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM.y', // YEAR_NUM_MONTH
-        'yMd': 'd.MM.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d.MM.y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'LLL y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'LLLL y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale pt.
-      'pt': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'dd/MM', // NUM_MONTH_DAY
-        'MEd': 'EEE, dd/MM', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd \'de\' MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d \'de\' MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd \'de\' MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d \'de\' MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM/y', // YEAR_NUM_MONTH
-        'yMd': 'dd/MM/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, dd/MM/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM \'de\' y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd \'de\' MMM \'de\' y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d \'de\' MMM \'de\' y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM \'de\' y', // YEAR_MONTH
-        'yMMMMd': 'd \'de\' MMMM \'de\' y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d \'de\' MMMM \'de\' y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ \'de\' y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ \'de\' y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale pt_BR.
-      'pt_BR': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'dd/MM', // NUM_MONTH_DAY
-        'MEd': 'EEE, dd/MM', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd \'de\' MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d \'de\' MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd \'de\' MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d \'de\' MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM/y', // YEAR_NUM_MONTH
-        'yMd': 'dd/MM/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, dd/MM/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM \'de\' y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd \'de\' MMM \'de\' y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d \'de\' MMM \'de\' y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM \'de\' y', // YEAR_MONTH
-        'yMMMMd': 'd \'de\' MMMM \'de\' y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d \'de\' MMMM \'de\' y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ \'de\' y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ \'de\' y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale pt_PT.
-      'pt_PT': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'dd/MM', // NUM_MONTH_DAY
-        'MEd': 'EEE, dd/MM', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd/MM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d/MM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd \'de\' MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'cccc, d \'de\' MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM/y', // YEAR_NUM_MONTH
-        'yMd': 'dd/MM/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, dd/MM/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MM/y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd/MM/y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d/MM/y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM \'de\' y', // YEAR_MONTH
-        'yMMMMd': 'd \'de\' MMMM \'de\' y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d \'de\' MMMM \'de\' y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQQ \'de\' y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ \'de\' y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale ro.
-      'ro': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'dd.MM', // NUM_MONTH_DAY
-        'MEd': 'EEE, dd.MM', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM.y', // YEAR_NUM_MONTH
-        'yMd': 'dd.MM.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, dd.MM.y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale ru.
-      'ru': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'dd.MM', // NUM_MONTH_DAY
-        'MEd': 'EEE, dd.MM', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'ccc, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'cccc, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM.y', // YEAR_NUM_MONTH
-        'yMd': 'dd.MM.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'ccc, dd.MM.y \'г\'.', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'LLL y \'г\'.', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y \'г\'.', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y \'г\'.', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'LLLL y \'г\'.', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y \'г\'.', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM y \'г\'.', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y \'г\'.', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y \'г\'.', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale sh.
-      'sh': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd. M.', // NUM_MONTH_DAY
-        'MEd': 'EEE, d. M.', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd. MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d. MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd. MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d. MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y.', // YEAR
-        'yM': 'M. y.', // YEAR_NUM_MONTH
-        'yMd': 'd. M. y.', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d. M. y.', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y.', // YEAR_ABBR_MONTH
-        'yMMMd': 'd. MMM y.', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d. MMM y.', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y.', // YEAR_MONTH
-        'yMMMMd': 'd. MMMM y.', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d. MMMM y.', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y.', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y.', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale si.
-      'si': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'M-d', // NUM_MONTH_DAY
-        'MEd': 'M-d, EEE', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'MMM d', // ABBR_MONTH_DAY
-        'MMMEd': 'MMM d EEE', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM d', // MONTH_DAY
-        'MMMMEEEEd': 'MMMM d EEEE', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'y-M', // YEAR_NUM_MONTH
-        'yMd': 'y-M-d', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'y-M-d, EEE', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'y MMM', // YEAR_ABBR_MONTH
-        'yMMMd': 'y MMM d', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'y MMM d, EEE', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'y MMMM', // YEAR_MONTH
-        'yMMMMd': 'y MMMM d', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'y MMMM d, EEEE', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'y QQQ', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'y QQQQ', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH.mm', // HOUR24_MINUTE
-        'Hms': 'HH.mm.ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH.mm', // HOUR_MINUTE
-        'jms': 'HH.mm.ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH.mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH.mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm.ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale sk.
-      'sk': const {
-        'd': 'd.', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'L.', // NUM_MONTH
-        'Md': 'd. M.', // NUM_MONTH_DAY
-        'MEd': 'EEE d. M.', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd. M.', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d. M.', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd. MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d. MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd. M. y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE d. M. y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'M/y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd. M. y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d. M. y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'LLLL y', // YEAR_MONTH
-        'yMMMMd': 'd. MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE d. MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'H:mm', // HOUR24_MINUTE
-        'Hms': 'H:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'H:mm', // HOUR_MINUTE
-        'jms': 'H:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'H:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'H:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale sl.
-      'sl': const {
-        'd': 'd.', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd. M.', // NUM_MONTH_DAY
-        'MEd': 'EEE, d. M.', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd. MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d. MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd. MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d. MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd. M. y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d. M. y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd. MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d. MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd. MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d. MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'HH\'h\'', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'HH\'h\'', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'HH\'h\' z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale sq.
-      'sq': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd.M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d.M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M.y', // YEAR_NUM_MONTH
-        'yMd': 'd.M.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d.M.y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ, y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ, y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a, v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a, z', // HOUR_MINUTETZ
-        'jz': 'h a, z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale sr.
-      'sr': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd. M.', // NUM_MONTH_DAY
-        'MEd': 'EEE, d. M.', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd. MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d. MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd. MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d. MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y.', // YEAR
-        'yM': 'M. y.', // YEAR_NUM_MONTH
-        'yMd': 'd. M. y.', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d. M. y.', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y.', // YEAR_ABBR_MONTH
-        'yMMMd': 'd. MMM y.', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d. MMM y.', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y.', // YEAR_MONTH
-        'yMMMMd': 'd. MMMM y.', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d. MMMM y.', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y.', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y.', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale sr_Latn.
-      'sr_Latn': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd. M.', // NUM_MONTH_DAY
-        'MEd': 'EEE, d. M.', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd. MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d. MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd. MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d. MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y.', // YEAR
-        'yM': 'M. y.', // YEAR_NUM_MONTH
-        'yMd': 'd. M. y.', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d. M. y.', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y.', // YEAR_ABBR_MONTH
-        'yMMMd': 'd. MMM y.', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d. MMM y.', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y.', // YEAR_MONTH
-        'yMMMMd': 'd. MMMM y.', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d. MMMM y.', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y.', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y.', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale sv.
-      'sv': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'y-M', // YEAR_NUM_MONTH
-        'yMd': 'y-M-d', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, y-MM-dd', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale sw.
-      'sw': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'y QQQ', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale ta.
-      'ta': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'dd-MM, EEE', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'MMM d', // ABBR_MONTH_DAY
-        'MMMEd': 'MMM d, EEE', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'MMMM d, EEEE', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM, y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM, y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM, y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM, y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'a h', // HOUR
-        'jm': 'a h:mm', // HOUR_MINUTE
-        'jms': 'a h:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'a h:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'a h:mm z', // HOUR_MINUTETZ
-        'jz': 'a h z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale te.
-      'te': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'd/M, EEE', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'd MMM, EEE', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'd MMMM, EEEE', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'd/M/y, EEE', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd, MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'd MMM, y, EEE', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM, y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'd, MMMM y, EEEE', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale th.
-      'th': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEEที่ d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEEที่ d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ G y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm น.', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm น.', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale tl.
-      'tl': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'M/d', // NUM_MONTH_DAY
-        'MEd': 'EEE, M/d', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'MMM d', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, MMM d', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM d', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, MMMM d', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'M/d/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, M/d/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'MMM d, y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, MMM d, y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'MMMM d, y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, MMMM d, y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale tr.
-      'tr': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'd/MM EEE', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'd MMM EEE', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'd MMMM EEEE', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM/y', // YEAR_NUM_MONTH
-        'yMd': 'dd.MM.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'd.M.y EEE', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'd MMM y EEE', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'd MMMM y EEEE', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'y QQQ', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'y QQQQ', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale uk.
-      'uk': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'LL', // NUM_MONTH
-        'Md': 'dd.MM', // NUM_MONTH_DAY
-        'MEd': 'EEE, dd.MM', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM.y', // YEAR_NUM_MONTH
-        'yMd': 'dd.MM.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, dd.MM.y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'LLL y \'р\'.', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y \'р\'.', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y \'р\'.', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'LLLL y \'р\'.', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y \'р\'.', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM y \'р\'.', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y \'р\'.', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale ur.
-      'ur': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE، d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE، d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE، d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE، d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM، y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE، d MMM، y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM، y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE، d MMMM، y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale uz.
-      'uz': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'LL', // NUM_MONTH
-        'Md': 'dd/MM', // NUM_MONTH_DAY
-        'MEd': 'EEE, dd/MM', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd-MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d-MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd-MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d-MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM.y', // YEAR_NUM_MONTH
-        'yMd': 'dd/MM/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, dd/MM/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM, y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd-MMM, y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d-MMM, y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM, y', // YEAR_MONTH
-        'yMMMMd': 'd-MMMM, y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d-MMMM, y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'y, QQQ', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'y, QQQQ', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm (v)', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm (z)', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale vi.
-      'vi': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE, d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM, y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM, y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM \'năm\' y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM, y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM, y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ \'năm\' y', // YEAR_QUARTER
-        'H': 'HH \'giờ\'', // HOUR24
-        'Hm': 'H:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'HH \'giờ\'', // HOUR
-        'jm': 'H:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'HH \'giờ\' z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale zh.
-      'zh': const {
-        'd': 'd日', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M月', // NUM_MONTH
-        'Md': 'M/d', // NUM_MONTH_DAY
-        'MEd': 'M/dEEE', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'M月d日', // ABBR_MONTH_DAY
-        'MMMEd': 'M月d日EEE', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'M月d日', // MONTH_DAY
-        'MMMMEEEEd': 'M月d日EEEE', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y年', // YEAR
-        'yM': 'y/M', // YEAR_NUM_MONTH
-        'yMd': 'y/M/d', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'y/M/dEEE', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'y年M月', // YEAR_ABBR_MONTH
-        'yMMMd': 'y年M月d日', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'y年M月d日EEE', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'y年M月', // YEAR_MONTH
-        'yMMMMd': 'y年M月d日', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'y年M月d日EEEE', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'y年第Q季度', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'y年第Q季度', // YEAR_QUARTER
-        'H': 'H时', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H时', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'v HH:mm', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'z HH:mm', // HOUR_MINUTETZ
-        'jz': 'zH时', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale zh_CN.
-      'zh_CN': const {
-        'd': 'd日', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M月', // NUM_MONTH
-        'Md': 'M/d', // NUM_MONTH_DAY
-        'MEd': 'M/dEEE', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'M月d日', // ABBR_MONTH_DAY
-        'MMMEd': 'M月d日EEE', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'M月d日', // MONTH_DAY
-        'MMMMEEEEd': 'M月d日EEEE', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y年', // YEAR
-        'yM': 'y/M', // YEAR_NUM_MONTH
-        'yMd': 'y/M/d', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'y/M/dEEE', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'y年M月', // YEAR_ABBR_MONTH
-        'yMMMd': 'y年M月d日', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'y年M月d日EEE', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'y年M月', // YEAR_MONTH
-        'yMMMMd': 'y年M月d日', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'y年M月d日EEEE', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'y年第Q季度', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'y年第Q季度', // YEAR_QUARTER
-        'H': 'H时', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H时', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'v HH:mm', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'z HH:mm', // HOUR_MINUTETZ
-        'jz': 'zH时', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale zh_HK.
-      'zh_HK': const {
-        'd': 'd日', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M月', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'd/M（EEE）', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'M月d日', // ABBR_MONTH_DAY
-        'MMMEd': 'M月d日EEE', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'M月d日', // MONTH_DAY
-        'MMMMEEEEd': 'M月d日EEEE', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y年', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'd/M/y（EEE）', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'y年M月', // YEAR_ABBR_MONTH
-        'yMMMd': 'y年M月d日', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'y年M月d日EEE', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'y年M月', // YEAR_MONTH
-        'yMMMMd': 'y年M月d日', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'y年M月d日EEEE', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'y年QQQ', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'y年QQQQ', // YEAR_QUARTER
-        'H': 'H時', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'ah時', // HOUR
-        'jm': 'ah:mm', // HOUR_MINUTE
-        'jms': 'ah:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'ah:mm [v]', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'ah:mm [z]', // HOUR_MINUTETZ
-        'jz': 'ah時 z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale zh_TW.
-      'zh_TW': const {
-        'd': 'd日', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M月', // NUM_MONTH
-        'Md': 'M/d', // NUM_MONTH_DAY
-        'MEd': 'M/d（EEE）', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'M月d日', // ABBR_MONTH_DAY
-        'MMMEd': 'M月d日 EEE', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'M月d日', // MONTH_DAY
-        'MMMMEEEEd': 'M月d日 EEEE', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y年', // YEAR
-        'yM': 'y/M', // YEAR_NUM_MONTH
-        'yMd': 'y/M/d', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'y/M/d（EEE）', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'y年M月', // YEAR_ABBR_MONTH
-        'yMMMd': 'y年M月d日', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'y年M月d日 EEE', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'y年M月', // YEAR_MONTH
-        'yMMMMd': 'y年M月d日', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'y年M月d日 EEEE', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'y年QQQ', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'y年QQQQ', // YEAR_QUARTER
-        'H': 'H時', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'ah時', // HOUR
-        'jm': 'ah:mm', // HOUR_MINUTE
-        'jms': 'ah:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'ah:mm [v]', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'ah:mm [z]', // HOUR_MINUTETZ
-        'jz': 'ah時 z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale zu.
-      'zu': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'MM-dd', // NUM_MONTH_DAY
-        'MEd': 'MM-dd, EEE', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'MMM d', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, MMM d', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM d', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, MMMM d', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'y-MM', // YEAR_NUM_MONTH
-        'yMd': 'M/d/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'y-MM-dd, EEE', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'MMM d, y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, MMM d, y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'MMMM d, y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, MMMM d, y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale en_ISO.
-      'en_ISO': const {
-        'd': 'd', // DAY
-        'E': 'ccc', // ABBR_WEEKDAY
-        'EEEE': 'cccc', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'L', // NUM_MONTH
-        'Md': 'M/d', // NUM_MONTH_DAY
-        'MEd': 'EEE, M/d', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'MMM d', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, MMM d', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM d', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, MMMM d', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'M/d/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, M/d/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'MMM d, y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, MMM d, y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'MMMM d, y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, MMMM d, y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'HH', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'HH', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'HH z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale en_MY.
-      'en_MY': const {
-        'd': 'd', // DAY
-        'E': 'ccc', // ABBR_WEEKDAY
-        'EEEE': 'cccc', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'L', // NUM_MONTH
-        'Md': 'dd/MM', // NUM_MONTH_DAY
-        'MEd': 'EEE, dd/MM', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM/y', // YEAR_NUM_MONTH
-        'yMd': 'dd/MM/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, dd/MM/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'HH', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale fr_CH.
-      'fr_CH': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'dd.MM.', // NUM_MONTH_DAY
-        'MEd': 'EEE, dd.MM.', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM.y', // YEAR_NUM_MONTH
-        'yMd': 'dd.MM.y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, dd.MM.y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'HH \'h\'', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'HH \'h\'', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'HH \'h\' z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale it_CH.
-      'it_CH': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'dd/MM', // NUM_MONTH_DAY
-        'MEd': 'EEE dd/MM', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM/y', // YEAR_NUM_MONTH
-        'yMd': 'dd/MM/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE dd/MM/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale ps.
-      'ps': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'MM-dd', // NUM_MONTH_DAY
-        'MEd': 'MM-dd, EEE', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'MMM d', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, MMM d', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM d', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, MMMM d', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'y-MM', // YEAR_NUM_MONTH
-        'yMd': 'y/M/d', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'y-MM-dd, EEE', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'y MMM', // YEAR_ABBR_MONTH
-        'yMMMd': 'y MMM d', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'y MMM d, EEE', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'y MMMM', // YEAR_MONTH
-        'yMMMMd': 'y MMMM d', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE د y د MMMM d', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'y QQQ', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'y QQQQ', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'H:mm', // HOUR24_MINUTE
-        'Hms': 'H:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'H:mm', // HOUR_MINUTE
-        'jms': 'H:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale fur.
-      'fur': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd \'di\' MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'y MMM d', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'LLLL \'dal\' y', // YEAR_MONTH
-        'yMMMMd': 'd \'di\' MMMM \'dal\' y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE d \'di\' MMMM \'dal\' y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'H:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'H:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale bm.
-      'bm': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'MMM', // ABBR_STANDALONE_MONTH
-        'LLLL': 'MMMM', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'MM-dd, EEE', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'MMM', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'MMMM', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale as.
-      'as': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'dd-MM', // NUM_MONTH_DAY
-        'MEd': 'EEE, dd-MM', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM-y', // YEAR_NUM_MONTH
-        'yMd': 'dd-MM-y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, dd-MM-y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM, y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM, y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'a h', // HOUR
-        'jm': 'a h:mm', // HOUR_MINUTE
-        'jms': 'a h:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'a h:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'a h:mm z', // HOUR_MINUTETZ
-        'jz': 'a h z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale mg.
-      'mg': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'MMM', // ABBR_STANDALONE_MONTH
-        'LLLL': 'MMMM', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE d/M', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'MMM', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'MMMM', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'y-M-d', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE d/M/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale en_NZ.
-      'en_NZ': const {
-        'd': 'd', // DAY
-        'E': 'ccc', // ABBR_WEEKDAY
-        'EEEE': 'cccc', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'L', // NUM_MONTH
-        'Md': 'd/M', // NUM_MONTH_DAY
-        'MEd': 'EEE, dd/MM', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'd MMM', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, d MMM', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'd MMMM', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, d MMMM', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'MM/y', // YEAR_NUM_MONTH
-        'yMd': 'd/MM/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, dd/MM/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'HH', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'h a', // HOUR
-        'jm': 'h:mm a', // HOUR_MINUTE
-        'jms': 'h:mm:ss a', // HOUR_MINUTE_SECOND
-        'jmv': 'h:mm a v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'h:mm a z', // HOUR_MINUTETZ
-        'jz': 'h a z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      },
-
-      /// Extended set of localized date/time patterns for locale nyn.
-      'nyn': const {
-        'd': 'd', // DAY
-        'E': 'EEE', // ABBR_WEEKDAY
-        'EEEE': 'EEEE', // WEEKDAY
-        'LLL': 'LLL', // ABBR_STANDALONE_MONTH
-        'LLLL': 'LLLL', // STANDALONE_MONTH
-        'M': 'M', // NUM_MONTH
-        'Md': 'M/d', // NUM_MONTH_DAY
-        'MEd': 'EEE, M/d', // NUM_MONTH_WEEKDAY_DAY
-        'MMM': 'LLL', // ABBR_MONTH
-        'MMMd': 'MMM d', // ABBR_MONTH_DAY
-        'MMMEd': 'EEE, MMM d', // ABBR_MONTH_WEEKDAY_DAY
-        'MMMM': 'LLLL', // MONTH
-        'MMMMd': 'MMMM d', // MONTH_DAY
-        'MMMMEEEEd': 'EEEE, MMMM d', // MONTH_WEEKDAY_DAY
-        'QQQ': 'QQQ', // ABBR_QUARTER
-        'QQQQ': 'QQQQ', // QUARTER
-        'y': 'y', // YEAR
-        'yM': 'M/y', // YEAR_NUM_MONTH
-        'yMd': 'd/M/y', // YEAR_NUM_MONTH_DAY
-        'yMEd': 'EEE, M/d/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
-        'yMMM': 'MMM y', // YEAR_ABBR_MONTH
-        'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
-        'yMMMEd': 'EEE, MMM d, y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
-        'yMMMM': 'MMMM y', // YEAR_MONTH
-        'yMMMMd': 'd MMMM y', // YEAR_MONTH_DAY
-        'yMMMMEEEEd': 'EEEE, d MMMM y', // YEAR_MONTH_WEEKDAY_DAY
-        'yQQQ': 'QQQ y', // YEAR_ABBR_QUARTER
-        'yQQQQ': 'QQQQ y', // YEAR_QUARTER
-        'H': 'H', // HOUR24
-        'Hm': 'HH:mm', // HOUR24_MINUTE
-        'Hms': 'HH:mm:ss', // HOUR24_MINUTE_SECOND
-        'j': 'H', // HOUR
-        'jm': 'HH:mm', // HOUR_MINUTE
-        'jms': 'HH:mm:ss', // HOUR_MINUTE_SECOND
-        'jmv': 'HH:mm v', // HOUR_MINUTE_GENERIC_TZ
-        'jmz': 'HH:mm z', // HOUR_MINUTETZ
-        'jz': 'H z', // HOURGENERIC_TZ
-        'm': 'm', // MINUTE
-        'ms': 'mm:ss', // MINUTE_SECOND
-        's': 's', // SECOND
-        'v': 'v', // ABBR_GENERIC_TZ
-        'z': 'z', // ABBR_SPECIFIC_TZ
-        'zzzz': 'zzzz', // SPECIFIC_TZ
-        'ZZZZ': 'ZZZZ' // ABBR_UTC_TZ
-      }
-    };

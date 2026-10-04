@@ -58,8 +58,16 @@ The date object's runtime type selects the calendar; locale selects language,
 patterns, and digits. Strict/loose parser validation, ambiguous names, hour-cycle
 rules, locale script fallback, immutable symbols, and generated data are
 unchanged by extraction. Named timezone patterns `z`, `Z`, and `v` remain
-unsupported. Fractional output/parsing retains millisecond precision; use the
-chronology core's instant serialization to preserve microseconds in storage.
+unsupported. Use `SSSSSS` to round-trip microseconds, including native digits.
+One-to-three `S` characters retain the historical minimum three-digit output;
+widths four and five truncate output, while widths beyond six pad zeros.
+Strict/loose parsing rejects nonzero digits beyond microsecond precision.
+Chronology instant serialization remains the appropriate storage contract.
+
+Persian and Umm al-Qura names use generated CLDR 48 inputs with a checksum lock,
+attribution, and documented compatibility exceptions in the parent `tool`
+directory. Shared skeleton patterns remain a compatibility policy because the
+skeleton API selects a pattern before the date object's calendar is known.
 
 The parent Flutter suites verify this same formatter and its Material
 integration. Dart tests additionally verify a Flutter-free resolved dependency

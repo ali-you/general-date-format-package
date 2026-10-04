@@ -43,3 +43,9 @@ dealings in these Data Files or Software without prior written
 authorization of the copyright holder.
 
 SPDX-License-Identifier: Unicode-3.0
+
+The complete Persian month/era migration also uses the pinned CLDR 48 Persian
+calendar dataset. All source URLs and SHA-256 digests are recorded in
+`tool/cldr_sources.lock.json`; generated outputs refer to that manifest.
+Explicit application compatibility patterns/digits are documented in
+`tool/locale_compatibility.json` and `tool/README.md`.

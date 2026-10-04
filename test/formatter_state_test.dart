@@ -79,7 +79,7 @@ void main() {
       final format = GeneralDateFormat('MMMM G yyyy-MM-dd');
       final expected = [
         'September AD 2024-09-01',
-        'Azar S.Y. 1403-09-01',
+        'Azar AP 1403-09-01',
         'Ramadan AH 1446-09-01',
       ];
       for (var cycle = 0; cycle < 20; cycle++) {

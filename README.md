@@ -312,3 +312,24 @@ pinned CLDR 48.0.0 data and caches downloaded source files in `.dart_tool/cldr-4
 
 BSD 3-Clause; see [LICENSE](LICENSE). Unicode data carries the notice in
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+## Fractional seconds and calendar data maintenance
+
+Fraction fields retain microseconds through six digits. Existing S/SS/SSS
+output remains at least three digits; widths 4–6 truncate to the requested
+fractional precision, and larger widths append exact zeros. Native digit
+translation applies to the entire fraction. Strict/loose parsing rejects
+nonzero precision beyond six digits and accepts exact trailing zeros; ordinary
+parsing truncates excess precision. Use `CalendarInstant` for storage rather
+than a display pattern.
+
+Persian and Hijri month/era names are now generated from pinned CLDR 48 with
+verified input hashes. Some Persian abbreviations/era spellings change;
+compatibility date order, digit defaults and en_ISO exceptions remain explicit.
+See [locale generation and measurements](tool/README.md) for reproduction,
+provenance, the retained shared-skeleton policy and release benchmark results.
+
+Flutter compatibility coverage exercises calendar date parsing/formatting,
+translated labels and number/time formatting against minimum/current SDK jobs.
+The integration workflow pins its chronology peer by SHA in
+`.github/calendar_pair.json`; update that pin when adopting a new peer revision.

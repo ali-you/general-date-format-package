@@ -44,7 +44,7 @@ void main() {
     expect(first.format(HijriDateTime(1446, 9, 1)), 'Ramadan AH');
     expect(second.format(PersianDateTime(1403, 1, 1)), 'فروردین');
     expect(first.dateSymbols.MONTHS[8], 'Ramadan');
-    expect(first.format(PersianDateTime(1403, 1, 1)), 'Farvardin S.Y.');
+    expect(first.format(PersianDateTime(1403, 1, 1)), 'Farvardin AP');
     expect(first.format(DateTime(2025, 3, 1)), 'March AD');
     expect(first.format(HijriDateTime(1446, 9, 1)), 'Ramadan AH');
   });
