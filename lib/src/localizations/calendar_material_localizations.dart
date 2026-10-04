@@ -22,8 +22,7 @@ enum MaterialCalendar {
 
 bool isCalendarMaterialLocaleSupported(Locale locale) =>
     GlobalMaterialLocalizations.delegate.isSupported(locale) &&
-    (GeneralDateFormat.localeExists(canonicalizedLocale(locale.toString())) ||
-        GeneralDateFormat.localeExists(locale.languageCode));
+    resolveLocale(locale.toString(), GeneralDateFormat.localeExists) != null;
 
 Future<MaterialLocalizations> loadCalendarMaterialLocalizations(
     Locale locale, MaterialCalendar calendar,
@@ -35,13 +34,10 @@ Future<MaterialLocalizations> loadCalendarMaterialLocalizations(
   // Flutter initializes its intl locale data through its public delegate.
   // Keep its generated translations, plural rules and time conventions.
   await GlobalMaterialLocalizations.delegate.load(locale);
-  final localeName = canonicalizedLocale(locale.toString());
-  final dateLocale = GeneralDateFormat.localeExists(localeName)
-      ? localeName
-      : locale.languageCode;
-  final numberLocale = intl.NumberFormat.localeExists(localeName)
-      ? localeName
-      : locale.languageCode;
+  final dateLocale =
+      verifiedLocale(locale.toString(), GeneralDateFormat.localeExists);
+  final numberLocale =
+      verifiedLocale(locale.toString(), intl.NumberFormat.localeExists);
   final symbols = GeneralDateFormat('y', dateLocale)..format(calendar.selector);
   final zero = useNativeDigits ? symbols.dateSymbols.ZERODIGIT ?? '0' : '0';
 

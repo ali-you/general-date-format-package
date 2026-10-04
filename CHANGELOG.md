@@ -1,6 +1,11 @@
 # Changelog
 
 ## [2.0.0] — release preparation
+- Preserve supported locale scripts during fallback in formatting, parsing and
+  Material date/number adapters. Normalize language/script/region components,
+  retain regional patterns, and map Chinese scripts to compatible regional data.
+- Add script/region regressions and construct advertised script locales with
+  Locale.fromSubtags in Material integration tests.
 - Validate conflicting/repeated date and time fields in strict and loose parsing,
   preserving ambiguous names and per-token hour ranges/two-digit-year semantics.
 - Respect h/K versus H/k hour cycles with AM/PM; validate mixed 24-hour markers

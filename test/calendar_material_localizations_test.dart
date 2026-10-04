@@ -7,6 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:general_date_format/general_date_format.dart';
 import 'package:general_datetime/delegates.dart';
 import 'package:general_datetime/general_datetime.dart';
+import 'package:intl/intl.dart' as intl;
 
 import 'support/calendar_fixture.dart';
 
@@ -165,13 +166,80 @@ void main() {
             language.formatMonthYear(calendar.selector));
       });
 
+      for (final entry in <Locale, String>{
+        const Locale.fromSubtags(languageCode: 'sr', scriptCode: 'Latn'):
+            'sr_Latn',
+        const Locale.fromSubtags(
+            languageCode: 'sr',
+            scriptCode: 'Latn',
+            countryCode: 'RS'): 'sr_Latn',
+        const Locale.fromSubtags(
+            languageCode: 'sr', scriptCode: 'Cyrl', countryCode: 'RS'): 'sr',
+        const Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hant'):
+            'zh_TW',
+        const Locale.fromSubtags(
+            languageCode: 'zh', scriptCode: 'Hant', countryCode: 'HK'): 'zh_HK',
+        const Locale.fromSubtags(
+            languageCode: 'zh', scriptCode: 'Hant', countryCode: 'TW'): 'zh_TW',
+        const Locale.fromSubtags(
+            languageCode: 'zh', scriptCode: 'Hans', countryCode: 'TW'): 'zh_CN',
+        const Locale.fromSubtags(
+            languageCode: 'en', scriptCode: 'Latn', countryCode: 'GB'): 'en_GB',
+      }.entries) {
+        test('${entry.key} keeps labels, dates and numbers consistent',
+            () async {
+          final selected = delegate(calendar, true);
+          expect(selected.isSupported(entry.key), true);
+          final material = await selected.load(entry.key);
+          final baseline =
+              await GlobalMaterialLocalizations.delegate.load(entry.key);
+          final instant = DateTime.utc(2024, 1, 15);
+          final date = calendar == CalendarFixture.persian
+              ? PersianDateTime.fromDateTime(instant)
+              : HijriDateTime.fromDateTime(instant);
+          expect(material.cancelButtonLabel, baseline.cancelButtonLabel);
+          expect(material.inputDateModeButtonLabel,
+              baseline.inputDateModeButtonLabel);
+          expect(material.formatFullDate(date),
+              GeneralDateFormat('yMMMMEEEEd', entry.value).format(date));
+          expect(material.formatMediumDate(date),
+              GeneralDateFormat('MMMEd', entry.value).format(date));
+          final symbols = GeneralDateFormat('y', entry.value)..format(date);
+          expect(material.narrowWeekdays, symbols.dateSymbols.NARROWWEEKDAYS);
+          expect(material.formatDecimal(12345),
+              intl.NumberFormat.decimalPattern(entry.value).format(12345));
+          expectCalendarFields(
+              material.parseCompactDate(material.formatCompactDate(date))!,
+              date,
+              utc: false);
+          if (entry.key.scriptCode == 'Latn' &&
+              entry.key.languageCode == 'sr') {
+            expect(material.cancelButtonLabel, 'Otkaži');
+            expect(material.formatFullDate(date), contains('ponedeljak'));
+            expect(material.narrowWeekdays[1], 'p');
+          }
+          if (entry.key.scriptCode == 'Hant') {
+            expect(material.formatMediumDate(date), contains('週一'));
+          }
+          if (entry.key.scriptCode == 'Hans') {
+            expect(material.formatMediumDate(date), contains('周一'));
+          }
+        });
+      }
+
       test(
           'all advertised locales with Material translations load and round-trip',
           () async {
         for (final code in GeneralDateFormat.allLocalesWithSymbols()) {
           final parts = code.split('_');
-          final locale =
-              parts.length == 1 ? Locale(parts[0]) : Locale(parts[0], parts[1]);
+          final hasScript = parts.length > 1 && parts[1].length == 4;
+          final locale = Locale.fromSubtags(
+            languageCode: parts[0],
+            scriptCode: hasScript ? parts[1] : null,
+            countryCode: hasScript
+                ? (parts.length > 2 ? parts[2] : null)
+                : (parts.length > 1 ? parts[1] : null),
+          );
           final selected = delegate(calendar, true);
           if (!selected.isSupported(locale)) continue;
           final material = await selected.load(locale);

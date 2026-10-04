@@ -7,47 +7,89 @@ class LocaleDataException implements Exception {
   String toString() => 'LocaleDataException: $message';
 }
 
-/// Returns an index of a separator between language and region.
-/// Assumes that language length can be only 2 or 3.
-int _separatorIndex(String locale) {
-  if (locale.length < 3) return -1;
-  if (locale[2] == '-' || locale[2] == '_') return 2;
-  if (locale.length < 4) return -1;
-  if (locale[3] == '-' || locale[3] == '_') return 3;
-  return -1;
-}
-
+/// Normalize language, script and region independently, accepting either
+/// BCP-47 hyphens or the underscores used by the bundled locale tables.
 String canonicalizedLocale(String? aLocale) {
-  if (aLocale == null) return "en_US";
+  if (aLocale == null) return 'en_US';
   if (aLocale == 'C') return 'en_ISO';
-  if (aLocale.length < 5) return aLocale;
-
-  var separatorIndex = _separatorIndex(aLocale);
-  if (separatorIndex == -1) return aLocale;
-  var language = aLocale.substring(0, separatorIndex);
-  var region = aLocale.substring(separatorIndex + 1);
-  if (region.length <= 3) region = region.toUpperCase();
-  return '${language}_$region';
+  final parts = aLocale.replaceAll('-', '_').split('_');
+  if (parts.join('_').toLowerCase() == 'en_iso') return 'en_ISO';
+  parts[0] = parts[0].toLowerCase();
+  var index = 1;
+  if (index < parts.length && _script.hasMatch(parts[index])) {
+    final script = parts[index].toLowerCase();
+    parts[index++] = '${script[0].toUpperCase()}${script.substring(1)}';
+  }
+  if (index < parts.length && _region.hasMatch(parts[index])) {
+    parts[index] = parts[index].toUpperCase();
+    index++;
+  }
+  for (; index < parts.length; index++) {
+    parts[index] = parts[index].toLowerCase();
+  }
+  return parts.join('_');
 }
 
-String? verifiedLocale(String? newLocale, bool Function(String) localeExists) {
-  if (newLocale == null) return verifiedLocale("en_US", localeExists);
-  if (localeExists(newLocale)) return newLocale;
-  final fallbackOptions = [
-    canonicalizedLocale,
-    shortLocale,
-    deprecatedLocale,
-    (locale) => deprecatedLocale(shortLocale(locale)),
-    (locale) => deprecatedLocale(canonicalizedLocale(locale)),
-    (_) => 'fallback'
-  ];
-  for (var option in fallbackOptions) {
-    var localeFallback = option(newLocale);
-    if (localeExists(localeFallback)) {
-      return localeFallback;
+final _script = RegExp(r'^[A-Za-z]{4}$');
+final _region = RegExp(r'^(?:[A-Za-z]{2}|[0-9]{3})$');
+
+/// Resolve against a data set without throwing, for delegate support checks.
+/// Variants/extensions may match an exact key; otherwise their preferences are
+/// ignored. This is a bundled-data fallback policy, not a full CLDR matcher.
+String? resolveLocale(String? locale, bool Function(String) localeExists) {
+  for (final candidate in _localeCandidates(locale ?? 'en_US').toSet()) {
+    if (localeExists(candidate)) return candidate;
+  }
+  return null;
+}
+
+String verifiedLocale(String? newLocale, bool Function(String) localeExists) {
+  final resolved = resolveLocale(newLocale, localeExists);
+  if (resolved != null) return resolved;
+  throw ArgumentError('Invalid locale "$newLocale"');
+}
+
+Iterable<String> _localeCandidates(String locale) sync* {
+  yield locale;
+  final normalized = canonicalizedLocale(locale);
+  yield normalized;
+  final parts = normalized.split('_');
+  final language = parts.first;
+  final languages = {language, deprecatedLocale(language)};
+  var index = 1;
+  final script = index < parts.length && _script.hasMatch(parts[index])
+      ? parts[index++]
+      : null;
+  final region = index < parts.length && _region.hasMatch(parts[index])
+      ? parts[index++]
+      : null;
+
+  // Try complete language aliases and the base locale before dropping region.
+  for (final code in languages) {
+    yield [code, ...parts.skip(1)].join('_');
+    yield [code, if (script != null) script, if (region != null) region]
+        .join('_');
+  }
+  if (script != null) {
+    for (final code in languages) {
+      yield '${code}_$script';
     }
   }
-  throw ArgumentError('Invalid locale "$newLocale"');
+
+  // intl/bundled Chinese data uses regional keys instead of script keys.
+  // An explicit script wins over a region whose usual script would conflict.
+  if (language == 'zh' && script == 'Hant') {
+    yield region == 'HK' || region == 'MO' ? 'zh_HK' : 'zh_TW';
+    yield region == 'HK' || region == 'MO' ? 'zh_TW' : 'zh_HK';
+  } else if (language == 'zh' && script == 'Hans') {
+    yield 'zh_CN';
+  } else if (region != null) {
+    for (final code in languages) {
+      yield '${code}_$region';
+    }
+  }
+  yield* languages;
+  yield 'fallback';
 }
 
 /// Return the other code for a current-deprecated locale pair. This helps in
@@ -77,10 +119,5 @@ String deprecatedLocale(String aLocale) {
 
 /// Return the short version of a locale name, e.g. 'en_US' => 'en'
 String shortLocale(String aLocale) {
-  if (aLocale.length < 2) return aLocale;
-  var separatorIndex = _separatorIndex(aLocale);
-  if (separatorIndex == -1) {
-    return (aLocale.length < 4) ? aLocale.toLowerCase() : aLocale;
-  }
-  return aLocale.substring(0, separatorIndex).toLowerCase();
+  return canonicalizedLocale(aLocale).split('_').first;
 }

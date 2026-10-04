@@ -120,8 +120,24 @@ short fractions pads on the right and longer fractions truncates to milliseconds
 ## Locales and digits
 
 The default locale is `en_US`. Supported locale codes are available from
-`GeneralDateFormat.allLocalesWithSymbols()`; region aliases fall back to their
-language when necessary. The package includes 120 locales, and Hijri month and
+`GeneralDateFormat.allLocalesWithSymbols()`. Locale names accept hyphens or
+underscores and normalize language/script/region casing. Resolution checks the
+exact locale, then language plus script, compatible regional data, and finally
+the language, including legacy language-code aliases at each step. For example,
+`sr-Latn-RS` uses `sr_Latn`, and `en-Latn-GB` retains `en_GB` patterns.
+
+The bundled Chinese tables use region keys: `zh-Hant-HK` and `zh-Hant-MO` prefer
+`zh_HK`; other `zh-Hant` requests prefer `zh_TW`. Either Traditional table can
+back up the other. `zh-Hans` uses `zh_CN`, including when the supplied region
+would otherwise select Traditional Chinese. An exact supported key takes
+precedence. Unsupported scripts ultimately use the language's available data;
+the resolver does not generate translations or implement full CLDR matching.
+Variants and extensions are tried as exact keys, then ignored for fallback;
+Unicode extensions do not select a different calendar or numbering system.
+`C` remains an alias for `en_ISO`. Unknown languages without supported fallback
+throw `ArgumentError`.
+
+The package includes 120 locales, and Hijri month and
 era names are generated from Unicode CLDR 48. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 Native digits are enabled by default where locale data supplies them. Parsing
@@ -153,6 +169,12 @@ formatting and strict parsing, translated Material labels, localized numbers,
 weekday names and locale-specific first-day-of-week conventions. They support
 locales available in both this package and Flutter's Material translations.
 Import them from `general_date_format.dart` or `localizations.dart`.
+
+The delegates use the same locale resolution policy for date and number data,
+while Flutter selects translated labels from the requested locale. Represent
+scripts with `Locale.fromSubtags`, for example
+`Locale.fromSubtags(languageCode: 'sr', scriptCode: 'Latn', countryCode: 'RS')`.
+`Locale('sr', 'Latn')` places the script in the country field and is incorrect.
 
 For an app using one calendar, place its delegate **before** Flutter's global
 delegates:

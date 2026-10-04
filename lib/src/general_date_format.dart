@@ -210,10 +210,11 @@ class GeneralDateFormat {
   /// The first version would produce a different format string if used in
   /// another locale, but the second format would always be the same.
   ///
-  /// If [locale] does not exist in our set of supported locales then an
-  /// [ArgumentError] is thrown.
+  /// Locale fallback preserves supported scripts before trying compatible
+  /// regional data and the language. Hyphens, underscores and casing are
+  /// normalized. If no supported fallback exists, an [ArgumentError] is thrown.
   GeneralDateFormat([String? newPattern, String? locale])
-      : _locale = verifiedLocale(locale, localeExists)! {
+      : _locale = verifiedLocale(locale, localeExists) {
     addPattern(newPattern);
   }
 
