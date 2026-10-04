@@ -4,7 +4,6 @@ import 'package:general_datetime_core/general_datetime_core.dart';
 void main() {
   final instant = DateTime.utc(2024, 3, 20, 13, 5);
   for (final date in <DateTime>[
-    instant,
     PersianDateTime.fromDateTime(instant),
     HijriDateTime.fromDateTime(instant),
   ]) {

@@ -1,7 +1,8 @@
 # General Date Format
 
-Localized formatting and parsing for Gregorian `DateTime`, `PersianDateTime`
-(Jalali), and `HijriDateTime`, with an API similar to `intl.DateFormat`.
+Localized formatting and parsing for `PersianDateTime` (Jalali) and
+`HijriDateTime`, with an API similar to `intl.DateFormat`. Gregorian dates are
+handled by the consuming application using `intl.DateFormat`.
 
 Requires Flutter 3.32 or newer. Add the packages to your app:
 
@@ -32,6 +33,7 @@ the Material adapters. Date classes are likewise shared through
 ```dart
 import 'package:general_date_format/general_date_format.dart';
 import 'package:general_datetime/general_datetime.dart';
+import 'package:intl/intl.dart' as intl;
 
 final persian = PersianDateTime(1403, 1, 1, 13, 5);
 final hijri = HijriDateTime(1446, 9, 1);
@@ -41,25 +43,32 @@ print(GeneralDateFormat('yyyy/MM/dd', 'fa').format(persian));
 // ۱۴۰۳/۰۱/۰۱
 print(GeneralDateFormat('MMMM G', 'en').format(hijri));
 // Ramadan AH
-print(GeneralDateFormat('yyyy-MM-dd MMMM', 'en').format(gregorian));
+print(intl.DateFormat('yyyy-MM-dd MMMM', 'en').format(gregorian));
 // 2025-03-01 March
 ```
 
-The **date object's type chooses the calendar**. The locale chooses language,
-field order and digits. Formatting does not convert calendars. Use
+Add `intl` to your application's dependencies for Gregorian formatting. The
+application chooses its locale, digit policy and initialization method (local,
+file or HTTP locale data, or Flutter's localization delegates). This package
+does not initialize Gregorian formatting. Passing a native `DateTime` to any
+`GeneralDateFormat` format/parse API, including `tryParse` variants, throws
+`UnsupportedError` with guidance to use `intl.DateFormat` instead.
+
+The **Persian/Hijri date object's type chooses the calendar**. The locale
+chooses language, field order and digits. Formatting does not convert calendars. Use
 `PersianDateTime.fromDateTime` or `HijriDateTime.fromDateTime` for conversion.
 Calendar calculations, supported year ranges and normalization are provided by
 `general_datetime` and depend on the version you install.
 
-Persian weekday names, quarters, AM/PM markers, time formats and week metadata
-use the same `intl` locale source as Gregorian and Hijri. Afrikaans Persian
-month and era names are generated from pinned Unicode CLDR 48. For provenance,
-regeneration commands, and the `en_MY`/`en_ISO` conventions, see
-[Locale data sources](tool/README.md). Existing Persian abbreviated weekday and
-quarter spellings may change to match the shared locale data.
+Persian and Hijri weekday names, quarters, AM/PM markers, time formats and
+week metadata use bundled calendar-independent locale data. The Dart formatting
+core depends only on our `general_datetime_core`; it has no `intl` or `clock`
+dependency. The Flutter Material adapter retains `intl` because Flutter's
+localization interfaces require its format types and number formatting. For
+pinned sources and regeneration, see [Locale data sources](tool/README.md).
 
 `dateSymbols` exposes immutable fields, lists, and maps for the formatter's most
-recently selected calendar (Gregorian before its first format/parse call).
+recently selected calendar (Persian before its first format/parse call).
 Assignments to symbol fields are no longer supported. To adapt labels for your
 own UI, use `dateSymbols.serializeToMap()`: it returns a detached snapshot,
 including nested collections. Editing that snapshot does not customize the
@@ -105,8 +114,8 @@ final alsoUtc = format.parseUtc('۱۴۰۳/۰۱/۰۱', selector);
 final invalid = format.tryParseStrict('۱۴۰۳/۱۳/۰۱', selector); // null
 ```
 
-Use `DateTime(2000)` for Gregorian parsing or `HijriDateTime(1440)` for Hijri
-parsing. `parseLoose` also accepts case differences in names and flexible
+Use `HijriDateTime(1440)` for Hijri parsing. For Gregorian parsing, call
+`intl.DateFormat.parseStrict` directly with your chosen locale. `parseLoose` also accepts case differences in names and flexible
 whitespace. `tryParse`, `tryParseStrict`, `tryParseLoose`, and `tryParseUtc`
 return `null` on invalid input.
 
@@ -126,7 +135,8 @@ marker does not shift it, and strict/loose parsing rejects a contradictory
 marker. For example, `HH:mm a` accepts `13:00 PM` and rejects `01:00 PM`.
 
 Numeric `c` and `cc` both emit a single locale-relative weekday number, 1–7,
-using the selected calendar's locale week start. For Gregorian Monday,
+using the selected calendar's locale week start. For a Monday instant
+represented in either calendar,
 `en_US` emits `2` and `en_GB` emits `1`. Parsing validates both the range and
 agreement with the date. Use `ccc`, `cccc`, or `ccccc` for abbreviated, full,
 or narrow standalone weekday names.
@@ -135,7 +145,15 @@ Fixed-width compact patterns such as `yyyyMMddHHmmss` are supported. Two-digit
 `yy` years select the century in the interval from 80 years before to 20 years
 after the current date, using the result's calendar. Other year widths and
 inputs with other than two digits are literal years. Tests can control this
-window with `package:clock`.
+window with a native callback on the formatter:
+
+```dart
+final format = GeneralDateFormat('yy-MM-dd')
+  ..now = () => DateTime.utc(2025, 6, 15);
+```
+
+The callback is sampled once per parse only when resolving a two-digit year.
+Each formatter keeps its own callback; ordinary years never read it.
 
 Missing date fields default to the Gregorian epoch date represented in the
 selected calendar, except for the quarter defaults described above.
@@ -175,7 +193,7 @@ final format = GeneralDateFormat('yyyy-MM-dd', 'fa')..useNativeDigits = false;
 
 ## Limits and Flutter integration
 
-- Supported calendars are Gregorian, Persian, and Hijri. Implementing
+- Supported calendars are Persian and Hijri. Implementing
   `GeneralDateTimeInterface` alone does not register additional calendars.
 - Time-zone patterns `z`, `Z`, `v` and their skeleton constructors throw
   `UnsupportedError`; UTC/local date construction is supported.

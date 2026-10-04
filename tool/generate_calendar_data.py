@@ -55,6 +55,20 @@ def main(argv=None):
     locales = re.findall(r'"([^"]+)"', (CORE / 'common/symbol_list.dart').read_text())
     policy = json.loads((ROOT / 'tool/locale_compatibility.json').read_text(encoding='utf-8'))
     outputs = {}
+    neutral_path = ROOT / 'tool/calendar_neutral_symbols.json'
+    neutral_raw = neutral_path.read_bytes()
+    neutral_manifest = json.loads((ROOT / 'tool/calendar_neutral_sources.json').read_text())
+    if hashlib.sha256(neutral_raw).hexdigest() != neutral_manifest['snapshotSha256']:
+        raise ValueError('Unapproved or modified calendar-neutral snapshot')
+    neutral = json.loads(neutral_raw)
+    if set(neutral) != set(locales):
+        raise ValueError('Calendar-neutral locales differ from supported locales')
+    outputs[CORE / 'symbols/calendar_neutral_data.dart'] = (
+        '// Calendar-independent locale metadata, snapshotted from intl 0.20.3.\n'
+        '// Source and SHA-256: tool/calendar_neutral_sources.json.\n'
+        '// See THIRD_PARTY_NOTICES.md; no runtime intl dependency.\n'
+        'const calendarNeutralData = <String, Map<String, dynamic>>' +
+        json.dumps(neutral, ensure_ascii=False).replace('$', '\\$') + ';\n')
     audit = {}
     for name, package, calendar in [('persian', 'persian', 'persian'), ('hijri', 'islamic', 'islamic-umalqura')]:
         if args.calendar not in ['all', name]:

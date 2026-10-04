@@ -1,4 +1,3 @@
-import 'package:clock/clock.dart';
 import 'package:general_datetime_core/general_datetime_core.dart';
 
 import 'general_date_format_internal.dart';
@@ -18,6 +17,7 @@ class DateBuilder {
   int? _resolvedYear;
   final DateTime generalDateTime;
   final bool strict;
+  final DateTime Function() now;
   bool _hasMonth = false, _hasDay = false;
   int? _quarter;
   final _months = <Set<int>>[];
@@ -32,7 +32,7 @@ class DateBuilder {
   final _eras = <int>[];
   final _periods = <int>[];
 
-  DateBuilder(this.generalDateTime, {this.strict = false}) {
+  DateBuilder(this.generalDateTime, {this.strict = false, required this.now}) {
     calendarType(generalDateTime);
     final epoch = _inCalendar(DateTime.utc(1970));
     year = epoch.year;
@@ -47,7 +47,7 @@ class DateBuilder {
     if (generalDateTime is HijriDateTime) {
       return HijriDateTime.fromDateTime(date);
     }
-    return date;
+    throw UnsupportedError('Unsupported calendar');
   }
 
   void setYear(int x, {bool ambiguous = false}) {
@@ -144,7 +144,7 @@ class DateBuilder {
     if (!strict || _quarter == null) return month;
     final start = (_quarter! - 1) * 3 + 1;
     if (!_hasMonth) return start;
-    // A quarter can disambiguate a name such as Gregorian "M" (March/May).
+    // A quarter can disambiguate a narrow month name.
     final common = _months.reduce((a, b) => a.intersection(b));
     final compatible =
         common.where((value) => value >= start && value < start + 3);
@@ -261,9 +261,6 @@ class DateBuilder {
 
   int _estimateYear([int? inputYear, bool? ambiguous]) {
     final year = inputYear ?? this.year;
-    if (era == 0 && generalDateTime is! GeneralDateTimeInterface) {
-      return 1 - year;
-    }
     if (!(ambiguous ?? _hasAmbiguousCentury) || year < 0 || year >= 100) {
       return year;
     }
@@ -302,9 +299,17 @@ class DateBuilder {
   }
 
   DateTime _makeCenturyWindowEnd() {
-    final now = _inCalendar(utc ? clock.now().toUtc() : clock.now().toLocal());
-    return _construct(now.year + 20, now.month, now.day, now.hour, now.minute,
-        now.second, now.millisecond, now.microsecond);
+    final instant = now();
+    final current = _inCalendar(utc ? instant.toUtc() : instant.toLocal());
+    return _construct(
+        current.year + 20,
+        current.month,
+        current.day,
+        current.hour,
+        current.minute,
+        current.second,
+        current.millisecond,
+        current.microsecond);
   }
 
   DateTime _construct(int year, int month, int day, int hour, int minute,
@@ -324,10 +329,6 @@ class DateBuilder {
           : HijriDateTime(
               year, month, day, hour, minute, second, millisecond, microsecond);
     }
-    return utc
-        ? DateTime.utc(
-            year, month, day, hour, minute, second, millisecond, microsecond)
-        : DateTime(
-            year, month, day, hour, minute, second, millisecond, microsecond);
+    throw UnsupportedError('Unsupported calendar');
   }
 }

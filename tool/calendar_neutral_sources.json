@@ -1,0 +1,6 @@
+{
+  "source": "package:intl 0.20.3, lib/date_symbol_data_local.dart (CLDR 48)",
+  "sourceSha256": "9ab7fde1fe34ab748eb996cf7511298a4f65b4fa198fce1e2b670e8c3eb6acd5",
+  "snapshotSha256": "746221839696d29775b5d6ba534608f20b6fd7e0b80dacf3978c7d9aeb299e18",
+  "fields": "Calendar-independent weekdays, quarters, day periods, time/date patterns and week metadata only; Gregorian months and eras excluded."
+}

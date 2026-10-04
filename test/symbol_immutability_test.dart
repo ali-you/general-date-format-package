@@ -4,11 +4,7 @@ import 'package:general_date_format/src/date_symbols.dart';
 import 'package:general_datetime/general_datetime.dart';
 
 void main() {
-  for (final date in [
-    DateTime.utc(2024),
-    PersianDateTime.utc(1403),
-    HijriDateTime.utc(1446)
-  ]) {
+  for (final date in [PersianDateTime.utc(1403), HijriDateTime.utc(1446)]) {
     group('${date.runtimeType} symbol isolation', () {
       test('field replacement fails without altering other instances', () {
         final first = GeneralDateFormat('yyyy MMMM dd', 'en');
@@ -119,14 +115,14 @@ void main() {
 
   test('deserialization defensively copies caller collections', () {
     final base = GeneralDateFormat('yyyy MMMM', 'en')
-      ..format(DateTime.utc(2024));
+      ..format(PersianDateTime.utc(1403));
     final map = base.dateSymbols.serializeToMap();
     map['AVAILABLEFORMATS'] = <String, String>{'custom': 'yyyy'};
     final symbols = DateSymbols.deserializeFromMap(map);
     (map['MONTHS'] as List<String>)[0] = 'CORRUPTED';
     (map['WEEKENDRANGE'] as List<int>)[0] = 1;
     (map['AVAILABLEFORMATS'] as Map<String, String>)['custom'] = 'CORRUPTED';
-    expect(symbols.MONTHS[0], 'January');
+    expect(symbols.MONTHS[0], 'Farvardin');
     expect(symbols.AVAILABLEFORMATS!['custom'], 'yyyy');
     expect(() => symbols.AVAILABLEFORMATS!['custom'] = 'CORRUPTED',
         throwsUnsupportedError);

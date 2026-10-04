@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:general_date_format/general_date_format.dart';
 import 'package:intl/date_symbol_data_local.dart' as intl_data;
-import 'package:intl/intl.dart' as intl;
 
 import 'support/calendar_fixture.dart';
 
@@ -12,7 +11,7 @@ void main() {
 
   group('Locale data and named patterns', () {
     for (final locale in GeneralDateFormat.allLocalesWithSymbols()) {
-      test('$locale: twelve months in all three calendars', () {
+      test('$locale: twelve months in both calendars', () {
         for (final calendar in CalendarFixture.values) {
           for (var month = 1; month <= 12; month++) {
             final expected =
@@ -62,44 +61,6 @@ void main() {
         }
       });
     }
-
-    test('Gregorian explicit fields agree with independent intl oracle', () {
-      for (final locale in [
-        'en_US',
-        'en_GB',
-        'fa',
-        'ar',
-        'fr',
-        'de',
-        'ru',
-        'ja',
-        'zh',
-        'th'
-      ]) {
-        for (final pattern in [
-          'yyyy-MM-dd HH:mm:ss.SSS',
-          'EEEE, d MMMM y',
-          'LLLL',
-          'G yyyy QQQQ',
-          'h:mm a',
-          'K:mm a',
-          'k:mm',
-          'yyyy DDD',
-        ]) {
-          final actual = GeneralDateFormat(pattern, locale)
-            ..useNativeDigits = false;
-          final oracle = intl.DateFormat(pattern, locale)
-            ..useNativeDigits = false;
-          for (final date in [
-            DateTime(2000, 2, 29),
-            DateTime(2024, 12, 31, 23, 59, 59, 999)
-          ]) {
-            expect(actual.format(date), oracle.format(date),
-                reason: '$locale $pattern $date');
-          }
-        }
-      }
-    });
 
     test('locale aliases and regional fallback resolve consistently', () {
       for (final entry in {

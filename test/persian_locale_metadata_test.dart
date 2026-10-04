@@ -1,9 +1,11 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:general_date_format/general_date_format.dart';
 import 'package:general_datetime/general_datetime.dart';
-import 'package:intl/date_symbol_data_local.dart' as intl_data;
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -45,7 +47,7 @@ void main() {
         contains('Farvardin'));
   });
 
-  test('every Persian locale reconciles neutral metadata with intl', () {
+  test('every calendar locale preserves the pinned neutral source data', () {
     const keys = [
       'WEEKDAYS',
       'STANDALONEWEEKDAYS',
@@ -62,14 +64,22 @@ void main() {
       'WEEKENDRANGE',
       'FIRSTWEEKCUTOFFDAY'
     ];
-    final source = intl_data.dateTimeSymbolMap();
+    final source = jsonDecode(
+            File('tool/calendar_neutral_symbols.json').readAsStringSync())
+        as Map<String, dynamic>;
     for (final locale in GeneralDateFormat.allLocalesWithSymbols()) {
-      final format = GeneralDateFormat('yyyy-MM-dd', locale)
-        ..format(PersianDateTime.utc(1403));
-      final symbols = format.dateSymbols.serializeToMap();
-      final expected = source[locale]!.serializeToMap();
-      for (final key in keys) {
-        expect(symbols[key], expected[key], reason: '$locale $key');
+      for (final selector in [
+        PersianDateTime.utc(1403),
+        HijriDateTime.utc(1446)
+      ]) {
+        final format = GeneralDateFormat('yyyy-MM-dd', locale)
+          ..format(selector);
+        final symbols = format.dateSymbols.serializeToMap();
+        final expected = source[locale] as Map<String, dynamic>;
+        for (final key in keys) {
+          expect(symbols[key], expected[key],
+              reason: '$locale ${selector.runtimeType} $key');
+        }
       }
     }
   });

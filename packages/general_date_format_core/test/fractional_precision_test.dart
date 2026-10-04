@@ -4,7 +4,6 @@ import 'package:test/test.dart';
 
 void main() {
   for (final selector in <DateTime>[
-    DateTime.utc(2024, 3, 20),
     PersianDateTime.utc(1403, 1, 1),
     HijriDateTime.utc(1445, 9, 10)
   ]) {

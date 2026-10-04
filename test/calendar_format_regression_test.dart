@@ -1,9 +1,6 @@
-import 'package:clock/clock.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:general_date_format/general_date_format.dart';
 import 'package:general_datetime/general_datetime.dart';
-import 'package:intl/date_symbol_data_local.dart' as intl_data;
-import 'package:intl/intl.dart' as intl;
 
 void expectFields(DateTime actual, DateTime expected) {
   expect([
@@ -27,15 +24,12 @@ void expectFields(DateTime actual, DateTime expected) {
 
 void main() {
   final calendars = <String, DateTime>{
-    'Gregorian': DateTime(2024, 3, 20, 13, 5, 6, 789),
     'Persian': PersianDateTime(1403, 1, 1, 13, 5, 6, 789),
     'Hijri': HijriDateTime(1446, 9, 1, 13, 5, 6, 789),
   };
 
-  test('Gregorian symbols work before any formatting', () {
-    final format = GeneralDateFormat('yyyy-MM-dd MMMM');
-    expect(format.dateSymbols.MONTHS[2], 'March');
-    expect(format.format(DateTime(2025, 3, 1)), '2025-03-01 March');
+  test('Persian symbols are available before formatting', () {
+    expect(GeneralDateFormat('MMMM').dateSymbols.MONTHS.first, 'Farvardin');
   });
 
   test('Formatters can alternate calendars without changing each other', () {
@@ -45,7 +39,6 @@ void main() {
     expect(second.format(PersianDateTime(1403, 1, 1)), 'فروردین');
     expect(first.dateSymbols.MONTHS[8], 'Ramadan');
     expect(first.format(PersianDateTime(1403, 1, 1)), 'Farvardin AP');
-    expect(first.format(DateTime(2025, 3, 1)), 'March AD');
     expect(first.format(HijriDateTime(1446, 9, 1)), 'Ramadan AH');
   });
 
@@ -57,19 +50,12 @@ void main() {
     expect(GeneralDateFormat('LLLL', 'ar').format(date), 'رمضان');
   });
 
-  test('Every advertised locale formats all calendars', () async {
-    await intl_data.initializeDateFormatting();
+  test('Every advertised locale formats both calendars', () {
     for (final locale in GeneralDateFormat.allLocalesWithSymbols()) {
       for (final date in calendars.values) {
         final format = GeneralDateFormat.yMMMMEEEEd(locale).add_Hms();
         expect(format.format(date), isNotEmpty,
             reason: '$locale ${date.runtimeType}');
-      }
-      if (locale != 'en_ISO') {
-        // Month translations for native DateTime must agree with intl.
-        expect(GeneralDateFormat.MMMM(locale).format(DateTime(2025, 3, 1)),
-            intl.DateFormat.MMMM(locale).format(DateTime(2025, 3, 1)),
-            reason: locale);
       }
     }
   });
@@ -163,11 +149,11 @@ void main() {
   }
 
   test('Strict time parsing respects each hour symbol range', () {
-    final selector = DateTime(2025);
+    final selector = PersianDateTime(1403);
     for (final pattern in ['h', 'K', 'k', 'H']) {
       final format = GeneralDateFormat('yyyy-MM-dd $pattern:mm a');
       for (final hour in [0, 1, 11, 12, 13, 23]) {
-        final date = DateTime(2025, 3, 1, hour, 5);
+        final date = PersianDateTime(1403, 3, 1, hour, 5);
         // AM/PM applies only to 12-hour patterns.
         final actualFormat = pattern == 'H' || pattern == 'k'
             ? GeneralDateFormat('yyyy-MM-dd $pattern:mm')
@@ -188,23 +174,18 @@ void main() {
         isNull);
   });
 
-  test('Century window uses the parsed date, with a controllable clock', () {
-    withClock(Clock.fixed(DateTime.utc(2025, 6, 15, 12)), () {
-      final format = GeneralDateFormat('yy-MM-dd HH:mm');
-      expect(format.parseUtc('45-06-15 12:00', DateTime(2000)).year, 2045);
-      expect(format.parseUtc('45-06-15 12:01', DateTime(2000)).year, 1945);
-      expect(format.parseUtc('5-01-01 00:00', DateTime(2000)).year, 5);
-      expect(format.parseUtc('1403-01-01 00:00', PersianDateTime(1400)).year,
-          1403);
-      for (final selector in [PersianDateTime(1400), HijriDateTime(1440)]) {
-        final now = selector is PersianDateTime
-            ? PersianDateTime.fromDateTime(clock.now())
-            : HijriDateTime.fromDateTime(clock.now());
-        final parsed = GeneralDateFormat('yy-MM-dd').parseUtc(
-            '${(now.year % 100).toString().padLeft(2, '0')}-01-01', selector);
-        expect(parsed.year, now.year);
-      }
-    });
+  test('Century window uses the selected calendar and injected native time',
+      () {
+    final instant = DateTime.utc(2025, 6, 15, 12);
+    for (final selector in [PersianDateTime(1400), HijriDateTime(1440)]) {
+      final current = selector is PersianDateTime
+          ? PersianDateTime.fromDateTime(instant)
+          : HijriDateTime.fromDateTime(instant);
+      final format = GeneralDateFormat('yy-MM-dd')..now = () => instant;
+      final parsed = format.parseUtc(
+          '${(current.year % 100).toString().padLeft(2, '0')}-01-01', selector);
+      expect(parsed.year, current.year);
+    }
   });
 
   test('Fractional parsing preserves emitted millisecond precision', () {
@@ -222,22 +203,25 @@ void main() {
     expect(format.dateOnly, isTrue);
     format.add_Hms();
     expect(format.dateOnly, isFalse);
-    expect(format.tryParseStrict('3/1/2025 99:00:00', DateTime(2025)), isNull);
+    expect(format.tryParseStrict('3/1/2025 99:00:00', PersianDateTime(1403)),
+        isNull);
   });
 
   test('Malformed quotes and unsupported time zones fail explicitly', () {
-    expect(() => GeneralDateFormat("yyyy 'unfinished").format(DateTime(2025)),
-        throwsFormatException);
     expect(
-        GeneralDateFormat("'Zone:' yyyy").format(DateTime(2025)), 'Zone: 2025');
+        () =>
+            GeneralDateFormat("yyyy 'unfinished").format(PersianDateTime(1403)),
+        throwsFormatException);
+    expect(GeneralDateFormat("'Zone:' yyyy").format(PersianDateTime(1403)),
+        'Zone: 1403');
     for (final pattern in ['z', 'Z', 'v', 'HH:mm z']) {
-      expect(() => GeneralDateFormat(pattern).format(DateTime(2025)),
+      expect(() => GeneralDateFormat(pattern).format(PersianDateTime(1403)),
           throwsUnsupportedError);
     }
     // A long literal/field pattern must not recurse until the stack overflows.
     expect(
         GeneralDateFormat(List.filled(10000, 'y ').join())
-            .format(DateTime(2025))
+            .format(PersianDateTime(1403))
             .length,
         50000);
   });
@@ -249,20 +233,20 @@ void main() {
     expect(format.parseUtc('14۰۳-۰1-۰۱', PersianDateTime(1400)).year, 1403);
     format.useNativeDigits = false;
     expect(format.format(PersianDateTime(1403, 1, 1)), '1403-01-01');
-    expect(GeneralDateFormat('yyyy-MM-dd', 'ar').format(DateTime(2025, 3, 1)),
-        '٢٠٢٥-٠٣-٠١');
+    expect(
+        GeneralDateFormat('yyyy-MM-dd', 'ar')
+            .format(PersianDateTime(1403, 3, 1)),
+        '١٤٠٣-٠٣-٠١');
   });
 
-  test('Quarter formats parse and Gregorian eras retain their sign', () {
-    final selector = DateTime(2025);
+  test('Quarter formats parse in the Persian calendar', () {
+    final selector = PersianDateTime(1403);
     for (final pattern in ['Q', 'QQ', 'QQQ', 'QQQQ']) {
       final format = GeneralDateFormat('yyyy $pattern');
       final parsed =
-          format.parseUtc(format.format(DateTime(2025, 7, 1)), selector);
-      expect([parsed.year, parsed.month, parsed.day], [2025, 7, 1]);
+          format.parseUtc(format.format(PersianDateTime(1403, 7, 1)), selector);
+      expect([parsed.year, parsed.month, parsed.day], [1403, 7, 1]);
     }
-    expect(GeneralDateFormat('yyyy G').parseUtc('0044 BC', selector).year, -43);
-    expect(GeneralDateFormat('yyyy G').format(DateTime.utc(-43)), '0044 BC');
   });
 
   test('Signed Persian years retain their sign in numeric and compact patterns',
@@ -277,10 +261,5 @@ void main() {
             format.parseStrict(text, PersianDateTime(1400), true), date);
       }
     }
-    // Native Gregorian years continue to use their era rather than a sign.
-    expect(
-        GeneralDateFormat('yyyy-MM-dd')
-            .tryParseStrict('-0061-01-01', DateTime(2000)),
-        isNull);
   });
 }

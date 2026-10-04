@@ -9,31 +9,6 @@ import 'support/calendar_fixture.dart';
 
 void main() {
   group('Calendar boundaries', () {
-    final gregorianLeapDays = <int, bool>{
-      1900: false,
-      1999: false,
-      2000: true,
-      2023: false,
-      2024: true,
-      2100: false,
-      2400: true,
-    };
-    for (final entry in gregorianLeapDays.entries) {
-      test('Gregorian February 29 in ${entry.key}', () {
-        final format = GeneralDateFormat('yyyy-MM-dd');
-        final input = '${entry.key}-02-29';
-        if (entry.value) {
-          expectCalendarFields(format.parseStrict(input, DateTime(2000), true),
-              DateTime(entry.key, 2, 29),
-              utc: true);
-        } else {
-          expect(() => format.parseStrict(input, DateTime(2000), true),
-              throwsFormatException);
-          expect(format.tryParseStrict(input, DateTime(2000), true), isNull);
-        }
-      });
-    }
-
     test('Persian long and short months have independent golden boundaries',
         () {
       final format = GeneralDateFormat('yyyy-MM-dd');
@@ -183,22 +158,6 @@ void main() {
       });
     }
 
-    test('Gregorian year zero and BC/AD transition retain their eras', () {
-      final format = GeneralDateFormat('yyyy-MM-dd G');
-      for (final entry in {
-        0: '0001-01-01 BC',
-        -1: '0002-01-01 BC',
-        1: '0001-01-01 AD',
-        -43: '0044-01-01 BC'
-      }.entries) {
-        final expected = DateTime(entry.key);
-        expect(format.format(expected), entry.value);
-        expectCalendarFields(
-            format.parseStrict(entry.value, DateTime(2000), true), expected,
-            utc: true);
-      }
-    });
-
     test('English weekdays use Sunday-based symbols for a complete week', () {
       final full = [
         'Sunday',
@@ -212,7 +171,7 @@ void main() {
       final short = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
       final narrow = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
       for (var index = 0; index < 7; index++) {
-        final date = DateTime(2024, 1, 7 + index);
+        final date = PersianDateTime.fromDateTime(DateTime(2024, 1, 7 + index));
         for (final entry in {
           'EEEE': full,
           'cccc': full,
@@ -224,7 +183,8 @@ void main() {
           expect(GeneralDateFormat(entry.key).format(date), entry.value[index]);
           final format = GeneralDateFormat('yyyy-MM-dd ${entry.key}');
           expectCalendarFields(
-              format.parseStrict(format.format(date), DateTime(2000), true),
+              format.parseStrict(
+                  format.format(date), PersianDateTime(1400), true),
               date,
               utc: true);
         }

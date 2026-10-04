@@ -101,7 +101,7 @@ packages:
     source: path
     version: "1.0.0"
   intl:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: intl
       sha256: "1ca20c894b1717686a2319b8548763d812bc0aabdac580420a44c5178c57a867"
@@ -243,4 +243,4 @@ packages:
     version: "14.3.1"
 sdks:
   dart: ">=3.11.0-0 <4.0.0"
-  flutter: ">=3.32.0"
+  flutter: ">=3.18.0-18.0.pre.54"

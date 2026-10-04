@@ -79,7 +79,6 @@ void main() {
   for (final calendar in CalendarFixture.values) {
     final instant = DateTime.utc(2024, 1, 15);
     final monday = switch (calendar) {
-      CalendarFixture.gregorian => instant,
       CalendarFixture.persian => PersianDateTime.fromDateTime(instant),
       CalendarFixture.hijri => HijriDateTime.fromDateTime(instant),
     };

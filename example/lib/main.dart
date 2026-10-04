@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:general_date_format/general_date_format.dart';
+import 'package:intl/intl.dart' as intl;
 import 'package:general_datetime/delegates.dart';
 import 'package:general_datetime/general_datetime.dart';
 
@@ -74,10 +75,17 @@ class _FormatExampleState extends State<FormatExample> {
   }
 
   Widget _calendarCard(String name, DateTime date) {
+    final isCalendar = date is PersianDateTime || date is HijriDateTime;
+    // The app chooses intl and lets Flutter's delegate initialize its data.
+    final gregorian = intl.DateFormat('yyyy/MM/dd', locale);
     final numeric = GeneralDateFormat('yyyy/MM/dd', locale);
-    final input = numeric.format(date);
-    final parsed = numeric.parseStrict(input, date, true);
-    final full = GeneralDateFormat.yMMMMEEEEd(locale).add_Hm().format(date);
+    final input = isCalendar ? numeric.format(date) : gregorian.format(date);
+    final parsed = isCalendar
+        ? numeric.parseStrict(input, date, true)
+        : gregorian.parseStrict(input, true);
+    final full = isCalendar
+        ? GeneralDateFormat.yMMMMEEEEd(locale).add_Hm().format(date)
+        : intl.DateFormat.yMMMMEEEEd(locale).add_Hm().format(date);
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16),

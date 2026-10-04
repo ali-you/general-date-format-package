@@ -5,9 +5,11 @@ Canonical symbol and pattern tables live in
 the Flutter wrapper forwards to those same libraries. Both distributed cores
 retain their data-license notices.
 
-Gregorian symbols use the resolved `intl` package's generated locale tables.
-Persian and Hijri share those tables' weekday names, quarters, AM/PM markers,
-time/date-time formats, first weekday, weekend range, and first-week cutoff.
+Gregorian formatting belongs to the application and uses `intl.DateFormat`.
+Persian and Hijri bundle weekday names, quarters, AM/PM markers, time/date-time
+formats, first weekday, weekend range, and first-week cutoff in
+`calendar_neutral_data.dart`. These calendar-independent fields are a pinned
+intl 0.20.3 / CLDR 48 snapshot, with Gregorian months and eras excluded.
 Those fields depend on language and territory, not the calendar's month names.
 The package retains its existing native-digit defaults and calendar date patterns.
 
@@ -55,7 +57,13 @@ verified against `cldr_sources.lock.json`; a modified cache is rejected.
 input hashes, not a normal CI step. License notices are never overwritten.
 
 All Persian/Hijri month and era names now come from CLDR 48. Shared neutral
-metadata still comes from the resolved intl package. `locale_compatibility.json`
+metadata comes from the bundled snapshot in `calendar_neutral_symbols.json`.
+`calendar_neutral_sources.json` records the original source and snapshot SHA-256
+hashes. The unified generator verifies the snapshot hash and locale coverage
+before regenerating the Dart table, including during `--check`. To deliberately
+refresh it, run `dart tool/export_neutral_symbols.dart` with the intended intl
+version in the wrapper, review the data differences and update the source/hash
+manifest. This is a maintainer operation; consumers do not import intl data. `locale_compatibility.json`
 is the explicit policy for existing date ordering, digit defaults, shared
 skeletons and en_ISO short-label/era exceptions. `export_locale_policy.dart`
 was the one-time migration snapshot; do not rerun it on migrated data.

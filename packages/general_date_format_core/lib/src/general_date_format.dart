@@ -15,6 +15,8 @@ part 'date_format_field.dart';
 
 /// feedback on appropriateness.
 /// GeneralDateFormat is for formatting and parsing dates in a locale-sensitive manner.
+/// Supports [PersianDateTime] and [HijriDateTime]. Native Gregorian [DateTime]
+/// inputs throw [UnsupportedError]; use intl.DateFormat in your application.
 /// It allows the user to choose from a set of standard date time formats as
 /// well as specify a customized pattern under certain locales. Date elements
 /// that vary across locales include month name, week name, field order, etc.
@@ -178,7 +180,7 @@ part 'date_format_field.dart';
 /// strings consisting of exactly two digits will be parsed into the default
 /// century. Any other numeric string, such as a one digit string, a three or
 /// more digit string will be interpreted as its face value. Tests that parse
-/// two-digit years can control the current date with package:clock.
+/// two-digit years can control the current date with [now].
 ///
 /// If the year pattern does not have exactly two 'y' characters, the year is
 /// interpreted literally, regardless of the number of digits. So using the
@@ -390,14 +392,14 @@ class GeneralDateFormat {
   ///
   /// For example, this will accept
   ///
-  ///       GeneralDateFormat.yMMMd('en_US').parseLoose('SEp   3 2014', DateTime(2000));
-  ///       GeneralDateFormat.yMd('en_US').parseLoose('09    03/2014', DateTime(2000));
-  ///       GeneralDateFormat.yMd('en_US').parseLoose('09 / 03 / 2014', DateTime(2000));
+  ///       GeneralDateFormat.yMMMd('en_US').parseLoose('FARVARDIN   3 1403', PersianDateTime(1400));
+  ///       GeneralDateFormat.yMd('en_US').parseLoose('09    03/1403', PersianDateTime(1400));
+  ///       GeneralDateFormat.yMd('en_US').parseLoose('09 / 03 / 1403', PersianDateTime(1400));
   ///
   /// It will NOT accept
   ///
-  ///       // 'Sept' is not a valid month name.
-  ///       GeneralDateFormat.yMMMd('en_US').parseLoose('Sept 3, 2014', DateTime(2000));
+  ///       // 'Invalid' is not a valid month name.
+  ///       GeneralDateFormat.yMMMd('en_US').parseLoose('Invalid 3, 1403', PersianDateTime(1400));
   DateTime parseLoose(String inputString, DateTime dateTimeType,
       [bool utc = false]) {
     try {
@@ -424,14 +426,14 @@ class GeneralDateFormat {
   ///
   /// For example, this will accept
   ///
-  ///       GeneralDateFormat.yMMMd('en_US').tryParseLoose('SEp   3 2014', DateTime(2000));
-  ///       GeneralDateFormat.yMd('en_US').tryParseLoose('09    03/2014', DateTime(2000));
-  ///       GeneralDateFormat.yMd('en_US').tryParseLoose('09 / 03 / 2014', DateTime(2000));
+  ///       GeneralDateFormat.yMMMd('en_US').tryParseLoose('FARVARDIN   3 1403', PersianDateTime(1400));
+  ///       GeneralDateFormat.yMd('en_US').tryParseLoose('09    03/1403', PersianDateTime(1400));
+  ///       GeneralDateFormat.yMd('en_US').tryParseLoose('09 / 03 / 1403', PersianDateTime(1400));
   ///
   /// It will NOT accept
   ///
-  ///       // 'Sept' is not a valid month name.
-  ///       GeneralDateFormat.yMMMd('en_US').tryParseLoose('Sept 3, 2014', DateTime(2000));
+  ///       // 'Invalid' is not a valid month name.
+  ///       GeneralDateFormat.yMMMd('en_US').tryParseLoose('Invalid 3, 1403', PersianDateTime(1400));
   DateTime? tryParseLoose(String inputString, DateTime dateTimeType,
       [bool utc = false]) {
     try {
@@ -443,7 +445,7 @@ class GeneralDateFormat {
 
   DateTime _parseLoose(String inputString, DateTime dateTimeType, bool utc) {
     _selectCalendar(dateTimeType);
-    var dateFields = DateBuilder(dateTimeType, strict: true);
+    var dateFields = DateBuilder(dateTimeType, strict: true, now: now);
     if (utc) dateFields.utc = true;
     dateFields.dateOnly = dateOnly;
     var stack = StringStack(inputString);
@@ -493,7 +495,7 @@ class GeneralDateFormat {
   DateTime _parse(String inputString, DateTime dateTimeType,
       {bool utc = false, bool strict = false}) {
     _selectCalendar(dateTimeType);
-    var dateFields = DateBuilder(dateTimeType, strict: strict);
+    var dateFields = DateBuilder(dateTimeType, strict: strict, now: now);
     if (utc) dateFields.utc = true;
     dateFields.dateOnly = dateOnly;
     var stack = StringStack(inputString);
@@ -789,7 +791,12 @@ class GeneralDateFormat {
       dateTimePatternMap[locale] ??
       (throw Exception("Date Patten not founded"));
 
-  CalendarType _calendar = CalendarType.gregorian;
+  /// Native time source for the rolling two-digit year window.
+  /// Defaults to [DateTime.now]. Assign a callback to fix the reference instant.
+  /// Each parse samples it at most once, only when a two-digit year is present.
+  DateTime Function() now = DateTime.now;
+
+  CalendarType _calendar = CalendarType.persian;
 
   void _selectCalendar(DateTime date) {
     final selected = calendarType(date);
@@ -801,7 +808,7 @@ class GeneralDateFormat {
   }
 
   /// Symbols for this locale and the most recent format/parse calendar.
-  /// Before the first call, Gregorian symbols are returned. This is useful
+  /// Before the first call, Persian symbols are returned. This is useful
   /// for lists of month or weekday names; prefer [format] and [parse] when
   /// formatting or parsing dates.
   ///

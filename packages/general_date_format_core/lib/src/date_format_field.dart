@@ -422,9 +422,6 @@ class _DateFormatPatternField extends _DateFormatField {
 
   String formatYear(DateTime date) {
     var year = date.year;
-    if (date is! GeneralDateTimeInterface && year <= 0) {
-      year = 1 - year;
-    }
     if (year < 0) return '-${padTo(width, year.abs())}';
     return width == 2 ? padTo(2, year % 100) : padTo(width, year);
   }

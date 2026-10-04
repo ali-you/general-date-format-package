@@ -3,7 +3,6 @@ import 'package:general_datetime/general_datetime.dart';
 
 /// Calendar construction shared by formatter integration tests.
 enum CalendarFixture {
-  gregorian(2024),
   persian(1403),
   hijri(1446);
 
@@ -19,8 +18,6 @@ enum CalendarFixture {
       int millisecond = 0,
       int microsecond = 0]) {
     return switch (this) {
-      gregorian => DateTime(
-          year, month, day, hour, minute, second, millisecond, microsecond),
       persian => PersianDateTime(
           year, month, day, hour, minute, second, millisecond, microsecond),
       hijri => HijriDateTime(

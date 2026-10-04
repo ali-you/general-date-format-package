@@ -1,8 +1,18 @@
 # General Date Format Core
 
-Pure Dart localized formatting and strict/loose parsing for Gregorian,
-Persian, and Umm al-Qura dates. Depends on `general_datetime_core`, `intl`, and
-`clock`; no Flutter SDK or Material localization library is required.
+Pure Dart localized formatting and strict/loose parsing for Persian and
+Umm al-Qura dates. Its only runtime dependency is our `general_datetime_core`.
+Locale data is bundled; there is no `intl`, `clock` or Flutter dependency.
+
+For Gregorian dates, add `intl` to your application and use `intl.DateFormat`
+directly. You choose its locale data initialization and digit policy. Native
+`DateTime` format/parse selectors (including `tryParse` APIs) throw
+`UnsupportedError` with migration guidance. Before its first operation, a
+formatter's `dateSymbols` exposes Persian names.
+
+To control the rolling two-digit year window without a clock package, assign
+`format.now = () => DateTime.utc(2025, 6, 15)`. Each parse reads this callback at
+most once and only for ambiguous two-digit years.
 
 The Flutter `general_date_format` package re-exports this implementation and
 adds its existing Material localization delegates. Both imports expose the

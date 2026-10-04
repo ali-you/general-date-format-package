@@ -22,11 +22,11 @@ void main() {
       final format = GeneralDateFormat('yyyy-MM-dd');
       final unsupported = _UnregisteredCalendar();
       expect(() => format.format(unsupported), throwsUnsupportedError);
-      expect(() => format.parseStrict('2024-01-01', unsupported),
+      expect(() => format.parseStrict('1403-01-01', unsupported),
           throwsUnsupportedError);
-      expect(() => format.tryParseStrict('2024-01-01', unsupported),
+      expect(() => format.tryParseStrict('1403-01-01', unsupported),
           throwsUnsupportedError);
-      expect(format.format(DateTime(2024, 1, 1)), '2024-01-01');
+      expect(format.format(PersianDateTime(1403, 1, 1)), '1403-01-01');
     });
     for (final locale in ['fa', 'ar']) {
       test(
@@ -60,13 +60,13 @@ void main() {
         try {
           GeneralDateFormat.useNativeDigitsByDefaultFor(locale, true);
           final existing = GeneralDateFormat('yyyy', locale);
-          final native = existing.format(DateTime(2024));
+          final native = existing.format(PersianDateTime(1403));
           GeneralDateFormat.useNativeDigitsByDefaultFor(locale, false);
           final ascii = GeneralDateFormat('yyyy', locale);
-          expect(ascii.format(DateTime(2024)), '2024');
-          expect(existing.format(DateTime(2024)), native);
+          expect(ascii.format(PersianDateTime(1403)), '1403');
+          expect(existing.format(PersianDateTime(1403)), native);
           GeneralDateFormat.useNativeDigitsByDefaultFor(locale, true);
-          expect(ascii.format(DateTime(2024)), '2024');
+          expect(ascii.format(PersianDateTime(1403)), '1403');
         } finally {
           GeneralDateFormat.useNativeDigitsByDefaultFor(
               locale, originalDefault);
@@ -78,7 +78,6 @@ void main() {
         () {
       final format = GeneralDateFormat('MMMM G yyyy-MM-dd');
       final expected = [
-        'September AD 2024-09-01',
         'Azar AP 1403-09-01',
         'Ramadan AH 1446-09-01',
       ];
@@ -100,32 +99,35 @@ void main() {
         () {
       final format = GeneralDateFormat('yyyy-MM-dd');
       expect(format.dateOnly, true);
-      expect(format.format(DateTime(2024, 2, 29)), '2024-02-29');
-      expect(format.parseStrict('2024-02-29', DateTime(2000), true).day, 29);
+      expect(format.format(PersianDateTime(1403, 2, 29)), '1403-02-29');
+      expect(format.parseStrict('1403-02-29', PersianDateTime(1400), true).day,
+          29);
       expect(identical(format.addPattern('HH:mm', ' @ '), format), true);
       expect(format.dateOnly, false);
-      final date = DateTime(2024, 2, 29, 23, 59);
-      expect(format.format(date), '2024-02-29 @ 23:59');
+      final date = PersianDateTime(1403, 2, 29, 23, 59);
+      expect(format.format(date), '1403-02-29 @ 23:59');
       expectCalendarFields(
-          format.parseStrict('2024-02-29 @ 23:59', DateTime(2000), true), date,
+          format.parseStrict('1403-02-29 @ 23:59', PersianDateTime(1400), true),
+          date,
           utc: true);
-      expect(format.tryParseStrict('2024-02-29', DateTime(2000)), isNull);
       expect(
-          format.tryParseStrict('2024-02-29 @ 24:00', DateTime(2000)), isNull);
+          format.tryParseStrict('1403-02-29', PersianDateTime(1400)), isNull);
+      expect(format.tryParseStrict('1403-02-29 @ 24:00', PersianDateTime(1400)),
+          isNull);
     });
   });
 
   group('Local time and DST', () {
     test('date-only parsing tolerates a midnight DST jump', () {
       // Tehran moved its clocks at midnight on this historical date.
-      final reference = DateTime(2021, 3, 22);
+      final reference = PersianDateTime.fromDateTime(DateTime(2021, 3, 22));
       final format = GeneralDateFormat('yyyy-MM-dd');
-      final local = format.parseStrict('2021-03-22', DateTime(2000));
+      final local = format.parseStrict('1400-01-02', PersianDateTime(1400));
       expect(local.millisecondsSinceEpoch, reference.millisecondsSinceEpoch);
       expectCalendarFields(local, reference, utc: false);
       expectCalendarFields(
-          format.parseStrict('2021-03-22', DateTime(2000), true),
-          DateTime.utc(2021, 3, 22),
+          format.parseStrict('1400-01-02', PersianDateTime(1400), true),
+          PersianDateTime.utc(1400, 1, 2),
           utc: true);
     });
     // CI runs these under UTC, Asia/Tehran and America/New_York. Native
@@ -139,18 +141,19 @@ void main() {
       [2025, 1, 1, 0, 0],
     ]) {
       test('native local/UTC instant for $parts', () {
-        final expected =
-            DateTime(parts[0], parts[1], parts[2], parts[3], parts[4]);
+        final expected = PersianDateTime.fromDateTime(
+            DateTime(parts[0], parts[1], parts[2], parts[3], parts[4]));
         final format = GeneralDateFormat('yyyy-MM-dd HH:mm');
         final text = format.format(expected);
-        final local = format.parseStrict(text, DateTime(2000));
-        final utc = format.parseStrict(text, DateTime(2000), true);
+        final local = format.parseStrict(text, PersianDateTime(1400));
+        final utc = format.parseStrict(text, PersianDateTime(1400), true);
         expectCalendarFields(local, expected, utc: false);
         expectCalendarFields(utc, expected, utc: true);
         expect(local.millisecondsSinceEpoch, expected.millisecondsSinceEpoch);
         expect(
             utc.millisecondsSinceEpoch,
-            DateTime.utc(parts[0], parts[1], parts[2], parts[3], parts[4])
+            PersianDateTime.utc(expected.year, expected.month, expected.day,
+                    expected.hour, expected.minute)
                 .millisecondsSinceEpoch);
         expect(local.timeZoneOffset, expected.timeZoneOffset);
       });
@@ -158,19 +161,22 @@ void main() {
 
     test('strict local parsing rejects DST wall times that normalize', () {
       final format = GeneralDateFormat('yyyy-MM-dd HH:mm');
-      const input = '2024-03-10 02:30';
-      final reference = DateTime(2024, 3, 10, 2, 30);
+      const input = '1402-12-20 02:30';
+      final reference =
+          PersianDateTime.fromDateTime(DateTime(2024, 3, 10, 2, 30));
       if (reference.hour != 2 || reference.minute != 30) {
-        expect(format.tryParseStrict(input, DateTime(2000)), isNull);
-        expect(format.parse(input, DateTime(2000)).millisecondsSinceEpoch,
+        expect(format.tryParseStrict(input, PersianDateTime(1400)), isNull);
+        expect(
+            format.parse(input, PersianDateTime(1400)).millisecondsSinceEpoch,
             reference.millisecondsSinceEpoch);
       } else {
         expectCalendarFields(
-            format.parseStrict(input, DateTime(2000)), reference,
+            format.parseStrict(input, PersianDateTime(1400)), reference,
             utc: false);
       }
-      expectCalendarFields(format.parseStrict(input, DateTime(2000), true),
-          DateTime.utc(2024, 3, 10, 2, 30),
+      expectCalendarFields(
+          format.parseStrict(input, PersianDateTime(1400), true),
+          PersianDateTime.utc(1402, 12, 20, 2, 30),
           utc: true);
     });
   });

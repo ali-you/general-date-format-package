@@ -1,6 +1,6 @@
-import 'package:intl/date_symbol_data_local.dart' as intl_data;
 import '../date_symbols.dart';
 import '../common/symbol_list.dart';
+import 'calendar_neutral_data.dart';
 import 'calendar_locale_policy.dart';
 import 'persian_calendar_data.dart';
 
@@ -10,7 +10,7 @@ final Map<String, DateSymbols> persianDateSymbolMap = Map.unmodifiable({
 });
 
 DateSymbols _symbols(String locale) {
-  final data = intl_data.dateTimeSymbolMap()[locale]!.serializeToMap();
+  final data = Map<String, dynamic>.from(calendarNeutralData[locale]!);
   data['ZERODIGIT'] = calendarZeroDigits[locale];
   data['DATEFORMATS'] = persianDateFormats[locale]!;
   data.addAll(persianCalendarData[locale]!);
