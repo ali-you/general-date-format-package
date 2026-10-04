@@ -107,7 +107,7 @@ part 'date_format_field.dart';
 ///     M        month in year          (Text & Number)    July & 07
 ///     L        standalone month       (Text & Number)    July & 07
 ///     d        day in month           (Number)           10
-///     c        standalone day         (Number)           10
+///     c        standalone weekday     (Number/Text)      2 / Tuesday
 ///     h        hour in am/pm (1~12)   (Number)           12
 ///     H        hour in day (0~23)     (Number)           0
 ///     m        minute in hour         (Number)           30
@@ -442,7 +442,7 @@ class GeneralDateFormat {
 
   DateTime _parseLoose(String inputString, DateTime dateTimeType, bool utc) {
     _selectCalendar(dateTimeType);
-    var dateFields = DateBuilder(dateTimeType);
+    var dateFields = DateBuilder(dateTimeType, strict: true);
     if (utc) dateFields.utc = true;
     dateFields.dateOnly = dateOnly;
     var stack = StringStack(inputString);
@@ -465,6 +465,9 @@ class GeneralDateFormat {
   /// DateTime constructor will accept them. It will also reject strings with
   /// additional characters (including whitespace) after a valid date. For
   /// looser parsing, use [parse].
+  /// Every supplied occurrence must agree with the resulting date/time,
+  /// including weekdays, quarters, ordinal days, and repeated fields.
+  /// AM/PM resolves h/K hours; with H/k it must match the 24-hour value.
   DateTime parseStrict(String inputString, DateTime dateTimeType,
           [bool utc = false]) =>
       _parse(inputString, dateTimeType, utc: utc, strict: true);
@@ -489,7 +492,7 @@ class GeneralDateFormat {
   DateTime _parse(String inputString, DateTime dateTimeType,
       {bool utc = false, bool strict = false}) {
     _selectCalendar(dateTimeType);
-    var dateFields = DateBuilder(dateTimeType);
+    var dateFields = DateBuilder(dateTimeType, strict: strict);
     if (utc) dateFields.utc = true;
     dateFields.dateOnly = dateOnly;
     var stack = StringStack(inputString);

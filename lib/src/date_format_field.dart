@@ -172,7 +172,7 @@ class _LoosePatternField extends _DateFormatPatternField {
     for (var monthNames in possibilities) {
       var month = _tryParseEnumeratedString(input, monthNames);
       if (month != -1) {
-        dateFields.month = month + 1;
+        recordMonth(dateFields, monthNames, month);
         return;
       }
     }
@@ -180,12 +180,11 @@ class _LoosePatternField extends _DateFormatPatternField {
   }
 
   /// Parse a standalone day name, case-insensitively.
-  /// Assumes that input is lower case. Doesn't do anything
+  /// Assumes that input is lower case.
   @override
-  void parseStandaloneDay(StringStack input) {
-    // This is ignored, but we still have to skip over it the correct amount.
+  void parseStandaloneDay(StringStack input, DateBuilder dateFields) {
     if (width <= 2) {
-      handleNumericField(input, (x) => x);
+      parseLocalWeekday(input, dateFields);
       return;
     }
     var possibilities = [
@@ -196,6 +195,7 @@ class _LoosePatternField extends _DateFormatPatternField {
     for (var dayNames in possibilities) {
       var day = _tryParseEnumeratedString(input, dayNames);
       if (day != -1) {
+        recordWeekday(dateFields, dayNames, day);
         return;
       }
     }
@@ -217,7 +217,7 @@ class _LoosePatternField extends _DateFormatPatternField {
     for (var monthNames in possibilities) {
       var month = _tryParseEnumeratedString(input, monthNames);
       if (month != -1) {
-        dateFields.month = month + 1;
+        recordMonth(dateFields, monthNames, month);
         return;
       }
     }
@@ -225,9 +225,9 @@ class _LoosePatternField extends _DateFormatPatternField {
   }
 
   /// Parse a day of the week name, case-insensitively.
-  /// Assumes that input is lower case. Doesn't do anything
+  /// Assumes that input is lower case.
   @override
-  void parseDayOfWeek(StringStack input) {
+  void parseDayOfWeek(StringStack input, DateBuilder dateFields) {
     var possibilities = [
       symbols.WEEKDAYS,
       symbols.SHORTWEEKDAYS,
@@ -236,6 +236,7 @@ class _LoosePatternField extends _DateFormatPatternField {
     for (var dayNames in possibilities) {
       var day = _tryParseEnumeratedString(input, dayNames);
       if (day != -1) {
+        recordWeekday(dateFields, dayNames, day);
         return;
       }
     }
@@ -296,7 +297,7 @@ class _DateFormatPatternField extends _DateFormatField {
           parseAmPm(input, builder);
           break;
         case 'c':
-          parseStandaloneDay(input);
+          parseStandaloneDay(input, builder);
           break;
         case 'd':
           handleNumericField(input, builder.setDay);
@@ -306,7 +307,7 @@ class _DateFormatPatternField extends _DateFormatField {
           handleNumericField(input, builder.setDayOfYear);
           break; // dayofyear
         case 'E':
-          parseDayOfWeek(input);
+          parseDayOfWeek(input, builder);
           break;
         case 'G':
           parseEra(input, builder);
@@ -323,10 +324,8 @@ class _DateFormatPatternField extends _DateFormatField {
               input, (value) => builder.setPatternHour(value, 0, 11));
           break; //hour 0-11
         case 'k':
-          handleNumericField(input, (value) {
-            builder.setPatternHour(value, 1, 24);
-            if (value == 24) builder.hour = 0;
-          });
+          handleNumericField(
+              input, (value) => builder.setPatternHour(value, 1, 24));
           break; //hr 1-24
         case 'L':
           parseStandaloneMonth(input, builder);
@@ -498,8 +497,8 @@ class _DateFormatPatternField extends _DateFormatField {
         input.startsWith('-');
     if (negative) input.pop();
     final digits = _readDigits(input);
-    builder.year = int.parse(digits) * (negative ? -1 : 1);
-    builder.hasAmbiguousCentury = !negative && width == 2 && digits.length == 2;
+    builder.setYear(int.parse(digits) * (negative ? -1 : 1),
+        ambiguous: !negative && width == 2 && digits.length == 2);
   }
 
   String formatMonth(DateTime date) {
@@ -530,7 +529,8 @@ class _DateFormatPatternField extends _DateFormatField {
       default:
         return handleNumericField(input, dateFields.setMonth);
     }
-    dateFields.month = parseEnumeratedString(input, possibilities) + 1;
+    recordMonth(
+        dateFields, possibilities, parseEnumeratedString(input, possibilities));
   }
 
   String format24Hours(DateTime date) {
@@ -558,7 +558,7 @@ class _DateFormatPatternField extends _DateFormatField {
 
   void parseAmPm(StringStack input, DateBuilder dateFields) {
     var ampm = parseEnumeratedString(input, symbols.AMPMS);
-    if (ampm == 1) dateFields.pm = true;
+    dateFields.setDayPeriod(ampm);
   }
 
   String format1To12Hours(DateTime date) {
@@ -571,7 +571,6 @@ class _DateFormatPatternField extends _DateFormatField {
   void parse1To12Hours(StringStack input, DateBuilder dateFields) {
     handleNumericField(
         input, (value) => dateFields.setPatternHour(value, 1, 12));
-    if (dateFields.hour == 12) dateFields.hour = 0;
   }
 
   String format0To11Hours(DateTime date) => padTo(width, date.hour % 12);
@@ -587,12 +586,13 @@ class _DateFormatPatternField extends _DateFormatField {
       case 3:
         return symbols.STANDALONESHORTWEEKDAYS[date.weekday % 7];
       default:
-        return padTo(1, date.day);
+        // DateSymbols uses Monday=0; DateTime uses Monday=1.
+        final weekday = (date.weekday - 1 - symbols.FIRSTDAYOFWEEK) % 7 + 1;
+        return padTo(1, weekday);
     }
   }
 
-  void parseStandaloneDay(StringStack input) {
-    // This is ignored, but we still have to skip over it the correct amount.
+  void parseStandaloneDay(StringStack input, DateBuilder dateFields) {
     List<String> possibilities;
     switch (width) {
       case 5:
@@ -605,10 +605,15 @@ class _DateFormatPatternField extends _DateFormatField {
         possibilities = symbols.STANDALONESHORTWEEKDAYS;
         break;
       default:
-        return handleNumericField(input, (x) => x);
+        return parseLocalWeekday(input, dateFields);
     }
-    parseEnumeratedString(input, possibilities);
+    recordWeekday(
+        dateFields, possibilities, parseEnumeratedString(input, possibilities));
   }
+
+  void parseLocalWeekday(StringStack input, DateBuilder builder) =>
+      handleNumericField(input,
+          (value) => builder.setLocalWeekday(value, symbols.FIRSTDAYOFWEEK));
 
   String formatStandaloneMonth(DateTime date) {
     switch (width) {
@@ -638,7 +643,8 @@ class _DateFormatPatternField extends _DateFormatField {
       default:
         return handleNumericField(input, dateFields.setMonth);
     }
-    dateFields.month = parseEnumeratedString(input, possibilities) + 1;
+    recordMonth(
+        dateFields, possibilities, parseEnumeratedString(input, possibilities));
   }
 
   String formatQuarter(DateTime date) {
@@ -678,18 +684,41 @@ class _DateFormatPatternField extends _DateFormatField {
     }[(date.weekday) % 7];
   }
 
-  void parseDayOfWeek(StringStack input) {
+  void parseDayOfWeek(StringStack input, DateBuilder dateFields) {
     var possibilities = width == 5
         ? symbols.NARROWWEEKDAYS
         : width >= 4
             ? symbols.WEEKDAYS
             : symbols.SHORTWEEKDAYS;
-    parseEnumeratedString(input, possibilities);
+    recordWeekday(
+        dateFields, possibilities, parseEnumeratedString(input, possibilities));
+  }
+
+  /// Narrow names can identify several weekdays (e.g. English "T").
+  void recordWeekday(DateBuilder builder, List<String> names, int selected) {
+    builder.setWeekday({
+      for (final i in matchingNameIndices(names, selected)) i == 0 ? 7 : i,
+    });
+  }
+
+  void recordMonth(DateBuilder builder, List<String> names, int selected) =>
+      builder.setMonth(selected + 1, candidates: {
+        for (final i in matchingNameIndices(names, selected)) i + 1,
+      });
+
+  Iterable<int> matchingNameIndices(List<String> names, int selected) sync* {
+    String normalize(String name) => this is _LoosePatternField
+        ? name.toLowerCase().replaceAll(RegExp(r'\s+'), ' ').trim()
+        : name;
+    final spelling = normalize(names[selected]);
+    for (var i = 0; i < names.length; i++) {
+      if (normalize(names[i]) == spelling) yield i;
+    }
   }
 
   void parseEra(StringStack input, DateBuilder builder) {
     var possibilities = width >= 4 ? symbols.ERANAMES : symbols.ERAS;
-    builder.era = parseEnumeratedString(input, possibilities);
+    builder.setEra(parseEnumeratedString(input, possibilities));
   }
 
   void parseQuarter(StringStack input, DateBuilder builder) {
@@ -699,8 +728,7 @@ class _DateFormatPatternField extends _DateFormatField {
             1
         : int.parse(_readDigits(input));
     if (quarter < 1 || quarter > 4) throwFormatException(input);
-    builder.month = (quarter - 1) * 3 + 1;
-    builder.day = 1;
+    builder.setQuarter(quarter);
   }
 
   String formatMinutes(DateTime date) => padTo(width, date.minute);

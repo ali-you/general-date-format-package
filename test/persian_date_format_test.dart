@@ -220,7 +220,7 @@ void main() {
           'M': '2', // One-digit month
           'dd': '02', // Two-digit day
           'd': '2', // One-digit day
-          'c': '2', // Standalone day - may be same as 'd'
+          'c': '7', // Saturday, relative to the locale's Sunday week start
           'hh': '02', // Two-digit 12-hour format (14 => 2 PM)
           'h': '2', // One-digit 12-hour format
           'HH': '14', // Two-digit 24-hour format
@@ -256,7 +256,7 @@ void main() {
           'M': '4',
           'dd': '10',
           'd': '10',
-          'c': '10',
+          'c': '7', // Saturday, relative to the locale's Sunday week start
           'h': '11',
           'H': '23',
           'k': '23',
@@ -301,7 +301,7 @@ void main() {
           'M': '۲',
           'dd': '۰۲',
           'd': '۲',
-          'c': '۲',
+          'c': '۱', // Saturday is the first weekday in fa
           'hh': '۰۲',
           'h': '۲',
           'HH': '۱۴',
@@ -340,7 +340,7 @@ void main() {
           'M': '۴',
           'dd': '۱۰',
           'd': '۱۰',
-          'c': '۱۰',
+          'c': '۱', // Saturday is the first weekday in fa
           'h': '۱۱',
           'H': '۲۳',
           'k': '۲۳',

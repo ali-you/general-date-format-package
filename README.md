@@ -84,6 +84,27 @@ parsing. `parseLoose` also accepts case differences in names and flexible
 whitespace. `tryParse`, `tryParseStrict`, `tryParseLoose`, and `tryParseUtc`
 return `null` on invalid input.
 
+Strict and loose parsing validate every supplied field, including repeated
+fields. Weekday names/numbers, quarters, and ordinal days (`D`) must agree with
+the resulting calendar date and any explicit month/day. Matching repetitions
+are accepted; invalid earlier values cannot be hidden by later values.
+Ambiguous names (such as the English weekday initial `T`) match any of their
+possible days. A weekday constrains the date; it does not search for another
+date when year/month/day are omitted. A quarter supplies its first month and
+day 1 only when those fields are missing. Ordinary `parse` retains permissive
+date-field precedence and overflow normalization.
+
+`h` (1–12) and `K` (0–11) use AM/PM to resolve the hour. `H` (0–23) and
+`k` (1–24, with 24 meaning midnight) already specify a 24-hour value: an AM/PM
+marker does not shift it, and strict/loose parsing rejects a contradictory
+marker. For example, `HH:mm a` accepts `13:00 PM` and rejects `01:00 PM`.
+
+Numeric `c` and `cc` both emit a single locale-relative weekday number, 1–7,
+using the selected calendar's locale week start. For Gregorian Monday,
+`en_US` emits `2` and `en_GB` emits `1`. Parsing validates both the range and
+agreement with the date. Use `ccc`, `cccc`, or `ccccc` for abbreviated, full,
+or narrow standalone weekday names.
+
 Fixed-width compact patterns such as `yyyyMMddHHmmss` are supported. Two-digit
 `yy` years select the century in the interval from 80 years before to 20 years
 after the current date, using the result's calendar. Other year widths and
@@ -91,7 +112,8 @@ inputs with other than two digits are literal years. Tests can control this
 window with `package:clock`.
 
 Missing date fields default to the Gregorian epoch date represented in the
-selected calendar. Fractional seconds retain millisecond precision: `S`, `SS`,
+selected calendar, except for the quarter defaults described above.
+Fractional seconds retain millisecond precision: `S`, `SS`,
 and `SSS` emit three digits; longer widths append zeros, like `intl`. Parsing
 short fractions pads on the right and longer fractions truncates to milliseconds.
 

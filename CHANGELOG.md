@@ -1,6 +1,12 @@
 # Changelog
 
 ## [2.0.0] — release preparation
+- Validate conflicting/repeated date and time fields in strict and loose parsing,
+  preserving ambiguous names and per-token hour ranges/two-digit-year semantics.
+- Respect h/K versus H/k hour cycles with AM/PM; validate mixed 24-hour markers
+  without shifting the hour.
+- Correct numeric c/cc to unpadded locale-relative weekdays 1–7 and validate
+  weekday consistency. Update former day-of-month expectations and documentation.
 - Breaking: require general_datetime ^3.0.0, excluding the defective published
   2.1.0 chronology and instant contracts. Publish general_datetime first.
 - Remove the old Hijri UTC workaround and use the corrected core directly.
