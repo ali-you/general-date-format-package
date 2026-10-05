@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Remove internal formatter, helper, and symbol forwarding files. Material
+  adapters and internal tests reference `general_date_format_core` directly;
+  the public `general_date_format.dart` entry point retains the core re-export.
+- Remove the unused deprecated locale initialization hook from the Dart core.
 - Validate strict/loose era labels against the resolved year's sign, preserving
   ambiguous labels and signed-year round trips, including year zero.
 - Resolve two-digit years across chronology bounds and negative centuries;

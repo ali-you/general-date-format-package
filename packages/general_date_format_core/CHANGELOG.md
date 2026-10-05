@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Remove the unused deprecated locale initialization hook. Locale data continues
+  to load lazily; Flutter adapters reference the core directly.
+- Export locale resolution helpers through the public core library so Material
+  adapters do not import core implementation files.
 - Validate strict/loose era labels against the resolved year's sign, preserving
   ambiguous labels and signed-year round trips, including year zero.
 - Resolve two-digit years across chronology bounds and negative centuries;

@@ -41,6 +41,11 @@ package. The Flutter adapter uses the public `MaterialLocalizations` interface
 and has no direct `intl` dependency or imports. Flutter's
 `flutter_localizations` still depends on `intl` transitively.
 
+Formatting, parsing, helpers, and symbol data live in the Dart core. The
+wrapper's `lib/src` contains only Material localization adapters, which import
+the core directly. Use `general_date_format.dart` for the Flutter public API
+or `general_date_format_core.dart` for pure Dart applications.
+
 The checked-in manifests target `general_date_format` **2.0.0**,
 `general_datetime` **3.0.0**, and both Dart cores **1.0.0**. Flutter wrappers
 require Dart `>=3.4.0 <4.0.0` and Flutter `>=3.32.0`; the cores need only Dart

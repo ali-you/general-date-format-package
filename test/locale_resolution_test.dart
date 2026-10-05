@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:general_date_format/general_date_format.dart';
-import 'package:general_date_format/src/helpers.dart';
+import 'package:general_date_format_core/src/helpers.dart'
+    show canonicalizedLocale;
 import 'package:general_datetime/general_datetime.dart';
 
 import 'support/calendar_fixture.dart';

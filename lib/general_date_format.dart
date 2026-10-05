@@ -1,4 +1,5 @@
-/// Calendar formatting and Flutter Material localization adapters.
+/// Formatting types shared with general_date_format_core, plus Flutter
+/// Material localization adapters.
 library;
 
 export 'package:general_date_format_core/general_date_format_core.dart';

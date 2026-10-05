@@ -18,6 +18,14 @@ The Flutter `general_date_format` package re-exports this implementation and
 adds its existing Material localization delegates. Both imports expose the
 same `GeneralDateFormat` type and consume the same calendar date classes.
 
+Formatting, parsing, helpers, and symbol data live only in this core package.
+The Flutter wrapper's `lib/src` contains Material localization adapters that
+reference the core directly. Locale data loads lazily, so no initialization
+hook is needed.
+
+The public core library also exports `resolveLocale` and `verifiedLocale` for
+adapters that need the formatter's bundled-data locale fallback policy.
+
 ## Local use before publication
 
 Keep the `general_date` and `general_date_format` repositories beside each other.
