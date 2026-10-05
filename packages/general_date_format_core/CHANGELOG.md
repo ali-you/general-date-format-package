@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Validate strict/loose era labels against the resolved year's sign, preserving
+  ambiguous labels and signed-year round trips, including year zero.
 - Resolve two-digit years across chronology bounds and negative centuries;
   compare wall-field window endpoints and keep repeated-year range failures
   within the documented FormatException/nullable parsing contracts.

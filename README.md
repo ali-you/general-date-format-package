@@ -254,9 +254,11 @@ The callback defaults to native `DateTime.now`, is sampled at most once per
 parse, and is used only for ambiguous two-digit years. The window uses the
 selected calendar and requested UTC/local mode; range bounds still apply.
 
-Persian signed years, including zero, are supported. `G` recognizes era labels
-and validates repeated era tokens, but does not convert a positive numeric year
-into a negative year. Use signed year input when representing negative years.
+Persian signed years, including zero, are supported. Strict and loose parsing
+require every `G`/`GGGG` label to agree with the resulting year: positive years
+use the after-era label, while zero and negative years use the before-era label.
+Labels shared by both eras remain valid for either sign. Era labels do not
+change the numeric year's sign; use signed input for negative years.
 
 ## Fractional seconds
 

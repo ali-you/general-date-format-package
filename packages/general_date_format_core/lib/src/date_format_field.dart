@@ -721,8 +721,9 @@ class _DateFormatPatternField extends _DateFormatField {
   }
 
   void parseEra(StringStack input, DateBuilder builder) {
-    var possibilities = width >= 4 ? symbols.ERANAMES : symbols.ERAS;
-    builder.setEra(parseEnumeratedString(input, possibilities));
+    final possibilities = width >= 4 ? symbols.ERANAMES : symbols.ERAS;
+    final selected = parseEnumeratedString(input, possibilities);
+    builder.setEra(matchingNameIndices(possibilities, selected).toSet());
   }
 
   void parseQuarter(StringStack input, DateBuilder builder) {

@@ -11,7 +11,6 @@ class DateBuilder {
   bool _hasAmbiguousCentury = false;
   bool hasDayOfYear = false;
   int? _hourMaximum;
-  int? era;
   DateTime? _date;
   List<int>? _centuryWindowEnd;
   int? _resolvedYear;
@@ -29,7 +28,7 @@ class DateBuilder {
   final _years = <({int value, bool ambiguous})>[];
   final _hours = <({int value, int minimum, int maximum})>[];
   final _timeInputs = <String, List<int>>{};
-  final _eras = <int>[];
+  final _eras = <Set<int>>[];
   final _periods = <int>[];
 
   DateBuilder(this.generalDateTime, {this.strict = false, required this.now}) {
@@ -115,10 +114,7 @@ class DateBuilder {
   void _recordTime(String field, int value) =>
       (_timeInputs[field] ??= []).add(value);
 
-  void setEra(int x) {
-    era = x;
-    _eras.add(x);
-  }
+  void setEra(Set<int> candidates) => _eras.add(candidates);
 
   void setDayPeriod(int x) {
     pm = x == 1;
@@ -180,9 +176,6 @@ class DateBuilder {
         _verify(value, expected, expected, 'repeated ${entry.key}', input);
       }
     }
-    for (final value in _eras) {
-      _verify(value, era!, era!, 'repeated era', input);
-    }
     for (final value in _periods) {
       _verify(value, pm ? 1 : 0, pm ? 1 : 0, 'repeated day period', input);
       if (_hours.any((token) => token.maximum > 12)) {
@@ -196,6 +189,14 @@ class DateBuilder {
     _verify(second, 0, 59, 'second', input);
     _verify(fractionalSecond, 0, 999, 'fractional second', input);
     final date = asDate();
+    // Use the same year-zero convention as era formatting. Every token must
+    // allow the resulting era, including labels shared by both eras.
+    final actualEra = date.year > 0 ? 1 : 0;
+    for (final candidates in _eras) {
+      if (!candidates.contains(actualEra)) {
+        throw FormatException('Era does not match the parsed year', input);
+      }
+    }
     for (final candidates in _months) {
       if (!candidates.contains(date.month)) {
         throw FormatException('Month does not match the parsed date', input);
