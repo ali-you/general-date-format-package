@@ -2,7 +2,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:general_date_format/general_date_format.dart';
 import 'package:general_date_format/src/helpers.dart';
 import 'package:general_datetime/general_datetime.dart';
-import 'package:intl/intl.dart' as intl;
 
 import 'support/calendar_fixture.dart';
 
@@ -62,12 +61,9 @@ void main() {
     'sr-Latn-RS-u-nu-latn': 'sr_Latn',
     'en-US-posix': 'en_US',
   };
-  test('date and number data use the same locale candidate policy', () {
+  test('bundled date data uses the locale candidate policy', () {
     for (final entry in cases.entries) {
       expect(GeneralDateFormat('y', entry.key).locale, entry.value,
-          reason: entry.key);
-      expect(
-          resolveLocale(entry.key, intl.NumberFormat.localeExists), entry.value,
           reason: entry.key);
     }
     expect(GeneralDateFormat('y').locale, 'en_US');

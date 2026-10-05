@@ -61,9 +61,10 @@ metadata comes from the bundled snapshot in `calendar_neutral_symbols.json`.
 `calendar_neutral_sources.json` records the original source and snapshot SHA-256
 hashes. The unified generator verifies the snapshot hash and locale coverage
 before regenerating the Dart table, including during `--check`. To deliberately
-refresh it, run `dart tool/export_neutral_symbols.dart` with the intended intl
-version in the wrapper, review the data differences and update the source/hash
-manifest. This is a maintainer operation; consumers do not import intl data. `locale_compatibility.json`
+refresh it, prepare a reviewed snapshot outside these packages, preserving its
+source attribution, and update the data and source/hash manifest together.
+The one-time intl exporter has been removed; package tools use the checked-in
+snapshot without importing intl. `locale_compatibility.json`
 is the explicit policy for existing date ordering, digit defaults, shared
 skeletons and en_ISO short-label/era exceptions. `export_locale_policy.dart`
 was the one-time migration snapshot; do not rerun it on migrated data.

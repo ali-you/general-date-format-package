@@ -2,13 +2,10 @@ import 'dart:math';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:general_date_format/general_date_format.dart';
-import 'package:intl/date_symbol_data_local.dart' as intl_data;
 
 import 'support/calendar_fixture.dart';
 
 void main() {
-  setUpAll(intl_data.initializeDateFormatting);
-
   group('Locale data and named patterns', () {
     for (final locale in GeneralDateFormat.allLocalesWithSymbols()) {
       test('$locale: twelve months in both calendars', () {

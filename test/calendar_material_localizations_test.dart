@@ -7,7 +7,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:general_date_format/general_date_format.dart';
 import 'package:general_datetime/delegates.dart';
 import 'package:general_datetime/general_datetime.dart';
-import 'package:intl/intl.dart' as intl;
 
 import 'support/calendar_fixture.dart';
 
@@ -142,6 +141,49 @@ void main() {
                 material.formatHour(const TimeOfDay(hour: 13, minute: 5),
                     alwaysUse24HourFormat: true),
                 digits.substring(0, 1) + digits.substring(2, 3));
+            final baseline =
+                await GlobalMaterialLocalizations.delegate.load(locale);
+            String expectedDigits(String value) {
+              final sourceZero = baseline.formatDecimal(0).codeUnitAt(0);
+              final targetZero =
+                  (native ? (locale.languageCode == 'fa' ? '۰' : '٠') : '0')
+                      .codeUnitAt(0);
+              for (var digit = 0; digit < 10; digit++) {
+                value = value.replaceAll(
+                    String.fromCharCode(sourceZero + digit),
+                    String.fromCharCode(targetZero + digit));
+              }
+              return value;
+            }
+
+            for (final count in [0, 1, 2, 3, 5, 11, 12345]) {
+              expect(material.formatDecimal(count),
+                  expectedDigits(baseline.formatDecimal(count)));
+              expect(material.formatDecimal(-count),
+                  expectedDigits(baseline.formatDecimal(-count)));
+              expect(material.selectedRowCountTitle(count),
+                  expectedDigits(baseline.selectedRowCountTitle(count)));
+              expect(material.licensesPackageDetailText(count),
+                  expectedDigits(baseline.licensesPackageDetailText(count)));
+              expect(
+                  material.remainingTextFieldCharacterCount(count),
+                  expectedDigits(
+                      baseline.remainingTextFieldCharacterCount(count)));
+            }
+            expect(material.pageRowsInfoTitle(1, 10, 12345, true),
+                expectedDigits(baseline.pageRowsInfoTitle(1, 10, 12345, true)));
+            expect(material.tabLabel(tabIndex: 1, tabCount: 5),
+                expectedDigits(baseline.tabLabel(tabIndex: 1, tabCount: 5)));
+            for (final hour in [0, 1, 12, 13, 23]) {
+              for (final always24 in [false, true]) {
+                final time = TimeOfDay(hour: hour, minute: 5);
+                expect(
+                    material.formatTimeOfDay(time,
+                        alwaysUse24HourFormat: always24),
+                    expectedDigits(baseline.formatTimeOfDay(time,
+                        alwaysUse24HourFormat: always24)));
+              }
+            }
             expectCalendarFields(
                 material.parseCompactDate(format.format(date))!, date,
                 utc: false);
@@ -206,8 +248,7 @@ void main() {
               GeneralDateFormat('MMMEd', entry.value).format(date));
           final symbols = GeneralDateFormat('y', entry.value)..format(date);
           expect(material.narrowWeekdays, symbols.dateSymbols.NARROWWEEKDAYS);
-          expect(material.formatDecimal(12345),
-              intl.NumberFormat.decimalPattern(entry.value).format(12345));
+          expect(material.formatDecimal(12345), baseline.formatDecimal(12345));
           expectCalendarFields(
               material.parseCompactDate(material.formatCompactDate(date))!,
               date,

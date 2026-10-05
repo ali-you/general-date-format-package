@@ -224,6 +224,15 @@ class DateBuilder {
     }
     final minimumHour = dateOnly && date.hour == 1 ? 0 : date.hour;
     _verify(hour24, minimumHour, date.hour, 'hour', input);
+    // A DST gap can change minutes or seconds without changing the hour.
+    // Keep the date-only midnight-to-01:00 exception, but require the rest
+    // of the constructed clock to match exactly.
+    _verify(minute, date.minute, date.minute, 'minute', input);
+    _verify(second, date.second, date.second, 'second', input);
+    _verify(fractionalSecond, date.millisecond, date.millisecond, 'millisecond',
+        input);
+    _verify(
+        microsecond, date.microsecond, date.microsecond, 'microsecond', input);
     if (hasDayOfYear) {
       final actual = calendarDayOfYear(date);
       _verify(dayOfYear, actual, actual, 'dayOfYear', input);
