@@ -238,6 +238,11 @@ the rolling century window ending 20 calendar years after the reference date
 (and starting approximately 80 years before). Other widths, signed years, or
 inputs with other than two digits use literal years.
 
+The window compares calendar wall fields, including the full clock, with an
+exclusive lower endpoint and inclusive upper endpoint. Endpoint years can lie
+outside supported chronology data; only the reference date and resolved result
+must be supported. Ordinal/overflow input is normalized before comparison.
+
 Control the reference instant per formatter for deterministic parsing:
 
 ```dart

@@ -13,7 +13,7 @@ class DateBuilder {
   int? _hourMaximum;
   int? era;
   DateTime? _date;
-  DateTime? _centuryWindowEnd;
+  List<int>? _centuryWindowEnd;
   int? _resolvedYear;
   final DateTime generalDateTime;
   final bool strict;
@@ -273,52 +273,61 @@ class DateBuilder {
     if (!(ambiguous ?? _hasAmbiguousCentury) || year < 0 || year >= 100) {
       return year;
     }
-    // All occurrences use one clock reading, including a century boundary.
+    // Window endpoints are wall fields, so they need not fit chronology data.
+    // All occurrences still share one clock reading.
     final upper = _centuryWindowEnd ??= _makeCenturyWindowEnd();
-    var candidate = (upper.year ~/ 100) * 100 + year;
-    // Compare calendar fields, without relying on DateTime subclass internals.
-    final candidateDate = _construct(candidate, _constructionMonth,
-        dayOrDayOfYear, hour24, minute, second, fractionalSecond, microsecond);
-    final inputFields = [
-      candidateDate.year,
-      candidateDate.month,
-      candidateDate.day,
-      candidateDate.hour,
-      candidateDate.minute,
-      candidateDate.second,
-      candidateDate.millisecond,
-      candidateDate.microsecond
-    ];
-    final upperFields = [
-      upper.year,
-      upper.month,
-      upper.day,
-      upper.hour,
-      upper.minute,
-      upper.second,
-      upper.millisecond,
-      upper.microsecond
-    ];
-    for (var i = 0; i < inputFields.length; i++) {
-      if (inputFields[i] == upperFields[i]) continue;
-      if (inputFields[i] > upperFields[i]) candidate -= 100;
-      break;
+    final lower = [upper[0] - 100, ...upper.skip(1)];
+    // Euclidean modulo yields a floor century, including negative years.
+    final base = upper[0] - upper[0] % 100 + year;
+    for (final candidate in [base, base - 100, base + 100]) {
+      final DateTime date;
+      try {
+        // Normalize ordinal/overflow fields before comparing the window.
+        // Failure in one century must not rule out an adjacent century that
+        // fits both the window and the chronology's supported range.
+        date = _construct(candidate, _constructionMonth, dayOrDayOfYear, hour24,
+            minute, second, fractionalSecond, microsecond);
+      } on ArgumentError {
+        continue;
+      }
+      final fields = _dateFields(date);
+      if (_compareFields(fields, lower) > 0 &&
+          _compareFields(fields, upper) <= 0) {
+        return candidate;
+      }
     }
-    return candidate;
+    throw const FormatException(
+        'Two-digit year has no supported date in its century window');
   }
 
-  DateTime _makeCenturyWindowEnd() {
-    final instant = now();
-    final current = _inCalendar(utc ? instant.toUtc() : instant.toLocal());
-    return _construct(
-        current.year + 20,
-        current.month,
-        current.day,
-        current.hour,
-        current.minute,
-        current.second,
-        current.millisecond,
-        current.microsecond);
+  List<int> _makeCenturyWindowEnd() {
+    try {
+      final instant = now();
+      final current = _inCalendar(utc ? instant.toUtc() : instant.toLocal());
+      return [current.year + 20, ..._dateFields(current).skip(1)];
+    } on RangeError catch (error) {
+      throw FormatException(
+          'Century reference outside the calendar range: $error');
+    }
+  }
+
+  List<int> _dateFields(DateTime date) => [
+        date.year,
+        date.month,
+        date.day,
+        date.hour,
+        date.minute,
+        date.second,
+        date.millisecond,
+        date.microsecond
+      ];
+
+  int _compareFields(List<int> a, List<int> b) {
+    for (var i = 0; i < a.length; i++) {
+      final order = a[i].compareTo(b[i]);
+      if (order != 0) return order;
+    }
+    return 0;
   }
 
   DateTime _construct(int year, int month, int day, int hour, int minute,

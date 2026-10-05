@@ -70,7 +70,7 @@ jobs:
       - run: python tool/resolve_calendar_pair.py --chronology "$GITHUB_WORKSPACE/.dart_tool/calendar_dependencies/general_date" --formatter "$GITHUB_WORKSPACE"
       - run: dart pub get
         working-directory: packages/general_date_format_core
-      - run: dart test --platform node --dart2js-args="-DCALENDAR_TEST_TZ=${{ matrix.timezone }}" test/dst_parsing_test.dart
+      - run: dart test --platform node --dart2js-args="-DCALENDAR_TEST_TZ=${{ matrix.timezone }}" test/dst_parsing_test.dart test/two_digit_year_window_test.dart
         working-directory: packages/general_date_format_core
   test:
     needs: pair
