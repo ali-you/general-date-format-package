@@ -4,7 +4,7 @@ Localized formatting and parsing for `PersianDateTime` (Jalali) and
 `HijriDateTime`, with an API similar to `intl.DateFormat`. Gregorian dates are
 handled by the consuming application using `intl.DateFormat`.
 
-Requires Flutter 3.32 or newer. Add the packages to your app:
+Requires Dart 3.4 or newer and Flutter 3.32 or newer. Add the packages to your app:
 
 ```yaml
 dependencies:
@@ -157,9 +157,11 @@ Each formatter keeps its own callback; ordinary years never read it.
 
 Missing date fields default to the Gregorian epoch date represented in the
 selected calendar, except for the quarter defaults described above.
-Fractional seconds retain millisecond precision: `S`, `SS`,
-and `SSS` emit three digits; longer widths append zeros, like `intl`. Parsing
-short fractions pads on the right and longer fractions truncates to milliseconds.
+Fractional seconds retain microsecond precision. `S`, `SS`, and `SSS` emit
+three digits; widths 4–6 retain the requested precision, and larger widths
+append zeros. Parsing short fractions pads on the right to six digits.
+Strict/loose parsing rejects nonzero digits beyond microsecond precision;
+ordinary parsing truncates them.
 
 ## Locales and digits
 
@@ -320,26 +322,61 @@ on it. Publish `general_date_format` 2.0.0 after verifying those hosted releases
 without local overrides. Until publication, resolution requires the documented
 overrides and must not fall back to the defective general_datetime 2.1.0.
 
-See [TESTING.md](TESTING.md) for the comprehensive suites, the fast
-`flutter test --tags critical` command, coverage, and timezone CI matrix.
+## Testing
 
-To regenerate Hijri data, run `python tool/generate_hijri_symbols.py`. It uses
-pinned CLDR 48.0.0 data and caches downloaded source files in `.dart_tool/cldr-48`.
+After resolving the local package pair, run from the repository root:
 
-## License
+```sh
+flutter analyze
+flutter test
+flutter test --tags critical
+flutter test --coverage
+dart format --output=none --set-exit-if-changed lib test example/lib example/test
+```
 
-BSD 3-Clause; see [LICENSE](LICENSE). Unicode data carries the notice in
-[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Run `flutter test` from `example` for the picker/demo widget tests.
+From `packages/general_date_format_core`, copy its override template and run
+`dart pub get`, `dart analyze`, and `dart test`. Use `dart test --tags critical`
+there for the exact instant/JSON and compact-fraction integration regressions.
+The core CLI example also supports `dart compile exe`.
 
-## Fractional seconds and calendar data maintenance
+Local verification on 2026-10-05 used Flutter 3.47.5 and Dart 3.13.4:
 
-Fraction fields retain microseconds through six digits. Existing S/SS/SSS
-output remains at least three digits; widths 4–6 truncate to the requested
-fractional precision, and larger widths append exact zeros. Native digit
-translation applies to the entire fraction. Strict/loose parsing rejects
-nonzero precision beyond six digits and accepts exact trailing zeros; ordinary
-parsing truncates excess precision. Use `CalendarInstant` for storage rather
-than a display pattern.
+| Suite | Tests passed |
+| --- | ---: |
+| Flutter formatting and Material localizations | 499 |
+| Tagged critical Flutter tests, included above | 182 |
+| Standalone formatting core | 12 |
+| Example widgets | 5 |
+
+Static analysis and format checks passed. Tests cover all 120 locales,
+calendar bounds, malformed/oversized input, conflicting/repeated fields,
+hour cycles, locale/script fallback, immutable symbols, formatter state,
+native digits, and localized picker integration. Four standalone critical
+regressions use seed `0xC0DE` for 2,400 display/parse/JSON checks and 540
+fraction-width checks across both calendars, local/UTC mode, and `en`/`fa`/`ar`.
+A compiled native probe also passed 48 precision/storage checks, including
+negative epoch fractions. Use `CalendarInstant` for storage instead of a
+display pattern.
+
+Some abbreviated/narrow names identify multiple months. Tests require their
+spelling and compatible date fields to remain stable; unique names and numeric
+patterns must retain the exact month. Three fractional digits discard
+microseconds; six preserve them.
+
+CI is configured for minimum/current SDKs and UTC, Tehran, and New York on
+Linux. An explicit historical Tehran timezone check passed locally with:
+
+```sh
+flutter test --dart-define=CALENDAR_TEST_TZ=Asia/Tehran test/timezone_environment_test.dart
+```
+
+Windows runs use the operating system's timezone. Browser JavaScript/Wasm,
+Android/iOS, minimum SDK execution, the full process-timezone matrix, and
+hosted dependencies were not verified in that local run. Coverage percentages
+were not recalculated; `flutter test --coverage` creates a fresh report.
+
+## Calendar data maintenance
 
 Persian and Hijri month/era names are now generated from pinned CLDR 48 with
 verified input hashes. Some Persian abbreviations/era spellings change;
@@ -347,7 +384,23 @@ compatibility date order, digit defaults and en_ISO exceptions remain explicit.
 See [locale generation and measurements](tool/README.md) for reproduction,
 provenance, the retained shared-skeleton policy and release benchmark results.
 
+Check generated tables without rewriting tracked files:
+
+```sh
+python tool/generate_calendar_data.py --check
+python tool/generate_persian_af_symbols.py --check
+```
+
+Inputs use pinned CLDR 48.0.0 data and verified hashes, with downloaded sources
+cached in `.dart_tool/cldr-48`. On Windows, the unified generator accepts
+`--dart <absolute-dart.exe>` when Dart is available only as a batch wrapper.
+
 Flutter compatibility coverage exercises calendar date parsing/formatting,
 translated labels and number/time formatting against minimum/current SDK jobs.
 The integration workflow pins its chronology peer by SHA in
 `.github/calendar_pair.json`; update that pin when adopting a new peer revision.
+
+## License
+
+BSD 3-Clause; see [LICENSE](LICENSE). Unicode data carries the notice in
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

@@ -1,0 +1,3 @@
+tags:
+  critical:
+    # Exact instant, localized display, and storage integration regressions.
