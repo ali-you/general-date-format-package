@@ -46,18 +46,30 @@ wrapper's `lib/src` contains only Material localization adapters, which import
 the core directly. Use `general_date_format.dart` for the Flutter public API
 or `general_date_format_core.dart` for pure Dart applications.
 
-The checked-in manifests target `general_date_format` **2.0.0**,
-`general_datetime` **3.0.0**, and both Dart cores **1.0.0**. Flutter wrappers
+The current wrapper versions are `general_date_format` **3.0.0** and
+`general_datetime` **4.0.0**. Both Dart cores remain at **1.0.0**. Flutter wrappers
 require Dart `>=3.4.0 <4.0.0` and Flutter `>=3.32.0`; the cores need only Dart
 `>=3.4.0 <4.0.0`.
 
-When matching releases are available from your package source:
+Add the formatter and its currently supported chronology wrapper to your
+Flutter application:
 
 ```yaml
 dependencies:
-  general_date_format: ^2.0.0
+  general_date_format: ^3.0.0
   general_datetime: ^3.0.0
 ```
+
+Run `flutter pub get`. For a pure Dart application, use
+`general_date_format_core: ^1.0.0` and `general_datetime_core: ^1.0.0` instead,
+then run `dart pub get`.
+
+The formatter's current manifest and example still require
+`general_datetime ^3.0.0`, which excludes the new 4.0.0 wrapper. Applications that
+also need `general_datetime` 4.0.0 must use a formatter release whose chronology
+constraint includes 4.0.0. For this checkout, use the local setup described in
+[Locale maintenance and release checks](#locale-maintenance-and-release-checks)
+until that constraint is aligned.
 
 ## Quick start
 
@@ -573,11 +585,15 @@ Downloads are cached under `.dart_tool/cldr-48`; modified inputs are rejected
 against `tool/cldr_sources.lock.json`. On Windows, the unified generator accepts
 `--dart <absolute-dart.exe>` if Dart is available only as a batch wrapper.
 
-The Flutter integration workflow pins its unpublished `general_datetime` wrapper
-peer by SHA in `.github/calendar_pair.json`. Both cores resolve from pub.dev.
-For local Flutter development, copy `pubspec_overrides.yaml.example` to
-`pubspec_overrides.yaml` in the root and example directories. Remove these
-wrapper overrides once `general_datetime` 3.0.0 is published.
+The Flutter integration workflow pins its chronology wrapper peer by SHA in
+`.github/calendar_pair.json`. Both 1.0.0 cores resolve from pub.dev.
+The local chronology checkout is now version 4.0.0, while the formatter and its
+example still declare `general_datetime ^3.0.0`. To run these checkouts together,
+copy `pubspec_overrides.yaml.example` to `pubspec_overrides.yaml` in the root and
+example directories, then run `flutter pub get`. This override selects the local
+wrapper. Remove it after the declared constraint and hosted wrapper version
+match; publication alone does not make `^3.0.0` accept 4.0.0.
+
 Release order is `general_datetime_core`, then `general_date_format_core` and
 `general_datetime`, then `general_date_format`. Resolve/test the matching hosted
 versions without local overrides before releasing wrappers. Local path success

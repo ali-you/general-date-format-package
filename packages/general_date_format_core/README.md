@@ -14,7 +14,7 @@ To control the rolling two-digit year window without a clock package, assign
 `format.now = () => DateTime.utc(2025, 6, 15)`. Each parse reads this callback at
 most once and only for ambiguous two-digit years.
 
-The Flutter `general_date_format` package re-exports this implementation and
+The Flutter `general_date_format` 3.0.0 package re-exports this 1.0.0 core and
 adds its existing Material localization delegates. Both imports expose the
 same `GeneralDateFormat` type and consume the same calendar date classes.
 

@@ -1,6 +1,11 @@
 # General Date Format example
 
-Run `flutter pub get` and `flutter run` from this directory.
+This example uses the local `general_date_format` 3.0.0 wrapper and the published
+1.0.0 cores. Its `general_datetime ^3.0.0` constraint currently excludes the
+neighboring 4.0.0 wrapper. For development with both checkouts, copy
+`pubspec_overrides.yaml.example` to `pubspec_overrides.yaml` in this directory.
+Then run `flutter pub get` and `flutter run`. Remove the override once the
+chronology constraint and hosted wrapper version match.
 
 The app shows explicit numeric patterns, locale-aware date/time skeletons and
 strict UTC parsing for Gregorian (via application-owned `intl.DateFormat`),

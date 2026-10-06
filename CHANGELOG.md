@@ -1,7 +1,11 @@
 # Changelog
 
-## Unreleased
+## [3.0.0]
 
+- Keep `general_date_format_core` and `general_datetime_core` at 1.0.0. The
+  companion Flutter chronology wrapper is `general_datetime` 4.0.0; this
+  checkout's `^3.0.0` chronology constraint still needs alignment before the
+  new wrappers can resolve together without a local override.
 - Remove internal formatter, helper, and symbol forwarding files. Material
   adapters and internal tests reference `general_date_format_core` directly;
   the public `general_date_format.dart` entry point retains the core re-export.
