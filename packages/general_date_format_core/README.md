@@ -26,24 +26,15 @@ hook is needed.
 The public core library also exports `resolveLocale` and `verifiedLocale` for
 adapters that need the formatter's bundled-data locale fallback policy.
 
-## Local use before publication
+## Installation and development
 
-Keep the `general_date` and `general_date_format` repositories beside each other.
-For a Dart application beside those checkouts:
+Both core packages are published on pub.dev. Add them to a Dart application:
 
 ```yaml
 dependencies:
-  general_datetime_core:
-    path: ../general_date/packages/general_datetime_core
-  general_date_format_core:
-    path: ../general_date_format/packages/general_date_format_core
-dependency_overrides:
-  general_datetime_core:
-    path: ../general_date/packages/general_datetime_core
+  general_datetime_core: ^1.0.0
+  general_date_format_core: ^1.0.0
 ```
-
-The application override selects the unpublished chronology dependency of the
-formatting package; an override inside a dependency is not inherited.
 
 ```dart
 import 'package:general_date_format_core/general_date_format_core.dart';
@@ -58,7 +49,6 @@ final parsed = format.parseStrict('۱۴۰۳/۰۱/۰۱', date, true);
 From this package directory (PowerShell):
 
 ```powershell
-Copy-Item pubspec_overrides.yaml.example pubspec_overrides.yaml
 dart pub get
 dart analyze
 dart test
@@ -66,9 +56,9 @@ dart run example/cli.dart
 dart compile exe example/cli.dart -o .dart_tool/calendar_cli.exe
 ```
 
-Version 1.0.0 is prepared locally and has not been published. Publish
-`general_datetime_core` first, then this package. Remove local overrides and
-verify hosted dependencies before publishing the Flutter wrappers.
+Version 1.0.0 is published. Development and CI resolve the hosted chronology
+core without overrides. Verify hosted dependencies before publishing the
+Flutter wrappers.
 
 ## Preserved behavior
 

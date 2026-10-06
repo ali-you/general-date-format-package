@@ -30,26 +30,18 @@ jobs:
               output.write('repository=' + pin['peerRepository'] + '\nrevision=' + pin['peerRevision'] + '\n')
           PY
   dart-core:
-    needs: pair
     runs-on: ubuntu-latest
     strategy:
       matrix:
         sdk: ['3.4.0', stable]
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/checkout@v4
-        with:
-          repository: ${{ needs.pair.outputs.repository }}
-          ref: ${{ needs.pair.outputs.revision }}
-          path: .dart_tool/calendar_dependencies/general_date
       - uses: dart-lang/setup-dart@v1
         with:
           sdk: ${{ matrix.sdk }}
-      - run: python tool/resolve_calendar_pair.py --chronology "$GITHUB_WORKSPACE/.dart_tool/calendar_dependencies/general_date" --formatter "$GITHUB_WORKSPACE"
       - run: dart pub get && dart analyze && dart test && dart compile exe example/cli.dart -o .dart_tool/calendar_cli && .dart_tool/calendar_cli
         working-directory: packages/general_date_format_core
   dst-parser:
-    needs: pair
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -58,16 +50,10 @@ jobs:
       TZ: ${{ matrix.timezone }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/checkout@v4
-        with:
-          repository: ${{ needs.pair.outputs.repository }}
-          ref: ${{ needs.pair.outputs.revision }}
-          path: .dart_tool/calendar_dependencies/general_date
       - uses: dart-lang/setup-dart@v1
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: python tool/resolve_calendar_pair.py --chronology "$GITHUB_WORKSPACE/.dart_tool/calendar_dependencies/general_date" --formatter "$GITHUB_WORKSPACE"
       - run: dart pub get
         working-directory: packages/general_date_format_core
       - run: dart test --platform node --dart2js-args="-DCALENDAR_TEST_TZ=${{ matrix.timezone }}" test/dst_parsing_test.dart test/two_digit_year_window_test.dart test/era_parsing_test.dart
@@ -127,7 +113,6 @@ jobs:
       - run: flutter pub get
       - run: flutter test --platform chrome ${{ matrix.compiler == 'wasm' && '--wasm' || '' }} test/platform_formatter_smoke_test.dart
   locale-data:
-    needs: pair
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

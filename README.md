@@ -519,7 +519,7 @@ dart format --output=none --set-exit-if-changed lib test example/lib example/tes
 ```
 
 Run `flutter test` from `example` separately. From
-`packages/general_date_format_core`, copy its override template, then run
+`packages/general_date_format_core`, run
 `dart pub get`, `dart analyze`, `dart test`, and `dart test --tags critical`.
 Its CLI example runs with `dart run example/cli.dart` and supports native
 `dart compile exe`.
@@ -573,8 +573,11 @@ Downloads are cached under `.dart_tool/cldr-48`; modified inputs are rejected
 against `tool/cldr_sources.lock.json`. On Windows, the unified generator accepts
 `--dart <absolute-dart.exe>` if Dart is available only as a batch wrapper.
 
-The source integration workflow pins its chronology peer by SHA in
-`.github/calendar_pair.json`. Update that pin when adopting a new peer revision.
+The Flutter integration workflow pins its unpublished `general_datetime` wrapper
+peer by SHA in `.github/calendar_pair.json`. Both cores resolve from pub.dev.
+For local Flutter development, copy `pubspec_overrides.yaml.example` to
+`pubspec_overrides.yaml` in the root and example directories. Remove these
+wrapper overrides once `general_datetime` 3.0.0 is published.
 Release order is `general_datetime_core`, then `general_date_format_core` and
 `general_datetime`, then `general_date_format`. Resolve/test the matching hosted
 versions without local overrides before releasing wrappers. Local path success
