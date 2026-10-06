@@ -1,0 +1,11 @@
+name: general_date_format_core
+description: Pure Dart localized formatting and parsing for Persian and Umm al-Qura dates.
+version: 1.0.0
+repository: https://github.com/ali-you/general-date-format-package
+environment:
+  sdk: '>=3.4.0 <4.0.0'
+dependencies:
+  general_datetime_core: ^1.0.0
+dev_dependencies:
+  test: ^1.25.2
+  lints: '>=4.0.0 <6.0.0'

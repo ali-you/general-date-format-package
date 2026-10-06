@@ -1,0 +1,3 @@
+dependency_overrides:
+  general_datetime:
+    path: ../../general_date

@@ -1,6 +1,6 @@
 name: general_date_format
 description: "A Dart/Flutter package to format dates in a flexible and generalized way, extending the functionality of the general_datetime package for versatile date formatting."
-version: 1.0.1
+version: 3.0.0
 homepage: https://github.com/ali-you
 repository: https://github.com/ali-you/general-date-format-package
 documentation: https://github.com/ali-you/general-date-format-package
@@ -14,14 +14,18 @@ topics:
 
 environment:
   sdk: '>=3.4.0 <4.0.0'
-  flutter: ">=1.17.0"
+  flutter: ">=3.32.0"
 
 dependencies:
+  general_date_format_core: ^1.0.0
   flutter:
     sdk: flutter
-  general_datetime: ^2.1.0
+  flutter_localizations:
+    sdk: flutter
+  general_datetime: ^3.0.0
 
 dev_dependencies:
+  general_datetime_core: ^1.0.0
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0

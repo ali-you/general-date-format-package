@@ -1,0 +1,52 @@
+{
+  "artifact": "calendar_demo release JavaScript web build",
+  "sdk": "Flutter 3.47.5 / Dart 3.13.4",
+  "scope": "Complete demo, Flutter renderer, fonts and assets; not formatter-only",
+  "file_count": 40,
+  "total_bytes": 43740857,
+  "main_js_bytes": 3452264,
+  "main_js_gzip_bytes": 837855,
+  "largest_files": [
+    {
+      "path": "canvaskit/canvaskit.wasm",
+      "bytes": 7284602
+    },
+    {
+      "path": "canvaskit/chromium/canvaskit.wasm",
+      "bytes": 5428806
+    },
+    {
+      "path": "canvaskit/skwasm_heavy.wasm",
+      "bytes": 5216217
+    },
+    {
+      "path": "canvaskit/webparagraph/canvaskit.wasm",
+      "bytes": 3729129
+    },
+    {
+      "path": "canvaskit/skwasm.wasm",
+      "bytes": 3593715
+    },
+    {
+      "path": "canvaskit/wimp.wasm",
+      "bytes": 3581677
+    },
+    {
+      "path": "main.dart.js",
+      "bytes": 3452264
+    },
+    {
+      "path": "canvaskit/wimp.js.symbols",
+      "bytes": 1813030
+    },
+    {
+      "path": "canvaskit/skwasm_heavy.js.symbols",
+      "bytes": 1672152
+    },
+    {
+      "path": "canvaskit/skwasm.js.symbols",
+      "bytes": 1540006
+    }
+  ],
+  "notes": "Gzip is an offline size estimate. Timings, device memory and actual HTTP transfer are not measured."
+}

@@ -1,0 +1,3 @@
+tags:
+  critical:
+    # Boundary validation, parser failures, and state isolation.

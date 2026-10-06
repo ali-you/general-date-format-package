@@ -1,0 +1,5490 @@
+// Calendar-independent locale metadata, snapshotted from intl 0.20.3.
+// Source and SHA-256: tool/calendar_neutral_sources.json.
+// See THIRD_PARTY_NOTICES.md; no runtime intl dependency.
+const calendarNeutralData = <String, Map<String, dynamic>>{
+  "en_ISO": {
+    "NAME": "en_ISO",
+    "WEEKDAYS": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "SHORTWEEKDAYS": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    "STANDALONESHORTWEEKDAYS": [
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "NARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["1st quarter", "2nd quarter", "3rd quarter", "4th quarter"],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["EEEE, y MMMM dd", "y MMMM d", "y MMM d", "yyyy-MM-dd"],
+    "TIMEFORMATS": ["HH:mm:ss v", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1} 'at' {0}", "{1} 'at' {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "af": {
+    "NAME": "af",
+    "WEEKDAYS": [
+      "Sondag",
+      "Maandag",
+      "Dinsdag",
+      "Woensdag",
+      "Donderdag",
+      "Vrydag",
+      "Saterdag"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Sondag",
+      "Maandag",
+      "Dinsdag",
+      "Woensdag",
+      "Donderdag",
+      "Vrydag",
+      "Saterdag"
+    ],
+    "SHORTWEEKDAYS": ["So.", "Ma.", "Di.", "Wo.", "Do.", "Vr.", "Sa."],
+    "STANDALONESHORTWEEKDAYS": [
+      "So.",
+      "Ma.",
+      "Di.",
+      "Wo.",
+      "Do.",
+      "Vr.",
+      "Sa."
+    ],
+    "NARROWWEEKDAYS": ["S", "M", "D", "W", "D", "V", "S"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "D", "W", "D", "V", "S"],
+    "SHORTQUARTERS": ["K1", "K2", "K3", "K4"],
+    "QUARTERS": [
+      "1ste kwartaal",
+      "2de kwartaal",
+      "3de kwartaal",
+      "4de kwartaal"
+    ],
+    "AMPMS": ["vm.", "nm."],
+    "DATEFORMATS": ["EEEE dd MMMM y", "dd MMMM y", "dd MMM y", "y-MM-dd"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "am": {
+    "NAME": "am",
+    "WEEKDAYS": ["እሑድ", "ሰኞ", "ማክሰኞ", "ረቡዕ", "ሐሙስ", "ዓርብ", "ቅዳሜ"],
+    "STANDALONEWEEKDAYS": ["እሑድ", "ሰኞ", "ማክሰኞ", "ረቡዕ", "ሐሙስ", "ዓርብ", "ቅዳሜ"],
+    "SHORTWEEKDAYS": ["እሑድ", "ሰኞ", "ማክሰ", "ረቡዕ", "ሐሙስ", "ዓርብ", "ቅዳሜ"],
+    "STANDALONESHORTWEEKDAYS": ["እሑድ", "ሰኞ", "ማክሰ", "ረቡዕ", "ሐሙስ", "ዓርብ", "ቅዳሜ"],
+    "NARROWWEEKDAYS": ["እ", "ሰ", "ማ", "ረ", "ሐ", "ዓ", "ቅ"],
+    "STANDALONENARROWWEEKDAYS": ["እ", "ሰ", "ማ", "ረ", "ሐ", "ዓ", "ቅ"],
+    "SHORTQUARTERS": ["ሩብ1", "ሩብ2", "ሩብ3", "ሩብ4"],
+    "QUARTERS": ["1ኛው ሩብ", "2ኛው ሩብ", "3ኛው ሩብ", "4ኛው ሩብ"],
+    "AMPMS": ["ጥዋት", "ከሰዓት"],
+    "DATEFORMATS": ["EEEE d MMMM y", "d MMMM y", "d MMM y", "dd/MM/y"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "ar": {
+    "NAME": "ar",
+    "WEEKDAYS": [
+      "الأحد",
+      "الاثنين",
+      "الثلاثاء",
+      "الأربعاء",
+      "الخميس",
+      "الجمعة",
+      "السبت"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "الأحد",
+      "الاثنين",
+      "الثلاثاء",
+      "الأربعاء",
+      "الخميس",
+      "الجمعة",
+      "السبت"
+    ],
+    "SHORTWEEKDAYS": [
+      "الأحد",
+      "الاثنين",
+      "الثلاثاء",
+      "الأربعاء",
+      "الخميس",
+      "الجمعة",
+      "السبت"
+    ],
+    "STANDALONESHORTWEEKDAYS": [
+      "الأحد",
+      "الاثنين",
+      "الثلاثاء",
+      "الأربعاء",
+      "الخميس",
+      "الجمعة",
+      "السبت"
+    ],
+    "NARROWWEEKDAYS": ["ح", "ن", "ث", "ر", "خ", "ج", "س"],
+    "STANDALONENARROWWEEKDAYS": ["ح", "ن", "ث", "ر", "خ", "ج", "س"],
+    "SHORTQUARTERS": [
+      "الربع الأول",
+      "الربع الثاني",
+      "الربع الثالث",
+      "الربع الرابع"
+    ],
+    "QUARTERS": ["الربع الأول", "الربع الثاني", "الربع الثالث", "الربع الرابع"],
+    "AMPMS": ["ص", "م"],
+    "DATEFORMATS": ["EEEE، d MMMM y", "d MMMM y", "dd‏/MM‏/y", "d‏/M‏/y"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 5,
+    "WEEKENDRANGE": [4, 5],
+    "FIRSTWEEKCUTOFFDAY": 4,
+    "DATETIMEFORMATS": ["{1}، {0}", "{1}، {0}", "{1}، {0}", "{1}، {0}"]
+  },
+  "ar_DZ": {
+    "NAME": "ar_DZ",
+    "WEEKDAYS": [
+      "الأحد",
+      "الاثنين",
+      "الثلاثاء",
+      "الأربعاء",
+      "الخميس",
+      "الجمعة",
+      "السبت"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "الأحد",
+      "الاثنين",
+      "الثلاثاء",
+      "الأربعاء",
+      "الخميس",
+      "الجمعة",
+      "السبت"
+    ],
+    "SHORTWEEKDAYS": [
+      "الأحد",
+      "الاثنين",
+      "الثلاثاء",
+      "الأربعاء",
+      "الخميس",
+      "الجمعة",
+      "السبت"
+    ],
+    "STANDALONESHORTWEEKDAYS": [
+      "الأحد",
+      "الاثنين",
+      "الثلاثاء",
+      "الأربعاء",
+      "الخميس",
+      "الجمعة",
+      "السبت"
+    ],
+    "NARROWWEEKDAYS": ["ح", "ن", "ث", "ر", "خ", "ج", "س"],
+    "STANDALONENARROWWEEKDAYS": ["ح", "ن", "ث", "ر", "خ", "ج", "س"],
+    "SHORTQUARTERS": [
+      "الربع الأول",
+      "الربع الثاني",
+      "الربع الثالث",
+      "الربع الرابع"
+    ],
+    "QUARTERS": ["الربع الأول", "الربع الثاني", "الربع الثالث", "الربع الرابع"],
+    "AMPMS": ["ص", "م"],
+    "DATEFORMATS": ["EEEE، d MMMM y", "d MMMM y", "dd‏/MM‏/y", "d‏/M‏/y"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 5,
+    "WEEKENDRANGE": [4, 5],
+    "FIRSTWEEKCUTOFFDAY": 4,
+    "DATETIMEFORMATS": ["{1}، {0}", "{1}، {0}", "{1}، {0}", "{1}، {0}"]
+  },
+  "ar_EG": {
+    "NAME": "ar_EG",
+    "WEEKDAYS": [
+      "الأحد",
+      "الاثنين",
+      "الثلاثاء",
+      "الأربعاء",
+      "الخميس",
+      "الجمعة",
+      "السبت"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "الأحد",
+      "الاثنين",
+      "الثلاثاء",
+      "الأربعاء",
+      "الخميس",
+      "الجمعة",
+      "السبت"
+    ],
+    "SHORTWEEKDAYS": [
+      "الأحد",
+      "الاثنين",
+      "الثلاثاء",
+      "الأربعاء",
+      "الخميس",
+      "الجمعة",
+      "السبت"
+    ],
+    "STANDALONESHORTWEEKDAYS": [
+      "الأحد",
+      "الاثنين",
+      "الثلاثاء",
+      "الأربعاء",
+      "الخميس",
+      "الجمعة",
+      "السبت"
+    ],
+    "NARROWWEEKDAYS": ["ح", "ن", "ث", "ر", "خ", "ج", "س"],
+    "STANDALONENARROWWEEKDAYS": ["ح", "ن", "ث", "ر", "خ", "ج", "س"],
+    "SHORTQUARTERS": [
+      "الربع الأول",
+      "الربع الثاني",
+      "الربع الثالث",
+      "الربع الرابع"
+    ],
+    "QUARTERS": ["الربع الأول", "الربع الثاني", "الربع الثالث", "الربع الرابع"],
+    "AMPMS": ["ص", "م"],
+    "DATEFORMATS": ["EEEE، d MMMM y", "d MMMM y", "dd‏/MM‏/y", "d‏/M‏/y"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 5,
+    "WEEKENDRANGE": [4, 5],
+    "FIRSTWEEKCUTOFFDAY": 4,
+    "DATETIMEFORMATS": ["{1}، {0}", "{1}، {0}", "{1}، {0}", "{1}، {0}"]
+  },
+  "as": {
+    "NAME": "as",
+    "WEEKDAYS": [
+      "দেওবাৰ",
+      "সোমবাৰ",
+      "মঙ্গলবাৰ",
+      "বুধবাৰ",
+      "বৃহস্পতিবাৰ",
+      "শুক্ৰবাৰ",
+      "শনিবাৰ"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "দেওবাৰ",
+      "সোমবাৰ",
+      "মঙ্গলবাৰ",
+      "বুধবাৰ",
+      "বৃহস্পতিবাৰ",
+      "শুক্ৰবাৰ",
+      "শনিবাৰ"
+    ],
+    "SHORTWEEKDAYS": ["দেও", "সোম", "মঙ্গল", "বুধ", "বৃহ", "শুক্ৰ", "শনি"],
+    "STANDALONESHORTWEEKDAYS": [
+      "দেও",
+      "সোম",
+      "মঙ্গল",
+      "বুধ",
+      "বৃহ",
+      "শুক্ৰ",
+      "শনি"
+    ],
+    "NARROWWEEKDAYS": ["দ", "স", "ম", "ব", "ব", "শ", "শ"],
+    "STANDALONENARROWWEEKDAYS": ["দ", "স", "ম", "ব", "ব", "শ", "শ"],
+    "SHORTQUARTERS": ["১মঃ তিঃ", "২য়ঃ তিঃ", "৩য়ঃ তিঃ", "৪ৰ্থঃ তিঃ"],
+    "QUARTERS": [
+      "প্ৰথম তিনিমাহ",
+      "দ্বিতীয় তিনিমাহ",
+      "তৃতীয় তিনিমাহ",
+      "চতুৰ্থ তিনিমাহ"
+    ],
+    "AMPMS": ["পূৰ্বাহ্ন", "অপৰাহ্ন"],
+    "DATEFORMATS": ["EEEE, d MMMM, y", "d MMMM, y", "dd-MM-y", "d-M-y"],
+    "TIMEFORMATS": ["a h.mm.ss zzzz", "a h.mm.ss z", "a h.mm.ss", "a h.mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [6, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "az": {
+    "NAME": "az",
+    "WEEKDAYS": [
+      "bazar",
+      "bazar ertəsi",
+      "çərşənbə axşamı",
+      "çərşənbə",
+      "cümə axşamı",
+      "cümə",
+      "şənbə"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "bazar",
+      "bazar ertəsi",
+      "çərşənbə axşamı",
+      "çərşənbə",
+      "cümə axşamı",
+      "cümə",
+      "şənbə"
+    ],
+    "SHORTWEEKDAYS": ["B.", "B.e.", "Ç.a.", "Ç.", "C.a.", "C.", "Ş."],
+    "STANDALONESHORTWEEKDAYS": ["B.", "B.E.", "Ç.A.", "Ç.", "C.A.", "C.", "Ş."],
+    "NARROWWEEKDAYS": ["7", "1", "2", "3", "4", "5", "6"],
+    "STANDALONENARROWWEEKDAYS": ["7", "1", "2", "3", "4", "5", "6"],
+    "SHORTQUARTERS": ["1-ci kv.", "2-ci kv.", "3-cü kv.", "4-cü kv."],
+    "QUARTERS": [
+      "1-ci kvartal",
+      "2-ci kvartal",
+      "3-cü kvartal",
+      "4-cü kvartal"
+    ],
+    "AMPMS": ["a", "p"],
+    "DATEFORMATS": ["d MMMM y, EEEE", "d MMMM y", "d MMM y", "dd.MM.yy"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "be": {
+    "NAME": "be",
+    "WEEKDAYS": [
+      "нядзеля",
+      "панядзелак",
+      "аўторак",
+      "серада",
+      "чацвер",
+      "пятніца",
+      "субота"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "нядзеля",
+      "панядзелак",
+      "аўторак",
+      "серада",
+      "чацвер",
+      "пятніца",
+      "субота"
+    ],
+    "SHORTWEEKDAYS": ["нд", "пн", "аў", "ср", "чц", "пт", "сб"],
+    "STANDALONESHORTWEEKDAYS": ["нд", "пн", "аў", "ср", "чц", "пт", "сб"],
+    "NARROWWEEKDAYS": ["н", "п", "а", "с", "ч", "п", "с"],
+    "STANDALONENARROWWEEKDAYS": ["н", "п", "а", "с", "ч", "п", "с"],
+    "SHORTQUARTERS": ["1-шы кв.", "2-гі кв.", "3-ці кв.", "4-ты кв."],
+    "QUARTERS": [
+      "1-шы квартал",
+      "2-гі квартал",
+      "3-ці квартал",
+      "4-ты квартал"
+    ],
+    "AMPMS": ["am", "pm"],
+    "DATEFORMATS": [
+      "EEEE, d MMMM y 'г'.",
+      "d MMMM y 'г'.",
+      "d MMM y 'г'.",
+      "d.MM.yy"
+    ],
+    "TIMEFORMATS": ["HH:mm:ss, zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "bg": {
+    "NAME": "bg",
+    "WEEKDAYS": [
+      "неделя",
+      "понеделник",
+      "вторник",
+      "сряда",
+      "четвъртък",
+      "петък",
+      "събота"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "неделя",
+      "понеделник",
+      "вторник",
+      "сряда",
+      "четвъртък",
+      "петък",
+      "събота"
+    ],
+    "SHORTWEEKDAYS": ["нд", "пн", "вт", "ср", "чт", "пт", "сб"],
+    "STANDALONESHORTWEEKDAYS": ["нд", "пн", "вт", "ср", "чт", "пт", "сб"],
+    "NARROWWEEKDAYS": ["н", "п", "в", "с", "ч", "п", "с"],
+    "STANDALONENARROWWEEKDAYS": ["н", "п", "в", "с", "ч", "п", "с"],
+    "SHORTQUARTERS": ["1. трим.", "2. трим.", "3. трим.", "4. трим."],
+    "QUARTERS": [
+      "1. тримесечие",
+      "2. тримесечие",
+      "3. тримесечие",
+      "4. тримесечие"
+    ],
+    "AMPMS": ["am", "pm"],
+    "DATEFORMATS": [
+      "EEEE, d MMMM y 'г'.",
+      "d MMMM y 'г'.",
+      "d.MM.y 'г'.",
+      "d.MM.yy 'г'."
+    ],
+    "TIMEFORMATS": ["H:mm:ss 'ч'. zzzz", "H:mm:ss 'ч'. z", "H:mm:ss", "H:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "bm": {
+    "NAME": "bm",
+    "WEEKDAYS": [
+      "kari",
+      "ntɛnɛ",
+      "tarata",
+      "araba",
+      "alamisa",
+      "juma",
+      "sibiri"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "kari",
+      "ntɛnɛ",
+      "tarata",
+      "araba",
+      "alamisa",
+      "juma",
+      "sibiri"
+    ],
+    "SHORTWEEKDAYS": ["kar", "ntɛ", "tar", "ara", "ala", "jum", "sib"],
+    "STANDALONESHORTWEEKDAYS": [
+      "kar",
+      "ntɛ",
+      "tar",
+      "ara",
+      "ala",
+      "jum",
+      "sib"
+    ],
+    "NARROWWEEKDAYS": ["K", "N", "T", "A", "A", "J", "S"],
+    "STANDALONENARROWWEEKDAYS": ["K", "N", "T", "A", "A", "J", "S"],
+    "SHORTQUARTERS": ["KS1", "KS2", "KS3", "KS4"],
+    "QUARTERS": [
+      "kalo saba fɔlɔ",
+      "kalo saba filanan",
+      "kalo saba sabanan",
+      "kalo saba naaninan"
+    ],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["EEEE d MMMM y", "d MMMM y", "d MMM, y", "d/M/y"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "bn": {
+    "NAME": "bn",
+    "WEEKDAYS": [
+      "রবিবার",
+      "সোমবার",
+      "মঙ্গলবার",
+      "বুধবার",
+      "বৃহস্পতিবার",
+      "শুক্রবার",
+      "শনিবার"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "রবিবার",
+      "সোমবার",
+      "মঙ্গলবার",
+      "বুধবার",
+      "বৃহস্পতিবার",
+      "শুক্রবার",
+      "শনিবার"
+    ],
+    "SHORTWEEKDAYS": ["রবি", "সোম", "মঙ্গল", "বুধ", "বৃহস্পতি", "শুক্র", "শনি"],
+    "STANDALONESHORTWEEKDAYS": [
+      "রবি",
+      "সোম",
+      "মঙ্গল",
+      "বুধ",
+      "বৃহস্পতি",
+      "শুক্র",
+      "শনি"
+    ],
+    "NARROWWEEKDAYS": ["র", "সো", "ম", "বু", "বৃ", "শু", "শ"],
+    "STANDALONENARROWWEEKDAYS": ["র", "সো", "ম", "বু", "বৃ", "শু", "শ"],
+    "SHORTQUARTERS": [
+      "ত্রৈমাসিক",
+      "দ্বিতীয় ত্রৈমাসিক",
+      "তৃতীয় ত্রৈমাসিক",
+      "চতুর্থ ত্রৈমাসিক"
+    ],
+    "QUARTERS": [
+      "ত্রৈমাসিক",
+      "দ্বিতীয় ত্রৈমাসিক",
+      "তৃতীয় ত্রৈমাসিক",
+      "চতুর্থ ত্রৈমাসিক"
+    ],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["EEEE, d MMMM, y", "d MMMM, y", "d MMM, y", "d/M/yy"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "br": {
+    "NAME": "br",
+    "WEEKDAYS": [
+      "Sul",
+      "Lun",
+      "Meurzh",
+      "Mercʼher",
+      "Yaou",
+      "Gwener",
+      "Sadorn"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Sul",
+      "Lun",
+      "Meurzh",
+      "Mercʼher",
+      "Yaou",
+      "Gwener",
+      "Sadorn"
+    ],
+    "SHORTWEEKDAYS": ["Sul", "Lun", "Meu.", "Mer.", "Yaou", "Gwe.", "Sad."],
+    "STANDALONESHORTWEEKDAYS": [
+      "Sul",
+      "Lun",
+      "Meu.",
+      "Mer.",
+      "Yaou",
+      "Gwe.",
+      "Sad."
+    ],
+    "NARROWWEEKDAYS": ["Su", "L", "Mz", "Mc", "Y", "G", "Sa"],
+    "STANDALONENARROWWEEKDAYS": ["Su", "L", "Mz", "Mc", "Y", "G", "Sa"],
+    "SHORTQUARTERS": ["1añ trim.", "2l trim.", "3e trim.", "4e trim."],
+    "QUARTERS": [
+      "1añ trimiziad",
+      "2l trimiziad",
+      "3e trimiziad",
+      "4e trimiziad"
+    ],
+    "AMPMS": ["A.M.", "G.M."],
+    "DATEFORMATS": ["EEEE d MMMM y", "d MMMM y", "d MMM y", "dd/MM/y"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1} {0}"]
+  },
+  "bs": {
+    "NAME": "bs",
+    "WEEKDAYS": [
+      "nedjelja",
+      "ponedjeljak",
+      "utorak",
+      "srijeda",
+      "četvrtak",
+      "petak",
+      "subota"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "nedjelja",
+      "ponedjeljak",
+      "utorak",
+      "srijeda",
+      "četvrtak",
+      "petak",
+      "subota"
+    ],
+    "SHORTWEEKDAYS": ["ned", "pon", "uto", "sri", "čet", "pet", "sub"],
+    "STANDALONESHORTWEEKDAYS": [
+      "ned",
+      "pon",
+      "uto",
+      "sri",
+      "čet",
+      "pet",
+      "sub"
+    ],
+    "NARROWWEEKDAYS": ["N", "P", "U", "S", "Č", "P", "S"],
+    "STANDALONENARROWWEEKDAYS": ["n", "p", "u", "s", "č", "p", "s"],
+    "SHORTQUARTERS": ["KV1", "KV2", "KV3", "KV4"],
+    "QUARTERS": [
+      "Prvi kvartal",
+      "Drugi kvartal",
+      "Treći kvartal",
+      "Četvrti kvartal"
+    ],
+    "AMPMS": ["a. m.", "p. m."],
+    "DATEFORMATS": ["EEEE, d. MMMM y.", "d. MMMM y.", "d. MMM y.", "d. M. y."],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1} {0}", "{1} {0}"]
+  },
+  "ca": {
+    "NAME": "ca",
+    "WEEKDAYS": [
+      "diumenge",
+      "dilluns",
+      "dimarts",
+      "dimecres",
+      "dijous",
+      "divendres",
+      "dissabte"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "diumenge",
+      "dilluns",
+      "dimarts",
+      "dimecres",
+      "dijous",
+      "divendres",
+      "dissabte"
+    ],
+    "SHORTWEEKDAYS": ["dg.", "dl.", "dt.", "dc.", "dj.", "dv.", "ds."],
+    "STANDALONESHORTWEEKDAYS": [
+      "dg.",
+      "dl.",
+      "dt.",
+      "dc.",
+      "dj.",
+      "dv.",
+      "ds."
+    ],
+    "NARROWWEEKDAYS": ["dg.", "dl.", "dt.", "dc.", "dj.", "dv.", "ds."],
+    "STANDALONENARROWWEEKDAYS": [
+      "dg.",
+      "dl.",
+      "dt.",
+      "dc.",
+      "dj.",
+      "dv.",
+      "ds."
+    ],
+    "SHORTQUARTERS": ["1T", "2T", "3T", "4T"],
+    "QUARTERS": [
+      "1r trimestre",
+      "2n trimestre",
+      "3r trimestre",
+      "4t trimestre"
+    ],
+    "AMPMS": ["a. m.", "p. m."],
+    "DATEFORMATS": [
+      "EEEE, d MMMM 'del' y",
+      "d MMMM 'del' y",
+      "d MMM y",
+      "d/M/yy"
+    ],
+    "TIMEFORMATS": ["H:mm:ss (zzzz)", "H:mm:ss z", "H:mm:ss", "H:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1} {0}"]
+  },
+  "chr": {
+    "NAME": "chr",
+    "WEEKDAYS": [
+      "ᎤᎾᏙᏓᏆᏍᎬ",
+      "ᎤᎾᏙᏓᏉᏅᎯ",
+      "ᏔᎵᏁᎢᎦ",
+      "ᏦᎢᏁᎢᎦ",
+      "ᏅᎩᏁᎢᎦ",
+      "ᏧᎾᎩᎶᏍᏗ",
+      "ᎤᎾᏙᏓᏈᏕᎾ"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "ᎤᎾᏙᏓᏆᏍᎬ",
+      "ᎤᎾᏙᏓᏉᏅᎯ",
+      "ᏔᎵᏁᎢᎦ",
+      "ᏦᎢᏁᎢᎦ",
+      "ᏅᎩᏁᎢᎦ",
+      "ᏧᎾᎩᎶᏍᏗ",
+      "ᎤᎾᏙᏓᏈᏕᎾ"
+    ],
+    "SHORTWEEKDAYS": ["ᏆᏍᎬ", "ᏉᏅᎯ", "ᏔᎵᏁ", "ᏦᎢᏁ", "ᏅᎩᏁ", "ᏧᎾᎩ", "ᏈᏕᎾ"],
+    "STANDALONESHORTWEEKDAYS": [
+      "ᏆᏍᎬ",
+      "ᏉᏅᎯ",
+      "ᏔᎵᏁ",
+      "ᏦᎢᏁ",
+      "ᏅᎩᏁ",
+      "ᏧᎾᎩ",
+      "ᏈᏕᎾ"
+    ],
+    "NARROWWEEKDAYS": ["Ꮖ", "Ꮙ", "Ꮤ", "Ꮶ", "Ꮕ", "Ꮷ", "Ꭴ"],
+    "STANDALONENARROWWEEKDAYS": ["Ꮖ", "Ꮙ", "Ꮤ", "Ꮶ", "Ꮕ", "Ꮷ", "Ꭴ"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["1st ᎩᏄᏙᏗ", "2nd ᎩᏄᏙᏗ", "3rd ᎩᏄᏙᏗ", "4th ᎩᏄᏙᏗ"],
+    "AMPMS": ["ᏌᎾᎴ", "ᏒᎯᏱᎢ"],
+    "DATEFORMATS": ["EEEE, MMMM d, y", "MMMM d, y", "MMM d, y", "M/d/yy"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "cs": {
+    "NAME": "cs",
+    "WEEKDAYS": [
+      "neděle",
+      "pondělí",
+      "úterý",
+      "středa",
+      "čtvrtek",
+      "pátek",
+      "sobota"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "neděle",
+      "pondělí",
+      "úterý",
+      "středa",
+      "čtvrtek",
+      "pátek",
+      "sobota"
+    ],
+    "SHORTWEEKDAYS": ["ne", "po", "út", "st", "čt", "pá", "so"],
+    "STANDALONESHORTWEEKDAYS": ["ne", "po", "út", "st", "čt", "pá", "so"],
+    "NARROWWEEKDAYS": ["N", "P", "Ú", "S", "Č", "P", "S"],
+    "STANDALONENARROWWEEKDAYS": ["N", "P", "Ú", "S", "Č", "P", "S"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": [
+      "1. čtvrtletí",
+      "2. čtvrtletí",
+      "3. čtvrtletí",
+      "4. čtvrtletí"
+    ],
+    "AMPMS": ["dop.", "odp."],
+    "DATEFORMATS": ["EEEE d. MMMM y", "d. MMMM y", "d. M. y", "dd.MM.yy"],
+    "TIMEFORMATS": ["H:mm:ss, zzzz", "H:mm:ss z", "H:mm:ss", "H:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "cy": {
+    "NAME": "cy",
+    "WEEKDAYS": [
+      "Dydd Sul",
+      "Dydd Llun",
+      "Dydd Mawrth",
+      "Dydd Mercher",
+      "Dydd Iau",
+      "Dydd Gwener",
+      "Dydd Sadwrn"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Dydd Sul",
+      "Dydd Llun",
+      "Dydd Mawrth",
+      "Dydd Mercher",
+      "Dydd Iau",
+      "Dydd Gwener",
+      "Dydd Sadwrn"
+    ],
+    "SHORTWEEKDAYS": ["Sul", "Llun", "Maw", "Mer", "Iau", "Gwen", "Sad"],
+    "STANDALONESHORTWEEKDAYS": [
+      "Sul",
+      "Llun",
+      "Maw",
+      "Mer",
+      "Iau",
+      "Gwe",
+      "Sad"
+    ],
+    "NARROWWEEKDAYS": ["S", "Ll", "M", "M", "I", "G", "S"],
+    "STANDALONENARROWWEEKDAYS": ["S", "Ll", "M", "M", "I", "G", "S"],
+    "SHORTQUARTERS": ["Ch1", "Ch2", "Ch3", "Ch4"],
+    "QUARTERS": [
+      "chwarter 1af",
+      "2il chwarter",
+      "3ydd chwarter",
+      "4ydd chwarter"
+    ],
+    "AMPMS": ["b", "h"],
+    "DATEFORMATS": ["EEEE, d MMMM y", "d MMMM y", "d MMM y", "dd/MM/yy"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1} {0}", "{1} {0}"]
+  },
+  "da": {
+    "NAME": "da",
+    "WEEKDAYS": [
+      "søndag",
+      "mandag",
+      "tirsdag",
+      "onsdag",
+      "torsdag",
+      "fredag",
+      "lørdag"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "søndag",
+      "mandag",
+      "tirsdag",
+      "onsdag",
+      "torsdag",
+      "fredag",
+      "lørdag"
+    ],
+    "SHORTWEEKDAYS": ["søn.", "man.", "tirs.", "ons.", "tors.", "fre.", "lør."],
+    "STANDALONESHORTWEEKDAYS": [
+      "søn.",
+      "man.",
+      "tirs.",
+      "ons.",
+      "tors.",
+      "fre.",
+      "lør."
+    ],
+    "NARROWWEEKDAYS": ["S", "M", "T", "O", "T", "F", "L"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "T", "O", "T", "F", "L"],
+    "SHORTQUARTERS": ["1. kvt.", "2. kvt.", "3. kvt.", "4. kvt."],
+    "QUARTERS": ["1. kvartal", "2. kvartal", "3. kvartal", "4. kvartal"],
+    "AMPMS": ["a", "p"],
+    "DATEFORMATS": ["EEEE 'den' d. MMMM y", "d. MMMM y", "d. MMM y", "dd.MM.y"],
+    "TIMEFORMATS": ["HH.mm.ss zzzz", "HH.mm.ss z", "HH.mm.ss", "HH.mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "de": {
+    "NAME": "de",
+    "WEEKDAYS": [
+      "Sonntag",
+      "Montag",
+      "Dienstag",
+      "Mittwoch",
+      "Donnerstag",
+      "Freitag",
+      "Samstag"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Sonntag",
+      "Montag",
+      "Dienstag",
+      "Mittwoch",
+      "Donnerstag",
+      "Freitag",
+      "Samstag"
+    ],
+    "SHORTWEEKDAYS": ["So.", "Mo.", "Di.", "Mi.", "Do.", "Fr.", "Sa."],
+    "STANDALONESHORTWEEKDAYS": ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+    "NARROWWEEKDAYS": ["S", "M", "D", "M", "D", "F", "S"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "D", "M", "D", "F", "S"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["1. Quartal", "2. Quartal", "3. Quartal", "4. Quartal"],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["EEEE, d. MMMM y", "d. MMMM y", "dd.MM.y", "dd.MM.yy"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "de_AT": {
+    "NAME": "de_AT",
+    "WEEKDAYS": [
+      "Sonntag",
+      "Montag",
+      "Dienstag",
+      "Mittwoch",
+      "Donnerstag",
+      "Freitag",
+      "Samstag"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Sonntag",
+      "Montag",
+      "Dienstag",
+      "Mittwoch",
+      "Donnerstag",
+      "Freitag",
+      "Samstag"
+    ],
+    "SHORTWEEKDAYS": ["So.", "Mo.", "Di.", "Mi.", "Do.", "Fr.", "Sa."],
+    "STANDALONESHORTWEEKDAYS": ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+    "NARROWWEEKDAYS": ["S", "M", "D", "M", "D", "F", "S"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "D", "M", "D", "F", "S"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["1. Quartal", "2. Quartal", "3. Quartal", "4. Quartal"],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["EEEE, d. MMMM y", "d. MMMM y", "dd.MM.y", "dd.MM.yy"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "de_CH": {
+    "NAME": "de_CH",
+    "WEEKDAYS": [
+      "Sonntag",
+      "Montag",
+      "Dienstag",
+      "Mittwoch",
+      "Donnerstag",
+      "Freitag",
+      "Samstag"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Sonntag",
+      "Montag",
+      "Dienstag",
+      "Mittwoch",
+      "Donnerstag",
+      "Freitag",
+      "Samstag"
+    ],
+    "SHORTWEEKDAYS": ["So.", "Mo.", "Di.", "Mi.", "Do.", "Fr.", "Sa."],
+    "STANDALONESHORTWEEKDAYS": ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+    "NARROWWEEKDAYS": ["S", "M", "D", "M", "D", "F", "S"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "D", "M", "D", "F", "S"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["1. Quartal", "2. Quartal", "3. Quartal", "4. Quartal"],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["EEEE, d. MMMM y", "d. MMMM y", "dd.MM.y", "dd.MM.yy"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "el": {
+    "NAME": "el",
+    "WEEKDAYS": [
+      "Κυριακή",
+      "Δευτέρα",
+      "Τρίτη",
+      "Τετάρτη",
+      "Πέμπτη",
+      "Παρασκευή",
+      "Σάββατο"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Κυριακή",
+      "Δευτέρα",
+      "Τρίτη",
+      "Τετάρτη",
+      "Πέμπτη",
+      "Παρασκευή",
+      "Σάββατο"
+    ],
+    "SHORTWEEKDAYS": ["Κυρ", "Δευ", "Τρί", "Τετ", "Πέμ", "Παρ", "Σάβ"],
+    "STANDALONESHORTWEEKDAYS": [
+      "Κυρ",
+      "Δευ",
+      "Τρί",
+      "Τετ",
+      "Πέμ",
+      "Παρ",
+      "Σάβ"
+    ],
+    "NARROWWEEKDAYS": ["Κ", "Δ", "Τ", "Τ", "Π", "Π", "Σ"],
+    "STANDALONENARROWWEEKDAYS": ["Κ", "Δ", "Τ", "Τ", "Π", "Π", "Σ"],
+    "SHORTQUARTERS": ["Τ1", "Τ2", "Τ3", "Τ4"],
+    "QUARTERS": ["1ο τρίμηνο", "2ο τρίμηνο", "3ο τρίμηνο", "4ο τρίμηνο"],
+    "AMPMS": ["π.μ.", "μ.μ."],
+    "DATEFORMATS": ["EEEE d MMMM y", "d MMMM y", "d MMM y", "d/M/yy"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1} - {0}", "{1} - {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "en": {
+    "NAME": "en",
+    "WEEKDAYS": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "SHORTWEEKDAYS": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    "STANDALONESHORTWEEKDAYS": [
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "NARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["1st quarter", "2nd quarter", "3rd quarter", "4th quarter"],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["EEEE, MMMM d, y", "MMMM d, y", "MMM d, y", "M/d/yy"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "en_AU": {
+    "NAME": "en_AU",
+    "WEEKDAYS": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "SHORTWEEKDAYS": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    "STANDALONESHORTWEEKDAYS": [
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "NARROWWEEKDAYS": ["Su.", "M.", "Tu.", "W.", "Th.", "F.", "Sa."],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["1st quarter", "2nd quarter", "3rd quarter", "4th quarter"],
+    "AMPMS": ["am", "pm"],
+    "DATEFORMATS": ["EEEE, d MMMM y", "d MMMM y", "d MMM y", "d/M/yy"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "en_CA": {
+    "NAME": "en_CA",
+    "WEEKDAYS": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "SHORTWEEKDAYS": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    "STANDALONESHORTWEEKDAYS": [
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "NARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["1st quarter", "2nd quarter", "3rd quarter", "4th quarter"],
+    "AMPMS": ["a.m.", "p.m."],
+    "DATEFORMATS": ["EEEE, MMMM d, y", "MMMM d, y", "MMM d, y", "y-MM-dd"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "en_GB": {
+    "NAME": "en_GB",
+    "WEEKDAYS": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "SHORTWEEKDAYS": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    "STANDALONESHORTWEEKDAYS": [
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "NARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["1st quarter", "2nd quarter", "3rd quarter", "4th quarter"],
+    "AMPMS": ["am", "pm"],
+    "DATEFORMATS": ["EEEE, d MMMM y", "d MMMM y", "d MMM y", "dd/MM/y"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "en_IE": {
+    "NAME": "en_IE",
+    "WEEKDAYS": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "SHORTWEEKDAYS": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    "STANDALONESHORTWEEKDAYS": [
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "NARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["1st quarter", "2nd quarter", "3rd quarter", "4th quarter"],
+    "AMPMS": ["a.m.", "p.m."],
+    "DATEFORMATS": ["EEEE d MMMM y", "d MMMM y", "d MMM y", "dd/MM/y"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "en_IN": {
+    "NAME": "en_IN",
+    "WEEKDAYS": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "SHORTWEEKDAYS": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    "STANDALONESHORTWEEKDAYS": [
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "NARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["1st quarter", "2nd quarter", "3rd quarter", "4th quarter"],
+    "AMPMS": ["am", "pm"],
+    "DATEFORMATS": ["EEEE, d MMMM y", "d MMMM y", "d MMM y", "dd/MM/yy"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [6, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "en_MY": {
+    "NAME": "en_MY",
+    "WEEKDAYS": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "SHORTWEEKDAYS": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    "STANDALONESHORTWEEKDAYS": [
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "NARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["1st quarter", "2nd quarter", "3rd quarter", "4th quarter"],
+    "AMPMS": ["am", "pm"],
+    "DATEFORMATS": ["EEEE, d MMMM y", "d MMMM y", "d MMM y", "dd/MM/y"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "en_NZ": {
+    "NAME": "en_NZ",
+    "WEEKDAYS": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "SHORTWEEKDAYS": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    "STANDALONESHORTWEEKDAYS": [
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "NARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["1st quarter", "2nd quarter", "3rd quarter", "4th quarter"],
+    "AMPMS": ["am", "pm"],
+    "DATEFORMATS": ["EEEE, d MMMM y", "d MMMM y", "d MMM y", "dd/MM/y"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "en_SG": {
+    "NAME": "en_SG",
+    "WEEKDAYS": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "SHORTWEEKDAYS": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    "STANDALONESHORTWEEKDAYS": [
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "NARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["1st quarter", "2nd quarter", "3rd quarter", "4th quarter"],
+    "AMPMS": ["am", "pm"],
+    "DATEFORMATS": ["EEEE, d MMMM y", "d MMMM y", "d MMM y", "d/M/yy"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "en_US": {
+    "NAME": "en_US",
+    "WEEKDAYS": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "SHORTWEEKDAYS": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    "STANDALONESHORTWEEKDAYS": [
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "NARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["1st quarter", "2nd quarter", "3rd quarter", "4th quarter"],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["EEEE, MMMM d, y", "MMMM d, y", "MMM d, y", "M/d/yy"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "en_ZA": {
+    "NAME": "en_ZA",
+    "WEEKDAYS": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "SHORTWEEKDAYS": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    "STANDALONESHORTWEEKDAYS": [
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "NARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["1st quarter", "2nd quarter", "3rd quarter", "4th quarter"],
+    "AMPMS": ["am", "pm"],
+    "DATEFORMATS": ["EEEE, dd MMMM y", "dd MMMM y", "dd MMM y", "y/MM/dd"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "es": {
+    "NAME": "es",
+    "WEEKDAYS": [
+      "domingo",
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "domingo",
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "SHORTWEEKDAYS": ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+    "STANDALONESHORTWEEKDAYS": [
+      "dom",
+      "lun",
+      "mar",
+      "mié",
+      "jue",
+      "vie",
+      "sáb"
+    ],
+    "NARROWWEEKDAYS": ["D", "L", "M", "X", "J", "V", "S"],
+    "STANDALONENARROWWEEKDAYS": ["D", "L", "M", "X", "J", "V", "S"],
+    "SHORTQUARTERS": ["T1", "T2", "T3", "T4"],
+    "QUARTERS": [
+      "1.er trimestre",
+      "2.º trimestre",
+      "3.er trimestre",
+      "4.º trimestre"
+    ],
+    "AMPMS": ["a. m.", "p. m."],
+    "DATEFORMATS": [
+      "EEEE, d 'de' MMMM 'de' y",
+      "d 'de' MMMM 'de' y",
+      "d MMM y",
+      "d/M/yy"
+    ],
+    "TIMEFORMATS": ["H:mm:ss (zzzz)", "H:mm:ss z", "H:mm:ss", "H:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "es_419": {
+    "NAME": "es_419",
+    "WEEKDAYS": [
+      "domingo",
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "domingo",
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "SHORTWEEKDAYS": ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+    "STANDALONESHORTWEEKDAYS": [
+      "dom",
+      "lun",
+      "mar",
+      "mié",
+      "jue",
+      "vie",
+      "sáb"
+    ],
+    "NARROWWEEKDAYS": ["D", "L", "M", "M", "J", "V", "S"],
+    "STANDALONENARROWWEEKDAYS": ["D", "L", "M", "M", "J", "V", "S"],
+    "SHORTQUARTERS": ["T1", "T2", "T3", "T4"],
+    "QUARTERS": [
+      "1.º trimestre",
+      "2.º trimestre",
+      "3.º trimestre",
+      "4.º trimestre"
+    ],
+    "AMPMS": ["a.m.", "p.m."],
+    "DATEFORMATS": [
+      "EEEE, d 'de' MMMM 'de' y",
+      "d 'de' MMMM 'de' y",
+      "d MMM y",
+      "d/M/yy"
+    ],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "es_ES": {
+    "NAME": "es_ES",
+    "WEEKDAYS": [
+      "domingo",
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "domingo",
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "SHORTWEEKDAYS": ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+    "STANDALONESHORTWEEKDAYS": [
+      "dom",
+      "lun",
+      "mar",
+      "mié",
+      "jue",
+      "vie",
+      "sáb"
+    ],
+    "NARROWWEEKDAYS": ["D", "L", "M", "X", "J", "V", "S"],
+    "STANDALONENARROWWEEKDAYS": ["D", "L", "M", "X", "J", "V", "S"],
+    "SHORTQUARTERS": ["T1", "T2", "T3", "T4"],
+    "QUARTERS": [
+      "1.er trimestre",
+      "2.º trimestre",
+      "3.er trimestre",
+      "4.º trimestre"
+    ],
+    "AMPMS": ["a. m.", "p. m."],
+    "DATEFORMATS": [
+      "EEEE, d 'de' MMMM 'de' y",
+      "d 'de' MMMM 'de' y",
+      "d MMM y",
+      "d/M/yy"
+    ],
+    "TIMEFORMATS": ["H:mm:ss (zzzz)", "H:mm:ss z", "H:mm:ss", "H:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "es_MX": {
+    "NAME": "es_MX",
+    "WEEKDAYS": [
+      "domingo",
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "domingo",
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "SHORTWEEKDAYS": ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+    "STANDALONESHORTWEEKDAYS": [
+      "dom",
+      "lun",
+      "mar",
+      "mié",
+      "jue",
+      "vie",
+      "sáb"
+    ],
+    "NARROWWEEKDAYS": ["D", "L", "M", "M", "J", "V", "S"],
+    "STANDALONENARROWWEEKDAYS": ["D", "L", "M", "M", "J", "V", "S"],
+    "SHORTQUARTERS": ["T1", "T2", "T3", "T4"],
+    "QUARTERS": [
+      "1.º trimestre",
+      "2.º trimestre",
+      "3.º trimestre",
+      "4.º trimestre"
+    ],
+    "AMPMS": ["a. m.", "p. m."],
+    "DATEFORMATS": [
+      "EEEE, d 'de' MMMM 'de' y",
+      "d 'de' MMMM 'de' y",
+      "d MMM y",
+      "dd/MM/yy"
+    ],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "es_US": {
+    "NAME": "es_US",
+    "WEEKDAYS": [
+      "domingo",
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "domingo",
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "SHORTWEEKDAYS": ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+    "STANDALONESHORTWEEKDAYS": [
+      "dom",
+      "lun",
+      "mar",
+      "mié",
+      "jue",
+      "vie",
+      "sáb"
+    ],
+    "NARROWWEEKDAYS": ["D", "L", "M", "M", "J", "V", "S"],
+    "STANDALONENARROWWEEKDAYS": ["D", "L", "M", "M", "J", "V", "S"],
+    "SHORTQUARTERS": ["T1", "T2", "T3", "T4"],
+    "QUARTERS": [
+      "1er trimestre",
+      "2.º trimestre",
+      "3er trimestre",
+      "4.º trimestre"
+    ],
+    "AMPMS": ["a.m.", "p.m."],
+    "DATEFORMATS": [
+      "EEEE, d 'de' MMMM 'de' y",
+      "d 'de' MMMM 'de' y",
+      "d MMM y",
+      "d/M/y"
+    ],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "et": {
+    "NAME": "et",
+    "WEEKDAYS": [
+      "pühapäev",
+      "esmaspäev",
+      "teisipäev",
+      "kolmapäev",
+      "neljapäev",
+      "reede",
+      "laupäev"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "pühapäev",
+      "esmaspäev",
+      "teisipäev",
+      "kolmapäev",
+      "neljapäev",
+      "reede",
+      "laupäev"
+    ],
+    "SHORTWEEKDAYS": ["P", "E", "T", "K", "N", "R", "L"],
+    "STANDALONESHORTWEEKDAYS": ["P", "E", "T", "K", "N", "R", "L"],
+    "NARROWWEEKDAYS": ["P", "E", "T", "K", "N", "R", "L"],
+    "STANDALONENARROWWEEKDAYS": ["P", "E", "T", "K", "N", "R", "L"],
+    "SHORTQUARTERS": ["K1", "K2", "K3", "K4"],
+    "QUARTERS": ["1. kvartal", "2. kvartal", "3. kvartal", "4. kvartal"],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["EEEE, d. MMMM y", "d. MMMM y", "d. MMM y", "dd.MM.yy"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "eu": {
+    "NAME": "eu",
+    "WEEKDAYS": [
+      "igandea",
+      "astelehena",
+      "asteartea",
+      "asteazkena",
+      "osteguna",
+      "ostirala",
+      "larunbata"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "igandea",
+      "astelehena",
+      "asteartea",
+      "asteazkena",
+      "osteguna",
+      "ostirala",
+      "larunbata"
+    ],
+    "SHORTWEEKDAYS": ["ig.", "al.", "ar.", "az.", "og.", "or.", "lr."],
+    "STANDALONESHORTWEEKDAYS": [
+      "ig.",
+      "al.",
+      "ar.",
+      "az.",
+      "og.",
+      "or.",
+      "lr."
+    ],
+    "NARROWWEEKDAYS": ["I", "A", "A", "A", "O", "O", "L"],
+    "STANDALONENARROWWEEKDAYS": ["I", "A", "A", "A", "O", "O", "L"],
+    "SHORTQUARTERS": ["1Hh", "2Hh", "3Hh", "4Hh"],
+    "QUARTERS": [
+      "1. hiruhilekoa",
+      "2. hiruhilekoa",
+      "3. hiruhilekoa",
+      "4. hiruhilekoa"
+    ],
+    "AMPMS": ["g", "a"],
+    "DATEFORMATS": [
+      "y('e')'ko' MMMM'ren' d('a'), EEEE",
+      "y('e')'ko' MMMM'ren' d('a')",
+      "y('e')'ko' MMM d('a')",
+      "yy/M/d"
+    ],
+    "TIMEFORMATS": ["HH:mm:ss (zzzz)", "HH:mm:ss (z)", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1} ({0})", "{1} ({0})", "{1} ({0})", "{1} ({0})"]
+  },
+  "fa": {
+    "NAME": "fa",
+    "WEEKDAYS": [
+      "یکشنبه",
+      "دوشنبه",
+      "سه‌شنبه",
+      "چهارشنبه",
+      "پنجشنبه",
+      "جمعه",
+      "شنبه"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "یکشنبه",
+      "دوشنبه",
+      "سه‌شنبه",
+      "چهارشنبه",
+      "پنجشنبه",
+      "جمعه",
+      "شنبه"
+    ],
+    "SHORTWEEKDAYS": [
+      "یکشنبه",
+      "دوشنبه",
+      "سه‌شنبه",
+      "چهارشنبه",
+      "پنجشنبه",
+      "جمعه",
+      "شنبه"
+    ],
+    "STANDALONESHORTWEEKDAYS": [
+      "یکشنبه",
+      "دوشنبه",
+      "سه‌شنبه",
+      "چهارشنبه",
+      "پنجشنبه",
+      "جمعه",
+      "شنبه"
+    ],
+    "NARROWWEEKDAYS": ["ی", "د", "س", "چ", "پ", "ج", "ش"],
+    "STANDALONENARROWWEEKDAYS": ["ی", "د", "س", "چ", "پ", "ج", "ش"],
+    "SHORTQUARTERS": ["س‌م۱", "س‌م۲", "س‌م۳", "س‌م۴"],
+    "QUARTERS": [
+      "سه‌ماههٔ اول",
+      "سه‌ماههٔ دوم",
+      "سه‌ماههٔ سوم",
+      "سه‌ماههٔ چهارم"
+    ],
+    "AMPMS": ["ق.ظ.", "ب.ظ."],
+    "DATEFORMATS": ["EEEE d MMMM y", "d MMMM y", "d MMM y", "y/M/d"],
+    "TIMEFORMATS": ["H:mm:ss (zzzz)", "H:mm:ss (z)", "H:mm:ss", "H:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 5,
+    "WEEKENDRANGE": [4, 4],
+    "FIRSTWEEKCUTOFFDAY": 4,
+    "DATETIMEFORMATS": [
+      "{1}، ساعت {0}",
+      "{1}، ساعت {0}",
+      "{1}،‏ {0}",
+      "{1}،‏ {0}"
+    ]
+  },
+  "fi": {
+    "NAME": "fi",
+    "WEEKDAYS": [
+      "sunnuntaina",
+      "maanantaina",
+      "tiistaina",
+      "keskiviikkona",
+      "torstaina",
+      "perjantaina",
+      "lauantaina"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "sunnuntai",
+      "maanantai",
+      "tiistai",
+      "keskiviikko",
+      "torstai",
+      "perjantai",
+      "lauantai"
+    ],
+    "SHORTWEEKDAYS": ["su", "ma", "ti", "ke", "to", "pe", "la"],
+    "STANDALONESHORTWEEKDAYS": ["su", "ma", "ti", "ke", "to", "pe", "la"],
+    "NARROWWEEKDAYS": ["S", "M", "T", "K", "T", "P", "L"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "T", "K", "T", "P", "L"],
+    "SHORTQUARTERS": ["1. nelj.", "2. nelj.", "3. nelj.", "4. nelj."],
+    "QUARTERS": [
+      "1. neljännes",
+      "2. neljännes",
+      "3. neljännes",
+      "4. neljännes"
+    ],
+    "AMPMS": ["ap.", "ip."],
+    "DATEFORMATS": ["cccc d. MMMM y", "d. MMMM y", "d.M.y", "d.M.y"],
+    "TIMEFORMATS": ["H.mm.ss zzzz", "H.mm.ss z", "H.mm.ss", "H.mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "fil": {
+    "NAME": "fil",
+    "WEEKDAYS": [
+      "Linggo",
+      "Lunes",
+      "Martes",
+      "Miyerkules",
+      "Huwebes",
+      "Biyernes",
+      "Sabado"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Linggo",
+      "Lunes",
+      "Martes",
+      "Miyerkules",
+      "Huwebes",
+      "Biyernes",
+      "Sabado"
+    ],
+    "SHORTWEEKDAYS": ["Lin", "Lun", "Mar", "Miy", "Huw", "Biy", "Sab"],
+    "STANDALONESHORTWEEKDAYS": [
+      "Lin",
+      "Lun",
+      "Mar",
+      "Miy",
+      "Huw",
+      "Biy",
+      "Sab"
+    ],
+    "NARROWWEEKDAYS": ["Lin", "Lun", "Mar", "Miy", "Huw", "Biy", "Sab"],
+    "STANDALONENARROWWEEKDAYS": [
+      "Lin",
+      "Lun",
+      "Mar",
+      "Miy",
+      "Huw",
+      "Biy",
+      "Sab"
+    ],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": [
+      "ika-1 quarter",
+      "ika-2 quarter",
+      "ika-3 quarter",
+      "ika-4 na quarter"
+    ],
+    "AMPMS": ["am", "pm"],
+    "DATEFORMATS": ["EEEE, MMMM d, y", "MMMM d, y", "MMM d, y", "M/d/yy"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "fr": {
+    "NAME": "fr",
+    "WEEKDAYS": [
+      "dimanche",
+      "lundi",
+      "mardi",
+      "mercredi",
+      "jeudi",
+      "vendredi",
+      "samedi"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "dimanche",
+      "lundi",
+      "mardi",
+      "mercredi",
+      "jeudi",
+      "vendredi",
+      "samedi"
+    ],
+    "SHORTWEEKDAYS": ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+    "STANDALONESHORTWEEKDAYS": [
+      "dim.",
+      "lun.",
+      "mar.",
+      "mer.",
+      "jeu.",
+      "ven.",
+      "sam."
+    ],
+    "NARROWWEEKDAYS": ["D", "L", "M", "M", "J", "V", "S"],
+    "STANDALONENARROWWEEKDAYS": ["D", "L", "M", "M", "J", "V", "S"],
+    "SHORTQUARTERS": ["T1", "T2", "T3", "T4"],
+    "QUARTERS": [
+      "1er trimestre",
+      "2e trimestre",
+      "3e trimestre",
+      "4e trimestre"
+    ],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["EEEE d MMMM y", "d MMMM y", "d MMM y", "dd/MM/y"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1} {0}"]
+  },
+  "fr_CA": {
+    "NAME": "fr_CA",
+    "WEEKDAYS": [
+      "dimanche",
+      "lundi",
+      "mardi",
+      "mercredi",
+      "jeudi",
+      "vendredi",
+      "samedi"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "dimanche",
+      "lundi",
+      "mardi",
+      "mercredi",
+      "jeudi",
+      "vendredi",
+      "samedi"
+    ],
+    "SHORTWEEKDAYS": ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+    "STANDALONESHORTWEEKDAYS": [
+      "dim.",
+      "lun.",
+      "mar.",
+      "mer.",
+      "jeu.",
+      "ven.",
+      "sam."
+    ],
+    "NARROWWEEKDAYS": ["D", "L", "M", "M", "J", "V", "S"],
+    "STANDALONENARROWWEEKDAYS": ["D", "L", "M", "M", "J", "V", "S"],
+    "SHORTQUARTERS": ["T1", "T2", "T3", "T4"],
+    "QUARTERS": [
+      "1er trimestre",
+      "2e trimestre",
+      "3e trimestre",
+      "4e trimestre"
+    ],
+    "AMPMS": ["a.m.", "p.m."],
+    "DATEFORMATS": ["EEEE d MMMM y", "d MMMM y", "d MMM y", "y-MM-dd"],
+    "TIMEFORMATS": [
+      "HH 'h' mm 'min' ss 's' zzzz",
+      "HH 'h' mm 'min' ss 's' z",
+      "HH 'h' mm 'min' ss 's'",
+      "HH 'h' mm"
+    ],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1} {0}"]
+  },
+  "fr_CH": {
+    "NAME": "fr_CH",
+    "WEEKDAYS": [
+      "dimanche",
+      "lundi",
+      "mardi",
+      "mercredi",
+      "jeudi",
+      "vendredi",
+      "samedi"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "dimanche",
+      "lundi",
+      "mardi",
+      "mercredi",
+      "jeudi",
+      "vendredi",
+      "samedi"
+    ],
+    "SHORTWEEKDAYS": ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+    "STANDALONESHORTWEEKDAYS": [
+      "dim.",
+      "lun.",
+      "mar.",
+      "mer.",
+      "jeu.",
+      "ven.",
+      "sam."
+    ],
+    "NARROWWEEKDAYS": ["D", "L", "M", "M", "J", "V", "S"],
+    "STANDALONENARROWWEEKDAYS": ["D", "L", "M", "M", "J", "V", "S"],
+    "SHORTQUARTERS": ["T1", "T2", "T3", "T4"],
+    "QUARTERS": [
+      "1er trimestre",
+      "2e trimestre",
+      "3e trimestre",
+      "4e trimestre"
+    ],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["EEEE, d MMMM y", "d MMMM y", "d MMM y", "dd.MM.yy"],
+    "TIMEFORMATS": ["HH.mm:ss 'h' zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1} {0}"]
+  },
+  "fur": {
+    "NAME": "fur",
+    "WEEKDAYS": [
+      "domenie",
+      "lunis",
+      "martars",
+      "miercus",
+      "joibe",
+      "vinars",
+      "sabide"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "domenie",
+      "lunis",
+      "martars",
+      "miercus",
+      "joibe",
+      "vinars",
+      "sabide"
+    ],
+    "SHORTWEEKDAYS": ["dom", "lun", "mar", "mie", "joi", "vin", "sab"],
+    "STANDALONESHORTWEEKDAYS": [
+      "dom",
+      "lun",
+      "mar",
+      "mie",
+      "joi",
+      "vin",
+      "sab"
+    ],
+    "NARROWWEEKDAYS": ["D", "L", "M", "M", "J", "V", "S"],
+    "STANDALONENARROWWEEKDAYS": ["D", "L", "M", "M", "J", "V", "S"],
+    "SHORTQUARTERS": ["T1", "T2", "T3", "T4"],
+    "QUARTERS": [
+      "Prin trimestri",
+      "Secont trimestri",
+      "Tierç trimestri",
+      "Cuart trimestri"
+    ],
+    "AMPMS": ["a.", "p."],
+    "DATEFORMATS": [
+      "EEEE d 'di' MMMM 'dal' y",
+      "d 'di' MMMM 'dal' y",
+      "dd/MM/y",
+      "dd/MM/yy"
+    ],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "ga": {
+    "NAME": "ga",
+    "WEEKDAYS": [
+      "Dé Domhnaigh",
+      "Dé Luain",
+      "Dé Máirt",
+      "Dé Céadaoin",
+      "Déardaoin",
+      "Dé hAoine",
+      "Dé Sathairn"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Dé Domhnaigh",
+      "Dé Luain",
+      "Dé Máirt",
+      "Dé Céadaoin",
+      "Déardaoin",
+      "Dé hAoine",
+      "Dé Sathairn"
+    ],
+    "SHORTWEEKDAYS": ["Domh", "Luan", "Máirt", "Céad", "Déar", "Aoine", "Sath"],
+    "STANDALONESHORTWEEKDAYS": [
+      "Domh",
+      "Luan",
+      "Máirt",
+      "Céad",
+      "Déar",
+      "Aoine",
+      "Sath"
+    ],
+    "NARROWWEEKDAYS": ["D", "L", "M", "C", "D", "A", "S"],
+    "STANDALONENARROWWEEKDAYS": ["D", "L", "M", "C", "D", "A", "S"],
+    "SHORTQUARTERS": ["R1", "R2", "R3", "R4"],
+    "QUARTERS": ["1ú ráithe", "2ú ráithe", "3ú ráithe", "4ú ráithe"],
+    "AMPMS": ["r.n.", "i.n."],
+    "DATEFORMATS": ["EEEE d MMMM y", "d MMMM y", "d MMM y", "d/M/yy"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "gl": {
+    "NAME": "gl",
+    "WEEKDAYS": [
+      "domingo",
+      "luns",
+      "martes",
+      "mércores",
+      "xoves",
+      "venres",
+      "sábado"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "domingo",
+      "luns",
+      "martes",
+      "mércores",
+      "xoves",
+      "venres",
+      "sábado"
+    ],
+    "SHORTWEEKDAYS": ["dom.", "luns", "mar.", "mér.", "xov.", "ven.", "sáb."],
+    "STANDALONESHORTWEEKDAYS": [
+      "dom.",
+      "luns",
+      "mar.",
+      "mér.",
+      "xov.",
+      "ven.",
+      "sáb."
+    ],
+    "NARROWWEEKDAYS": ["d.", "l.", "m.", "m.", "x.", "v.", "s."],
+    "STANDALONENARROWWEEKDAYS": ["D", "L", "M", "M", "X", "V", "S"],
+    "SHORTQUARTERS": ["T1", "T2", "T3", "T4"],
+    "QUARTERS": [
+      "1.º trimestre",
+      "2.º trimestre",
+      "3.º trimestre",
+      "4.º trimestre"
+    ],
+    "AMPMS": ["a.m.", "p.m."],
+    "DATEFORMATS": [
+      "EEEE, d 'de' MMMM 'de' y",
+      "d 'de' MMMM 'de' y",
+      "d 'de' MMM 'de' y",
+      "dd/MM/yy"
+    ],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "gsw": {
+    "NAME": "gsw",
+    "WEEKDAYS": [
+      "Sunntig",
+      "Määntig",
+      "Ziischtig",
+      "Mittwuch",
+      "Dunschtig",
+      "Friitig",
+      "Samschtig"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Sunntig",
+      "Määntig",
+      "Ziischtig",
+      "Mittwuch",
+      "Dunschtig",
+      "Friitig",
+      "Samschtig"
+    ],
+    "SHORTWEEKDAYS": ["Su.", "Mä.", "Zi.", "Mi.", "Du.", "Fr.", "Sa."],
+    "STANDALONESHORTWEEKDAYS": [
+      "Su.",
+      "Mä.",
+      "Zi.",
+      "Mi.",
+      "Du.",
+      "Fr.",
+      "Sa."
+    ],
+    "NARROWWEEKDAYS": ["S", "M", "D", "M", "D", "F", "S"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "D", "M", "D", "F", "S"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["1. Quartal", "2. Quartal", "3. Quartal", "4. Quartal"],
+    "AMPMS": ["vorm.", "nam."],
+    "DATEFORMATS": ["EEEE, d. MMMM y", "d. MMMM y", "dd.MM.y", "dd.MM.yy"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "gu": {
+    "NAME": "gu",
+    "WEEKDAYS": [
+      "રવિવાર",
+      "સોમવાર",
+      "મંગળવાર",
+      "બુધવાર",
+      "ગુરુવાર",
+      "શુક્રવાર",
+      "શનિવાર"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "રવિવાર",
+      "સોમવાર",
+      "મંગળવાર",
+      "બુધવાર",
+      "ગુરુવાર",
+      "શુક્રવાર",
+      "શનિવાર"
+    ],
+    "SHORTWEEKDAYS": ["રવિ", "સોમ", "મંગળ", "બુધ", "ગુરુ", "શુક્ર", "શનિ"],
+    "STANDALONESHORTWEEKDAYS": [
+      "રવિ",
+      "સોમ",
+      "મંગળ",
+      "બુધ",
+      "ગુરુ",
+      "શુક્ર",
+      "શનિ"
+    ],
+    "NARROWWEEKDAYS": ["ર", "સો", "મં", "બુ", "ગુ", "શુ", "શ"],
+    "STANDALONENARROWWEEKDAYS": ["ર", "સો", "મં", "બુ", "ગુ", "શુ", "શ"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["1લો ત્રિમાસ", "2જો ત્રિમાસ", "3જો ત્રિમાસ", "4થો ત્રિમાસ"],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["EEEE, d MMMM, y", "d MMMM, y", "d MMM, y", "d/M/yy"],
+    "TIMEFORMATS": ["hh:mm:ss a zzzz", "hh:mm:ss a z", "hh:mm:ss a", "hh:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [6, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "haw": {
+    "NAME": "haw",
+    "WEEKDAYS": [
+      "Lāpule",
+      "Poʻakahi",
+      "Poʻalua",
+      "Poʻakolu",
+      "Poʻahā",
+      "Poʻalima",
+      "Poʻaono"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Lāpule",
+      "Poʻakahi",
+      "Poʻalua",
+      "Poʻakolu",
+      "Poʻahā",
+      "Poʻalima",
+      "Poʻaono"
+    ],
+    "SHORTWEEKDAYS": ["LP", "P1", "P2", "P3", "P4", "P5", "P6"],
+    "STANDALONESHORTWEEKDAYS": ["LP", "P1", "P2", "P3", "P4", "P5", "P6"],
+    "NARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["EEEE, d MMMM y", "d MMMM y", "d MMM y", "d/M/yy"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "he": {
+    "NAME": "he",
+    "WEEKDAYS": [
+      "יום ראשון",
+      "יום שני",
+      "יום שלישי",
+      "יום רביעי",
+      "יום חמישי",
+      "יום שישי",
+      "יום שבת"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "יום ראשון",
+      "יום שני",
+      "יום שלישי",
+      "יום רביעי",
+      "יום חמישי",
+      "יום שישי",
+      "יום שבת"
+    ],
+    "SHORTWEEKDAYS": [
+      "יום א׳",
+      "יום ב׳",
+      "יום ג׳",
+      "יום ד׳",
+      "יום ה׳",
+      "יום ו׳",
+      "שבת"
+    ],
+    "STANDALONESHORTWEEKDAYS": [
+      "יום א׳",
+      "יום ב׳",
+      "יום ג׳",
+      "יום ד׳",
+      "יום ה׳",
+      "יום ו׳",
+      "שבת"
+    ],
+    "NARROWWEEKDAYS": ["א׳", "ב׳", "ג׳", "ד׳", "ה׳", "ו׳", "ש׳"],
+    "STANDALONENARROWWEEKDAYS": ["א׳", "ב׳", "ג׳", "ד׳", "ה׳", "ו׳", "ש׳"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["רבעון 1", "רבעון 2", "רבעון 3", "רבעון 4"],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["EEEE, d בMMMM y", "d בMMMM y", "d בMMM y", "d.M.y"],
+    "TIMEFORMATS": ["H:mm:ss zzzz", "H:mm:ss z", "H:mm:ss", "H:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [4, 5],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "hi": {
+    "NAME": "hi",
+    "WEEKDAYS": [
+      "रविवार",
+      "सोमवार",
+      "मंगलवार",
+      "बुधवार",
+      "गुरुवार",
+      "शुक्रवार",
+      "शनिवार"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "रविवार",
+      "सोमवार",
+      "मंगलवार",
+      "बुधवार",
+      "गुरुवार",
+      "शुक्रवार",
+      "शनिवार"
+    ],
+    "SHORTWEEKDAYS": ["रवि", "सोम", "मंगल", "बुध", "गुरु", "शुक्र", "शनि"],
+    "STANDALONESHORTWEEKDAYS": [
+      "रवि",
+      "सोम",
+      "मंगल",
+      "बुध",
+      "गुरु",
+      "शुक्र",
+      "शनि"
+    ],
+    "NARROWWEEKDAYS": ["र", "सो", "मं", "बु", "गु", "शु", "श"],
+    "STANDALONENARROWWEEKDAYS": ["र", "सो", "मं", "बु", "गु", "शु", "श"],
+    "SHORTQUARTERS": ["ति1", "ति2", "ति3", "ति4"],
+    "QUARTERS": ["पहली तिमाही", "दूसरी तिमाही", "तीसरी तिमाही", "चौथी तिमाही"],
+    "AMPMS": ["am", "pm"],
+    "DATEFORMATS": ["EEEE, d MMMM y", "d MMMM y", "d MMM y", "d/M/yy"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [6, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "hr": {
+    "NAME": "hr",
+    "WEEKDAYS": [
+      "nedjelja",
+      "ponedjeljak",
+      "utorak",
+      "srijeda",
+      "četvrtak",
+      "petak",
+      "subota"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "nedjelja",
+      "ponedjeljak",
+      "utorak",
+      "srijeda",
+      "četvrtak",
+      "petak",
+      "subota"
+    ],
+    "SHORTWEEKDAYS": ["ned", "pon", "uto", "sri", "čet", "pet", "sub"],
+    "STANDALONESHORTWEEKDAYS": [
+      "ned",
+      "pon",
+      "uto",
+      "sri",
+      "čet",
+      "pet",
+      "sub"
+    ],
+    "NARROWWEEKDAYS": ["N", "P", "U", "S", "Č", "P", "S"],
+    "STANDALONENARROWWEEKDAYS": ["n", "p", "u", "s", "č", "p", "s"],
+    "SHORTQUARTERS": ["1kv", "2kv", "3kv", "4kv"],
+    "QUARTERS": ["1. kvartal", "2. kvartal", "3. kvartal", "4. kvartal"],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": [
+      "EEEE, d. MMMM y.",
+      "d. MMMM y.",
+      "d. MMM y.",
+      "dd. MM. y."
+    ],
+    "TIMEFORMATS": ["HH:mm:ss (zzzz)", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "hu": {
+    "NAME": "hu",
+    "WEEKDAYS": [
+      "vasárnap",
+      "hétfő",
+      "kedd",
+      "szerda",
+      "csütörtök",
+      "péntek",
+      "szombat"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "vasárnap",
+      "hétfő",
+      "kedd",
+      "szerda",
+      "csütörtök",
+      "péntek",
+      "szombat"
+    ],
+    "SHORTWEEKDAYS": ["V", "H", "K", "Sze", "Cs", "P", "Szo"],
+    "STANDALONESHORTWEEKDAYS": ["V", "H", "K", "Sze", "Cs", "P", "Szo"],
+    "NARROWWEEKDAYS": ["V", "H", "K", "Sz", "Cs", "P", "Sz"],
+    "STANDALONENARROWWEEKDAYS": ["V", "H", "K", "Sz", "Cs", "P", "Sz"],
+    "SHORTQUARTERS": ["I. n.év", "II. n.év", "III. n.év", "IV. n.év"],
+    "QUARTERS": [
+      "I. negyedév",
+      "II. negyedév",
+      "III. negyedév",
+      "IV. negyedév"
+    ],
+    "AMPMS": ["de.", "du."],
+    "DATEFORMATS": [
+      "y. MMMM d., EEEE",
+      "y. MMMM d.",
+      "y. MMM d.",
+      "y. MM. dd."
+    ],
+    "TIMEFORMATS": ["H:mm:ss zzzz", "H:mm:ss z", "H:mm:ss", "H:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "hy": {
+    "NAME": "hy",
+    "WEEKDAYS": [
+      "կիրակի",
+      "երկուշաբթի",
+      "երեքշաբթի",
+      "չորեքշաբթի",
+      "հինգշաբթի",
+      "ուրբաթ",
+      "շաբաթ"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "կիրակի",
+      "երկուշաբթի",
+      "երեքշաբթի",
+      "չորեքշաբթի",
+      "հինգշաբթի",
+      "ուրբաթ",
+      "շաբաթ"
+    ],
+    "SHORTWEEKDAYS": ["կիր", "երկ", "երք", "չրք", "հնգ", "ուր", "շբթ"],
+    "STANDALONESHORTWEEKDAYS": [
+      "կիր",
+      "երկ",
+      "երք",
+      "չրք",
+      "հնգ",
+      "ուր",
+      "շբթ"
+    ],
+    "NARROWWEEKDAYS": ["Կ", "Ե", "Ե", "Չ", "Հ", "Ո", "Շ"],
+    "STANDALONENARROWWEEKDAYS": ["Կ", "Ե", "Ե", "Չ", "Հ", "Ո", "Շ"],
+    "SHORTQUARTERS": ["1-ին եռմս.", "2-րդ եռմս.", "3-րդ եռմս.", "4-րդ եռմս."],
+    "QUARTERS": [
+      "1-ին եռամսյակ",
+      "2-րդ եռամսյակ",
+      "3-րդ եռամսյակ",
+      "4-րդ եռամսյակ"
+    ],
+    "AMPMS": ["ա", "հ"],
+    "DATEFORMATS": [
+      "y թ. MMMM d, EEEE",
+      "dd MMMM, y թ.",
+      "dd MMM, y թ.",
+      "dd.MM.yy"
+    ],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "id": {
+    "NAME": "id",
+    "WEEKDAYS": [
+      "Minggu",
+      "Senin",
+      "Selasa",
+      "Rabu",
+      "Kamis",
+      "Jumat",
+      "Sabtu"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Minggu",
+      "Senin",
+      "Selasa",
+      "Rabu",
+      "Kamis",
+      "Jumat",
+      "Sabtu"
+    ],
+    "SHORTWEEKDAYS": ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"],
+    "STANDALONESHORTWEEKDAYS": [
+      "Min",
+      "Sen",
+      "Sel",
+      "Rab",
+      "Kam",
+      "Jum",
+      "Sab"
+    ],
+    "NARROWWEEKDAYS": ["M", "S", "S", "R", "K", "J", "S"],
+    "STANDALONENARROWWEEKDAYS": ["M", "S", "S", "R", "K", "J", "S"],
+    "SHORTQUARTERS": ["K1", "K2", "K3", "K4"],
+    "QUARTERS": [
+      "Kuartal ke-1",
+      "Kuartal ke-2",
+      "Kuartal ke-3",
+      "Kuartal ke-4"
+    ],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["EEEE, dd MMMM y", "d MMMM y", "d MMM y", "dd/MM/yy"],
+    "TIMEFORMATS": ["HH.mm.ss zzzz", "HH.mm.ss z", "HH.mm.ss", "HH.mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "in": {
+    "NAME": "in",
+    "WEEKDAYS": [
+      "Minggu",
+      "Senin",
+      "Selasa",
+      "Rabu",
+      "Kamis",
+      "Jumat",
+      "Sabtu"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Minggu",
+      "Senin",
+      "Selasa",
+      "Rabu",
+      "Kamis",
+      "Jumat",
+      "Sabtu"
+    ],
+    "SHORTWEEKDAYS": ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"],
+    "STANDALONESHORTWEEKDAYS": [
+      "Min",
+      "Sen",
+      "Sel",
+      "Rab",
+      "Kam",
+      "Jum",
+      "Sab"
+    ],
+    "NARROWWEEKDAYS": ["M", "S", "S", "R", "K", "J", "S"],
+    "STANDALONENARROWWEEKDAYS": ["M", "S", "S", "R", "K", "J", "S"],
+    "SHORTQUARTERS": ["K1", "K2", "K3", "K4"],
+    "QUARTERS": [
+      "Kuartal ke-1",
+      "Kuartal ke-2",
+      "Kuartal ke-3",
+      "Kuartal ke-4"
+    ],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["EEEE, dd MMMM y", "d MMMM y", "d MMM y", "dd/MM/yy"],
+    "TIMEFORMATS": ["HH.mm.ss zzzz", "HH.mm.ss z", "HH.mm.ss", "HH.mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "is": {
+    "NAME": "is",
+    "WEEKDAYS": [
+      "sunnudagur",
+      "mánudagur",
+      "þriðjudagur",
+      "miðvikudagur",
+      "fimmtudagur",
+      "föstudagur",
+      "laugardagur"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "sunnudagur",
+      "mánudagur",
+      "þriðjudagur",
+      "miðvikudagur",
+      "fimmtudagur",
+      "föstudagur",
+      "laugardagur"
+    ],
+    "SHORTWEEKDAYS": ["sun.", "mán.", "þri.", "mið.", "fim.", "fös.", "lau."],
+    "STANDALONESHORTWEEKDAYS": [
+      "sun.",
+      "mán.",
+      "þri.",
+      "mið.",
+      "fim.",
+      "fös.",
+      "lau."
+    ],
+    "NARROWWEEKDAYS": ["S", "M", "Þ", "M", "F", "F", "L"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "Þ", "M", "F", "F", "L"],
+    "SHORTQUARTERS": ["F1", "F2", "F3", "F4"],
+    "QUARTERS": [
+      "1. fjórðungur",
+      "2. fjórðungur",
+      "3. fjórðungur",
+      "4. fjórðungur"
+    ],
+    "AMPMS": ["f.h.", "e.h."],
+    "DATEFORMATS": ["EEEE, d. MMMM y", "d. MMMM y", "d. MMM y", "d.M.y"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "it": {
+    "NAME": "it",
+    "WEEKDAYS": [
+      "domenica",
+      "lunedì",
+      "martedì",
+      "mercoledì",
+      "giovedì",
+      "venerdì",
+      "sabato"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "domenica",
+      "lunedì",
+      "martedì",
+      "mercoledì",
+      "giovedì",
+      "venerdì",
+      "sabato"
+    ],
+    "SHORTWEEKDAYS": ["dom", "lun", "mar", "mer", "gio", "ven", "sab"],
+    "STANDALONESHORTWEEKDAYS": [
+      "dom",
+      "lun",
+      "mar",
+      "mer",
+      "gio",
+      "ven",
+      "sab"
+    ],
+    "NARROWWEEKDAYS": ["D", "L", "M", "M", "G", "V", "S"],
+    "STANDALONENARROWWEEKDAYS": ["D", "L", "M", "M", "G", "V", "S"],
+    "SHORTQUARTERS": ["T1", "T2", "T3", "T4"],
+    "QUARTERS": [
+      "1º trimestre",
+      "2º trimestre",
+      "3º trimestre",
+      "4º trimestre"
+    ],
+    "AMPMS": ["m.", "p."],
+    "DATEFORMATS": ["EEEE d MMMM y", "d MMMM y", "d MMM y", "dd/MM/yy"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "it_CH": {
+    "NAME": "it_CH",
+    "WEEKDAYS": [
+      "domenica",
+      "lunedì",
+      "martedì",
+      "mercoledì",
+      "giovedì",
+      "venerdì",
+      "sabato"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "domenica",
+      "lunedì",
+      "martedì",
+      "mercoledì",
+      "giovedì",
+      "venerdì",
+      "sabato"
+    ],
+    "SHORTWEEKDAYS": ["dom", "lun", "mar", "mer", "gio", "ven", "sab"],
+    "STANDALONESHORTWEEKDAYS": [
+      "dom",
+      "lun",
+      "mar",
+      "mer",
+      "gio",
+      "ven",
+      "sab"
+    ],
+    "NARROWWEEKDAYS": ["D", "L", "M", "M", "G", "V", "S"],
+    "STANDALONENARROWWEEKDAYS": ["D", "L", "M", "M", "G", "V", "S"],
+    "SHORTQUARTERS": ["T1", "T2", "T3", "T4"],
+    "QUARTERS": [
+      "1º trimestre",
+      "2º trimestre",
+      "3º trimestre",
+      "4º trimestre"
+    ],
+    "AMPMS": ["m.", "p."],
+    "DATEFORMATS": ["EEEE, d MMMM y", "d MMMM y", "d MMM y", "dd.MM.yy"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "iw": {
+    "NAME": "iw",
+    "WEEKDAYS": [
+      "יום ראשון",
+      "יום שני",
+      "יום שלישי",
+      "יום רביעי",
+      "יום חמישי",
+      "יום שישי",
+      "יום שבת"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "יום ראשון",
+      "יום שני",
+      "יום שלישי",
+      "יום רביעי",
+      "יום חמישי",
+      "יום שישי",
+      "יום שבת"
+    ],
+    "SHORTWEEKDAYS": [
+      "יום א׳",
+      "יום ב׳",
+      "יום ג׳",
+      "יום ד׳",
+      "יום ה׳",
+      "יום ו׳",
+      "שבת"
+    ],
+    "STANDALONESHORTWEEKDAYS": [
+      "יום א׳",
+      "יום ב׳",
+      "יום ג׳",
+      "יום ד׳",
+      "יום ה׳",
+      "יום ו׳",
+      "שבת"
+    ],
+    "NARROWWEEKDAYS": ["א׳", "ב׳", "ג׳", "ד׳", "ה׳", "ו׳", "ש׳"],
+    "STANDALONENARROWWEEKDAYS": ["א׳", "ב׳", "ג׳", "ד׳", "ה׳", "ו׳", "ש׳"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["רבעון 1", "רבעון 2", "רבעון 3", "רבעון 4"],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["EEEE, d בMMMM y", "d בMMMM y", "d בMMM y", "d.M.y"],
+    "TIMEFORMATS": ["H:mm:ss zzzz", "H:mm:ss z", "H:mm:ss", "H:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [4, 5],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "ja": {
+    "NAME": "ja",
+    "WEEKDAYS": ["日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"],
+    "STANDALONEWEEKDAYS": ["日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"],
+    "SHORTWEEKDAYS": ["日", "月", "火", "水", "木", "金", "土"],
+    "STANDALONESHORTWEEKDAYS": ["日", "月", "火", "水", "木", "金", "土"],
+    "NARROWWEEKDAYS": ["日", "月", "火", "水", "木", "金", "土"],
+    "STANDALONENARROWWEEKDAYS": ["日", "月", "火", "水", "木", "金", "土"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["第1四半期", "第2四半期", "第3四半期", "第4四半期"],
+    "AMPMS": ["午前", "午後"],
+    "DATEFORMATS": ["y年M月d日EEEE", "y年M月d日", "y/MM/dd", "y/MM/dd"],
+    "TIMEFORMATS": ["H時mm分ss秒 zzzz", "H:mm:ss z", "H:mm:ss", "H:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "ka": {
+    "NAME": "ka",
+    "WEEKDAYS": [
+      "კვირა",
+      "ორშაბათი",
+      "სამშაბათი",
+      "ოთხშაბათი",
+      "ხუთშაბათი",
+      "პარასკევი",
+      "შაბათი"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "კვირა",
+      "ორშაბათი",
+      "სამშაბათი",
+      "ოთხშაბათი",
+      "ხუთშაბათი",
+      "პარასკევი",
+      "შაბათი"
+    ],
+    "SHORTWEEKDAYS": ["კვი", "ორშ", "სამ", "ოთხ", "ხუთ", "პარ", "შაბ"],
+    "STANDALONESHORTWEEKDAYS": [
+      "კვი",
+      "ორშ",
+      "სამ",
+      "ოთხ",
+      "ხუთ",
+      "პარ",
+      "შაბ"
+    ],
+    "NARROWWEEKDAYS": ["კ", "ო", "ს", "ო", "ხ", "პ", "შ"],
+    "STANDALONENARROWWEEKDAYS": ["კ", "ო", "ს", "ო", "ხ", "პ", "შ"],
+    "SHORTQUARTERS": ["I კვ.", "II კვ.", "III კვ.", "IV კვ."],
+    "QUARTERS": ["I კვარტალი", "II კვარტალი", "III კვარტალი", "IV კვარტალი"],
+    "AMPMS": ["a", "p"],
+    "DATEFORMATS": ["EEEE, dd MMMM, y", "d MMMM, y", "d MMM. y", "dd.MM.yy"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "kk": {
+    "NAME": "kk",
+    "WEEKDAYS": [
+      "жексенбі",
+      "дүйсенбі",
+      "сейсенбі",
+      "сәрсенбі",
+      "бейсенбі",
+      "жұма",
+      "сенбі"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "жексенбі",
+      "дүйсенбі",
+      "сейсенбі",
+      "сәрсенбі",
+      "бейсенбі",
+      "жұма",
+      "сенбі"
+    ],
+    "SHORTWEEKDAYS": ["жс", "дс", "сс", "ср", "бс", "жм", "сб"],
+    "STANDALONESHORTWEEKDAYS": ["жс", "дс", "сс", "ср", "бс", "жм", "сб"],
+    "NARROWWEEKDAYS": ["Ж", "Д", "С", "С", "Б", "Ж", "С"],
+    "STANDALONENARROWWEEKDAYS": ["Ж", "Д", "С", "С", "Б", "Ж", "С"],
+    "SHORTQUARTERS": ["І тқс.", "ІІ тқс.", "ІІІ тқс.", "IV тқс."],
+    "QUARTERS": ["І тоқсан", "ІІ тоқсан", "ІІІ тоқсан", "IV тоқсан"],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": [
+      "y 'ж'. d MMMM, EEEE",
+      "y 'ж'. d MMMM",
+      "y 'ж'. dd MMM",
+      "dd.MM.yy"
+    ],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "km": {
+    "NAME": "km",
+    "WEEKDAYS": [
+      "អាទិត្យ",
+      "ច័ន្ទ",
+      "អង្គារ",
+      "ពុធ",
+      "ព្រហស្បតិ៍",
+      "សុក្រ",
+      "សៅរ៍"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "អាទិត្យ",
+      "ចន្ទ",
+      "អង្គារ",
+      "ពុធ",
+      "ព្រហស្បតិ៍",
+      "សុក្រ",
+      "សៅរ៍"
+    ],
+    "SHORTWEEKDAYS": [
+      "អាទិត្យ",
+      "ចន្ទ",
+      "អង្គារ",
+      "ពុធ",
+      "ព្រហ",
+      "សុក្រ",
+      "សៅរ៍"
+    ],
+    "STANDALONESHORTWEEKDAYS": [
+      "អាទិត្យ",
+      "ចន្ទ",
+      "អង្គារ",
+      "ពុធ",
+      "ព្រហ",
+      "សុក្រ",
+      "សៅរ៍"
+    ],
+    "NARROWWEEKDAYS": ["អ", "ច", "អ", "ព", "ព", "ស", "ស"],
+    "STANDALONENARROWWEEKDAYS": ["អ", "ច", "អ", "ព", "ព", "ស", "ស"],
+    "SHORTQUARTERS": [
+      "ត្រីមាសទី 1",
+      "ត្រីមាសទី 2",
+      "ត្រីមាសទី 3",
+      "ត្រីមាសទី 4"
+    ],
+    "QUARTERS": ["ត្រីមាសទី 1", "ត្រីមាសទី 2", "ត្រីមាសទី 3", "ត្រីមាសទី 4"],
+    "AMPMS": ["a", "p"],
+    "DATEFORMATS": ["EEEE d MMMM y", "d MMMM y", "d MMM y", "d/M/yy"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "kn": {
+    "NAME": "kn",
+    "WEEKDAYS": [
+      "ಭಾನುವಾರ",
+      "ಸೋಮವಾರ",
+      "ಮಂಗಳವಾರ",
+      "ಬುಧವಾರ",
+      "ಗುರುವಾರ",
+      "ಶುಕ್ರವಾರ",
+      "ಶನಿವಾರ"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "ಭಾನುವಾರ",
+      "ಸೋಮವಾರ",
+      "ಮಂಗಳವಾರ",
+      "ಬುಧವಾರ",
+      "ಗುರುವಾರ",
+      "ಶುಕ್ರವಾರ",
+      "ಶನಿವಾರ"
+    ],
+    "SHORTWEEKDAYS": ["ಭಾನು", "ಸೋಮ", "ಮಂಗಳ", "ಬುಧ", "ಗುರು", "ಶುಕ್ರ", "ಶನಿ"],
+    "STANDALONESHORTWEEKDAYS": [
+      "ಭಾನು",
+      "ಸೋಮ",
+      "ಮಂಗಳ",
+      "ಬುಧ",
+      "ಗುರು",
+      "ಶುಕ್ರ",
+      "ಶನಿ"
+    ],
+    "NARROWWEEKDAYS": ["ಭಾ", "ಸೋ", "ಮಂ", "ಬು", "ಗು", "ಶು", "ಶ"],
+    "STANDALONENARROWWEEKDAYS": ["ಭಾ", "ಸೋ", "ಮಂ", "ಬು", "ಗು", "ಶು", "ಶ"],
+    "SHORTQUARTERS": ["ತ್ರೈ 1", "ತ್ರೈ 2", "ತ್ರೈ 3", "ತ್ರೈ 4"],
+    "QUARTERS": [
+      "1ನೇ ತ್ರೈಮಾಸಿಕ",
+      "2ನೇ ತ್ರೈಮಾಸಿಕ",
+      "3ನೇ ತ್ರೈಮಾಸಿಕ",
+      "4ನೇ ತ್ರೈಮಾಸಿಕ"
+    ],
+    "AMPMS": ["a", "p"],
+    "DATEFORMATS": ["EEEE, MMMM d, y", "MMMM d, y", "MMM d, y", "d/M/yy"],
+    "TIMEFORMATS": ["hh:mm:ss a zzzz", "hh:mm:ss a z", "hh:mm:ss a", "hh:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [6, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "ko": {
+    "NAME": "ko",
+    "WEEKDAYS": ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"],
+    "STANDALONEWEEKDAYS": ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"],
+    "SHORTWEEKDAYS": ["일", "월", "화", "수", "목", "금", "토"],
+    "STANDALONESHORTWEEKDAYS": ["일", "월", "화", "수", "목", "금", "토"],
+    "NARROWWEEKDAYS": ["일", "월", "화", "수", "목", "금", "토"],
+    "STANDALONENARROWWEEKDAYS": ["일", "월", "화", "수", "목", "금", "토"],
+    "SHORTQUARTERS": ["1분기", "2분기", "3분기", "4분기"],
+    "QUARTERS": ["제 1/4분기", "제 2/4분기", "제 3/4분기", "제 4/4분기"],
+    "AMPMS": ["오전", "오후"],
+    "DATEFORMATS": ["y년 MMMM d일 EEEE", "y년 MMMM d일", "y. M. d.", "yy. M. d."],
+    "TIMEFORMATS": ["a h시 m분 s초 zzzz", "a h시 m분 s초 z", "a h:mm:ss", "a h:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "ky": {
+    "NAME": "ky",
+    "WEEKDAYS": [
+      "жекшемби",
+      "дүйшөмбү",
+      "шейшемби",
+      "шаршемби",
+      "бейшемби",
+      "жума",
+      "ишемби"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "жекшемби",
+      "дүйшөмбү",
+      "шейшемби",
+      "шаршемби",
+      "бейшемби",
+      "жума",
+      "ишемби"
+    ],
+    "SHORTWEEKDAYS": [
+      "жек.",
+      "дүй.",
+      "шейш.",
+      "шарш.",
+      "бейш.",
+      "жума",
+      "ишм."
+    ],
+    "STANDALONESHORTWEEKDAYS": [
+      "жек.",
+      "дүй.",
+      "шейш.",
+      "шарш.",
+      "бейш.",
+      "жума",
+      "ишм."
+    ],
+    "NARROWWEEKDAYS": ["Ж", "Д", "Ш", "Ш", "Б", "Ж", "И"],
+    "STANDALONENARROWWEEKDAYS": ["Ж", "Д", "Ш", "Ш", "Б", "Ж", "И"],
+    "SHORTQUARTERS": ["1-чей.", "2-чей.", "3-чей.", "4-чей."],
+    "QUARTERS": ["1-чейрек", "2-чейрек", "3-чейрек", "4-чейрек"],
+    "AMPMS": ["тң", "тк"],
+    "DATEFORMATS": [
+      "y-'ж'., d-MMMM, EEEE",
+      "y-'ж'., d-MMMM",
+      "y-'ж'., d-MMM",
+      "d/M/yy"
+    ],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "ln": {
+    "NAME": "ln",
+    "WEEKDAYS": [
+      "eyenga",
+      "mokɔlɔ mwa yambo",
+      "mokɔlɔ mwa míbalé",
+      "mokɔlɔ mwa mísáto",
+      "mokɔlɔ ya mínéi",
+      "mokɔlɔ ya mítáno",
+      "mpɔ́sɔ"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "eyenga",
+      "mokɔlɔ mwa yambo",
+      "mokɔlɔ mwa míbalé",
+      "mokɔlɔ mwa mísáto",
+      "mokɔlɔ ya mínéi",
+      "mokɔlɔ ya mítáno",
+      "mpɔ́sɔ"
+    ],
+    "SHORTWEEKDAYS": ["eye", "ybo", "mbl", "mst", "min", "mtn", "mps"],
+    "STANDALONESHORTWEEKDAYS": [
+      "eye",
+      "ybo",
+      "mbl",
+      "mst",
+      "min",
+      "mtn",
+      "mps"
+    ],
+    "NARROWWEEKDAYS": ["e", "y", "m", "m", "m", "m", "p"],
+    "STANDALONENARROWWEEKDAYS": ["e", "y", "m", "m", "m", "m", "p"],
+    "SHORTQUARTERS": ["SM1", "SM2", "SM3", "SM4"],
+    "QUARTERS": [
+      "sánzá mísáto ya yambo",
+      "sánzá mísáto ya míbalé",
+      "sánzá mísáto ya mísáto",
+      "sánzá mísáto ya mínei"
+    ],
+    "AMPMS": ["ntɔ́ngɔ́", "mpókwa"],
+    "DATEFORMATS": ["EEEE d MMMM y", "d MMMM y", "d MMM y", "d/M/y"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "lo": {
+    "NAME": "lo",
+    "WEEKDAYS": [
+      "ວັນອາທິດ",
+      "ວັນຈັນ",
+      "ວັນອັງຄານ",
+      "ວັນພຸດ",
+      "ວັນພະຫັດ",
+      "ວັນສຸກ",
+      "ວັນເສົາ"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "ວັນອາທິດ",
+      "ວັນຈັນ",
+      "ວັນອັງຄານ",
+      "ວັນພຸດ",
+      "ວັນພະຫັດ",
+      "ວັນສຸກ",
+      "ວັນເສົາ"
+    ],
+    "SHORTWEEKDAYS": ["ອາທິດ", "ຈັນ", "ອັງຄານ", "ພຸດ", "ພະຫັດ", "ສຸກ", "ເສົາ"],
+    "STANDALONESHORTWEEKDAYS": [
+      "ອາທິດ",
+      "ຈັນ",
+      "ອັງຄານ",
+      "ພຸດ",
+      "ພະຫັດ",
+      "ສຸກ",
+      "ເສົາ"
+    ],
+    "NARROWWEEKDAYS": ["ອາ", "ຈ", "ອ", "ພ", "ພຫ", "ສຸ", "ສ"],
+    "STANDALONENARROWWEEKDAYS": ["ອາ", "ຈ", "ອ", "ພ", "ພຫ", "ສຸ", "ສ"],
+    "SHORTQUARTERS": ["ຕມ1", "ຕມ2", "ຕມ3", "ຕມ4"],
+    "QUARTERS": ["ໄຕຣມາດ 1", "ໄຕຣມາດ 2", "ໄຕຣມາດ 3", "ໄຕຣມາດ 4"],
+    "AMPMS": ["ກ່ອນທ່ຽງ", "ຫຼັງທ່ຽງ"],
+    "DATEFORMATS": ["EEEE, d MMMM y", "d MMMM y", "d MMM y", "d/M/y"],
+    "TIMEFORMATS": [
+      "H ໂມງ m ນາທີ ss ວິນາທີ zzzz",
+      "H ໂມງ m ນາທີ ss ວິນາທີ z",
+      "H:mm:ss",
+      "H:mm"
+    ],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "lt": {
+    "NAME": "lt",
+    "WEEKDAYS": [
+      "sekmadienis",
+      "pirmadienis",
+      "antradienis",
+      "trečiadienis",
+      "ketvirtadienis",
+      "penktadienis",
+      "šeštadienis"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "sekmadienis",
+      "pirmadienis",
+      "antradienis",
+      "trečiadienis",
+      "ketvirtadienis",
+      "penktadienis",
+      "šeštadienis"
+    ],
+    "SHORTWEEKDAYS": ["sk", "pr", "an", "tr", "kt", "pn", "št"],
+    "STANDALONESHORTWEEKDAYS": ["sk", "pr", "an", "tr", "kt", "pn", "št"],
+    "NARROWWEEKDAYS": ["S", "P", "A", "T", "K", "P", "Š"],
+    "STANDALONENARROWWEEKDAYS": ["S", "P", "A", "T", "K", "P", "Š"],
+    "SHORTQUARTERS": ["I k.", "II k.", "III k.", "IV k."],
+    "QUARTERS": [
+      "I ketvirtis",
+      "II ketvirtis",
+      "III ketvirtis",
+      "IV ketvirtis"
+    ],
+    "AMPMS": ["priešpiet", "popiet"],
+    "DATEFORMATS": [
+      "y 'm'. MMMM d 'd'., EEEE",
+      "y 'm'. MMMM d 'd'.",
+      "y-MM-dd",
+      "y-MM-dd"
+    ],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "lv": {
+    "NAME": "lv",
+    "WEEKDAYS": [
+      "svētdiena",
+      "pirmdiena",
+      "otrdiena",
+      "trešdiena",
+      "ceturtdiena",
+      "piektdiena",
+      "sestdiena"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Svētdiena",
+      "Pirmdiena",
+      "Otrdiena",
+      "Trešdiena",
+      "Ceturtdiena",
+      "Piektdiena",
+      "Sestdiena"
+    ],
+    "SHORTWEEKDAYS": [
+      "svētd.",
+      "pirmd.",
+      "otrd.",
+      "trešd.",
+      "ceturtd.",
+      "piektd.",
+      "sestd."
+    ],
+    "STANDALONESHORTWEEKDAYS": [
+      "Svētd.",
+      "Pirmd.",
+      "Otrd.",
+      "Trešd.",
+      "Ceturtd.",
+      "Piektd.",
+      "Sestd."
+    ],
+    "NARROWWEEKDAYS": ["S", "P", "O", "T", "C", "P", "S"],
+    "STANDALONENARROWWEEKDAYS": ["S", "P", "O", "T", "C", "P", "S"],
+    "SHORTQUARTERS": ["1. cet.", "2. cet.", "3. cet.", "4. cet."],
+    "QUARTERS": [
+      "1. ceturksnis",
+      "2. ceturksnis",
+      "3. ceturksnis",
+      "4. ceturksnis"
+    ],
+    "AMPMS": ["priekšp.", "pēcp."],
+    "DATEFORMATS": [
+      "EEEE, y. 'gada' d. MMMM",
+      "y. 'gada' d. MMMM",
+      "y. 'gada' d. MMM",
+      "dd.MM.yy"
+    ],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "mg": {
+    "NAME": "mg",
+    "WEEKDAYS": [
+      "Alahady",
+      "Alatsinainy",
+      "Talata",
+      "Alarobia",
+      "Alakamisy",
+      "Zoma",
+      "Asabotsy"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Alahady",
+      "Alatsinainy",
+      "Talata",
+      "Alarobia",
+      "Alakamisy",
+      "Zoma",
+      "Asabotsy"
+    ],
+    "SHORTWEEKDAYS": ["Alah", "Alats", "Tal", "Alar", "Alak", "Zom", "Asab"],
+    "STANDALONESHORTWEEKDAYS": [
+      "Alah",
+      "Alats",
+      "Tal",
+      "Alar",
+      "Alak",
+      "Zom",
+      "Asab"
+    ],
+    "NARROWWEEKDAYS": ["A", "A", "T", "A", "A", "Z", "A"],
+    "STANDALONENARROWWEEKDAYS": ["A", "A", "T", "A", "A", "Z", "A"],
+    "SHORTQUARTERS": ["T1", "T2", "T3", "T4"],
+    "QUARTERS": [
+      "Telovolana voalohany",
+      "Telovolana faharoa",
+      "Telovolana fahatelo",
+      "Telovolana fahefatra"
+    ],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["EEEE d MMMM y", "d MMMM y", "y MMM d", "y-MM-dd"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "mk": {
+    "NAME": "mk",
+    "WEEKDAYS": [
+      "недела",
+      "понеделник",
+      "вторник",
+      "среда",
+      "четврток",
+      "петок",
+      "сабота"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "недела",
+      "понеделник",
+      "вторник",
+      "среда",
+      "четврток",
+      "петок",
+      "сабота"
+    ],
+    "SHORTWEEKDAYS": ["нед.", "пон.", "вто.", "сре.", "чет.", "пет.", "саб."],
+    "STANDALONESHORTWEEKDAYS": [
+      "нед.",
+      "пон.",
+      "вто.",
+      "сре.",
+      "чет.",
+      "пет.",
+      "саб."
+    ],
+    "NARROWWEEKDAYS": ["н", "п", "в", "с", "ч", "п", "с"],
+    "STANDALONENARROWWEEKDAYS": ["н", "п", "в", "с", "ч", "п", "с"],
+    "SHORTQUARTERS": [
+      "јан. – мар.",
+      "апр. – јун.",
+      "јул. – сеп.",
+      "окт. – дек."
+    ],
+    "QUARTERS": [
+      "прво тримесечје",
+      "второ тримесечје",
+      "трето тримесечје",
+      "четврто тримесечје"
+    ],
+    "AMPMS": ["претпл.", "попл."],
+    "DATEFORMATS": [
+      "EEEE, d MMMM y 'г'.",
+      "d MMMM y 'г'.",
+      "d MMM y 'г'.",
+      "d.M.y 'г'."
+    ],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "ml": {
+    "NAME": "ml",
+    "WEEKDAYS": [
+      "ഞായറാഴ്‌ച",
+      "തിങ്കളാഴ്‌ച",
+      "ചൊവ്വാഴ്ച",
+      "ബുധനാഴ്‌ച",
+      "വ്യാഴാഴ്‌ച",
+      "വെള്ളിയാഴ്‌ച",
+      "ശനിയാഴ്‌ച"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "ഞായറാഴ്‌ച",
+      "തിങ്കളാഴ്‌ച",
+      "ചൊവ്വാഴ്‌ച",
+      "ബുധനാഴ്‌ച",
+      "വ്യാഴാഴ്‌ച",
+      "വെള്ളിയാഴ്‌ച",
+      "ശനിയാഴ്‌ച"
+    ],
+    "SHORTWEEKDAYS": [
+      "ഞായർ",
+      "തിങ്കൾ",
+      "ചൊവ്വ",
+      "ബുധൻ",
+      "വ്യാഴം",
+      "വെള്ളി",
+      "ശനി"
+    ],
+    "STANDALONESHORTWEEKDAYS": [
+      "ഞായർ",
+      "തിങ്കൾ",
+      "ചൊവ്വ",
+      "ബുധൻ",
+      "വ്യാഴം",
+      "വെള്ളി",
+      "ശനി"
+    ],
+    "NARROWWEEKDAYS": ["ഞ", "തി", "ചൊ", "ബു", "വ്യാ", "വെ", "ശ"],
+    "STANDALONENARROWWEEKDAYS": ["ഞാ", "തി", "ചൊ", "ബു", "വ്യാ", "വെ", "ശ"],
+    "SHORTQUARTERS": [
+      "ഒന്നാം പാദം",
+      "രണ്ടാം പാദം",
+      "മൂന്നാം പാദം",
+      "നാലാം പാദം"
+    ],
+    "QUARTERS": ["ഒന്നാം പാദം", "രണ്ടാം പാദം", "മൂന്നാം പാദം", "നാലാം പാദം"],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["y MMMM d, EEEE", "y MMMM d", "y MMM d", "d/M/yy"],
+    "TIMEFORMATS": ["zzzz h:mm:ss a", "z h:mm:ss a", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [6, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "mn": {
+    "NAME": "mn",
+    "WEEKDAYS": [
+      "ням",
+      "даваа",
+      "мягмар",
+      "лхагва",
+      "пүрэв",
+      "баасан",
+      "бямба"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Ням",
+      "Даваа",
+      "Мягмар",
+      "Лхагва",
+      "Пүрэв",
+      "Баасан",
+      "Бямба"
+    ],
+    "SHORTWEEKDAYS": ["Ня", "Да", "Мя", "Лх", "Пү", "Ба", "Бя"],
+    "STANDALONESHORTWEEKDAYS": ["Ня", "Да", "Мя", "Лх", "Пү", "Ба", "Бя"],
+    "NARROWWEEKDAYS": ["Ня", "Да", "Мя", "Лх", "Пү", "Ба", "Бя"],
+    "STANDALONENARROWWEEKDAYS": ["Ня", "Да", "Мя", "Лх", "Пү", "Ба", "Бя"],
+    "SHORTQUARTERS": ["I улирал", "II улирал", "III улирал", "IV улирал"],
+    "QUARTERS": ["1-р улирал", "2-р улирал", "3-р улирал", "4-р улирал"],
+    "AMPMS": ["ү.ө.", "ү.х."],
+    "DATEFORMATS": [
+      "y 'оны' MMMM'ын' d, EEEE 'гараг'",
+      "y 'оны' MMMM'ын' d",
+      "y 'оны' MMM'ын' d",
+      "y.MM.dd"
+    ],
+    "TIMEFORMATS": ["HH:mm:ss (zzzz)", "HH:mm:ss (z)", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "mr": {
+    "NAME": "mr",
+    "WEEKDAYS": [
+      "रविवार",
+      "सोमवार",
+      "मंगळवार",
+      "बुधवार",
+      "गुरुवार",
+      "शुक्रवार",
+      "शनिवार"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "रविवार",
+      "सोमवार",
+      "मंगळवार",
+      "बुधवार",
+      "गुरुवार",
+      "शुक्रवार",
+      "शनिवार"
+    ],
+    "SHORTWEEKDAYS": ["रवि", "सोम", "मंगळ", "बुध", "गुरु", "शुक्र", "शनि"],
+    "STANDALONESHORTWEEKDAYS": [
+      "रवि",
+      "सोम",
+      "मंगळ",
+      "बुध",
+      "गुरु",
+      "शुक्र",
+      "शनि"
+    ],
+    "NARROWWEEKDAYS": ["र", "सो", "मं", "बु", "गु", "शु", "श"],
+    "STANDALONENARROWWEEKDAYS": ["र", "सो", "मं", "बु", "गु", "शु", "श"],
+    "SHORTQUARTERS": ["ति१", "ति२", "ति३", "ति४"],
+    "QUARTERS": [
+      "प्रथम तिमाही",
+      "द्वितीय तिमाही",
+      "तृतीय तिमाही",
+      "चतुर्थ तिमाही"
+    ],
+    "AMPMS": ["a", "p"],
+    "DATEFORMATS": ["EEEE, d MMMM, y", "d MMMM, y", "d MMM, y", "d/M/yy"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [6, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "ms": {
+    "NAME": "ms",
+    "WEEKDAYS": [
+      "Ahad",
+      "Isnin",
+      "Selasa",
+      "Rabu",
+      "Khamis",
+      "Jumaat",
+      "Sabtu"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Ahad",
+      "Isnin",
+      "Selasa",
+      "Rabu",
+      "Khamis",
+      "Jumaat",
+      "Sabtu"
+    ],
+    "SHORTWEEKDAYS": ["Ahd", "Isn", "Sel", "Rab", "Kha", "Jum", "Sab"],
+    "STANDALONESHORTWEEKDAYS": [
+      "Ahd",
+      "Isn",
+      "Sel",
+      "Rab",
+      "Kha",
+      "Jum",
+      "Sab"
+    ],
+    "NARROWWEEKDAYS": ["A", "I", "S", "R", "K", "J", "S"],
+    "STANDALONENARROWWEEKDAYS": ["A", "I", "S", "R", "K", "J", "S"],
+    "SHORTQUARTERS": ["S1", "S2", "S3", "S4"],
+    "QUARTERS": ["Suku pertama", "Suku Ke-2", "Suku Ke-3", "Suku Ke-4"],
+    "AMPMS": ["PG", "PTG"],
+    "DATEFORMATS": ["EEEE, d MMMM y", "d MMMM y", "d MMM y", "d/MM/yy"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "mt": {
+    "NAME": "mt",
+    "WEEKDAYS": [
+      "Il-Ħadd",
+      "It-Tnejn",
+      "It-Tlieta",
+      "L-Erbgħa",
+      "Il-Ħamis",
+      "Il-Ġimgħa",
+      "Is-Sibt"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Il-Ħadd",
+      "It-Tnejn",
+      "It-Tlieta",
+      "L-Erbgħa",
+      "Il-Ħamis",
+      "Il-Ġimgħa",
+      "Is-Sibt"
+    ],
+    "SHORTWEEKDAYS": ["Ħad", "Tne", "Tli", "Erb", "Ħam", "Ġim", "Sib"],
+    "STANDALONESHORTWEEKDAYS": [
+      "Ħad",
+      "Tne",
+      "Tli",
+      "Erb",
+      "Ħam",
+      "Ġim",
+      "Sib"
+    ],
+    "NARROWWEEKDAYS": ["Ħd", "T", "Tl", "Er", "Ħm", "Ġm", "Sb"],
+    "STANDALONENARROWWEEKDAYS": ["Ħd", "Tn", "Tl", "Er", "Ħm", "Ġm", "Sb"],
+    "SHORTQUARTERS": ["K1", "K2", "K3", "K4"],
+    "QUARTERS": ["1el kwart", "2ni kwart", "3et kwart", "4ba’ kwart"],
+    "AMPMS": ["am", "pm"],
+    "DATEFORMATS": [
+      "EEEE, d 'ta'’ MMMM y",
+      "d 'ta'’ MMMM y",
+      "dd MMM y",
+      "dd/MM/y"
+    ],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "my": {
+    "NAME": "my",
+    "WEEKDAYS": [
+      "တနင်္ဂနွေ",
+      "တနင်္လာ",
+      "အင်္ဂါ",
+      "ဗုဒ္ဓဟူး",
+      "ကြာသပတေး",
+      "သောကြာ",
+      "စနေ"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "တနင်္ဂနွေ",
+      "တနင်္လာ",
+      "အင်္ဂါ",
+      "ဗုဒ္ဓဟူး",
+      "ကြာသပတေး",
+      "သောကြာ",
+      "စနေ"
+    ],
+    "SHORTWEEKDAYS": [
+      "တနင်္ဂနွေ",
+      "တနင်္လာ",
+      "အင်္ဂါ",
+      "ဗုဒ္ဓဟူး",
+      "ကြာသပတေး",
+      "သောကြာ",
+      "စနေ"
+    ],
+    "STANDALONESHORTWEEKDAYS": [
+      "တနင်္ဂနွေ",
+      "တနင်္လာ",
+      "အင်္ဂါ",
+      "ဗုဒ္ဓဟူး",
+      "ကြာသပတေး",
+      "သောကြာ",
+      "စနေ"
+    ],
+    "NARROWWEEKDAYS": ["တ", "တ", "အ", "ဗ", "က", "သ", "စ"],
+    "STANDALONENARROWWEEKDAYS": ["တ", "တ", "အ", "ဗ", "က", "သ", "စ"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": [
+      "ပထမ သုံးလပတ်",
+      "ဒုတိယ သုံးလပတ်",
+      "တတိယ သုံးလပတ်",
+      "စတုတ္ထ သုံးလပတ်"
+    ],
+    "AMPMS": ["နံနက်", "ညနေ"],
+    "DATEFORMATS": ["y MMMM d EEEE", "y MMMM d", "y MMM d", "d/M/yy"],
+    "TIMEFORMATS": ["zzzz HH:mm:ss", "z HH:mm:ss", "H:mm:ss", "H:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "nb": {
+    "NAME": "nb",
+    "WEEKDAYS": [
+      "søndag",
+      "mandag",
+      "tirsdag",
+      "onsdag",
+      "torsdag",
+      "fredag",
+      "lørdag"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "søndag",
+      "mandag",
+      "tirsdag",
+      "onsdag",
+      "torsdag",
+      "fredag",
+      "lørdag"
+    ],
+    "SHORTWEEKDAYS": ["søn.", "man.", "tir.", "ons.", "tor.", "fre.", "lør."],
+    "STANDALONESHORTWEEKDAYS": [
+      "søn.",
+      "man.",
+      "tir.",
+      "ons.",
+      "tor.",
+      "fre.",
+      "lør."
+    ],
+    "NARROWWEEKDAYS": ["S", "M", "T", "O", "T", "F", "L"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "T", "O", "T", "F", "L"],
+    "SHORTQUARTERS": ["K1", "K2", "K3", "K4"],
+    "QUARTERS": ["1. kvartal", "2. kvartal", "3. kvartal", "4. kvartal"],
+    "AMPMS": ["a.m.", "p.m."],
+    "DATEFORMATS": ["EEEE d. MMMM y", "d. MMMM y", "d. MMM y", "dd.MM.y"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "ne": {
+    "NAME": "ne",
+    "WEEKDAYS": [
+      "आइतबार",
+      "सोमबार",
+      "मङ्गलबार",
+      "बुधबार",
+      "बिहिबार",
+      "शुक्रबार",
+      "शनिबार"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "आइतबार",
+      "सोमबार",
+      "मङ्गलबार",
+      "बुधबार",
+      "बिहिबार",
+      "शुक्रबार",
+      "शनिबार"
+    ],
+    "SHORTWEEKDAYS": ["आइत", "सोम", "मङ्गल", "बुध", "बिहि", "शुक्र", "शनि"],
+    "STANDALONESHORTWEEKDAYS": [
+      "आइत",
+      "सोम",
+      "मङ्गल",
+      "बुध",
+      "बिहि",
+      "शुक्र",
+      "शनि"
+    ],
+    "NARROWWEEKDAYS": ["आ", "सो", "म", "बु", "बि", "शु", "श"],
+    "STANDALONENARROWWEEKDAYS": ["आ", "सो", "म", "बु", "बि", "शु", "श"],
+    "SHORTQUARTERS": [
+      "पहिलो त्रैमासिक",
+      "दोस्रो त्रैमासिक",
+      "तेस्रो त्रैमासिक",
+      "चौथो त्रैमासिक"
+    ],
+    "QUARTERS": [
+      "पहिलो त्रैमासिक",
+      "दोस्रो त्रैमासिक",
+      "तेस्रो त्रैमासिक",
+      "चौथो त्रैमासिक"
+    ],
+    "AMPMS": ["पूर्वाह्न", "अपराह्न"],
+    "DATEFORMATS": ["y MMMM d, EEEE", "y MMMM d", "y MMM d", "yy/M/d"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "nl": {
+    "NAME": "nl",
+    "WEEKDAYS": [
+      "zondag",
+      "maandag",
+      "dinsdag",
+      "woensdag",
+      "donderdag",
+      "vrijdag",
+      "zaterdag"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "zondag",
+      "maandag",
+      "dinsdag",
+      "woensdag",
+      "donderdag",
+      "vrijdag",
+      "zaterdag"
+    ],
+    "SHORTWEEKDAYS": ["zo", "ma", "di", "wo", "do", "vr", "za"],
+    "STANDALONESHORTWEEKDAYS": ["zo", "ma", "di", "wo", "do", "vr", "za"],
+    "NARROWWEEKDAYS": ["Z", "M", "D", "W", "D", "V", "Z"],
+    "STANDALONENARROWWEEKDAYS": ["Z", "M", "D", "W", "D", "V", "Z"],
+    "SHORTQUARTERS": ["K1", "K2", "K3", "K4"],
+    "QUARTERS": ["1e kwartaal", "2e kwartaal", "3e kwartaal", "4e kwartaal"],
+    "AMPMS": ["a.m.", "p.m."],
+    "DATEFORMATS": ["EEEE d MMMM y", "d MMMM y", "d MMM y", "dd-MM-y"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "no": {
+    "NAME": "no",
+    "WEEKDAYS": [
+      "søndag",
+      "mandag",
+      "tirsdag",
+      "onsdag",
+      "torsdag",
+      "fredag",
+      "lørdag"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "søndag",
+      "mandag",
+      "tirsdag",
+      "onsdag",
+      "torsdag",
+      "fredag",
+      "lørdag"
+    ],
+    "SHORTWEEKDAYS": ["søn.", "man.", "tir.", "ons.", "tor.", "fre.", "lør."],
+    "STANDALONESHORTWEEKDAYS": [
+      "søn.",
+      "man.",
+      "tir.",
+      "ons.",
+      "tor.",
+      "fre.",
+      "lør."
+    ],
+    "NARROWWEEKDAYS": ["S", "M", "T", "O", "T", "F", "L"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "T", "O", "T", "F", "L"],
+    "SHORTQUARTERS": ["K1", "K2", "K3", "K4"],
+    "QUARTERS": ["1. kvartal", "2. kvartal", "3. kvartal", "4. kvartal"],
+    "AMPMS": ["a.m.", "p.m."],
+    "DATEFORMATS": ["EEEE d. MMMM y", "d. MMMM y", "d. MMM y", "dd.MM.y"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "no_NO": {
+    "NAME": "no_NO",
+    "WEEKDAYS": [
+      "søndag",
+      "mandag",
+      "tirsdag",
+      "onsdag",
+      "torsdag",
+      "fredag",
+      "lørdag"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "søndag",
+      "mandag",
+      "tirsdag",
+      "onsdag",
+      "torsdag",
+      "fredag",
+      "lørdag"
+    ],
+    "SHORTWEEKDAYS": ["søn.", "man.", "tir.", "ons.", "tor.", "fre.", "lør."],
+    "STANDALONESHORTWEEKDAYS": [
+      "søn.",
+      "man.",
+      "tir.",
+      "ons.",
+      "tor.",
+      "fre.",
+      "lør."
+    ],
+    "NARROWWEEKDAYS": ["S", "M", "T", "O", "T", "F", "L"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "T", "O", "T", "F", "L"],
+    "SHORTQUARTERS": ["K1", "K2", "K3", "K4"],
+    "QUARTERS": ["1. kvartal", "2. kvartal", "3. kvartal", "4. kvartal"],
+    "AMPMS": ["a.m.", "p.m."],
+    "DATEFORMATS": ["EEEE d. MMMM y", "d. MMMM y", "d. MMM y", "dd.MM.y"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "nyn": {
+    "NAME": "nyn",
+    "WEEKDAYS": [
+      "Sande",
+      "Orwokubanza",
+      "Orwakabiri",
+      "Orwakashatu",
+      "Orwakana",
+      "Orwakataano",
+      "Orwamukaaga"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Sande",
+      "Orwokubanza",
+      "Orwakabiri",
+      "Orwakashatu",
+      "Orwakana",
+      "Orwakataano",
+      "Orwamukaaga"
+    ],
+    "SHORTWEEKDAYS": ["SAN", "ORK", "OKB", "OKS", "OKN", "OKT", "OMK"],
+    "STANDALONESHORTWEEKDAYS": [
+      "SAN",
+      "ORK",
+      "OKB",
+      "OKS",
+      "OKN",
+      "OKT",
+      "OMK"
+    ],
+    "NARROWWEEKDAYS": ["S", "K", "R", "S", "N", "T", "M"],
+    "STANDALONENARROWWEEKDAYS": ["S", "K", "R", "S", "N", "T", "M"],
+    "SHORTQUARTERS": ["K1", "K2", "K3", "K4"],
+    "QUARTERS": ["KWOTA 1", "KWOTA 2", "KWOTA 3", "KWOTA 4"],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["EEEE, d MMMM y", "d MMMM y", "d MMM y", "dd/MM/y"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "or": {
+    "NAME": "or",
+    "WEEKDAYS": [
+      "ରବିବାର",
+      "ସୋମବାର",
+      "ମଙ୍ଗଳବାର",
+      "ବୁଧବାର",
+      "ଗୁରୁବାର",
+      "ଶୁକ୍ରବାର",
+      "ଶନିବାର"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "ରବିବାର",
+      "ସୋମବାର",
+      "ମଙ୍ଗଳବାର",
+      "ବୁଧବାର",
+      "ଗୁରୁବାର",
+      "ଶୁକ୍ରବାର",
+      "ଶନିବାର"
+    ],
+    "SHORTWEEKDAYS": ["ରବି", "ସୋମ", "ମଙ୍ଗଳ", "ବୁଧ", "ଗୁରୁ", "ଶୁକ୍ର", "ଶନି"],
+    "STANDALONESHORTWEEKDAYS": [
+      "ରବି",
+      "ସୋମ",
+      "ମଙ୍ଗଳ",
+      "ବୁଧ",
+      "ଗୁରୁ",
+      "ଶୁକ୍ର",
+      "ଶନି"
+    ],
+    "NARROWWEEKDAYS": ["ର", "ସୋ", "ମ", "ବୁ", "ଗୁ", "ଶୁ", "ଶ"],
+    "STANDALONENARROWWEEKDAYS": ["ର", "ସୋ", "ମ", "ବୁ", "ଗୁ", "ଶୁ", "ଶ"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["1ମ ତ୍ରୟମାସ", "2ୟ ତ୍ରୟମାସ", "3ୟ ତ୍ରୟମାସ", "4ର୍ଥ ତ୍ରୟମାସ"],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["EEEE, MMMM d, y", "MMMM d, y", "MMM d, y", "M/d/yy"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [6, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "pa": {
+    "NAME": "pa",
+    "WEEKDAYS": [
+      "ਐਤਵਾਰ",
+      "ਸੋਮਵਾਰ",
+      "ਮੰਗਲਵਾਰ",
+      "ਬੁੱਧਵਾਰ",
+      "ਵੀਰਵਾਰ",
+      "ਸ਼ੁੱਕਰਵਾਰ",
+      "ਸ਼ਨੀਵਾਰ"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "ਐਤਵਾਰ",
+      "ਸੋਮਵਾਰ",
+      "ਮੰਗਲਵਾਰ",
+      "ਬੁੱਧਵਾਰ",
+      "ਵੀਰਵਾਰ",
+      "ਸ਼ੁੱਕਰਵਾਰ",
+      "ਸ਼ਨੀਵਾਰ"
+    ],
+    "SHORTWEEKDAYS": ["ਐਤ", "ਸੋਮ", "ਮੰਗਲ", "ਬੁੱਧ", "ਵੀਰ", "ਸ਼ੁੱਕਰ", "ਸ਼ਨੀ"],
+    "STANDALONESHORTWEEKDAYS": [
+      "ਐਤ",
+      "ਸੋਮ",
+      "ਮੰਗਲ",
+      "ਬੁੱਧ",
+      "ਵੀਰ",
+      "ਸ਼ੁੱਕਰ",
+      "ਸ਼ਨੀ"
+    ],
+    "NARROWWEEKDAYS": ["ਐ", "ਸੋ", "ਮੰ", "ਬੁੱ", "ਵੀ", "ਸ਼ੁੱ", "ਸ਼"],
+    "STANDALONENARROWWEEKDAYS": ["ਐ", "ਸੋ", "ਮੰ", "ਬੁੱ", "ਵੀ", "ਸ਼ੁੱ", "ਸ਼"],
+    "SHORTQUARTERS": ["ਤਿਮਾਹੀ1", "ਤਿਮਾਹੀ2", "ਤਿਮਾਹੀ3", "ਤਿਮਾਹੀ4"],
+    "QUARTERS": ["ਪਹਿਲੀ ਤਿਮਾਹੀ", "ਦੂਜੀ ਤਿਮਾਹੀ", "ਤੀਜੀ ਤਿਮਾਹੀ", "ਚੌਥੀ ਤਿਮਾਹੀ"],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["EEEE, d MMMM y", "d MMMM y", "d MMM y", "d/M/yy"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [6, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "pl": {
+    "NAME": "pl",
+    "WEEKDAYS": [
+      "niedziela",
+      "poniedziałek",
+      "wtorek",
+      "środa",
+      "czwartek",
+      "piątek",
+      "sobota"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "niedziela",
+      "poniedziałek",
+      "wtorek",
+      "środa",
+      "czwartek",
+      "piątek",
+      "sobota"
+    ],
+    "SHORTWEEKDAYS": ["niedz.", "pon.", "wt.", "śr.", "czw.", "pt.", "sob."],
+    "STANDALONESHORTWEEKDAYS": [
+      "niedz.",
+      "pon.",
+      "wt.",
+      "śr.",
+      "czw.",
+      "pt.",
+      "sob."
+    ],
+    "NARROWWEEKDAYS": ["n", "p", "w", "ś", "c", "p", "s"],
+    "STANDALONENARROWWEEKDAYS": ["N", "P", "W", "Ś", "C", "P", "S"],
+    "SHORTQUARTERS": ["I kw.", "II kw.", "III kw.", "IV kw."],
+    "QUARTERS": ["I kwartał", "II kwartał", "III kwartał", "IV kwartał"],
+    "AMPMS": ["a", "p"],
+    "DATEFORMATS": ["EEEE, d MMMM y", "d MMMM y", "d MMM y", "d.MM.y"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "ps": {
+    "NAME": "ps",
+    "WEEKDAYS": ["يونۍ", "دونۍ", "درېنۍ", "څلرنۍ", "پينځنۍ", "جمعه", "اونۍ"],
+    "STANDALONEWEEKDAYS": [
+      "يونۍ",
+      "دونۍ",
+      "درېنۍ",
+      "څلرنۍ",
+      "پينځنۍ",
+      "جمعه",
+      "اونۍ"
+    ],
+    "SHORTWEEKDAYS": [
+      "يونۍ",
+      "دونۍ",
+      "درېنۍ",
+      "څلرنۍ",
+      "پينځنۍ",
+      "جمعه",
+      "اونۍ"
+    ],
+    "STANDALONESHORTWEEKDAYS": [
+      "يونۍ",
+      "دونۍ",
+      "درېنۍ",
+      "څلرنۍ",
+      "پينځنۍ",
+      "جمعه",
+      "اونۍ"
+    ],
+    "NARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "SHORTQUARTERS": ["لومړۍ ربعه", "۲مه ربعه", "۳مه ربعه", "۴مه ربعه"],
+    "QUARTERS": ["لومړۍ ربعه", "۲مه ربعه", "۳مه ربعه", "۴مه ربعه"],
+    "AMPMS": ["غ.م.", "غ.و."],
+    "DATEFORMATS": ["EEEE د y د MMMM d", "y MMMM d", "y MMM d", "y/M/d"],
+    "TIMEFORMATS": ["H:mm:ss (zzzz)", "H:mm:ss (z)", "H:mm:ss", "H:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 5,
+    "WEEKENDRANGE": [3, 4],
+    "FIRSTWEEKCUTOFFDAY": 4,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "pt": {
+    "NAME": "pt",
+    "WEEKDAYS": [
+      "domingo",
+      "segunda-feira",
+      "terça-feira",
+      "quarta-feira",
+      "quinta-feira",
+      "sexta-feira",
+      "sábado"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "domingo",
+      "segunda-feira",
+      "terça-feira",
+      "quarta-feira",
+      "quinta-feira",
+      "sexta-feira",
+      "sábado"
+    ],
+    "SHORTWEEKDAYS": ["dom.", "seg.", "ter.", "qua.", "qui.", "sex.", "sáb."],
+    "STANDALONESHORTWEEKDAYS": [
+      "dom.",
+      "seg.",
+      "ter.",
+      "qua.",
+      "qui.",
+      "sex.",
+      "sáb."
+    ],
+    "NARROWWEEKDAYS": ["D", "S", "T", "Q", "Q", "S", "S"],
+    "STANDALONENARROWWEEKDAYS": ["D", "S", "T", "Q", "Q", "S", "S"],
+    "SHORTQUARTERS": ["T1", "T2", "T3", "T4"],
+    "QUARTERS": [
+      "1º trimestre",
+      "2º trimestre",
+      "3º trimestre",
+      "4º trimestre"
+    ],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": [
+      "EEEE, d 'de' MMMM 'de' y",
+      "d 'de' MMMM 'de' y",
+      "d 'de' MMM 'de' y",
+      "dd/MM/y"
+    ],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "pt_BR": {
+    "NAME": "pt_BR",
+    "WEEKDAYS": [
+      "domingo",
+      "segunda-feira",
+      "terça-feira",
+      "quarta-feira",
+      "quinta-feira",
+      "sexta-feira",
+      "sábado"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "domingo",
+      "segunda-feira",
+      "terça-feira",
+      "quarta-feira",
+      "quinta-feira",
+      "sexta-feira",
+      "sábado"
+    ],
+    "SHORTWEEKDAYS": ["dom.", "seg.", "ter.", "qua.", "qui.", "sex.", "sáb."],
+    "STANDALONESHORTWEEKDAYS": [
+      "dom.",
+      "seg.",
+      "ter.",
+      "qua.",
+      "qui.",
+      "sex.",
+      "sáb."
+    ],
+    "NARROWWEEKDAYS": ["D", "S", "T", "Q", "Q", "S", "S"],
+    "STANDALONENARROWWEEKDAYS": ["D", "S", "T", "Q", "Q", "S", "S"],
+    "SHORTQUARTERS": ["T1", "T2", "T3", "T4"],
+    "QUARTERS": [
+      "1º trimestre",
+      "2º trimestre",
+      "3º trimestre",
+      "4º trimestre"
+    ],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": [
+      "EEEE, d 'de' MMMM 'de' y",
+      "d 'de' MMMM 'de' y",
+      "d 'de' MMM 'de' y",
+      "dd/MM/y"
+    ],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "pt_PT": {
+    "NAME": "pt_PT",
+    "WEEKDAYS": [
+      "domingo",
+      "segunda-feira",
+      "terça-feira",
+      "quarta-feira",
+      "quinta-feira",
+      "sexta-feira",
+      "sábado"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "domingo",
+      "segunda-feira",
+      "terça-feira",
+      "quarta-feira",
+      "quinta-feira",
+      "sexta-feira",
+      "sábado"
+    ],
+    "SHORTWEEKDAYS": [
+      "domingo",
+      "segunda",
+      "terça",
+      "quarta",
+      "quinta",
+      "sexta",
+      "sábado"
+    ],
+    "STANDALONESHORTWEEKDAYS": [
+      "domingo",
+      "segunda",
+      "terça",
+      "quarta",
+      "quinta",
+      "sexta",
+      "sábado"
+    ],
+    "NARROWWEEKDAYS": ["D", "S", "T", "Q", "Q", "S", "S"],
+    "STANDALONENARROWWEEKDAYS": ["D", "S", "T", "Q", "Q", "S", "S"],
+    "SHORTQUARTERS": ["T1", "T2", "T3", "T4"],
+    "QUARTERS": [
+      "1.º trimestre",
+      "2.º trimestre",
+      "3.º trimestre",
+      "4.º trimestre"
+    ],
+    "AMPMS": ["a.m.", "p.m."],
+    "DATEFORMATS": [
+      "EEEE, d 'de' MMMM 'de' y",
+      "d 'de' MMMM 'de' y",
+      "dd/MM/y",
+      "dd/MM/yy"
+    ],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 2,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "ro": {
+    "NAME": "ro",
+    "WEEKDAYS": [
+      "duminică",
+      "luni",
+      "marți",
+      "miercuri",
+      "joi",
+      "vineri",
+      "sâmbătă"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "duminică",
+      "luni",
+      "marți",
+      "miercuri",
+      "joi",
+      "vineri",
+      "sâmbătă"
+    ],
+    "SHORTWEEKDAYS": ["dum.", "lun.", "mar.", "mie.", "joi", "vin.", "sâm."],
+    "STANDALONESHORTWEEKDAYS": [
+      "dum.",
+      "lun.",
+      "mar.",
+      "mie.",
+      "joi",
+      "vin.",
+      "sâm."
+    ],
+    "NARROWWEEKDAYS": ["D", "L", "M", "M", "J", "V", "S"],
+    "STANDALONENARROWWEEKDAYS": ["D", "L", "M", "M", "J", "V", "S"],
+    "SHORTQUARTERS": ["trim. I", "trim. II", "trim. III", "trim. IV"],
+    "QUARTERS": [
+      "trimestrul I",
+      "trimestrul al II-lea",
+      "trimestrul al III-lea",
+      "trimestrul al IV-lea"
+    ],
+    "AMPMS": ["a.m.", "p.m."],
+    "DATEFORMATS": ["EEEE, d MMMM y", "d MMMM y", "d MMM y", "dd.MM.y"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "ru": {
+    "NAME": "ru",
+    "WEEKDAYS": [
+      "воскресенье",
+      "понедельник",
+      "вторник",
+      "среда",
+      "четверг",
+      "пятница",
+      "суббота"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "воскресенье",
+      "понедельник",
+      "вторник",
+      "среда",
+      "четверг",
+      "пятница",
+      "суббота"
+    ],
+    "SHORTWEEKDAYS": ["вс", "пн", "вт", "ср", "чт", "пт", "сб"],
+    "STANDALONESHORTWEEKDAYS": ["вс", "пн", "вт", "ср", "чт", "пт", "сб"],
+    "NARROWWEEKDAYS": ["В", "П", "В", "С", "Ч", "П", "С"],
+    "STANDALONENARROWWEEKDAYS": ["В", "П", "В", "С", "Ч", "П", "С"],
+    "SHORTQUARTERS": ["1-й кв.", "2-й кв.", "3-й кв.", "4-й кв."],
+    "QUARTERS": ["1-й квартал", "2-й квартал", "3-й квартал", "4-й квартал"],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": [
+      "EEEE, d MMMM y 'г'.",
+      "d MMMM y 'г'.",
+      "d MMM y 'г'.",
+      "dd.MM.y"
+    ],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "si": {
+    "NAME": "si",
+    "WEEKDAYS": [
+      "ඉරිදා",
+      "සඳුදා",
+      "අඟහරුවාදා",
+      "බදාදා",
+      "බ්‍රහස්පතින්දා",
+      "සිකුරාදා",
+      "සෙනසුරාදා"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "ඉරිදා",
+      "සඳුදා",
+      "අඟහරුවාදා",
+      "බදාදා",
+      "බ්‍රහස්පතින්දා",
+      "සිකුරාදා",
+      "සෙනසුරාදා"
+    ],
+    "SHORTWEEKDAYS": [
+      "ඉරිදා",
+      "සඳුදා",
+      "අඟහ",
+      "බදාදා",
+      "බ්‍රහස්",
+      "සිකු",
+      "සෙන"
+    ],
+    "STANDALONESHORTWEEKDAYS": [
+      "ඉරිදා",
+      "සඳුදා",
+      "අඟහ",
+      "බදාදා",
+      "බ්‍රහස්",
+      "සිකු",
+      "සෙන"
+    ],
+    "NARROWWEEKDAYS": ["ඉ", "ස", "අ", "බ", "බ්‍ර", "සි", "සෙ"],
+    "STANDALONENARROWWEEKDAYS": ["ඉ", "ස", "අ", "බ", "බ්‍ර", "සි", "සෙ"],
+    "SHORTQUARTERS": ["කාර්:1", "කාර්:2", "කාර්:3", "කාර්:4"],
+    "QUARTERS": [
+      "1 වන කාර්තුව",
+      "2 වන කාර්තුව",
+      "3 වන කාර්තුව",
+      "4 වන කාර්තුව"
+    ],
+    "AMPMS": ["පෙ.ව.", "ප.ව."],
+    "DATEFORMATS": ["y MMMM d, EEEE", "y MMMM d", "y MMM d", "y-MM-dd"],
+    "TIMEFORMATS": ["HH.mm.ss zzzz", "HH.mm.ss z", "HH.mm.ss", "HH.mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "sk": {
+    "NAME": "sk",
+    "WEEKDAYS": [
+      "nedeľa",
+      "pondelok",
+      "utorok",
+      "streda",
+      "štvrtok",
+      "piatok",
+      "sobota"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "nedeľa",
+      "pondelok",
+      "utorok",
+      "streda",
+      "štvrtok",
+      "piatok",
+      "sobota"
+    ],
+    "SHORTWEEKDAYS": ["ne", "po", "ut", "st", "št", "pi", "so"],
+    "STANDALONESHORTWEEKDAYS": ["ne", "po", "ut", "st", "št", "pi", "so"],
+    "NARROWWEEKDAYS": ["n", "p", "u", "s", "š", "p", "s"],
+    "STANDALONENARROWWEEKDAYS": ["n", "p", "u", "s", "š", "p", "s"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["1. štvrťrok", "2. štvrťrok", "3. štvrťrok", "4. štvrťrok"],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["EEEE d. MMMM y", "d. MMMM y", "d. M. y", "d. M. y"],
+    "TIMEFORMATS": ["H:mm:ss zzzz", "H:mm:ss z", "H:mm:ss", "H:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1} {0}"]
+  },
+  "sl": {
+    "NAME": "sl",
+    "WEEKDAYS": [
+      "nedelja",
+      "ponedeljek",
+      "torek",
+      "sreda",
+      "četrtek",
+      "petek",
+      "sobota"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "nedelja",
+      "ponedeljek",
+      "torek",
+      "sreda",
+      "četrtek",
+      "petek",
+      "sobota"
+    ],
+    "SHORTWEEKDAYS": ["ned.", "pon.", "tor.", "sre.", "čet.", "pet.", "sob."],
+    "STANDALONESHORTWEEKDAYS": [
+      "ned.",
+      "pon.",
+      "tor.",
+      "sre.",
+      "čet.",
+      "pet.",
+      "sob."
+    ],
+    "NARROWWEEKDAYS": ["n", "p", "t", "s", "č", "p", "s"],
+    "STANDALONENARROWWEEKDAYS": ["n", "p", "t", "s", "č", "p", "s"],
+    "SHORTQUARTERS": ["1. čet.", "2. čet.", "3. čet.", "4. čet."],
+    "QUARTERS": [
+      "1. četrtletje",
+      "2. četrtletje",
+      "3. četrtletje",
+      "4. četrtletje"
+    ],
+    "AMPMS": ["dop.", "pop."],
+    "DATEFORMATS": ["EEEE, d. MMMM y", "d. MMMM y", "d. MMM y", "d. M. y"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "sq": {
+    "NAME": "sq",
+    "WEEKDAYS": [
+      "e diel",
+      "e hënë",
+      "e martë",
+      "e mërkurë",
+      "e enjte",
+      "e premte",
+      "e shtunë"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "e diel",
+      "e hënë",
+      "e martë",
+      "e mërkurë",
+      "e enjte",
+      "e premte",
+      "e shtunë"
+    ],
+    "SHORTWEEKDAYS": ["die", "hën", "mar", "mër", "enj", "pre", "sht"],
+    "STANDALONESHORTWEEKDAYS": [
+      "die",
+      "hën",
+      "mar",
+      "mër",
+      "enj",
+      "pre",
+      "sht"
+    ],
+    "NARROWWEEKDAYS": ["d", "h", "m", "m", "e", "p", "sh"],
+    "STANDALONENARROWWEEKDAYS": ["d", "h", "m", "m", "e", "p", "sh"],
+    "SHORTQUARTERS": [
+      "tremujori I",
+      "tremujori II",
+      "tremujori III",
+      "tremujori IV"
+    ],
+    "QUARTERS": [
+      "tremujori i parë",
+      "tremujori i dytë",
+      "tremujori i tretë",
+      "tremujori i katërt"
+    ],
+    "AMPMS": ["p.d.", "m.d."],
+    "DATEFORMATS": ["EEEE, d MMMM y", "d MMMM y", "d MMM y", "d.M.yy"],
+    "TIMEFORMATS": ["h:mm:ss a, zzzz", "h:mm:ss a, z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "sr": {
+    "NAME": "sr",
+    "WEEKDAYS": [
+      "недеља",
+      "понедељак",
+      "уторак",
+      "среда",
+      "четвртак",
+      "петак",
+      "субота"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "недеља",
+      "понедељак",
+      "уторак",
+      "среда",
+      "четвртак",
+      "петак",
+      "субота"
+    ],
+    "SHORTWEEKDAYS": ["нед", "пон", "уто", "сре", "чет", "пет", "суб"],
+    "STANDALONESHORTWEEKDAYS": [
+      "нед",
+      "пон",
+      "уто",
+      "сре",
+      "чет",
+      "пет",
+      "суб"
+    ],
+    "NARROWWEEKDAYS": ["н", "п", "у", "с", "ч", "п", "с"],
+    "STANDALONENARROWWEEKDAYS": ["н", "п", "у", "с", "ч", "п", "с"],
+    "SHORTQUARTERS": ["1. кв.", "2. кв.", "3. кв.", "4. кв."],
+    "QUARTERS": [
+      "први квартал",
+      "други квартал",
+      "трећи квартал",
+      "четврти квартал"
+    ],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["EEEE, d. MMMM y.", "d. MMMM y.", "d. M. y.", "d. M. y."],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "sr_Latn": {
+    "NAME": "sr_Latn",
+    "WEEKDAYS": [
+      "nedelja",
+      "ponedeljak",
+      "utorak",
+      "sreda",
+      "četvrtak",
+      "petak",
+      "subota"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "nedelja",
+      "ponedeljak",
+      "utorak",
+      "sreda",
+      "četvrtak",
+      "petak",
+      "subota"
+    ],
+    "SHORTWEEKDAYS": ["ned", "pon", "uto", "sre", "čet", "pet", "sub"],
+    "STANDALONESHORTWEEKDAYS": [
+      "ned",
+      "pon",
+      "uto",
+      "sre",
+      "čet",
+      "pet",
+      "sub"
+    ],
+    "NARROWWEEKDAYS": ["n", "p", "u", "s", "č", "p", "s"],
+    "STANDALONENARROWWEEKDAYS": ["n", "p", "u", "s", "č", "p", "s"],
+    "SHORTQUARTERS": ["1. kv.", "2. kv.", "3. kv.", "4. kv."],
+    "QUARTERS": [
+      "prvi kvartal",
+      "drugi kvartal",
+      "treći kvartal",
+      "četvrti kvartal"
+    ],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["EEEE, d. MMMM y.", "d. MMMM y.", "d. M. y.", "d. M. y."],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "sv": {
+    "NAME": "sv",
+    "WEEKDAYS": [
+      "söndag",
+      "måndag",
+      "tisdag",
+      "onsdag",
+      "torsdag",
+      "fredag",
+      "lördag"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "söndag",
+      "måndag",
+      "tisdag",
+      "onsdag",
+      "torsdag",
+      "fredag",
+      "lördag"
+    ],
+    "SHORTWEEKDAYS": ["sön", "mån", "tis", "ons", "tors", "fre", "lör"],
+    "STANDALONESHORTWEEKDAYS": [
+      "sön",
+      "mån",
+      "tis",
+      "ons",
+      "tors",
+      "fre",
+      "lör"
+    ],
+    "NARROWWEEKDAYS": ["S", "M", "T", "O", "T", "F", "L"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "T", "O", "T", "F", "L"],
+    "SHORTQUARTERS": ["K1", "K2", "K3", "K4"],
+    "QUARTERS": [
+      "1:a kvartalet",
+      "2:a kvartalet",
+      "3:e kvartalet",
+      "4:e kvartalet"
+    ],
+    "AMPMS": ["fm", "em"],
+    "DATEFORMATS": ["EEEE d MMMM y", "d MMMM y", "d MMM y", "y-MM-dd"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 3,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "sw": {
+    "NAME": "sw",
+    "WEEKDAYS": [
+      "Jumapili",
+      "Jumatatu",
+      "Jumanne",
+      "Jumatano",
+      "Alhamisi",
+      "Ijumaa",
+      "Jumamosi"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Jumapili",
+      "Jumatatu",
+      "Jumanne",
+      "Jumatano",
+      "Alhamisi",
+      "Ijumaa",
+      "Jumamosi"
+    ],
+    "SHORTWEEKDAYS": [
+      "Jumapili",
+      "Jumatatu",
+      "Jumanne",
+      "Jumatano",
+      "Alhamisi",
+      "Ijumaa",
+      "Jumamosi"
+    ],
+    "STANDALONESHORTWEEKDAYS": [
+      "Jumapili",
+      "Jumatatu",
+      "Jumanne",
+      "Jumatano",
+      "Alhamisi",
+      "Ijumaa",
+      "Jumamosi"
+    ],
+    "NARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "SHORTQUARTERS": ["Robo ya 1", "Robo ya 2", "Robo ya 3", "Robo ya 4"],
+    "QUARTERS": ["Robo ya 1", "Robo ya 2", "Robo ya 3", "Robo ya 4"],
+    "AMPMS": ["am", "pm"],
+    "DATEFORMATS": ["EEEE, d MMMM y", "d MMMM y", "d MMM y", "dd/MM/y"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "ta": {
+    "NAME": "ta",
+    "WEEKDAYS": [
+      "ஞாயிறு",
+      "திங்கள்",
+      "செவ்வாய்",
+      "புதன்",
+      "வியாழன்",
+      "வெள்ளி",
+      "சனி"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "ஞாயிறு",
+      "திங்கள்",
+      "செவ்வாய்",
+      "புதன்",
+      "வியாழன்",
+      "வெள்ளி",
+      "சனி"
+    ],
+    "SHORTWEEKDAYS": [
+      "ஞாயி.",
+      "திங்.",
+      "செவ்.",
+      "புத.",
+      "வியா.",
+      "வெள்.",
+      "சனி"
+    ],
+    "STANDALONESHORTWEEKDAYS": [
+      "ஞாயி.",
+      "திங்.",
+      "செவ்.",
+      "புத.",
+      "வியா.",
+      "வெள்.",
+      "சனி"
+    ],
+    "NARROWWEEKDAYS": ["ஞா", "தி", "செ", "பு", "வி", "வெ", "ச"],
+    "STANDALONENARROWWEEKDAYS": ["ஞா", "தி", "செ", "பு", "வி", "வெ", "ச"],
+    "SHORTQUARTERS": ["கா.1", "கா.2", "கா.3", "கா.4"],
+    "QUARTERS": [
+      "முதல் காலாண்டு",
+      "இரண்டாம் காலாண்டு",
+      "மூன்றாம் காலாண்டு",
+      "நான்காம் காலாண்டு"
+    ],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["EEEE, d MMMM, y", "d MMMM, y", "d MMM, y", "d/M/yy"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [6, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "te": {
+    "NAME": "te",
+    "WEEKDAYS": [
+      "ఆదివారం",
+      "సోమవారం",
+      "మంగళవారం",
+      "బుధవారం",
+      "గురువారం",
+      "శుక్రవారం",
+      "శనివారం"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "ఆదివారం",
+      "సోమవారం",
+      "మంగళవారం",
+      "బుధవారం",
+      "గురువారం",
+      "శుక్రవారం",
+      "శనివారం"
+    ],
+    "SHORTWEEKDAYS": ["ఆది", "సోమ", "మంగళ", "బుధ", "గురు", "శుక్ర", "శని"],
+    "STANDALONESHORTWEEKDAYS": [
+      "ఆది",
+      "సోమ",
+      "మంగళ",
+      "బుధ",
+      "గురు",
+      "శుక్ర",
+      "శని"
+    ],
+    "NARROWWEEKDAYS": ["ఆ", "సో", "మ", "బు", "గు", "శు", "శ"],
+    "STANDALONENARROWWEEKDAYS": ["ఆ", "సో", "మ", "బు", "గు", "శు", "శ"],
+    "SHORTQUARTERS": ["త్రై1", "త్రై2", "త్రై3", "త్రై4"],
+    "QUARTERS": [
+      "1వ త్రైమాసికం",
+      "2వ త్రైమాసికం",
+      "3వ త్రైమాసికం",
+      "4వ త్రైమాసికం"
+    ],
+    "AMPMS": ["AM", "PM"],
+    "DATEFORMATS": ["d, MMMM y, EEEE", "d MMMM, y", "d MMM, y", "dd-MM-yy"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [6, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "th": {
+    "NAME": "th",
+    "WEEKDAYS": [
+      "วันอาทิตย์",
+      "วันจันทร์",
+      "วันอังคาร",
+      "วันพุธ",
+      "วันพฤหัสบดี",
+      "วันศุกร์",
+      "วันเสาร์"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "วันอาทิตย์",
+      "วันจันทร์",
+      "วันอังคาร",
+      "วันพุธ",
+      "วันพฤหัสบดี",
+      "วันศุกร์",
+      "วันเสาร์"
+    ],
+    "SHORTWEEKDAYS": [
+      "อาทิตย์",
+      "จันทร์",
+      "อังคาร",
+      "พุธ",
+      "พฤหัส",
+      "ศุกร์",
+      "เสาร์"
+    ],
+    "STANDALONESHORTWEEKDAYS": [
+      "อาทิตย์",
+      "จันทร์",
+      "อังคาร",
+      "พุธ",
+      "พฤหัส",
+      "ศุกร์",
+      "เสาร์"
+    ],
+    "NARROWWEEKDAYS": ["อา", "จ", "อ", "พ", "พฤ", "ศ", "ส"],
+    "STANDALONENARROWWEEKDAYS": ["อา", "จ", "อ", "พ", "พฤ", "ศ", "ส"],
+    "SHORTQUARTERS": ["ไตรมาส 1", "ไตรมาส 2", "ไตรมาส 3", "ไตรมาส 4"],
+    "QUARTERS": ["ไตรมาส 1", "ไตรมาส 2", "ไตรมาส 3", "ไตรมาส 4"],
+    "AMPMS": ["a", "p"],
+    "DATEFORMATS": ["EEEEที่ d MMMM G y", "d MMMM G y", "d MMM y", "d/M/yy"],
+    "TIMEFORMATS": [
+      "H นาฬิกา mm นาที ss วินาที zzzz",
+      "H นาฬิกา mm นาที ss วินาที z",
+      "HH:mm:ss",
+      "HH:mm"
+    ],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "tl": {
+    "NAME": "tl",
+    "WEEKDAYS": [
+      "Linggo",
+      "Lunes",
+      "Martes",
+      "Miyerkules",
+      "Huwebes",
+      "Biyernes",
+      "Sabado"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Linggo",
+      "Lunes",
+      "Martes",
+      "Miyerkules",
+      "Huwebes",
+      "Biyernes",
+      "Sabado"
+    ],
+    "SHORTWEEKDAYS": ["Lin", "Lun", "Mar", "Miy", "Huw", "Biy", "Sab"],
+    "STANDALONESHORTWEEKDAYS": [
+      "Lin",
+      "Lun",
+      "Mar",
+      "Miy",
+      "Huw",
+      "Biy",
+      "Sab"
+    ],
+    "NARROWWEEKDAYS": ["Lin", "Lun", "Mar", "Miy", "Huw", "Biy", "Sab"],
+    "STANDALONENARROWWEEKDAYS": [
+      "Lin",
+      "Lun",
+      "Mar",
+      "Miy",
+      "Huw",
+      "Biy",
+      "Sab"
+    ],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": [
+      "ika-1 quarter",
+      "ika-2 quarter",
+      "ika-3 quarter",
+      "ika-4 na quarter"
+    ],
+    "AMPMS": ["am", "pm"],
+    "DATEFORMATS": ["EEEE, MMMM d, y", "MMMM d, y", "MMM d, y", "M/d/yy"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "tr": {
+    "NAME": "tr",
+    "WEEKDAYS": [
+      "Pazar",
+      "Pazartesi",
+      "Salı",
+      "Çarşamba",
+      "Perşembe",
+      "Cuma",
+      "Cumartesi"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Pazar",
+      "Pazartesi",
+      "Salı",
+      "Çarşamba",
+      "Perşembe",
+      "Cuma",
+      "Cumartesi"
+    ],
+    "SHORTWEEKDAYS": ["Paz", "Pzt", "Sal", "Çar", "Per", "Cum", "Cmt"],
+    "STANDALONESHORTWEEKDAYS": [
+      "Paz",
+      "Pzt",
+      "Sal",
+      "Çar",
+      "Per",
+      "Cum",
+      "Cmt"
+    ],
+    "NARROWWEEKDAYS": ["P", "P", "S", "Ç", "P", "C", "C"],
+    "STANDALONENARROWWEEKDAYS": ["P", "P", "S", "Ç", "P", "C", "C"],
+    "SHORTQUARTERS": ["Ç1", "Ç2", "Ç3", "Ç4"],
+    "QUARTERS": ["1. çeyrek", "2. çeyrek", "3. çeyrek", "4. çeyrek"],
+    "AMPMS": ["ÖÖ", "ÖS"],
+    "DATEFORMATS": ["d MMMM y EEEE", "d MMMM y", "d MMM y", "d.MM.y"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "uk": {
+    "NAME": "uk",
+    "WEEKDAYS": [
+      "неділя",
+      "понеділок",
+      "вівторок",
+      "середа",
+      "четвер",
+      "пʼятниця",
+      "субота"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "неділя",
+      "понеділок",
+      "вівторок",
+      "середа",
+      "четвер",
+      "пʼятниця",
+      "субота"
+    ],
+    "SHORTWEEKDAYS": ["нд", "пн", "вт", "ср", "чт", "пт", "сб"],
+    "STANDALONESHORTWEEKDAYS": ["нд", "пн", "вт", "ср", "чт", "пт", "сб"],
+    "NARROWWEEKDAYS": ["Н", "П", "В", "С", "Ч", "П", "С"],
+    "STANDALONENARROWWEEKDAYS": ["Н", "П", "В", "С", "Ч", "П", "С"],
+    "SHORTQUARTERS": ["1-й кв.", "2-й кв.", "3-й кв.", "4-й кв."],
+    "QUARTERS": ["1-й квартал", "2-й квартал", "3-й квартал", "4-й квартал"],
+    "AMPMS": ["дп", "пп"],
+    "DATEFORMATS": [
+      "EEEE, d MMMM y 'р'.",
+      "d MMMM y 'р'.",
+      "d MMM y 'р'.",
+      "dd.MM.yy"
+    ],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "ur": {
+    "NAME": "ur",
+    "WEEKDAYS": ["اتوار", "پیر", "منگل", "بدھ", "جمعرات", "جمعہ", "ہفتہ"],
+    "STANDALONEWEEKDAYS": [
+      "اتوار",
+      "پیر",
+      "منگل",
+      "بدھ",
+      "جمعرات",
+      "جمعہ",
+      "ہفتہ"
+    ],
+    "SHORTWEEKDAYS": ["اتوار", "پیر", "منگل", "بدھ", "جمعرات", "جمعہ", "ہفتہ"],
+    "STANDALONESHORTWEEKDAYS": [
+      "اتوار",
+      "پیر",
+      "منگل",
+      "بدھ",
+      "جمعرات",
+      "جمعہ",
+      "ہفتہ"
+    ],
+    "NARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "T", "W", "T", "F", "S"],
+    "SHORTQUARTERS": [
+      "پہلی سہ ماہی",
+      "دوسری سہ ماہی",
+      "تیسری سہ ماہی",
+      "چوتهی سہ ماہی"
+    ],
+    "QUARTERS": [
+      "پہلی سہ ماہی",
+      "دوسری سہ ماہی",
+      "تیسری سہ ماہی",
+      "چوتهی سہ ماہی"
+    ],
+    "AMPMS": ["a", "p"],
+    "DATEFORMATS": ["EEEE، d MMMM، y", "d MMMM، y", "d MMM، y", "d/M/yy"],
+    "TIMEFORMATS": ["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "uz": {
+    "NAME": "uz",
+    "WEEKDAYS": [
+      "yakshanba",
+      "dushanba",
+      "seshanba",
+      "chorshanba",
+      "payshanba",
+      "juma",
+      "shanba"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "yakshanba",
+      "dushanba",
+      "seshanba",
+      "chorshanba",
+      "payshanba",
+      "juma",
+      "shanba"
+    ],
+    "SHORTWEEKDAYS": ["Yak", "Dush", "Sesh", "Chor", "Pay", "Jum", "Shan"],
+    "STANDALONESHORTWEEKDAYS": [
+      "Yak",
+      "Dush",
+      "Sesh",
+      "Chor",
+      "Pay",
+      "Jum",
+      "Shan"
+    ],
+    "NARROWWEEKDAYS": ["Y", "D", "S", "C", "P", "J", "S"],
+    "STANDALONENARROWWEEKDAYS": ["Y", "D", "S", "C", "P", "J", "S"],
+    "SHORTQUARTERS": ["1-ch", "2-ch", "3-ch", "4-ch"],
+    "QUARTERS": ["1-chorak", "2-chorak", "3-chorak", "4-chorak"],
+    "AMPMS": ["TO", "TK"],
+    "DATEFORMATS": ["EEEE, d-MMMM, y", "d-MMMM, y", "d-MMM, y", "dd/MM/yy"],
+    "TIMEFORMATS": ["H:mm:ss (zzzz)", "H:mm:ss (z)", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"]
+  },
+  "vi": {
+    "NAME": "vi",
+    "WEEKDAYS": [
+      "Chủ Nhật",
+      "Thứ Hai",
+      "Thứ Ba",
+      "Thứ Tư",
+      "Thứ Năm",
+      "Thứ Sáu",
+      "Thứ Bảy"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "Chủ Nhật",
+      "Thứ Hai",
+      "Thứ Ba",
+      "Thứ Tư",
+      "Thứ Năm",
+      "Thứ Sáu",
+      "Thứ Bảy"
+    ],
+    "SHORTWEEKDAYS": [
+      "CN",
+      "Thứ 2",
+      "Thứ 3",
+      "Thứ 4",
+      "Thứ 5",
+      "Thứ 6",
+      "Thứ 7"
+    ],
+    "STANDALONESHORTWEEKDAYS": [
+      "CN",
+      "Thứ 2",
+      "Thứ 3",
+      "Thứ 4",
+      "Thứ 5",
+      "Thứ 6",
+      "Thứ 7"
+    ],
+    "NARROWWEEKDAYS": ["CN", "T2", "T3", "T4", "T5", "T6", "T7"],
+    "STANDALONENARROWWEEKDAYS": ["CN", "T2", "T3", "T4", "T5", "T6", "T7"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["Quý 1", "Quý 2", "Quý 3", "Quý 4"],
+    "AMPMS": ["SA", "CH"],
+    "DATEFORMATS": ["EEEE, d MMMM, y", "d MMMM, y", "d MMM, y", "d/M/yy"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{0} {1}", "{0} {1}", "{0} {1}", "{0} {1}"]
+  },
+  "zh": {
+    "NAME": "zh",
+    "WEEKDAYS": ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+    "STANDALONEWEEKDAYS": ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+    "SHORTWEEKDAYS": ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
+    "STANDALONESHORTWEEKDAYS": ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
+    "NARROWWEEKDAYS": ["日", "一", "二", "三", "四", "五", "六"],
+    "STANDALONENARROWWEEKDAYS": ["日", "一", "二", "三", "四", "五", "六"],
+    "SHORTQUARTERS": ["1季度", "2季度", "3季度", "4季度"],
+    "QUARTERS": ["第一季度", "第二季度", "第三季度", "第四季度"],
+    "AMPMS": ["上午", "下午"],
+    "DATEFORMATS": ["y年M月d日EEEE", "y年M月d日", "y年M月d日", "y/M/d"],
+    "TIMEFORMATS": ["zzzz HH:mm:ss", "z HH:mm:ss", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "zh_CN": {
+    "NAME": "zh_CN",
+    "WEEKDAYS": ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+    "STANDALONEWEEKDAYS": ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+    "SHORTWEEKDAYS": ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
+    "STANDALONESHORTWEEKDAYS": ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
+    "NARROWWEEKDAYS": ["日", "一", "二", "三", "四", "五", "六"],
+    "STANDALONENARROWWEEKDAYS": ["日", "一", "二", "三", "四", "五", "六"],
+    "SHORTQUARTERS": ["1季度", "2季度", "3季度", "4季度"],
+    "QUARTERS": ["第一季度", "第二季度", "第三季度", "第四季度"],
+    "AMPMS": ["上午", "下午"],
+    "DATEFORMATS": ["y年M月d日EEEE", "y年M月d日", "y年M月d日", "y/M/d"],
+    "TIMEFORMATS": ["zzzz HH:mm:ss", "z HH:mm:ss", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 0,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 6,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  },
+  "zh_HK": {
+    "NAME": "zh_HK",
+    "WEEKDAYS": ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+    "STANDALONEWEEKDAYS": ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+    "SHORTWEEKDAYS": ["週日", "週一", "週二", "週三", "週四", "週五", "週六"],
+    "STANDALONESHORTWEEKDAYS": ["週日", "週一", "週二", "週三", "週四", "週五", "週六"],
+    "NARROWWEEKDAYS": ["日", "一", "二", "三", "四", "五", "六"],
+    "STANDALONENARROWWEEKDAYS": ["日", "一", "二", "三", "四", "五", "六"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": ["第1季", "第2季", "第3季", "第4季"],
+    "AMPMS": ["上午", "下午"],
+    "DATEFORMATS": ["y年M月d日EEEE", "y年M月d日", "y年M月d日", "d/M/y"],
+    "TIMEFORMATS": ["ah:mm:ss [zzzz]", "ah:mm:ss [z]", "ah:mm:ss", "ah:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1}{0}", "{1}{0}", "{1}{0}", "{1}{0}"]
+  },
+  "zh_TW": {
+    "NAME": "zh_TW",
+    "WEEKDAYS": ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+    "STANDALONEWEEKDAYS": ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+    "SHORTWEEKDAYS": ["週日", "週一", "週二", "週三", "週四", "週五", "週六"],
+    "STANDALONESHORTWEEKDAYS": ["週日", "週一", "週二", "週三", "週四", "週五", "週六"],
+    "NARROWWEEKDAYS": ["日", "一", "二", "三", "四", "五", "六"],
+    "STANDALONENARROWWEEKDAYS": ["日", "一", "二", "三", "四", "五", "六"],
+    "SHORTQUARTERS": ["第1季", "第2季", "第3季", "第4季"],
+    "QUARTERS": ["第1季", "第2季", "第3季", "第4季"],
+    "AMPMS": ["上午", "下午"],
+    "DATEFORMATS": ["y年M月d日 EEEE", "y年M月d日", "y年M月d日", "y/M/d"],
+    "TIMEFORMATS": ["Bh:mm:ss [zzzz]", "Bh:mm:ss [z]", "Bh:mm:ss", "Bh:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1}{0}", "{1}{0}", "{1}{0}", "{1}{0}"]
+  },
+  "zu": {
+    "NAME": "zu",
+    "WEEKDAYS": [
+      "ISonto",
+      "UMsombuluko",
+      "ULwesibili",
+      "ULwesithathu",
+      "ULwesine",
+      "ULwesihlanu",
+      "UMgqibelo"
+    ],
+    "STANDALONEWEEKDAYS": [
+      "ISonto",
+      "UMsombuluko",
+      "ULwesibili",
+      "ULwesithathu",
+      "ULwesine",
+      "ULwesihlanu",
+      "UMgqibelo"
+    ],
+    "SHORTWEEKDAYS": ["Son", "Mso", "Bil", "Tha", "Sin", "Hla", "Mgq"],
+    "STANDALONESHORTWEEKDAYS": [
+      "Son",
+      "Mso",
+      "Bil",
+      "Tha",
+      "Sin",
+      "Hla",
+      "Mgq"
+    ],
+    "NARROWWEEKDAYS": ["S", "M", "B", "T", "S", "H", "M"],
+    "STANDALONENARROWWEEKDAYS": ["S", "M", "B", "T", "S", "H", "M"],
+    "SHORTQUARTERS": ["Q1", "Q2", "Q3", "Q4"],
+    "QUARTERS": [
+      "ikota yesi-1",
+      "ikota yesi-2",
+      "ikota yesi-3",
+      "ikota yesi-4"
+    ],
+    "AMPMS": ["a", "p"],
+    "DATEFORMATS": ["EEEE, MMMM d, y", "MMMM d, y", "MMM d, y", "M/d/yy"],
+    "TIMEFORMATS": ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+    "AVAILABLEFORMATS": null,
+    "FIRSTDAYOFWEEK": 6,
+    "WEEKENDRANGE": [5, 6],
+    "FIRSTWEEKCUTOFFDAY": 5,
+    "DATETIMEFORMATS": ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"]
+  }
+};

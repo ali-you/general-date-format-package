@@ -1,122 +1,150 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:general_date_format/general_date_format.dart';
+import 'package:intl/intl.dart' as intl;
+import 'package:general_datetime/delegates.dart';
+import 'package:general_datetime/general_datetime.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key, this.now});
 
-  // This widget is the root of your application.
+  /// Optional native clock, sampled once when the example screen is created.
+  /// Omit this to use the current local time; tests can supply a frozen clock.
+  final DateTime Function()? now;
+
+  @override
+  Widget build(BuildContext context) => MaterialApp(
+        title: 'General Date Format',
+        theme: ThemeData(colorSchemeSeed: Colors.indigo),
+        localizationsDelegates: GlobalMaterialLocalizations.delegates,
+        supportedLocales: const [Locale('en'), Locale('fa'), Locale('ar')],
+        home: FormatExample(now: now),
+      );
+}
+
+class FormatExample extends StatefulWidget {
+  const FormatExample({super.key, this.now});
+
+  /// Clock for the screen's initial snapshot; rebuilds retain that snapshot.
+  final DateTime Function()? now;
+
+  @override
+  State<FormatExample> createState() => _FormatExampleState();
+}
+
+class _FormatExampleState extends State<FormatExample> {
+  String locale = 'en';
+  late final Map<String, DateTime> _dates;
+
+  @override
+  void initState() {
+    super.initState();
+    final instant = (widget.now ?? DateTime.now)();
+    _dates = {
+      'Gregorian': instant,
+      'Persian': PersianDateTime.fromDateTime(instant),
+      'Hijri': HijriDateTime.fromDateTime(instant),
+    };
+  }
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+    return Scaffold(
+      appBar: AppBar(title: const Text('General Date Format')),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          const Text(
+              'The input date selects the calendar. The locale selects language and digits.'),
+          DropdownButton<String>(
+            value: locale,
+            items: const [
+              DropdownMenuItem(value: 'en', child: Text('English')),
+              DropdownMenuItem(value: 'fa', child: Text('Persian')),
+              DropdownMenuItem(value: 'ar', child: Text('Arabic')),
+            ],
+            onChanged: (value) => setState(() => locale = value!),
+          ),
+          for (final entry in _dates.entries)
+            _calendarCard(entry.key, entry.value),
+        ],
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
-}
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
+  Widget _calendarCard(String name, DateTime date) {
+    final isCalendar = date is PersianDateTime || date is HijriDateTime;
+    // The app chooses intl and lets Flutter's delegate initialize its data.
+    final gregorian = intl.DateFormat('yyyy/MM/dd', locale);
+    final numeric = GeneralDateFormat('yyyy/MM/dd', locale);
+    final input = isCalendar ? numeric.format(date) : gregorian.format(date);
+    final parsed = isCalendar
+        ? numeric.parseStrict(input, date, true)
+        : gregorian.parseStrict(input, true);
+    final full = isCalendar
+        ? GeneralDateFormat.yMMMMEEEEd(locale).add_Hm().format(date)
+        : intl.DateFormat.yMMMMEEEEd(locale).add_Hm().format(date);
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(name, style: Theme.of(context).textTheme.titleLarge),
+            const SizedBox(height: 8),
+            SelectableText(full),
+            SelectableText(input),
+            const SizedBox(height: 8),
+            Text('Parsed in UTC: ${parsed.isUtc}'),
             Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+                'Calendar fields: ${parsed.year}/${parsed.month}/${parsed.day}'),
+            if (date is PersianDateTime || date is HijriDateTime)
+              TextButton.icon(
+                key: ValueKey('pick-$name'),
+                onPressed: () => _pickDate(name, date),
+                icon: const Icon(Icons.calendar_month),
+                label: Text('Choose $name date'),
+              ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  Future<void> _pickDate(String name, DateTime initial) async {
+    final persian = initial is PersianDateTime;
+    final CalendarDelegate<DateTime> calendarDelegate = persian
+        ? const PersianCalendarDelegate()
+        : const HijriCalendarDelegate();
+    final materialDelegate = persian
+        ? PersianCalendarMaterialLocalizations.delegate
+        : HijriCalendarMaterialLocalizations.delegate;
+    final firstDate = persian
+        ? PersianDateTime(initial.year - 2)
+        : HijriDateTime(initial.year - 2);
+    final lastDate = persian
+        ? PersianDateTime(initial.year + 2, 12, 29)
+        : HijriDateTime(initial.year + 2, 12, 29);
+    final selected = await showDatePicker(
+      context: context,
+      initialDate: initial,
+      firstDate: firstDate,
+      lastDate: lastDate,
+      currentDate: initial,
+      calendarDelegate: calendarDelegate,
+      builder: (context, child) => Localizations.override(
+        context: context,
+        locale: Locale(locale),
+        delegates: [materialDelegate],
+        child: child!,
+      ),
+    );
+    if (!mounted || selected == null) return;
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(
+          'Selected $name: ${GeneralDateFormat.yMd(locale).format(selected)}'),
+    ));
   }
 }

@@ -1,16 +1,32 @@
-# example
+# General Date Format example
 
-A new Flutter project.
+This example uses the local `general_date_format` 3.0.0 wrapper and the published
+1.0.0 cores. Its `general_datetime ^3.0.0` constraint currently excludes the
+neighboring 4.0.0 wrapper. For development with both checkouts, copy
+`pubspec_overrides.yaml.example` to `pubspec_overrides.yaml` in this directory.
+Then run `flutter pub get` and `flutter run`. Remove the override once the
+chronology constraint and hosted wrapper version match.
 
-## Getting Started
+The app shows explicit numeric patterns, locale-aware date/time skeletons and
+strict UTC parsing for Gregorian (via application-owned `intl.DateFormat`),
+Persian and Hijri dates. The app uses Flutter localization delegates to initialize
+intl; the calendar formatter core does not initialize it. Select English,
+Persian or Arabic to change the language and native digits.
 
-This project is a starting point for a Flutter application.
+`DateTime`, `PersianDateTime` and `HijriDateTime` select the calendar. Formatting
+does not convert calendars; use `general_datetime` for conversion.
 
-A few resources to get you started if this is your first Flutter project:
+The screen samples `DateTime.now` once, then derives Persian and Hijri values
+from that same native instant. It retains the snapshot while changing locale
+or opening a picker; creating a new screen samples time again.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Tests use an injected clock instead of the machine's current date:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```dart
+MyApp(now: () => DateTime.utc(2024, 3, 20, 12, 34))
+```
+
+The fixed fixture is Gregorian 2024-03-20, Persian 1403-01-01, and Umm al-Qura
+1445-09-10. The suite verifies numeric/native digits, both localized picker
+selections, a clock crossing midnight, locale rebuilds, and fresh screen state.
+Run `flutter test` from this directory to verify it.

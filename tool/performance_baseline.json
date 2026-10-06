@@ -1,0 +1,137 @@
+{
+  "executableBytes": 6718464,
+  "medianProcessSeconds": 0.28747420001309365,
+  "notes": "Current AOT baseline; not an old/new comparison. Repeat on the same host/toolchain. RSS is process-wide.",
+  "runs": [
+    {
+      "os": "windows",
+      "dart": "3.13.4 (stable) (Tue Sep 15 01:01:15 2026 -0700) on \"windows_x64\"",
+      "firstFormatMicroseconds": 2876,
+      "rssBefore": 14110720,
+      "rssAfter": 24604672,
+      "fixture": "۱۴۰۳-۰۱-۰۱ ۱۲:۳۴:۵۶.۱۲۳۴۵۶",
+      "measurements": [
+        {
+          "calendar": "DateTime",
+          "iterations": 10000,
+          "formatAndParseMicrosecondsPerIteration": 7.655
+        },
+        {
+          "calendar": "PersianDateTime",
+          "iterations": 10000,
+          "formatAndParseMicrosecondsPerIteration": 7.8753
+        },
+        {
+          "calendar": "HijriDateTime",
+          "iterations": 10000,
+          "formatAndParseMicrosecondsPerIteration": 8.4826
+        }
+      ],
+      "processSeconds": 1.0710444999858737
+    },
+    {
+      "os": "windows",
+      "dart": "3.13.4 (stable) (Tue Sep 15 01:01:15 2026 -0700) on \"windows_x64\"",
+      "firstFormatMicroseconds": 3034,
+      "rssBefore": 14098432,
+      "rssAfter": 24645632,
+      "fixture": "۱۴۰۳-۰۱-۰۱ ۱۲:۳۴:۵۶.۱۲۳۴۵۶",
+      "measurements": [
+        {
+          "calendar": "DateTime",
+          "iterations": 10000,
+          "formatAndParseMicrosecondsPerIteration": 8.4453
+        },
+        {
+          "calendar": "PersianDateTime",
+          "iterations": 10000,
+          "formatAndParseMicrosecondsPerIteration": 8.8125
+        },
+        {
+          "calendar": "HijriDateTime",
+          "iterations": 10000,
+          "formatAndParseMicrosecondsPerIteration": 8.6663
+        }
+      ],
+      "processSeconds": 0.28747420001309365
+    },
+    {
+      "os": "windows",
+      "dart": "3.13.4 (stable) (Tue Sep 15 01:01:15 2026 -0700) on \"windows_x64\"",
+      "firstFormatMicroseconds": 3102,
+      "rssBefore": 14102528,
+      "rssAfter": 24203264,
+      "fixture": "۱۴۰۳-۰۱-۰۱ ۱۲:۳۴:۵۶.۱۲۳۴۵۶",
+      "measurements": [
+        {
+          "calendar": "DateTime",
+          "iterations": 10000,
+          "formatAndParseMicrosecondsPerIteration": 8.1604
+        },
+        {
+          "calendar": "PersianDateTime",
+          "iterations": 10000,
+          "formatAndParseMicrosecondsPerIteration": 8.4968
+        },
+        {
+          "calendar": "HijriDateTime",
+          "iterations": 10000,
+          "formatAndParseMicrosecondsPerIteration": 8.5674
+        }
+      ],
+      "processSeconds": 0.2813693000935018
+    },
+    {
+      "os": "windows",
+      "dart": "3.13.4 (stable) (Tue Sep 15 01:01:15 2026 -0700) on \"windows_x64\"",
+      "firstFormatMicroseconds": 3275,
+      "rssBefore": 14094336,
+      "rssAfter": 24178688,
+      "fixture": "۱۴۰۳-۰۱-۰۱ ۱۲:۳۴:۵۶.۱۲۳۴۵۶",
+      "measurements": [
+        {
+          "calendar": "DateTime",
+          "iterations": 10000,
+          "formatAndParseMicrosecondsPerIteration": 8.1493
+        },
+        {
+          "calendar": "PersianDateTime",
+          "iterations": 10000,
+          "formatAndParseMicrosecondsPerIteration": 8.7328
+        },
+        {
+          "calendar": "HijriDateTime",
+          "iterations": 10000,
+          "formatAndParseMicrosecondsPerIteration": 9.258
+        }
+      ],
+      "processSeconds": 0.28988420008681715
+    },
+    {
+      "os": "windows",
+      "dart": "3.13.4 (stable) (Tue Sep 15 01:01:15 2026 -0700) on \"windows_x64\"",
+      "firstFormatMicroseconds": 3286,
+      "rssBefore": 14102528,
+      "rssAfter": 24727552,
+      "fixture": "۱۴۰۳-۰۱-۰۱ ۱۲:۳۴:۵۶.۱۲۳۴۵۶",
+      "measurements": [
+        {
+          "calendar": "DateTime",
+          "iterations": 10000,
+          "formatAndParseMicrosecondsPerIteration": 8.6772
+        },
+        {
+          "calendar": "PersianDateTime",
+          "iterations": 10000,
+          "formatAndParseMicrosecondsPerIteration": 8.5979
+        },
+        {
+          "calendar": "HijriDateTime",
+          "iterations": 10000,
+          "formatAndParseMicrosecondsPerIteration": 8.6652
+        }
+      ],
+      "processSeconds": 0.2868130001006648
+    }
+  ]
+}
