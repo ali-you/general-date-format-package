@@ -127,11 +127,32 @@ def main(argv=None):
             dart_table('calendarZeroDigits', 'Map<String, String>', policy['zeroDigits']) +
             dart_table('persianDateFormats', 'Map<String, List<String>>', policy['persianDateFormats']))
         outputs[ROOT / 'tool/locale_migration_report.json'] = json.dumps(audit, ensure_ascii=False, indent=2, sort_keys=True) + '\n'
+    # Match the core's language version even before pub get has run.
+    core_pubspec = (CORE.parents[1] / 'pubspec.yaml').read_text(encoding='utf-8')
+    sdk_minimum = re.search(r"sdk:\s*['\"]>=(\d+\.\d+)", core_pubspec)
+    if sdk_minimum is None:
+        raise ValueError('Cannot determine the core package language version')
+    language_version = sdk_minimum.group(1)
     # Use the Dart formatter for reproducible valid source formatting.
     for path, content in outputs.items():
         if path.suffix == '.dart':
             with tempfile.TemporaryDirectory(dir=CACHE) as directory:
-                temporary = Path(directory) / path.name
+                temporary_root = Path(directory)
+                # Do not inherit the Flutter wrapper's unresolved lint include
+                # or its package configuration in a standalone Dart CI job.
+                (temporary_root / 'analysis_options.yaml').write_text('{}\n', encoding='utf-8')
+                config = temporary_root / '.dart_tool/package_config.json'
+                config.parent.mkdir()
+                config.write_text(json.dumps({
+                    'configVersion': 2,
+                    'packages': [{
+                        'name': 'calendar_data_generator',
+                        'rootUri': '../',
+                        'packageUri': 'lib/',
+                        'languageVersion': language_version,
+                    }],
+                }), encoding='utf-8')
+                temporary = temporary_root / path.name
                 temporary.write_text(content, encoding='utf-8')
                 subprocess.run([args.dart, 'format', str(temporary)], check=True, stdout=subprocess.DEVNULL)
                 content = temporary.read_text(encoding='utf-8')

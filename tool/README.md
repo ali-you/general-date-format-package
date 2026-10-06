@@ -50,7 +50,11 @@ python tool/generate_persian_af_symbols.py --check
 
 On Windows, pass `--dart <absolute-dart.exe>` to the first two commands if Dart
 is available only through a batch wrapper. Generation uses the Dart formatter
-for deterministic source layout. Checks may populate ignored source caches but
+for deterministic source layout. Each temporary formatting directory has an
+isolated package configuration using the core's minimum Dart language version
+and an empty analysis configuration. Generation works before `pub get` and
+does not depend on the wrapper's Flutter lint packages or the installed SDK's
+default formatting style. Checks may populate ignored source caches but
 never rewrite tracked outputs or source locks. Every pinned CLDR input is
 verified against `cldr_sources.lock.json`; a modified cache is rejected.
 `--refresh-lock` is an explicit maintainer operation requiring review of pinned
