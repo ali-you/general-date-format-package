@@ -23,11 +23,13 @@ void main() {
       }
     });
   }
-  for (final hijri in [false, true]) {
-    DateTime inCalendar(DateTime value) => hijri
-        ? HijriDateTime.fromDateTime(value)
-        : PersianDateTime.fromDateTime(value);
-    final calendar = hijri ? 'Hijri' : 'Persian';
+  for (final entry in <String, DateTime Function(DateTime)>{
+    'Persian': PersianDateTime.fromDateTime,
+    'Hijri': HijriDateTime.fromDateTime,
+    'Hebrew': HebrewDateTime.fromDateTime,
+  }.entries) {
+    final inCalendar = entry.value;
+    final calendar = entry.key;
 
     for (final fields in [
       [2024, 10, 6, 2, 15, 12], // Lord Howe's half-hour gap.

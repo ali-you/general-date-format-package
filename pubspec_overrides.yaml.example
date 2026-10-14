@@ -1,3 +1,7 @@
 dependency_overrides:
   general_datetime:
     path: ../general_date
+  general_datetime_core:
+    path: ../general_date/packages/general_datetime_core
+  general_date_format_core:
+    path: packages/general_date_format_core

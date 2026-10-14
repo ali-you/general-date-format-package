@@ -1,11 +1,23 @@
 # Changelog
 
-## [3.0.0]
+## [3.0.0] — release preparation
 
-- Keep `general_date_format_core` and `general_datetime_core` at 1.0.0. The
-  companion Flutter chronology wrapper is `general_datetime` 4.0.0; this
-  checkout's `^3.0.0` chronology constraint still needs alignment before the
-  new wrappers can resolve together without a local override.
+- Require `general_date_format_core ^2.0.0` and `general_datetime ^4.0.0`;
+  the source pair now requires chronology core 2.0.0 or newer within 2.x.
+
+- Add Hebrew formatting and strict/loose parsing across all bundled locales,
+  using pinned CLDR 48 month and AM era names. Preserve stable month slots and
+  select Adar II names by year type, including when parsing the month before year.
+- Add translated Hebrew Material localizations with native-digit preferences,
+  matching input parsing, date/range picker support, and an updated example.
+- Reject undefined Hebrew quarter patterns explicitly; retain existing
+  Persian/Hijri behavior. Add Hebrew generator inputs, checksum locks, locale
+  round trips, leap-name and boundary regressions, and JavaScript/CI coverage.
+
+- Add five coexistence regressions covering calendar reuse, failed Hebrew
+  parsing, month/quarter isolation and year windows; include them in Node CI.
+- Verify unchanged Persian/Hijri results against pre-Hebrew source, all locales,
+  and Material picker suites; record the formatter sample's compiled size cost.
 - Remove internal formatter, helper, and symbol forwarding files. Material
   adapters and internal tests reference `general_date_format_core` directly;
   the public `general_date_format.dart` entry point retains the core re-export.

@@ -1,7 +1,7 @@
 # General Date Format
 
-Localized formatting and parsing for Persian (Jalali) and Hijri (Umm al-Qura)
-dates, plus translated Flutter Material date-picker localizations. The date
+Localized formatting and parsing for Persian (Jalali), Hebrew, and Hijri
+(Umm al-Qura) dates, plus translated Flutter Material date-picker localizations. The date
 object selects the calendar; the locale selects language, date order, and digits.
 
 [![pub.dev](https://img.shields.io/pub/v/general_date_format.svg)](https://pub.dev/packages/general_date_format)
@@ -15,6 +15,7 @@ Gregorian formatting/parsing belongs to the consuming application through
 
 - [Packages and installation](#packages-and-installation)
 - [Quick start](#quick-start)
+- [Hebrew calendar](#hebrew-calendar)
 - [Skeletons and explicit patterns](#skeletons-and-explicit-patterns)
 - [Pattern reference](#pattern-reference)
 - [Parsing contracts](#parsing-contracts)
@@ -25,6 +26,7 @@ Gregorian formatting/parsing belongs to the consuming application through
 - [Limits and error behavior](#limits-and-error-behavior)
 - [Examples and testing](#examples-and-testing)
 - [Locale maintenance and release checks](#locale-maintenance-and-release-checks)
+- [Release versions and migration](docs/release-migration.md)
 
 ## Packages and installation
 
@@ -46,30 +48,29 @@ wrapper's `lib/src` contains only Material localization adapters, which import
 the core directly. Use `general_date_format.dart` for the Flutter public API
 or `general_date_format_core.dart` for pure Dart applications.
 
-The current wrapper versions are `general_date_format` **3.0.0** and
-`general_datetime` **4.0.0**. Both Dart cores remain at **1.0.0**. Flutter wrappers
+The prepared wrapper versions are `general_date_format` **3.0.0** and
+`general_datetime` **4.0.0**. Both Dart cores are **2.0.0**. Flutter wrappers
 require Dart `>=3.4.0 <4.0.0` and Flutter `>=3.32.0`; the cores need only Dart
 `>=3.4.0 <4.0.0`.
 
-Add the formatter and its currently supported chronology wrapper to your
+Add the formatter and its matching chronology wrapper to your
 Flutter application:
 
 ```yaml
 dependencies:
   general_date_format: ^3.0.0
-  general_datetime: ^3.0.0
+  general_datetime: ^4.0.0
 ```
 
 Run `flutter pub get`. For a pure Dart application, use
-`general_date_format_core: ^1.0.0` and `general_datetime_core: ^1.0.0` instead,
+`general_date_format_core: ^2.0.0` and `general_datetime_core: ^2.0.0` instead,
 then run `dart pub get`.
 
-The formatter's current manifest and example still require
-`general_datetime ^3.0.0`, which excludes the new 4.0.0 wrapper. Applications that
-also need `general_datetime` 4.0.0 must use a formatter release whose chronology
-constraint includes 4.0.0. For this checkout, use the local setup described in
-[Locale maintenance and release checks](#locale-maintenance-and-release-checks)
-until that constraint is aligned.
+All manifests and examples now use matching dependency constraints. These
+versions are prepared in source; publication has not been performed. Until
+the matching hosted releases are available, use the local setup described in
+[Locale maintenance and release checks](#locale-maintenance-and-release-checks).
+See [release migration](docs/release-migration.md) for breaking API changes.
 
 ## Quick start
 
@@ -81,11 +82,14 @@ void main() {
   final native = DateTime.utc(2024, 3, 20, 13, 5);
   final persian = PersianDateTime.fromDateTime(native);
   final hijri = HijriDateTime.fromDateTime(native);
+  final hebrew = HebrewDateTime.fromDateTime(native);
 
   print(GeneralDateFormat('yyyy/MM/dd', 'fa').format(persian));
   // ۱۴۰۳/۰۱/۰۱
   print(GeneralDateFormat('yyyy-MM-dd MMMM G', 'en').format(hijri));
   // 1445-09-10 Ramadan AH
+  print(GeneralDateFormat('d MMMM y G', 'en').format(hebrew));
+  // 10 Adar II 5784 AM
 
   final format = GeneralDateFormat('yyyy/MM/dd', 'fa');
   final parsed = format.parseStrict('۱۴۰۳/۰۱/۰۱', PersianDateTime(1400), true);
@@ -96,9 +100,9 @@ void main() {
 ```
 
 `format` accepts `DateTime` statically, but the value must be a
-`PersianDateTime` or `HijriDateTime` at runtime. A native Gregorian value throws
+`PersianDateTime`, `HijriDateTime`, or `HebrewDateTime` at runtime. A native Gregorian value throws
 `UnsupportedError`; it is not automatically converted. One formatter can be
-used for both supported calendars, selecting the corresponding symbols for
+used for all three supported calendars, selecting the corresponding symbols for
 each operation.
 
 For Gregorian output, add `intl` as a direct application dependency:
@@ -113,6 +117,31 @@ final text = intl.DateFormat('yyyy-MM-dd', 'en').format(DateTime.utc(2024, 3, 20
 For other Gregorian locales, the application must initialize `intl` data or
 use Flutter's localization delegates. This calendar formatter does not perform
 that initialization for general Gregorian application formatting.
+
+## Hebrew calendar
+
+```dart
+final hebrew = HebrewDateTime.utc(5784, 7, 10);
+print(GeneralDateFormat('d MMMM y G', 'en').format(hebrew));
+// 10 Adar II 5784 AM
+print(GeneralDateFormat('d MMMM y', 'he').format(hebrew));
+// 10 אדר ב׳ 5784
+final format = GeneralDateFormat('yyyy-MM-dd');
+final parsed = format.parseStrict('5784-13-29', HebrewDateTime(5785), true);
+```
+
+Hebrew names are bundled for all 120 locales using pinned CLDR 48. Numeric
+months use the chronology's stable slots 1–13, with Adar I (6) absent in common
+years and Adar/Adar II sharing slot 7. Named parsing validates the input year,
+even when the month precedes it. Use `HebrewDateTime.monthsOfYear(year)` for
+iteration. Hebrew quarter patterns raise `UnsupportedError`.
+
+Pair `HebrewCalendarDelegate` with
+`HebrewCalendarMaterialLocalizations.delegate` for translated Material pickers,
+including Hebrew (`he`), native digits, input validation, and date ranges.
+See the [Hebrew guide](docs/hebrew-formatting.md) for semantics, picker code,
+and checkout setup. These additions require the updated local chronology and
+formatter cores until matching hosted releases are published.
 
 ## Skeletons and explicit patterns
 
@@ -481,7 +510,7 @@ Display strings do not store a calendar ID, an IANA zone, or an authoritative
 instant. For persistence, use the chronology core's `CalendarInstant` for
 native Gregorian UTC timestamps with metadata, and `CalendarDateRecord` /
 `CalendarDate` for all-day values. Calendar-specific `toIso8601String()` output
-still contains Persian/Hijri fields and must not be sent as a generic timestamp.
+still contains Persian/Hijri/Hebrew fields and must not be sent as a generic timestamp.
 The [datetime README](../general_date/README.md#json-storage) documents the
 version-1 JSON schema, validation, and domain distinctions.
 
@@ -495,7 +524,7 @@ version-1 JSON schema, validation, and domain distinctions.
 | Unclosed quoted literal | `FormatException` when the pattern is used |
 | Malformed text, strict constraint failure, or date outside chronology bounds | `FormatException`; nullable parse counterparts return `null` |
 
-The formatter inherits Persian/Umm al-Qura supported bounds and calculation
+The formatter inherits Persian/Hebrew/Umm al-Qura supported bounds and calculation
 policies from the resolved chronology core. It supports UTC and host-local
 construction, with native DST rules. Strict/loose parsing rejects DST changes
 to the requested clock, except date-only midnight normalization to exactly
@@ -512,11 +541,11 @@ argument. It is not a drop-in replacement for arbitrary Gregorian/ICU APIs.
 ## Examples and testing
 
 The [example](example/README.md) demonstrates explicit patterns, skeletons,
-strict UTC parsing, three display calendars, English/Persian/Arabic selection,
-and Persian/Hijri pickers. Gregorian presentation uses application-owned `intl`.
+strict UTC parsing, four display calendars, English/Persian/Arabic/Hebrew
+selection, and Persian/Hijri/Hebrew pickers. Gregorian presentation uses application-owned `intl`.
 Run `flutter run` from `example` after its local setup.
 
-Its screen captures one native clock reading and derives both calendar values
+Its screen captures one native clock reading and derives all calendar values
 from that same instant. Locale changes and picker rebuilds retain the snapshot.
 Tests inject `MyApp(now: () => DateTime.utc(2024, 3, 20, 12, 34))`.
 
@@ -567,7 +596,7 @@ percentages were not recalculated; `flutter test --coverage` creates a new repor
 
 ## Locale maintenance and release checks
 
-Persian/Umm al-Qura month and era names are generated from pinned CLDR 48.0.0
+Persian/Hebrew/Umm al-Qura month and era names are generated from pinned CLDR 48.0.0
 inputs with verified hashes. Shared neutral metadata and legacy date-order,
 native-digit, skeleton, and `en_ISO` compatibility policies are explicit.
 Canonical tables live only in `packages/general_date_format_core/lib/src`.
@@ -585,19 +614,34 @@ Downloads are cached under `.dart_tool/cldr-48`; modified inputs are rejected
 against `tool/cldr_sources.lock.json`. On Windows, the unified generator accepts
 `--dart <absolute-dart.exe>` if Dart is available only as a batch wrapper.
 
-The Flutter integration workflow pins its chronology wrapper peer by SHA in
-`.github/calendar_pair.json`. Both 1.0.0 cores resolve from pub.dev.
-The local chronology checkout is now version 4.0.0, while the formatter and its
-example still declare `general_datetime ^3.0.0`. To run these checkouts together,
-copy `pubspec_overrides.yaml.example` to `pubspec_overrides.yaml` in the root and
-example directories, then run `flutter pub get`. This override selects the local
-wrapper. Remove it after the declared constraint and hosted wrapper version
-match; publication alone does not make `^3.0.0` accept 4.0.0.
+CI pins the Hebrew-capable chronology revision in `.github/calendar_pair.json`
+and resolves both cores and the chronology wrapper from source. The manifests
+declare the new 2.0.0 cores and 4.0.0 chronology wrapper; use development
+overrides until those hosted releases are published. For these neighboring checkouts:
+
+```console
+python tool/resolve_calendar_pair.py --chronology ../general_date --formatter .
+flutter pub get
+```
+
+The helper configures ignored overrides for the wrapper, example, and pure Dart
+core. The root/example override templates also list all required local packages.
+Remove development overrides and resolve compatible hosted dependencies for a
+release check.
 
 Release order is `general_datetime_core`, then `general_date_format_core` and
 `general_datetime`, then `general_date_format`. Resolve/test the matching hosted
 versions without local overrides before releasing wrappers. Local path success
 does not certify hosted resolution.
+
+Hebrew verification on **2026-10-12**: 75 core tests (including five coexistence
+regressions), 509 Flutter tests and 6 example tests passed. The Node selection
+passed 64 tests in each of Lord Howe, Monrovia and Tehran. Chrome JavaScript
+and WebAssembly each passed 10 integration tests; the Android example APK built.
+Analysis passed and the generators reproduced all approved CLDR inputs.
+Before/after comparisons matched 850,228 Persian/Hijri records across all
+120 locale identifiers. The [release migration guide](docs/release-migration.md)
+records remaining release checks and the compiled formatter size effect.
 
 ## License
 

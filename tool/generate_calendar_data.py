@@ -26,7 +26,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--check', action='store_true')
     parser.add_argument('--refresh-lock', action='store_true')
-    parser.add_argument('--calendar', choices=['all', 'persian', 'hijri'], default='all')
+    parser.add_argument('--calendar', choices=['all', 'persian', 'hijri', 'hebrew'], default='all')
     parser.add_argument('--dart', default='dart')
     args = parser.parse_args(argv)
     if args.check and args.refresh_lock:
@@ -70,7 +70,7 @@ def main(argv=None):
         'const calendarNeutralData = <String, Map<String, dynamic>>' +
         json.dumps(neutral, ensure_ascii=False).replace('$', '\\$') + ';\n')
     audit = {}
-    for name, package, calendar in [('persian', 'persian', 'persian'), ('hijri', 'islamic', 'islamic-umalqura')]:
+    for name, package, calendar in [('persian', 'persian', 'persian'), ('hijri', 'islamic', 'islamic-umalqura'), ('hebrew', 'hebrew', 'hebrew')]:
         if args.calendar not in ['all', name]:
             continue
         index_url = f'https://api.github.com/repos/unicode-org/cldr-json/contents/cldr-json/cldr-cal-{package}-full/main?ref=48.0.0'
@@ -103,7 +103,10 @@ def main(argv=None):
             for key, context, width in [('MONTHS', 'format', 'wide'), ('SHORTMONTHS', 'format', 'abbreviated'),
                 ('NARROWMONTHS', 'format', 'narrow'), ('STANDALONEMONTHS', 'stand-alone', 'wide'),
                 ('STANDALONESHORTMONTHS', 'stand-alone', 'abbreviated'), ('STANDALONENARROWMONTHS', 'stand-alone', 'narrow')]:
-                values[key] = [fields['months'][context][width][str(i)] for i in range(1, 13)]
+                names = fields['months'][context][width]
+                values[key] = [names[str(i)] for i in range(1, 14 if name == 'hebrew' else 13)]
+                if name == 'hebrew':
+                    values['LEAP_' + key] = [names['7-yeartype-leap']]
             for key, field in [('ERAS', 'eraAbbr'), ('ERANAMES', 'eraNames')]:
                 values[key] = [fields['eras'][field]['0']] * 2
             if name == 'persian':

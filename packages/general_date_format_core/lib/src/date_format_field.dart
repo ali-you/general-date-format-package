@@ -151,7 +151,10 @@ class _LoosePatternField extends _DateFormatPatternField {
           .map(RegExp.escape)
           .join(r'\s+');
       final match = RegExp('^$pattern').firstMatch(input.peekAll());
-      if (match != null && match.end > 0 && match.end >= length) {
+      if (match != null &&
+          match.end > 0 &&
+          match.end >= length &&
+          validEnumeratedMatch(input, possibilities, index, match.end)) {
         result = index;
         length = match.end;
       }
@@ -168,7 +171,7 @@ class _LoosePatternField extends _DateFormatPatternField {
       handleNumericField(input, dateFields.setMonth);
       return;
     }
-    var possibilities = [symbols.MONTHS, symbols.SHORTMONTHS];
+    var possibilities = [monthNames('MONTHS'), monthNames('SHORTMONTHS')];
     for (var monthNames in possibilities) {
       var month = _tryParseEnumeratedString(input, monthNames);
       if (month != -1) {
@@ -211,8 +214,8 @@ class _LoosePatternField extends _DateFormatPatternField {
       return;
     }
     var possibilities = [
-      symbols.STANDALONEMONTHS,
-      symbols.STANDALONESHORTMONTHS
+      monthNames('STANDALONEMONTHS'),
+      monthNames('STANDALONESHORTMONTHS')
     ];
     for (var monthNames in possibilities) {
       var month = _tryParseEnumeratedString(input, monthNames);
@@ -482,7 +485,10 @@ class _DateFormatPatternField extends _DateFormatField {
   int parseEnumeratedString(StringStack input, List<String> possibilities) {
     var results = [
       for (var i = 0; i < possibilities.length; i++)
-        if (input.peek(possibilities[i].length) == possibilities[i]) i
+        if (input.peek(possibilities[i].length) == possibilities[i] &&
+            validEnumeratedMatch(
+                input, possibilities, i, possibilities[i].length))
+          i
     ];
     if (results.isEmpty) throwFormatException(input);
     var longestResult = results.first;
@@ -493,6 +499,20 @@ class _DateFormatPatternField extends _DateFormatField {
     }
     input.pop(possibilities[longestResult].length);
     return longestResult;
+  }
+
+  bool validEnumeratedMatch(
+      StringStack input, List<String> names, int index, int length) {
+    if (parent._calendar != CalendarType.hebrew || names.length != 14) {
+      return true;
+    }
+    // Some CLDR Adar variants end in a numeral (e.g. Korean Adar 2).
+    // Do not consume the first digit of the following day, such as Adar 29.
+    final name = names[index];
+    final remaining = input.peekAll().substring(length);
+    return name.isEmpty ||
+        !parent._parseDigitMatcher.hasMatch(name.substring(name.length - 1)) ||
+        !parent._parseDigitMatcher.hasMatch(remaining);
   }
 
   void parseYear(StringStack input, DateBuilder builder) {
@@ -507,11 +527,11 @@ class _DateFormatPatternField extends _DateFormatField {
   String formatMonth(DateTime date) {
     switch (width) {
       case 5:
-        return symbols.NARROWMONTHS[date.month - 1];
+        return formatNamedMonth(date, 'NARROWMONTHS');
       case 4:
-        return symbols.MONTHS[date.month - 1];
+        return formatNamedMonth(date, 'MONTHS');
       case 3:
-        return symbols.SHORTMONTHS[date.month - 1];
+        return formatNamedMonth(date, 'SHORTMONTHS');
       default:
         return padTo(width, date.month);
     }
@@ -521,13 +541,13 @@ class _DateFormatPatternField extends _DateFormatField {
     List<String> possibilities;
     switch (width) {
       case 5:
-        possibilities = symbols.NARROWMONTHS;
+        possibilities = monthNames('NARROWMONTHS');
         break;
       case 4:
-        possibilities = symbols.MONTHS;
+        possibilities = monthNames('MONTHS');
         break;
       case 3:
-        possibilities = symbols.SHORTMONTHS;
+        possibilities = monthNames('SHORTMONTHS');
         break;
       default:
         return handleNumericField(input, dateFields.setMonth);
@@ -622,11 +642,11 @@ class _DateFormatPatternField extends _DateFormatField {
   String formatStandaloneMonth(DateTime date) {
     switch (width) {
       case 5:
-        return symbols.STANDALONENARROWMONTHS[date.month - 1];
+        return formatNamedMonth(date, 'STANDALONENARROWMONTHS');
       case 4:
-        return symbols.STANDALONEMONTHS[date.month - 1];
+        return formatNamedMonth(date, 'STANDALONEMONTHS');
       case 3:
-        return symbols.STANDALONESHORTMONTHS[date.month - 1];
+        return formatNamedMonth(date, 'STANDALONESHORTMONTHS');
       default:
         return padTo(width, date.month);
     }
@@ -636,13 +656,13 @@ class _DateFormatPatternField extends _DateFormatField {
     List<String> possibilities;
     switch (width) {
       case 5:
-        possibilities = symbols.STANDALONENARROWMONTHS;
+        possibilities = monthNames('STANDALONENARROWMONTHS');
         break;
       case 4:
-        possibilities = symbols.STANDALONEMONTHS;
+        possibilities = monthNames('STANDALONEMONTHS');
         break;
       case 3:
-        possibilities = symbols.STANDALONESHORTMONTHS;
+        possibilities = monthNames('STANDALONESHORTMONTHS');
         break;
       default:
         return handleNumericField(input, dateFields.setMonth);
@@ -652,6 +672,10 @@ class _DateFormatPatternField extends _DateFormatField {
   }
 
   String formatQuarter(DateTime date) {
+    if (date is HebrewDateTime) {
+      throw UnsupportedError(
+          'Quarter patterns are not defined for Hebrew dates');
+    }
     var quarter = ((date.month - 1) / 3).truncate();
     switch (width) {
       case 4:
@@ -705,10 +729,43 @@ class _DateFormatPatternField extends _DateFormatField {
     });
   }
 
-  void recordMonth(DateBuilder builder, List<String> names, int selected) =>
-      builder.setMonth(selected + 1, candidates: {
-        for (final i in matchingNameIndices(names, selected)) i + 1,
-      });
+  List<String> monthNames(String field) {
+    if (parent._calendar == CalendarType.hebrew) {
+      return hebrewMonthNames(parent.locale, field);
+    }
+    return switch (field) {
+      'MONTHS' => symbols.MONTHS,
+      'SHORTMONTHS' => symbols.SHORTMONTHS,
+      'NARROWMONTHS' => symbols.NARROWMONTHS,
+      'STANDALONEMONTHS' => symbols.STANDALONEMONTHS,
+      'STANDALONESHORTMONTHS' => symbols.STANDALONESHORTMONTHS,
+      'STANDALONENARROWMONTHS' => symbols.STANDALONENARROWMONTHS,
+      _ => throw StateError('Unknown month symbol field $field'),
+    };
+  }
+
+  String formatNamedMonth(DateTime date, String field) {
+    final index = date is HebrewDateTime &&
+            date.month == HebrewDateTime.adarII &&
+            date.isLeapYear
+        ? 13
+        : date.month - 1;
+    return monthNames(field)[index];
+  }
+
+  void recordMonth(DateBuilder builder, List<String> names, int selected) {
+    final matches = matchingNameIndices(names, selected).toSet();
+    final hebrew = builder.generalDateTime is HebrewDateTime;
+    int slot(int index) =>
+        hebrew && index == 13 ? HebrewDateTime.adarII : index + 1;
+    builder.setMonth(slot(selected), candidates: {
+      for (final i in matches) slot(i),
+    }, leapOnlyCandidates: {
+      if (hebrew && matches.contains(5)) HebrewDateTime.adarI,
+      if (hebrew && matches.contains(13) && !matches.contains(6))
+        HebrewDateTime.adarII,
+    });
+  }
 
   Iterable<int> matchingNameIndices(List<String> names, int selected) sync* {
     String normalize(String name) => this is _LoosePatternField
@@ -727,6 +784,10 @@ class _DateFormatPatternField extends _DateFormatField {
   }
 
   void parseQuarter(StringStack input, DateBuilder builder) {
+    if (builder.generalDateTime is HebrewDateTime) {
+      throw UnsupportedError(
+          'Quarter patterns are not defined for Hebrew dates');
+    }
     final quarter = width >= 3
         ? parseEnumeratedString(
                 input, width == 3 ? symbols.SHORTQUARTERS : symbols.QUARTERS) +

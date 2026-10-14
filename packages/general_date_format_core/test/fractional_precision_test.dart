@@ -3,6 +3,31 @@ import 'package:general_datetime_core/general_datetime_core.dart';
 import 'package:test/test.dart';
 
 void main() {
+  test('odd microseconds survive formatting beyond exact JS epoch integers',
+      () {
+    for (final native in [
+      DateTime.utc(1600, 3, 20, 12, 34, 56, 123, 1),
+      DateTime.utc(2300, 3, 20, 12, 34, 56, 123, 457),
+      DateTime.utc(6000, 3, 20, 12, 34, 56, 999, 999),
+    ]) {
+      final calendars = [
+        HebrewDateTime.fromDateTime(native),
+        if (PersianDateTime.isSupportedDateTime(native))
+          PersianDateTime.fromDateTime(native)
+      ];
+      for (final date in calendars) {
+        for (final locale in ['en', 'fa', 'ar', 'he']) {
+          final format =
+              GeneralDateFormat('yyyy-MM-dd HH:mm:ss.SSSSSS', locale);
+          final input = format.format(date);
+          final parsed = format.parseStrict(input, date, true);
+          expect(parsed, native);
+          expect(parsed.microsecond, native.microsecond);
+          expect(CalendarDateUtils.toGregorian(parsed), native);
+        }
+      }
+    }
+  });
   for (final selector in <DateTime>[
     PersianDateTime.utc(1403, 1, 1),
     HijriDateTime.utc(1445, 9, 10)
