@@ -1,5 +1,11 @@
 # Third-party data
 
+Hebrew month names, leap-year Adar variants, and AM era labels are derived from
+[Unicode CLDR 48 Hebrew calendar data](https://github.com/unicode-org/cldr-json/tree/48.0.0/cldr-json/cldr-cal-hebrew-full).
+The generator preserves thirteen stable slots and separately records the
+`7-yeartype-leap` spelling. All new source URLs and SHA-256 digests are recorded
+in `tool/cldr_sources.lock.json`. The Unicode license below applies.
+
 The generated Hijri month and era names are derived from [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0/cldr-json/cldr-cal-islamic-full). Regional and legacy locale aliases are recorded in the generator and generated table. The generated Afrikaans Persian month and era names use the same release's [Persian calendar data](https://github.com/unicode-org/cldr-json/blob/48.0.0/cldr-json/cldr-cal-persian-full/main/af/ca-persian.json); their source digest is recorded in `persian_af_calendar_data.dart`.
 
 UNICODE LICENSE V3

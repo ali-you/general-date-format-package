@@ -20,6 +20,7 @@ class DateBuilder {
   bool _hasMonth = false, _hasDay = false;
   int? _quarter;
   final _months = <Set<int>>[];
+  final _leapOnlyMonths = <Set<int>>[];
   final _days = <int>[];
   final _quarters = <int>[];
   final _ordinals = <int>[];
@@ -40,6 +41,9 @@ class DateBuilder {
   }
 
   DateTime _inCalendar(DateTime date) {
+    if (generalDateTime is HebrewDateTime) {
+      return HebrewDateTime.fromDateTime(date);
+    }
     if (generalDateTime is PersianDateTime) {
       return PersianDateTime.fromDateTime(date);
     }
@@ -55,10 +59,12 @@ class DateBuilder {
     _years.add((value: x, ambiguous: ambiguous));
   }
 
-  void setMonth(int x, {Set<int>? candidates}) {
+  void setMonth(int x,
+      {Set<int>? candidates, Set<int> leapOnlyCandidates = const {}}) {
     month = x;
     _hasMonth = true;
     _months.add(candidates ?? {x});
+    _leapOnlyMonths.add(leapOnlyCandidates);
     if (strict) {
       final common = _months.reduce((a, b) => a.intersection(b));
       if (common.isNotEmpty && !common.contains(x)) month = common.last;
@@ -135,7 +141,35 @@ class DateBuilder {
   int _applyDayPeriod(int value, int maximum) =>
       pm && maximum <= 12 ? value + 12 : value;
 
-  int get _constructionMonth {
+  int get _constructionMonth => _constructionMonthForYear(_estimatedYear);
+
+  int _constructionMonthForYear(int targetYear) {
+    if (generalDateTime is HebrewDateTime && _hasMonth) {
+      final valid = HebrewDateTime.monthsOfYear(targetYear).toSet();
+      final leap = valid.contains(HebrewDateTime.adarI);
+      if (strict) {
+        var common =
+            _months.reduce((a, b) => a.intersection(b)).intersection(valid);
+        if (!leap) {
+          for (final restriction in _leapOnlyMonths) {
+            common = common.difference(restriction);
+          }
+        }
+        if (common.isEmpty) {
+          throw const FormatException(
+              'Month name or number is absent from the parsed Hebrew year');
+        }
+        return hasDayOfYear
+            ? 1
+            : common.contains(month)
+                ? month
+                : common.last;
+      }
+      if (!leap && _leapOnlyMonths.any((slots) => slots.contains(month))) {
+        throw const FormatException(
+            'Hebrew leap-month name requires a leap year');
+      }
+    }
     if (hasDayOfYear) return 1;
     if (!strict || _quarter == null) return month;
     final start = (_quarter! - 1) * 3 + 1;
@@ -156,7 +190,8 @@ class DateBuilder {
   int get hour24 => _applyDayPeriod(hour, _hourMaximum ?? 12);
 
   void verify(String input) {
-    _verify(month, 1, 12, 'month', input);
+    _verify(
+        month, 1, generalDateTime is HebrewDateTime ? 13 : 12, 'month', input);
     for (final token in _hours) {
       _verify(token.value, token.minimum, token.maximum, 'hour', input);
       final normalized =
@@ -189,6 +224,11 @@ class DateBuilder {
     _verify(second, 0, 59, 'second', input);
     _verify(fractionalSecond, 0, 999, 'fractional second', input);
     final date = asDate();
+    if (date is HebrewDateTime &&
+        !date.isLeapYear &&
+        _leapOnlyMonths.any((slots) => slots.contains(date.month))) {
+      throw FormatException('Adar II requires a Hebrew leap year', input);
+    }
     // Use the same year-zero convention as era formatting. Every token must
     // allow the resulting era, including labels shared by both eras.
     final actualEra = date.year > 0 ? 1 : 0;
@@ -286,9 +326,18 @@ class DateBuilder {
         // Normalize ordinal/overflow fields before comparing the window.
         // Failure in one century must not rule out an adjacent century that
         // fits both the window and the chronology's supported range.
-        date = _construct(candidate, _constructionMonth, dayOrDayOfYear, hour24,
-            minute, second, fractionalSecond, microsecond);
+        date = _construct(
+            candidate,
+            _constructionMonthForYear(candidate),
+            dayOrDayOfYear,
+            hour24,
+            minute,
+            second,
+            fractionalSecond,
+            microsecond);
       } on ArgumentError {
+        continue;
+      } on FormatException {
         continue;
       }
       final fields = _dateFields(date);
@@ -334,6 +383,13 @@ class DateBuilder {
   DateTime _construct(int year, int month, int day, int hour, int minute,
       int second, int millisecond,
       [int microsecond = 0]) {
+    if (generalDateTime is HebrewDateTime) {
+      return utc
+          ? HebrewDateTime.utc(
+              year, month, day, hour, minute, second, millisecond, microsecond)
+          : HebrewDateTime(
+              year, month, day, hour, minute, second, millisecond, microsecond);
+    }
     if (generalDateTime is PersianDateTime) {
       return utc
           ? PersianDateTime.utc(

@@ -1,16 +1,29 @@
 # Locale data sources
 
+## Local source-pair setup
+
+`python tool/resolve_calendar_pair.py --chronology ../general_date --formatter .`
+selects the three local packages in root/example/core overrides. Generated files
+carry a body checksum. Unmodified generated files can be refreshed; edited or
+unrecognized overrides are preserved and the helper exits before writing any
+files. Merge the paths manually, or review the existing files before explicitly
+using `--replace-overrides`. The helper's regression tests run with
+`python tool/test_resolve_calendar_pair.py`.
+
+## Bundled tables
+
 Canonical symbol and pattern tables live in
 `packages/general_date_format_core/lib/src`. The generators below write there;
 the Flutter wrapper forwards to those same libraries. Both distributed cores
 retain their data-license notices.
 
 Gregorian formatting belongs to the application and uses `intl.DateFormat`.
-Persian and Hijri bundle weekday names, quarters, AM/PM markers, time/date-time
+Persian, Hijri and Hebrew bundle weekday names, AM/PM markers, time/date-time
 formats, first weekday, weekend range, and first-week cutoff in
 `calendar_neutral_data.dart`. These calendar-independent fields are a pinned
 intl 0.20.3 / CLDR 48 snapshot, with Gregorian months and eras excluded.
 Those fields depend on language and territory, not the calendar's month names.
+Shared quarter metadata remains bundled; Hebrew quarter patterns are unsupported.
 The package retains its existing native-digit defaults and calendar date patterns.
 
 `en_ISO` retains intl's explicit ISO Monday convention. `en_MY` also starts on
@@ -60,7 +73,10 @@ verified against `cldr_sources.lock.json`; a modified cache is rejected.
 `--refresh-lock` is an explicit maintainer operation requiring review of pinned
 input hashes, not a normal CI step. License notices are never overwritten.
 
-All Persian/Hijri month and era names now come from CLDR 48. Shared neutral
+All Persian/Hijri/Hebrew month and era names now come from CLDR 48.
+Use `--calendar hebrew` to generate or check Hebrew alone. Hebrew output
+includes thirteen stable slots and separate `LEAP_*` spellings for Adar II;
+month 14 is never exposed to chronology. Input hashes are locked as usual. Shared neutral
 metadata comes from the bundled snapshot in `calendar_neutral_symbols.json`.
 `calendar_neutral_sources.json` records the original source and snapshot SHA-256
 hashes. The unified generator verifies the snapshot hash and locale coverage

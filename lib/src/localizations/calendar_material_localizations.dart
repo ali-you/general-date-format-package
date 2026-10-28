@@ -7,13 +7,20 @@ import 'material_localizations_proxy.dart';
 
 enum MaterialCalendar {
   persian,
-  hijri;
+  hijri,
+  hebrew;
 
-  DateTime get selector =>
-      this == persian ? PersianDateTime(1400) : HijriDateTime(1440);
+  DateTime get selector => switch (this) {
+        persian => PersianDateTime(1400),
+        hijri => HijriDateTime(1440),
+        hebrew => HebrewDateTime(5784),
+      };
 
-  bool contains(DateTime date) =>
-      this == persian ? date is PersianDateTime : date is HijriDateTime;
+  bool contains(DateTime date) => switch (this) {
+        persian => date is PersianDateTime,
+        hijri => date is HijriDateTime,
+        hebrew => date is HebrewDateTime,
+      };
 }
 
 bool isCalendarMaterialLocaleSupported(Locale locale) =>

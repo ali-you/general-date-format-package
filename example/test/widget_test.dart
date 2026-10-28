@@ -7,15 +7,19 @@ void main() {
   final referenceInstant = DateTime.utc(2024, 3, 20, 12, 34, 56, 789, 123);
   WidgetController.hitTestWarningShouldBeFatal = true;
   testWidgets('Demonstrates all calendars and native digits', (tester) async {
+    await tester.binding.setSurfaceSize(const Size(800, 1400));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
     await tester.pumpWidget(MyApp(now: () => referenceInstant));
     expect(find.text('Gregorian'), findsOneWidget);
     expect(find.text('Persian'), findsOneWidget);
     expect(find.text('Hijri'), findsOneWidget);
+    expect(find.text('Hebrew'), findsOneWidget);
     expect(find.textContaining('Ramadan'), findsOneWidget);
     expect(find.text('2024/03/20'), findsOneWidget);
     expect(find.text('1403/01/01'), findsOneWidget);
     expect(find.text('1445/09/10'), findsOneWidget);
-    expect(find.text('Parsed in UTC: true'), findsNWidgets(3));
+    expect(find.text('5784/07/10'), findsOneWidget);
+    expect(find.text('Parsed in UTC: true'), findsNWidgets(4));
     await tester.tap(find.byType(DropdownButton<String>));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Persian').hitTestable());
@@ -27,7 +31,7 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  for (final calendar in ['Persian', 'Hijri']) {
+  for (final calendar in ['Persian', 'Hijri', 'Hebrew']) {
     testWidgets('Opens and confirms a $calendar picker in Persian',
         (tester) async {
       await tester.pumpWidget(MyApp(now: () => referenceInstant));
@@ -37,12 +41,21 @@ void main() {
       await tester.tap(find.text('Persian').hitTestable());
       await tester.pumpAndSettle();
       final button = find.byKey(ValueKey('pick-$calendar'));
-      await tester.ensureVisible(button);
+      await tester.scrollUntilVisible(button, 180,
+          scrollable: find
+              .descendant(
+                  of: find.byType(ListView), matching: find.byType(Scrollable))
+              .first);
       await tester.pumpAndSettle();
       await tester.tap(button);
       await tester.pumpAndSettle();
       expect(find.byType(DatePickerDialog), findsOneWidget);
-      expect(find.textContaining(calendar == 'Persian' ? 'فروردین' : 'رمضان'),
+      expect(
+          find.textContaining(calendar == 'Persian'
+              ? 'فروردین'
+              : calendar == 'Hijri'
+                  ? 'رمضان'
+                  : 'واذار الثانی'),
           findsWidgets);
       final material = MaterialLocalizations.of(
           tester.element(find.byType(DatePickerDialog)));
@@ -54,7 +67,9 @@ void main() {
       expect(
           find.text(calendar == 'Persian'
               ? 'Selected Persian: ۱۴۰۳/۱/۱'
-              : 'Selected Hijri: ۱۴۴۵/۹/۱۰'),
+              : calendar == 'Hijri'
+                  ? 'Selected Hijri: ۱۴۴۵/۹/۱۰'
+                  : 'Selected Hebrew: ۵۷۸۴/۷/۱۰'),
           findsOneWidget);
       expect(tester.takeException(), isNull);
     });

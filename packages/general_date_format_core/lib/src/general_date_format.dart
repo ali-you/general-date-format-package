@@ -8,6 +8,7 @@ import 'package:general_datetime_core/general_datetime_core.dart';
 import 'date_builder.dart';
 import 'date_symbols.dart';
 import 'general_date_format_internal.dart';
+import 'symbols/hebrew_calendar_symbol_data_local.dart';
 import 'helpers.dart';
 import 'string_stack.dart';
 
@@ -15,7 +16,7 @@ part 'date_format_field.dart';
 
 /// feedback on appropriateness.
 /// GeneralDateFormat is for formatting and parsing dates in a locale-sensitive manner.
-/// Supports [PersianDateTime] and [HijriDateTime]. Native Gregorian [DateTime]
+/// Supports [PersianDateTime], [HijriDateTime], and [HebrewDateTime]. Native Gregorian [DateTime]
 /// inputs throw [UnsupportedError]; use intl.DateFormat in your application.
 /// It allows the user to choose from a set of standard date time formats as
 /// well as specify a customized pattern under certain locales. Date elements
@@ -800,6 +801,13 @@ class GeneralDateFormat {
 
   void _selectCalendar(DateTime date) {
     final selected = calendarType(date);
+    if (selected == CalendarType.hebrew &&
+        _formatFields.any((field) =>
+            field is _DateFormatPatternField &&
+            field.pattern.startsWith('Q'))) {
+      throw UnsupportedError(
+          'Quarter patterns are not defined for Hebrew dates');
+    }
     if (selected == _calendar) return;
     _calendar = selected;
     _digitMatcher = null;

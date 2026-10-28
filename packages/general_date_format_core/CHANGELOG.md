@@ -1,6 +1,25 @@
 # Changelog
 
-## Unreleased
+## 2.0.0 — 2026-10-28
+
+- Verify Hebrew locale tables, all-locale round trips, minimum Dart support,
+  and JavaScript parsing across three historical/DST timezone fixtures.
+
+- Add JavaScript format/parse regressions for odd microseconds in ancient and
+  future Hebrew/Persian dates, consuming the chronology precision correction.
+
+- Require `general_datetime_core ^2.0.0`, including the Hebrew calendar APIs
+  and new public `CalendarId` case.
+
+- Support HebrewDateTime with CLDR 48 month and AM era names for all locales.
+- Format Adar II by year type; validate parsed leap-month names and stable
+  numeric month slots against the input year. Preserve microseconds, digit
+  policy, ordinal/weekday/era validation, and rolling Hebrew year windows.
+- Add locale round trips and leap-name regressions, including numeric name
+  boundaries. Quarter patterns explicitly remain unsupported for Hebrew.
+- Preserve Persian/Hijri output in 850,228 before/after comparison records.
+  Add five formatter coexistence regressions; the complete core suite has
+  75 tests and the timezone/Node selection has 64 tests per zone.
 
 - Remove the unused deprecated locale initialization hook. Locale data continues
   to load lazily; Flutter adapters reference the core directly.

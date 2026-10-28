@@ -1,5 +1,5 @@
 name: example
-description: "Gregorian, Persian and Hijri formatting and parsing examples."
+description: "Gregorian presentation and Persian, Hebrew and Hijri formatting, parsing and picker examples."
 publish_to: none
 version: 1.0.0+1
 
@@ -12,7 +12,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: ^0.20.2
-  general_datetime: ^3.0.0
+  general_datetime: ^4.0.0
   general_date_format:
     path: ../
 

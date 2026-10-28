@@ -19,7 +19,12 @@ class MyApp extends StatelessWidget {
         title: 'General Date Format',
         theme: ThemeData(colorSchemeSeed: Colors.indigo),
         localizationsDelegates: GlobalMaterialLocalizations.delegates,
-        supportedLocales: const [Locale('en'), Locale('fa'), Locale('ar')],
+        supportedLocales: const [
+          Locale('en'),
+          Locale('fa'),
+          Locale('ar'),
+          Locale('he')
+        ],
         home: FormatExample(now: now),
       );
 }
@@ -46,6 +51,7 @@ class _FormatExampleState extends State<FormatExample> {
       'Gregorian': instant,
       'Persian': PersianDateTime.fromDateTime(instant),
       'Hijri': HijriDateTime.fromDateTime(instant),
+      'Hebrew': HebrewDateTime.fromDateTime(instant),
     };
   }
 
@@ -64,6 +70,7 @@ class _FormatExampleState extends State<FormatExample> {
               DropdownMenuItem(value: 'en', child: Text('English')),
               DropdownMenuItem(value: 'fa', child: Text('Persian')),
               DropdownMenuItem(value: 'ar', child: Text('Arabic')),
+              DropdownMenuItem(value: 'he', child: Text('Hebrew')),
             ],
             onChanged: (value) => setState(() => locale = value!),
           ),
@@ -75,7 +82,9 @@ class _FormatExampleState extends State<FormatExample> {
   }
 
   Widget _calendarCard(String name, DateTime date) {
-    final isCalendar = date is PersianDateTime || date is HijriDateTime;
+    final isCalendar = date is PersianDateTime ||
+        date is HijriDateTime ||
+        date is HebrewDateTime;
     // The app chooses intl and lets Flutter's delegate initialize its data.
     final gregorian = intl.DateFormat('yyyy/MM/dd', locale);
     final numeric = GeneralDateFormat('yyyy/MM/dd', locale);
@@ -100,7 +109,7 @@ class _FormatExampleState extends State<FormatExample> {
             Text('Parsed in UTC: ${parsed.isUtc}'),
             Text(
                 'Calendar fields: ${parsed.year}/${parsed.month}/${parsed.day}'),
-            if (date is PersianDateTime || date is HijriDateTime)
+            if (isCalendar)
               TextButton.icon(
                 key: ValueKey('pick-$name'),
                 onPressed: () => _pickDate(name, date),
@@ -115,18 +124,27 @@ class _FormatExampleState extends State<FormatExample> {
 
   Future<void> _pickDate(String name, DateTime initial) async {
     final persian = initial is PersianDateTime;
-    final CalendarDelegate<DateTime> calendarDelegate = persian
-        ? const PersianCalendarDelegate()
-        : const HijriCalendarDelegate();
-    final materialDelegate = persian
-        ? PersianCalendarMaterialLocalizations.delegate
-        : HijriCalendarMaterialLocalizations.delegate;
-    final firstDate = persian
-        ? PersianDateTime(initial.year - 2)
-        : HijriDateTime(initial.year - 2);
-    final lastDate = persian
-        ? PersianDateTime(initial.year + 2, 12, 29)
-        : HijriDateTime(initial.year + 2, 12, 29);
+    final hebrew = initial is HebrewDateTime;
+    final CalendarDelegate<DateTime> calendarDelegate = hebrew
+        ? const HebrewCalendarDelegate()
+        : persian
+            ? const PersianCalendarDelegate()
+            : const HijriCalendarDelegate();
+    final materialDelegate = hebrew
+        ? HebrewCalendarMaterialLocalizations.delegate
+        : persian
+            ? PersianCalendarMaterialLocalizations.delegate
+            : HijriCalendarMaterialLocalizations.delegate;
+    final firstDate = hebrew
+        ? HebrewDateTime(initial.year - 2)
+        : persian
+            ? PersianDateTime(initial.year - 2)
+            : HijriDateTime(initial.year - 2);
+    final lastDate = hebrew
+        ? HebrewDateTime(initial.year + 2, 13, 29)
+        : persian
+            ? PersianDateTime(initial.year + 2, 12, 29)
+            : HijriDateTime(initial.year + 2, 12, 29);
     final selected = await showDatePicker(
       context: context,
       initialDate: initial,
