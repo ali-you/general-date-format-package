@@ -978,6 +978,7 @@ class GeneralDateFormat {
     for (var i = 0; i + 1 < fields.length; i++) {
       final field = fields[i];
       final next = fields[i + 1];
+      if (field is _DateFormatPatternField) field.followingField = next;
       if (field is _DateFormatPatternField &&
           next is _DateFormatPatternField &&
           field.isNumeric &&

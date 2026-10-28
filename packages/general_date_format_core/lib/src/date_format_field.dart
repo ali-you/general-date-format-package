@@ -171,7 +171,11 @@ class _LoosePatternField extends _DateFormatPatternField {
       handleNumericField(input, dateFields.setMonth);
       return;
     }
-    var possibilities = [monthNames('MONTHS'), monthNames('SHORTMONTHS')];
+    var possibilities = [
+      monthNames('MONTHS'),
+      monthNames('SHORTMONTHS'),
+      if (width == 5) monthNames('NARROWMONTHS'),
+    ];
     for (var monthNames in possibilities) {
       var month = _tryParseEnumeratedString(input, monthNames);
       if (month != -1) {
@@ -215,7 +219,8 @@ class _LoosePatternField extends _DateFormatPatternField {
     }
     var possibilities = [
       monthNames('STANDALONEMONTHS'),
-      monthNames('STANDALONESHORTMONTHS')
+      monthNames('STANDALONESHORTMONTHS'),
+      if (width == 5) monthNames('STANDALONENARROWMONTHS'),
     ];
     for (var monthNames in possibilities) {
       var month = _tryParseEnumeratedString(input, monthNames);
@@ -272,11 +277,13 @@ class _DateFormatPatternField extends _DateFormatField {
   void parseLoose(StringStack input, DateBuilder dateFields) =>
       (_LoosePatternField(pattern, parent)
             ..fixedWidth = fixedWidth
-            ..followingNumericWidth = followingNumericWidth)
+            ..followingNumericWidth = followingNumericWidth
+            ..followingField = followingField)
           .parse(input, dateFields);
 
   bool fixedWidth = false;
   int? followingNumericWidth;
+  _DateFormatField? followingField;
 
   bool get isNumeric =>
       'ydDHhKkmsS'.contains(pattern[0]) ||
@@ -454,7 +461,25 @@ class _DateFormatPatternField extends _DateFormatField {
   /// Read numeric input, bounding adjacent numeric fields by their width,
   /// and normalize ASCII/native digits to ASCII for integer conversion.
   String _readDigits(StringStack inputStack) {
-    final source = fixedWidth
+    var bounded = fixedWidth;
+    final next = followingField;
+    if (!bounded &&
+        parent._calendar == CalendarType.chinese &&
+        next is _DateFormatPatternField &&
+        'ML'.contains(next.pattern[0]) &&
+        next.width >= 3) {
+      final context = next.pattern[0] == 'L' ? 'STANDALONE' : '';
+      final widthName = next.width == 5
+          ? 'NARROWMONTHS'
+          : next.width == 4
+              ? 'MONTHS'
+              : 'SHORTMONTHS';
+      // A named Chinese month can itself begin with a digit (e.g. Korean
+      // 1월 or English narrow 1). Reserve the preceding numeric field's width.
+      bounded = next.monthNames('$context$widthName').any((name) =>
+          parent._parseDigitMatcher.stringMatch(name)?.isNotEmpty ?? false);
+    }
+    final source = bounded
         ? inputStack.peek(pattern[0] == 'S' && width < 3 ? 3 : width)
         : inputStack.peekAll();
     var string = parent._parseDigitMatcher.stringMatch(source);
@@ -514,6 +539,41 @@ class _DateFormatPatternField extends _DateFormatField {
     // adjacent fixed-width numeric fields so Mo1 + 12 cannot become Mo11 + 2.
     final name = names[index];
     final remaining = input.peekAll().substring(length);
+    final next = followingField;
+    if (next != null && next is! _DateFormatPatternField) {
+      final loose = this is _LoosePatternField;
+      final literal = loose ? next.pattern.trim().toLowerCase() : next.pattern;
+      if (literal.isNotEmpty &&
+          parent._parseDigitMatcher.stringMatch(literal)?.isNotEmpty == true) {
+        bool literalFollows(int consumed) {
+          final tail = input.peekAll().substring(consumed);
+          // Prefer the literal attached to the name; trimming here could
+          // steal its first digit from the following day (Mo11 + ' ' + 12).
+          return tail.startsWith(literal);
+        }
+
+        if (literalFollows(length)) return true;
+        // Prefer a shorter month name that leaves the quoted literal intact:
+        // Mo1 + '0' must not be consumed as month Mo10.
+        for (final candidate in names) {
+          final int? consumed;
+          if (loose) {
+            final pattern = candidate
+                .toLowerCase()
+                .split(RegExp(r'\s+'))
+                .map(RegExp.escape)
+                .join(r'\s+');
+            consumed = RegExp('^$pattern').firstMatch(input.peekAll())?.end;
+          } else {
+            consumed =
+                input.peekAll().startsWith(candidate) ? candidate.length : null;
+          }
+          if (consumed != null && consumed > 0 && literalFollows(consumed)) {
+            return false;
+          }
+        }
+      }
+    }
     if (name.isEmpty ||
         !parent._parseDigitMatcher.hasMatch(name.substring(name.length - 1)) ||
         !parent._parseDigitMatcher.hasMatch(remaining)) {
