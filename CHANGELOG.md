@@ -1,6 +1,9 @@
 # Changelog
 
-## [3.0.0] — release preparation
+## [3.0.0] — 2026-10-28
+
+- Validate Hebrew formatting, translated pickers, and the associated calendar
+  widgets against the coordinated chronology 4.0.0 / core 2.0.0 release.
 
 - Require `general_date_format_core ^2.0.0` and `general_datetime ^4.0.0`;
   the source pair now requires chronology core 2.0.0 or newer within 2.x.

@@ -1,6 +1,9 @@
 # Changelog
 
-## 2.0.0 — release preparation
+## 2.0.0 — 2026-10-28
+
+- Verify Hebrew locale tables, all-locale round trips, minimum Dart support,
+  and JavaScript parsing across three historical/DST timezone fixtures.
 
 - Add JavaScript format/parse regressions for odd microseconds in ancient and
   future Hebrew/Persian dates, consuming the chronology precision correction.
