@@ -5,6 +5,12 @@ Persian and Umm al-Qura dates. The input type selects the calendar; the locale
 selects language, shared skeleton patterns, weekdays, week rules, and digits.
 All 120 bundled locales have Hebrew month and era data from pinned CLDR 48.
 
+The coordinated releases are published on pub.dev: formatter core 2.0.0,
+formatter wrapper 3.0.0, chronology core 2.0.0, and chronology wrapper 4.0.0.
+All 509 formatter wrapper tests passed against these hosted dependencies
+without development overrides. Published library files and archive checksums
+were independently verified against the validated release source.
+
 ```dart
 import 'package:general_date_format/general_date_format.dart';
 import 'package:general_datetime/general_datetime.dart';
