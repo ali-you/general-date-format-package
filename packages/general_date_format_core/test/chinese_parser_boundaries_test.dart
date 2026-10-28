@@ -45,7 +45,7 @@ void main() {
             final date = ChineseDateTime.utc(year, month, 12);
             final input =
                 format.format(date).toUpperCase().replaceAll(' ', '   ');
-            expect(format.parseLoose(input, selector, true), date,
+            expect(format.tryParseLoose(input, selector, true), date,
                 reason: '$locale $field $input');
           }
         }

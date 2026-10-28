@@ -176,6 +176,9 @@ class _LoosePatternField extends _DateFormatPatternField {
       monthNames('SHORTMONTHS'),
       if (width == 5) monthNames('NARROWMONTHS'),
     ];
+    if (width == 5) {
+      return _parseNarrowMonthVariants(input, dateFields, possibilities);
+    }
     for (var monthNames in possibilities) {
       var month = _tryParseEnumeratedString(input, monthNames);
       if (month != -1) {
@@ -222,6 +225,9 @@ class _LoosePatternField extends _DateFormatPatternField {
       monthNames('STANDALONESHORTMONTHS'),
       if (width == 5) monthNames('STANDALONENARROWMONTHS'),
     ];
+    if (width == 5) {
+      return _parseNarrowMonthVariants(input, dateFields, possibilities);
+    }
     for (var monthNames in possibilities) {
       var month = _tryParseEnumeratedString(input, monthNames);
       if (month != -1) {
@@ -230,6 +236,28 @@ class _LoosePatternField extends _DateFormatPatternField {
       }
     }
     throwFormatException(input);
+  }
+
+  void _parseNarrowMonthVariants(
+      StringStack input, DateBuilder fields, List<List<String>> variants) {
+    final remaining = input.peekAll();
+    List<String>? bestNames;
+    var bestMonth = -1, bestLength = 0;
+    for (final names in variants) {
+      final probe = StringStack(remaining);
+      final month = _tryParseEnumeratedString(probe, names);
+      final consumed = remaining.length - probe.peekAll().length;
+      if (month >= 0 && consumed > bestLength) {
+        bestNames = names;
+        bestMonth = month;
+        bestLength = consumed;
+      }
+    }
+    if (bestNames == null) throwFormatException(input);
+    // A full/abbreviated regular name (6) must not hide a longer narrow leap
+    // spelling (6b), nor may a narrow initial hide an accepted full name.
+    input.pop(bestLength);
+    recordMonth(fields, bestNames, bestMonth);
   }
 
   /// Parse a day of the week name, case-insensitively.
