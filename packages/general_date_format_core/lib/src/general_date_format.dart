@@ -990,7 +990,14 @@ class GeneralDateFormat {
           field.width >= 3) {
         var digits = 0;
         var exact = true;
-        for (var j = i + 1; j < fields.length; j++) {
+        var j = i + 1;
+        final literal = StringBuffer();
+        while (j < fields.length && fields[j] is! _DateFormatPatternField) {
+          literal.write(fields[j].pattern);
+          j++;
+        }
+        if (literal.isNotEmpty) field.followingLiteral = literal.toString();
+        for (; j < fields.length; j++) {
           final following = fields[j];
           if (following is! _DateFormatPatternField || !following.isNumeric) {
             break;

@@ -306,12 +306,14 @@ class _DateFormatPatternField extends _DateFormatField {
       (_LoosePatternField(pattern, parent)
             ..fixedWidth = fixedWidth
             ..followingNumericWidth = followingNumericWidth
-            ..followingField = followingField)
+            ..followingField = followingField
+            ..followingLiteral = followingLiteral)
           .parse(input, dateFields);
 
   bool fixedWidth = false;
   int? followingNumericWidth;
   _DateFormatField? followingField;
+  String? followingLiteral;
 
   bool get isNumeric =>
       'ydDHhKkmsS'.contains(pattern[0]) ||
@@ -567,17 +569,30 @@ class _DateFormatPatternField extends _DateFormatField {
     // adjacent fixed-width numeric fields so Mo1 + 12 cannot become Mo11 + 2.
     final name = names[index];
     final remaining = input.peekAll().substring(length);
-    final next = followingField;
-    if (next != null && next is! _DateFormatPatternField) {
+    final literalText = followingLiteral;
+    if (literalText != null) {
       final loose = this is _LoosePatternField;
-      final literal = loose ? next.pattern.trim().toLowerCase() : next.pattern;
+      final literal = loose ? literalText.trim().toLowerCase() : literalText;
       if (literal.isNotEmpty &&
           parent._parseDigitMatcher.stringMatch(literal)?.isNotEmpty == true) {
         bool literalFollows(int consumed) {
           final tail = input.peekAll().substring(consumed);
-          // Prefer the literal attached to the name; trimming here could
-          // steal its first digit from the following day (Mo11 + ' ' + 12).
-          return tail.startsWith(literal);
+          final int end;
+          if (loose) {
+            final pattern = literal.split(RegExp(r'\s+'))
+                .map(RegExp.escape).join(r'\s*');
+            final match = RegExp(r'^\s*' + pattern + r'\s*').firstMatch(tail);
+            if (match == null) return false;
+            end = match.end;
+          } else {
+            if (!tail.startsWith(literal)) return false;
+            end = literal.length;
+          }
+          // A quoted digit cannot be borrowed from the day. Account for the
+          // complete literal run and reserve any fixed-width numeric suffix.
+          return followingNumericWidth == null ||
+              parent._parseDigitMatcher.stringMatch(tail.substring(end))?.length ==
+                  followingNumericWidth;
         }
 
         if (literalFollows(length)) return true;

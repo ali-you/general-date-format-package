@@ -24,13 +24,17 @@ void main() {
   test('quoted numeric literals disambiguate month-name prefixes', () {
     for (final field in ['MMM', 'MMMMM', 'LLL', 'LLLLL']) {
       for (final digit in ['0', '1', '9']) {
-        final format = GeneralDateFormat("yyyy $field'$digit' dd", 'en');
+        for (final gap in ['', ' ']) {
+        final format = GeneralDateFormat("yyyy $field'$digit'${gap}dd", 'en');
         for (final month in [1, 2, 6, 7, 10, 11, 12, 13]) {
           final date = ChineseDateTime.utc(2025, month, 12);
           final text = format.format(date);
           expect(format.parseStrict(text, selector, true), date,
               reason: '${format.pattern} $text');
           expect(format.parseLoose(text.toUpperCase(), selector, true), date);
+          final name = GeneralDateFormat(field, 'en').format(date);
+          expect(format.parseLoose('2025 $name $digit 12'.toUpperCase(), selector, true), date);
+        }
         }
       }
     }
