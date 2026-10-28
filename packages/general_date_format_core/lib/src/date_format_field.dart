@@ -579,8 +579,8 @@ class _DateFormatPatternField extends _DateFormatField {
           final tail = input.peekAll().substring(consumed);
           final int end;
           if (loose) {
-            final pattern = literal.split(RegExp(r'\s+'))
-                .map(RegExp.escape).join(r'\s*');
+            final pattern =
+                literal.split(RegExp(r'\s+')).map(RegExp.escape).join(r'\s*');
             final match = RegExp(r'^\s*' + pattern + r'\s*').firstMatch(tail);
             if (match == null) return false;
             end = match.end;
@@ -591,7 +591,9 @@ class _DateFormatPatternField extends _DateFormatField {
           // A quoted digit cannot be borrowed from the day. Account for the
           // complete literal run and reserve any fixed-width numeric suffix.
           return followingNumericWidth == null ||
-              parent._parseDigitMatcher.stringMatch(tail.substring(end))?.length ==
+              parent._parseDigitMatcher
+                      .stringMatch(tail.substring(end))
+                      ?.length ==
                   followingNumericWidth;
         }
 
