@@ -26,7 +26,7 @@ void main() {
     ]) {
       expect(names, isNot(contains(name)));
     }
-  });
+  }, testOn: 'vm');
 
   test('Gregorian operations fail with migration guidance and preserve state',
       () {

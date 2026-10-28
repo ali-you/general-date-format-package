@@ -2,6 +2,18 @@
 
 ## 2.0.0 — 2026-10-28
 
+- Fix strict and loose parsing of digit-ending Chinese month names next to
+  fixed-width numeric fields; test all supported years, digit modes, and
+  cross-calendar reuse on VM and JavaScript.
+
+
+- Add Chinese date formatting and strict/loose parsing with pinned CLDR 48
+  regular/leap month names across all bundled locales. Numeric months remain
+  chronological ordinals; reject unsupported era and quarter patterns.
+- Add translated Chinese Material localizations, picker integration, and
+  all-locale leap-month round-trip coverage.
+
+
 - Verify Hebrew locale tables, all-locale round trips, minimum Dart support,
   and JavaScript parsing across three historical/DST timezone fixtures.
 

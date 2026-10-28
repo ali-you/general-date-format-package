@@ -1,3 +1,4 @@
+import 'symbols/chinese_calendar_symbol_data_local.dart';
 import 'package:general_datetime_core/general_datetime_core.dart';
 
 import 'date_symbols.dart';
@@ -5,11 +6,12 @@ import 'symbols/hijri_calendar_symbol_data_local.dart';
 import 'symbols/hebrew_calendar_symbol_data_local.dart';
 import 'symbols/persian_calendar_symbol_data_local.dart';
 
-enum CalendarType { persian, hijri, hebrew }
+enum CalendarType { persian, hijri, hebrew, chinese }
 
 CalendarType calendarType(DateTime date) {
   if (date is PersianDateTime) return CalendarType.persian;
   if (date is HijriDateTime) return CalendarType.hijri;
+  if (date is ChineseDateTime) return CalendarType.chinese;
   if (date is HebrewDateTime) return CalendarType.hebrew;
   if (date is GeneralDateTimeInterface) {
     throw UnsupportedError('Calendar ${date.runtimeType} is not supported.');
@@ -23,6 +25,7 @@ DateSymbols symbolsFor(CalendarType calendar, String locale) =>
     switch (calendar) {
       CalendarType.persian => persianDateSymbolMap[locale]!,
       CalendarType.hijri => hijriDateSymbolMap[locale]!,
+      CalendarType.chinese => chineseDateSymbolMap[locale]!,
       CalendarType.hebrew => hebrewDateSymbolMap[locale]!,
     };
 

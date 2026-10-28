@@ -1,5 +1,5 @@
 name: general_date_format
-description: "Localized Persian, Hebrew and Umm al-Qura date formatting, strict/loose parsing, and translated Flutter Material calendar localizations."
+description: "Localized Persian, Hebrew, Chinese and Umm al-Qura date formatting, strict/loose parsing, and translated Flutter Material calendar localizations."
 version: 3.0.0
 homepage: https://github.com/ali-you
 repository: https://github.com/ali-you/general-date-format-package

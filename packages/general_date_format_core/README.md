@@ -1,6 +1,6 @@
 # General Date Format Core
 
-Pure Dart localized formatting and strict/loose parsing for Persian, Hebrew,
+Pure Dart localized formatting and strict/loose parsing for Persian, Hebrew, Chinese,
 and Umm al-Qura dates. Its only runtime dependency is our `general_datetime_core`.
 Locale data is bundled; there is no `intl`, `clock` or Flutter dependency.
 
@@ -25,6 +25,13 @@ hook is needed.
 
 The public core library also exports `resolveLocale` and `verifiedLocale` for
 adapters that need the formatter's bundled-data locale fallback policy.
+
+Chinese formatting includes localized CLDR 48 regular/leap month names and
+strict parsing. Numeric month fields are chronological ordinals (1–12/13);
+`y` is the Gregorian year containing lunar New Year. Named patterns show the
+traditional month identity. Era and quarter patterns reject Chinese dates.
+Install `ChineseCalendarMaterialLocalizations.delegate` with
+`ChineseCalendarDelegate` for translated Material pickers.
 
 ## Installation and development
 

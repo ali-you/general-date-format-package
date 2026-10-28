@@ -1,6 +1,6 @@
 # General Date Format
 
-Localized formatting and parsing for Persian (Jalali), Hebrew, and Hijri
+Localized formatting and parsing for Persian (Jalali), Hebrew, Chinese, and Hijri
 (Umm al-Qura) dates, plus translated Flutter Material date-picker localizations. The date
 object selects the calendar; the locale selects language, date order, and digits.
 
@@ -10,6 +10,13 @@ object selects the calendar; the locale selects language, date order, and digits
 Gregorian formatting/parsing belongs to the consuming application through
 `intl.DateFormat`. Calendar conversion and arithmetic belong to
 `general_datetime` / `general_datetime_core`.
+
+Chinese formatting includes localized CLDR 48 regular/leap month names and
+strict parsing. Numeric month fields are chronological ordinals (1–12/13);
+`y` is the Gregorian year containing lunar New Year. Named patterns show the
+traditional month identity. Era and quarter patterns reject Chinese dates.
+Install `ChineseCalendarMaterialLocalizations.delegate` with
+`ChineseCalendarDelegate` for translated Material pickers.
 
 ## Contents
 

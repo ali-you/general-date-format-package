@@ -125,3 +125,7 @@ all packaged files. `main.dart.js` is 3,452,264 bytes (837,855 with offline gzip
 The total includes renderer alternatives, fonts, assets and symbol files; it is
 neither a single page's download size nor a formatter-only budget. Browser
 startup timing and memory require separate measurements.
+
+Chinese data uses the same pinned CLDR 48 generator and source lock:
+`python tool/generate_calendar_data.py --calendar chinese --check` verifies
+regular and leap-month names across all bundled locales.

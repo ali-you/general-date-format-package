@@ -20,6 +20,12 @@ class DateBuilder {
   bool _hasMonth = false, _hasDay = false;
   int? _quarter;
   final _months = <Set<int>>[];
+  final _chineseMonths = <Set<int>>[];
+  void setChineseMonth(Set<int> candidates) {
+    _hasMonth = true;
+    _chineseMonths.add(candidates);
+  }
+
   final _leapOnlyMonths = <Set<int>>[];
   final _days = <int>[];
   final _quarters = <int>[];
@@ -41,6 +47,9 @@ class DateBuilder {
   }
 
   DateTime _inCalendar(DateTime date) {
+    if (generalDateTime is ChineseDateTime) {
+      return ChineseDateTime.fromDateTime(date);
+    }
     if (generalDateTime is HebrewDateTime) {
       return HebrewDateTime.fromDateTime(date);
     }
@@ -144,6 +153,32 @@ class DateBuilder {
   int get _constructionMonth => _constructionMonthForYear(_estimatedYear);
 
   int _constructionMonthForYear(int targetYear) {
+    if (generalDateTime is ChineseDateTime && _chineseMonths.isNotEmpty) {
+      var common = ChineseDateTime.monthsOfYear(targetYear).toSet();
+      for (final token in _months) {
+        common = common.intersection(token);
+      }
+      for (final token in _chineseMonths) {
+        final ordinals = <int>{};
+        for (final code in token) {
+          try {
+            ordinals.add(ChineseDateTime.ordinalMonth(
+                targetYear, (code - 1) % 12 + 1,
+                isLeapMonth: code > 12));
+          } on ArgumentError {/* This leap identity is absent in this year. */}
+        }
+        common = common.intersection(ordinals);
+      }
+      if (common.isEmpty) {
+        throw const FormatException(
+            'Chinese month identity is absent or conflicting');
+      }
+      return hasDayOfYear
+          ? 1
+          : common.contains(month)
+              ? month
+              : common.first;
+    }
     if (generalDateTime is HebrewDateTime && _hasMonth) {
       final valid = HebrewDateTime.monthsOfYear(targetYear).toSet();
       final leap = valid.contains(HebrewDateTime.adarI);
@@ -191,7 +226,14 @@ class DateBuilder {
 
   void verify(String input) {
     _verify(
-        month, 1, generalDateTime is HebrewDateTime ? 13 : 12, 'month', input);
+        month,
+        1,
+        (generalDateTime is HebrewDateTime ||
+                generalDateTime is ChineseDateTime)
+            ? 13
+            : 12,
+        'month',
+        input);
     for (final token in _hours) {
       _verify(token.value, token.minimum, token.maximum, 'hour', input);
       final normalized =
@@ -224,6 +266,14 @@ class DateBuilder {
     _verify(second, 0, 59, 'second', input);
     _verify(fractionalSecond, 0, 999, 'fractional second', input);
     final date = asDate();
+    if (date is ChineseDateTime) {
+      final code = date.lunarMonth + (date.isLeapMonth ? 12 : 0);
+      for (final candidates in _chineseMonths) {
+        if (!candidates.contains(code)) {
+          throw FormatException('Chinese month does not match date', input);
+        }
+      }
+    }
     if (date is HebrewDateTime &&
         !date.isLeapYear &&
         _leapOnlyMonths.any((slots) => slots.contains(date.month))) {
@@ -383,6 +433,13 @@ class DateBuilder {
   DateTime _construct(int year, int month, int day, int hour, int minute,
       int second, int millisecond,
       [int microsecond = 0]) {
+    if (generalDateTime is ChineseDateTime) {
+      return utc
+          ? ChineseDateTime.utc(
+              year, month, day, hour, minute, second, millisecond, microsecond)
+          : ChineseDateTime(
+              year, month, day, hour, minute, second, millisecond, microsecond);
+    }
     if (generalDateTime is HebrewDateTime) {
       return utc
           ? HebrewDateTime.utc(
