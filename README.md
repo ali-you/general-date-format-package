@@ -48,7 +48,7 @@ wrapper's `lib/src` contains only Material localization adapters, which import
 the core directly. Use `general_date_format.dart` for the Flutter public API
 or `general_date_format_core.dart` for pure Dart applications.
 
-The prepared wrapper versions are `general_date_format` **4.0.0** and
+The compatible wrapper versions are `general_date_format` **4.0.0** and
 `general_datetime` **5.0.0**. Both Dart cores are **3.0.0**. Flutter wrappers
 require Dart `>=3.4.0 <4.0.0` and Flutter `>=3.32.0`; the cores need only Dart
 `>=3.4.0 <4.0.0`.
