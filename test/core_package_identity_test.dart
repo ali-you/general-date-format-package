@@ -11,5 +11,9 @@ void main() {
     final date = PersianDateTime.utc(1403, 1, 1);
     expect(
         flutter_api.GeneralDateFormat('yyyy-MM-dd').format(date), '1403-01-01');
+    expect(
+        () => flutter_api.GeneralDateFormat('yyyy-MM-dd')
+            .format(ChineseDateTime.utc(2024, 1, 1)),
+        throwsUnsupportedError);
   });
 }

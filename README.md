@@ -48,8 +48,8 @@ wrapper's `lib/src` contains only Material localization adapters, which import
 the core directly. Use `general_date_format.dart` for the Flutter public API
 or `general_date_format_core.dart` for pure Dart applications.
 
-The prepared wrapper versions are `general_date_format` **3.0.0** and
-`general_datetime` **4.0.0**. Both Dart cores are **2.0.0**. Flutter wrappers
+The prepared wrapper versions are `general_date_format` **4.0.0** and
+`general_datetime` **5.0.0**. Both Dart cores are **3.0.0**. Flutter wrappers
 require Dart `>=3.4.0 <4.0.0` and Flutter `>=3.32.0`; the cores need only Dart
 `>=3.4.0 <4.0.0`.
 
@@ -58,17 +58,18 @@ Flutter application:
 
 ```yaml
 dependencies:
-  general_date_format: ^3.0.0
-  general_datetime: ^4.0.0
+  general_date_format: ^4.0.0
+  general_datetime: ^5.0.0
 ```
 
 Run `flutter pub get`. For a pure Dart application, use
-`general_date_format_core: ^2.0.0` and `general_datetime_core: ^2.0.0` instead,
+`general_date_format_core: ^3.0.0` and `general_datetime_core: ^3.0.0` instead,
 then run `dart pub get`.
 
-All manifests and examples now use matching dependency constraints. These
-versions are prepared in source; publication has not been performed. Until
-the matching hosted releases are available, use the local setup described in
+All manifests and examples use matching dependency constraints. Chinese
+chronology can coexist in the same application, but Chinese dates and parse
+selectors throw `UnsupportedError`; this formatter supports Persian, Hebrew
+and Hijri. For local development, see
 [Locale maintenance and release checks](#locale-maintenance-and-release-checks).
 See [release migration](docs/release-migration.md) for breaking API changes.
 

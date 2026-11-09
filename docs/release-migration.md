@@ -1,4 +1,21 @@
-# Hebrew release versions and migration
+# Release versions and migration
+
+## Formatter core 3.0.0 / Flutter wrapper 4.0.0
+
+Use chronology core `^3.0.0` and chronology wrapper `^5.0.0` with
+formatter core `^3.0.0` and formatter wrapper `^4.0.0`. The example uses
+the same dependency set. Dart and Flutter minimum versions are unchanged.
+
+This upgrades the chronology dependency to allow coexistence with Chinese
+calendar implementations. Handle `CalendarId.chinese` in exhaustive switches.
+Chinese dates and parse selectors still throw `UnsupportedError`, including
+nullable parsing methods; Persian, Hebrew and Hijri behavior is preserved.
+The Flutter entry point still re-exports the exact core formatter class.
+
+Publish formatter core 3.0.0 before wrapper 4.0.0. Verify each package against
+hosted dependencies without local overrides before publication.
+
+## Historical Hebrew release (core 2.0.0 / wrapper 3.0.0)
 
 The prepared source release uses this compatible package set:
 

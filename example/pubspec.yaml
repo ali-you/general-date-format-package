@@ -12,7 +12,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: ^0.20.2
-  general_datetime: ^4.0.0
+  general_datetime: ^5.0.0
   general_date_format:
     path: ../
 

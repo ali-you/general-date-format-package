@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.0.0] — 2026-11-09
+
+- Require `general_date_format_core ^3.0.0` and `general_datetime ^5.0.0`
+  so applications can resolve the current chronology and calendar widgets.
+- Preserve the shared formatter type and Persian, Hebrew and Hijri behavior.
+  Chinese chronology can coexist but remains unsupported by this formatter.
+- Align example dependencies, migration guidance and the CI chronology pin.
+
 ## [3.0.0] — 2026-10-28
 
 - Validate Hebrew formatting, translated pickers, and the associated calendar

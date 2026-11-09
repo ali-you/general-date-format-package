@@ -1,5 +1,14 @@
 # Changelog
 
+## 3.0.0 — 2026-11-09
+
+- Require `general_datetime_core ^3.0.0` for compatibility with the current
+  chronology release, including its new `CalendarId.chinese` enum case.
+- Preserve Persian, Hebrew and Hijri formatting/parsing. Chinese inputs and
+  parse selectors continue to throw `UnsupportedError`, including nullable APIs.
+- Add coexistence coverage for rejected Chinese operations and exact
+  microsecond round trips through the supported calendars.
+
 ## 2.0.0 — 2026-10-28
 
 - Verify Hebrew locale tables, all-locale round trips, minimum Dart support,

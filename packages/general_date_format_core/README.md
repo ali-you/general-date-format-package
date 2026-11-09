@@ -14,7 +14,7 @@ To control the rolling two-digit year window without a clock package, assign
 `format.now = () => DateTime.utc(2025, 6, 15)`. Each parse reads this callback at
 most once and only for ambiguous two-digit years.
 
-The prepared Flutter `general_date_format` 3.0.0 package re-exports this 2.0.0 core and
+The prepared Flutter `general_date_format` 4.0.0 package re-exports this 3.0.0 core and
 adds its existing Material localization delegates. Both imports expose the
 same `GeneralDateFormat` type and consume the same calendar date classes.
 
@@ -26,15 +26,19 @@ hook is needed.
 The public core library also exports `resolveLocale` and `verifiedLocale` for
 adapters that need the formatter's bundled-data locale fallback policy.
 
+Chinese chronology can coexist via chronology core 3.0.0. Chinese dates and
+parse selectors remain unsupported and throw `UnsupportedError`, including
+nullable parsing APIs. Handle `CalendarId.chinese` in exhaustive switches.
+
 ## Installation and development
 
-The prepared release uses version 2.0.0 of both cores. After publication, add
+The prepared release uses version 3.0.0 of both cores. Add
 them to a Dart application:
 
 ```yaml
 dependencies:
-  general_datetime_core: ^2.0.0
-  general_date_format_core: ^2.0.0
+  general_datetime_core: ^3.0.0
+  general_date_format_core: ^3.0.0
 ```
 
 ```dart
@@ -57,8 +61,7 @@ dart run example/cli.dart
 dart compile exe example/cli.dart -o .dart_tool/calendar_cli.exe
 ```
 
-Publication of the prepared 2.0.0 cores is a separate step. Development
-and CI select the local chronology core with `tool/resolve_calendar_pair.py`.
+Development and CI select the local chronology core with `tool/resolve_calendar_pair.py`.
 From the formatter repository root, run:
 
 ```console
