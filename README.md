@@ -49,8 +49,8 @@ the core directly. Use `general_date_format.dart` for the Flutter public API
 or `general_date_format_core.dart` for pure Dart applications.
 
 The compatible wrapper versions are `general_date_format` **4.1.0** and
-`general_datetime` **5.0.0**. Use formatter core **3.1.0**
-with chronology core **3.0.0**. Flutter wrappers
+`general_datetime` **5.0.1**. Use formatter core **3.1.0**
+with chronology core **3.0.1**. Flutter wrappers
 require Dart `>=3.4.0 <4.0.0` and Flutter `>=3.32.0`; the cores need only Dart
 `>=3.4.0 <4.0.0`.
 
@@ -60,11 +60,11 @@ Flutter application:
 ```yaml
 dependencies:
   general_date_format: ^4.1.0
-  general_datetime: ^5.0.0
+  general_datetime: ^5.0.1
 ```
 
 Run `flutter pub get`. For a pure Dart application, use
-`general_date_format_core: ^3.1.0` and `general_datetime_core: ^3.0.0` instead,
+`general_date_format_core: ^3.1.0` and `general_datetime_core: ^3.0.1` instead,
 then run `dart pub get`.
 
 Chinese dates support localized formatting and strict/loose parsing, including

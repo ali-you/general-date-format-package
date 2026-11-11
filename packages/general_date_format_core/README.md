@@ -40,7 +40,7 @@ them to a Dart application:
 
 ```yaml
 dependencies:
-  general_datetime_core: ^3.0.0
+  general_datetime_core: ^3.0.1
   general_date_format_core: ^3.1.0
 ```
 
