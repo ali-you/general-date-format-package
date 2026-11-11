@@ -78,30 +78,27 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "4.0.0"
+    version: "4.1.0"
   general_date_format_core:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: general_date_format_core
-      sha256: "177aa607a0f4f50a9aac7797369bfe145de5d02f8c7bb248aa26ff7c4aa1e2a7"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.0.0"
+      path: "../packages/general_date_format_core"
+      relative: true
+    source: path
+    version: "3.1.0"
   general_datetime:
     dependency: "direct main"
     description:
-      name: general_datetime
-      sha256: "3362099a7590c936a3edc80fb1f0d0d3f3d51f30443d264aa5515258ae3027b7"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../../general_date"
+      relative: true
+    source: path
     version: "5.0.0"
   general_datetime_core:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: general_datetime_core
-      sha256: e6264e933ceb7598e43eaadf934fe3e7445957bda243a6462415c09e06aa72ff
-      url: "https://pub.dev"
-    source: hosted
+      path: "../../general_date/packages/general_datetime_core"
+      relative: true
+    source: path
     version: "3.0.0"
   intl:
     dependency: "direct main"

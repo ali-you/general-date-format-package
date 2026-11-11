@@ -27,6 +27,7 @@ void main() {
     'Persian': PersianDateTime.fromDateTime,
     'Hijri': HijriDateTime.fromDateTime,
     'Hebrew': HebrewDateTime.fromDateTime,
+    'Chinese': ChineseDateTime.fromDateTime,
   }.entries) {
     final inCalendar = entry.value;
     final calendar = entry.key;

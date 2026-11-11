@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.1.0 — 2026-11-11
+
+- Add Chinese formatting and strict/loose parsing with pinned CLDR 48 names
+  in all bundled locales, related years and ordinal numeric months.
+- Resolve leap-month identity after the year, reject conflicting month tokens,
+  and preserve adjacent numeric fields, native digits and microseconds.
+- Reject undefined Chinese era and quarter patterns explicitly.
+- Add translated Chinese Material localizations, examples and cross-package
+  calendar selection coverage; retain the complete portable Node suite.
+
 ## [4.0.0] — 2026-11-09
 
 - Require `general_date_format_core ^3.0.0` and `general_datetime ^5.0.0`

@@ -42,3 +42,6 @@ build/
 # Exclude their contents here; each package's .pubignore can opt back in.
 packages/*/*
 **/pubspec_overrides.yaml.example
+
+# Maintainer guides are hosted on GitHub, outside package archives.
+docs/

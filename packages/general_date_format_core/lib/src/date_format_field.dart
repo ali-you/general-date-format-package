@@ -171,7 +171,14 @@ class _LoosePatternField extends _DateFormatPatternField {
       handleNumericField(input, dateFields.setMonth);
       return;
     }
-    var possibilities = [monthNames('MONTHS'), monthNames('SHORTMONTHS')];
+    var possibilities = [
+      monthNames('MONTHS'),
+      monthNames('SHORTMONTHS'),
+      if (width == 5) monthNames('NARROWMONTHS'),
+    ];
+    if (width == 5) {
+      return _parseNarrowMonthVariants(input, dateFields, possibilities);
+    }
     for (var monthNames in possibilities) {
       var month = _tryParseEnumeratedString(input, monthNames);
       if (month != -1) {
@@ -215,8 +222,12 @@ class _LoosePatternField extends _DateFormatPatternField {
     }
     var possibilities = [
       monthNames('STANDALONEMONTHS'),
-      monthNames('STANDALONESHORTMONTHS')
+      monthNames('STANDALONESHORTMONTHS'),
+      if (width == 5) monthNames('STANDALONENARROWMONTHS'),
     ];
+    if (width == 5) {
+      return _parseNarrowMonthVariants(input, dateFields, possibilities);
+    }
     for (var monthNames in possibilities) {
       var month = _tryParseEnumeratedString(input, monthNames);
       if (month != -1) {
@@ -225,6 +236,28 @@ class _LoosePatternField extends _DateFormatPatternField {
       }
     }
     throwFormatException(input);
+  }
+
+  void _parseNarrowMonthVariants(
+      StringStack input, DateBuilder fields, List<List<String>> variants) {
+    final remaining = input.peekAll();
+    List<String>? bestNames;
+    var bestMonth = -1, bestLength = 0;
+    for (final names in variants) {
+      final probe = StringStack(remaining);
+      final month = _tryParseEnumeratedString(probe, names);
+      final consumed = remaining.length - probe.peekAll().length;
+      if (month >= 0 && consumed > bestLength) {
+        bestNames = names;
+        bestMonth = month;
+        bestLength = consumed;
+      }
+    }
+    if (bestNames == null) throwFormatException(input);
+    // A full/abbreviated regular name (6) must not hide a longer narrow leap
+    // spelling (6b), nor may a narrow initial hide an accepted full name.
+    input.pop(bestLength);
+    recordMonth(fields, bestNames, bestMonth);
   }
 
   /// Parse a day of the week name, case-insensitively.
@@ -270,10 +303,17 @@ class _DateFormatPatternField extends _DateFormatField {
   /// case-insensitive input and skipped delimiters.
   @override
   void parseLoose(StringStack input, DateBuilder dateFields) =>
-      (_LoosePatternField(pattern, parent)..fixedWidth = fixedWidth)
+      (_LoosePatternField(pattern, parent)
+            ..fixedWidth = fixedWidth
+            ..followingNumericWidth = followingNumericWidth
+            ..followingField = followingField
+            ..followingLiteral = followingLiteral)
           .parse(input, dateFields);
 
   bool fixedWidth = false;
+  int? followingNumericWidth;
+  _DateFormatField? followingField;
+  String? followingLiteral;
 
   bool get isNumeric =>
       'ydDHhKkmsS'.contains(pattern[0]) ||
@@ -451,9 +491,32 @@ class _DateFormatPatternField extends _DateFormatField {
   /// Read numeric input, bounding adjacent numeric fields by their width,
   /// and normalize ASCII/native digits to ASCII for integer conversion.
   String _readDigits(StringStack inputStack) {
-    final source = fixedWidth
-        ? inputStack.peek(pattern[0] == 'S' && width < 3 ? 3 : width)
-        : inputStack.peekAll();
+    var bounded = fixedWidth;
+    var numericWidth = pattern[0] == 'S' && width < 3 ? 3 : width;
+    final next = followingField;
+    if (!bounded &&
+        parent._calendar == CalendarType.chinese &&
+        next is _DateFormatPatternField &&
+        'ML'.contains(next.pattern[0]) &&
+        next.width >= 3) {
+      final context = next.pattern[0] == 'L' ? 'STANDALONE' : '';
+      final widthName = next.width == 5
+          ? 'NARROWMONTHS'
+          : next.width == 4
+              ? 'MONTHS'
+              : 'SHORTMONTHS';
+      // A named Chinese month can itself begin with a digit (e.g. Korean
+      // 1월 or English narrow 1). Reserve the preceding numeric field's width.
+      bounded = next.monthNames('$context$widthName').any((name) =>
+          parent._parseDigitMatcher.stringMatch(name)?.isNotEmpty ?? false);
+      // Chinese related years are 1901..2099. Unlike yy, y and yyy
+      // format the complete four-digit year; their width is a minimum.
+      if (bounded && pattern[0] == 'y' && width != 2 && width < 4) {
+        numericWidth = 4;
+      }
+    }
+    final source =
+        bounded ? inputStack.peek(numericWidth) : inputStack.peekAll();
     var string = parent._parseDigitMatcher.stringMatch(source);
     if (string == null || string.isEmpty) {
       return throwFormatException(inputStack);
@@ -503,16 +566,72 @@ class _DateFormatPatternField extends _DateFormatField {
 
   bool validEnumeratedMatch(
       StringStack input, List<String> names, int index, int length) {
-    if (parent._calendar != CalendarType.hebrew || names.length != 14) {
+    if (!((parent._calendar == CalendarType.hebrew && names.length == 14) ||
+        (parent._calendar == CalendarType.chinese && names.length == 24))) {
       return true;
     }
-    // Some CLDR Adar variants end in a numeral (e.g. Korean Adar 2).
-    // Do not consume the first digit of the following day, such as Adar 29.
+    // CLDR Chinese names and some Adar variants end in numerals. Reserve
+    // adjacent fixed-width numeric fields so Mo1 + 12 cannot become Mo11 + 2.
     final name = names[index];
     final remaining = input.peekAll().substring(length);
-    return name.isEmpty ||
+    final literalText = followingLiteral;
+    if (literalText != null) {
+      final loose = this is _LoosePatternField;
+      final literal = loose ? literalText.trim().toLowerCase() : literalText;
+      if (literal.isNotEmpty &&
+          parent._parseDigitMatcher.stringMatch(literal)?.isNotEmpty == true) {
+        bool literalFollows(int consumed) {
+          final tail = input.peekAll().substring(consumed);
+          final int end;
+          if (loose) {
+            final pattern =
+                literal.split(RegExp(r'\s+')).map(RegExp.escape).join(r'\s*');
+            final match = RegExp(r'^\s*' + pattern + r'\s*').firstMatch(tail);
+            if (match == null) return false;
+            end = match.end;
+          } else {
+            if (!tail.startsWith(literal)) return false;
+            end = literal.length;
+          }
+          // A quoted digit cannot be borrowed from the day. Account for the
+          // complete literal run and reserve any fixed-width numeric suffix.
+          return followingNumericWidth == null ||
+              parent._parseDigitMatcher
+                      .stringMatch(tail.substring(end))
+                      ?.length ==
+                  followingNumericWidth;
+        }
+
+        if (literalFollows(length)) return true;
+        // Prefer a shorter month name that leaves the quoted literal intact:
+        // Mo1 + '0' must not be consumed as month Mo10.
+        for (final candidate in names) {
+          final int? consumed;
+          if (loose) {
+            final pattern = candidate
+                .toLowerCase()
+                .split(RegExp(r'\s+'))
+                .map(RegExp.escape)
+                .join(r'\s+');
+            consumed = RegExp('^$pattern').firstMatch(input.peekAll())?.end;
+          } else {
+            consumed =
+                input.peekAll().startsWith(candidate) ? candidate.length : null;
+          }
+          if (consumed != null && consumed > 0 && literalFollows(consumed)) {
+            return false;
+          }
+        }
+      }
+    }
+    if (name.isEmpty ||
         !parent._parseDigitMatcher.hasMatch(name.substring(name.length - 1)) ||
-        !parent._parseDigitMatcher.hasMatch(remaining);
+        !parent._parseDigitMatcher.hasMatch(remaining)) {
+      return true;
+    }
+    return followingNumericWidth != null &&
+        parent._parseDigitMatcher.stringMatch(remaining)?.length ==
+            followingNumericWidth;
   }
 
   void parseYear(StringStack input, DateBuilder builder) {
@@ -730,6 +849,9 @@ class _DateFormatPatternField extends _DateFormatField {
   }
 
   List<String> monthNames(String field) {
+    if (parent._calendar == CalendarType.chinese) {
+      return chineseMonthNames(parent.locale, field);
+    }
     if (parent._calendar == CalendarType.hebrew) {
       return hebrewMonthNames(parent.locale, field);
     }
@@ -745,6 +867,10 @@ class _DateFormatPatternField extends _DateFormatField {
   }
 
   String formatNamedMonth(DateTime date, String field) {
+    if (date is ChineseDateTime) {
+      return monthNames(
+          field)[date.lunarMonth - 1 + (date.isLeapMonth ? 12 : 0)];
+    }
     final index = date is HebrewDateTime &&
             date.month == HebrewDateTime.adarII &&
             date.isLeapYear
@@ -755,6 +881,10 @@ class _DateFormatPatternField extends _DateFormatField {
 
   void recordMonth(DateBuilder builder, List<String> names, int selected) {
     final matches = matchingNameIndices(names, selected).toSet();
+    if (builder.generalDateTime is ChineseDateTime) {
+      builder.setChineseMonth({for (final i in matches) i + 1});
+      return;
+    }
     final hebrew = builder.generalDateTime is HebrewDateTime;
     int slot(int index) =>
         hebrew && index == 13 ? HebrewDateTime.adarII : index + 1;

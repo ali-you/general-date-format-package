@@ -71,7 +71,7 @@ jobs:
           node-version: '22'
       - run: dart pub get
         working-directory: packages/general_date_format_core
-      - run: dart test --platform node --dart2js-args="-DCALENDAR_TEST_TZ=${{ matrix.timezone }}" test/dst_parsing_test.dart test/two_digit_year_window_test.dart test/era_parsing_test.dart test/hebrew_format_test.dart test/calendar_coexistence_test.dart test/fractional_precision_test.dart test/chronology_compatibility_test.dart
+      - run: dart test --platform node --dart2js-args="-DCALENDAR_TEST_TZ=${{ matrix.timezone }}"
         working-directory: packages/general_date_format_core
   test:
     needs: pair
@@ -126,7 +126,7 @@ jobs:
           channel: stable
       - run: python tool/resolve_calendar_pair.py --chronology "$GITHUB_WORKSPACE/.dart_tool/calendar_dependencies/general_date" --formatter "$GITHUB_WORKSPACE"
       - run: flutter pub get
-      - run: flutter test --platform chrome ${{ matrix.compiler == 'wasm' && '--wasm' || '' }} test/platform_formatter_smoke_test.dart test/hebrew_material_localizations_test.dart
+      - run: flutter test --platform chrome ${{ matrix.compiler == 'wasm' && '--wasm' || '' }} test/platform_formatter_smoke_test.dart test/hebrew_material_localizations_test.dart test/chinese_material_localizations_test.dart test/chinese_calendar_integration_test.dart
   locale-data:
     runs-on: ubuntu-latest
     steps:

@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.1.0 — 2026-11-11
+
+- Add Chinese formatting and strict/loose parsing with pinned CLDR 48 names
+  in all bundled locales, related years and ordinal numeric months.
+- Resolve leap-month identity after the year, reject conflicting month tokens,
+  and preserve adjacent numeric fields, native digits and microseconds.
+- Reject undefined Chinese era and quarter patterns explicitly.
+- Verify Chinese DST parsing, cross-calendar reuse, and the full portable Node
+  suite; keep the filesystem dependency-graph check restricted to VM.
+- Preserve full related years in `y`/`yyy` before digit-leading named months,
+  with all-locale strict/loose regressions and an exhaustive .NET fixture tool.
+
 ## 3.0.0 — 2026-11-09
 
 - Require `general_datetime_core ^3.0.0` for compatibility with the current

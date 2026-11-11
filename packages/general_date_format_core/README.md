@@ -1,7 +1,7 @@
 # General Date Format Core
 
 Pure Dart localized formatting and strict/loose parsing for Persian, Hebrew,
-and Umm al-Qura dates. Its only runtime dependency is our `general_datetime_core`.
+Chinese and Umm al-Qura dates. Its only runtime dependency is our `general_datetime_core`.
 Locale data is bundled; there is no `intl`, `clock` or Flutter dependency.
 
 For Gregorian dates, add `intl` to your application and use `intl.DateFormat`
@@ -14,7 +14,7 @@ To control the rolling two-digit year window without a clock package, assign
 `format.now = () => DateTime.utc(2025, 6, 15)`. Each parse reads this callback at
 most once and only for ambiguous two-digit years.
 
-The prepared Flutter `general_date_format` 4.0.0 package re-exports this 3.0.0 core and
+The prepared Flutter `general_date_format` 4.1.0 package re-exports this 3.1.0 core and
 adds its existing Material localization delegates. Both imports expose the
 same `GeneralDateFormat` type and consume the same calendar date classes.
 
@@ -26,19 +26,22 @@ hook is needed.
 The public core library also exports `resolveLocale` and `verifiedLocale` for
 adapters that need the formatter's bundled-data locale fallback policy.
 
-Chinese chronology can coexist via chronology core 3.0.0. Chinese dates and
-parse selectors remain unsupported and throw `UnsupportedError`, including
-nullable parsing APIs. Handle `CalendarId.chinese` in exhaustive switches.
+Chinese dates use related Gregorian years 1901-2099 and ordinal numeric months.
+CLDR 48 names distinguish the twelve traditional months and their leap variants
+in every bundled locale. Parsing resolves named identities against the parsed
+year, including when the name precedes the year. Chinese era and quarter
+patterns are unsupported; `y` is the related year, not a cyclic year.
+See the [Chinese guide](https://github.com/ali-you/general-date-format-package/blob/main/docs/chinese-formatting.md).
 
 ## Installation and development
 
-The prepared release uses version 3.0.0 of both cores. Add
+The prepared release uses formatter core 3.1.0 with chronology core 3.0.0. Add
 them to a Dart application:
 
 ```yaml
 dependencies:
   general_datetime_core: ^3.0.0
-  general_date_format_core: ^3.0.0
+  general_date_format_core: ^3.1.0
 ```
 
 ```dart
@@ -75,7 +78,7 @@ When migrating from 1.x, use application-owned `intl.DateFormat` for Gregorian
 dates, remove calls to the removed locale initialization hook, and use the
 formatter's `now` callback for deterministic two-digit-year parsing. The new
 chronology `CalendarId.hebrew` case requires exhaustive-switch updates.
-See [release migration](../../docs/release-migration.md).
+See [release migration](https://github.com/ali-you/general-date-format-package/blob/main/docs/release-migration.md).
 
 ## Hebrew calendar
 
@@ -92,7 +95,7 @@ Adar I=6 (leap years only), Adar/Adar II=7, Elul=13. Parsing validates names
 against the input year, independently of the selector's leap status. Public
 month symbol arrays contain the thirteen base slots; `format` selects the
 Adar II spelling for leap years. Quarter `Q` patterns are unsupported for Hebrew.
-See the [Hebrew guide](../../docs/hebrew-formatting.md) for full details.
+See the [Hebrew guide](https://github.com/ali-you/general-date-format-package/blob/main/docs/hebrew-formatting.md) for full details.
 
 ## Preserved behavior
 

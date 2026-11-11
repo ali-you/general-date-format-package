@@ -9,6 +9,7 @@ import 'date_builder.dart';
 import 'date_symbols.dart';
 import 'general_date_format_internal.dart';
 import 'symbols/hebrew_calendar_symbol_data_local.dart';
+import 'symbols/chinese_calendar_symbol_data_local.dart';
 import 'helpers.dart';
 import 'string_stack.dart';
 
@@ -16,7 +17,7 @@ part 'date_format_field.dart';
 
 /// feedback on appropriateness.
 /// GeneralDateFormat is for formatting and parsing dates in a locale-sensitive manner.
-/// Supports [PersianDateTime], [HijriDateTime], and [HebrewDateTime]. Native Gregorian [DateTime]
+/// Supports [PersianDateTime], [HijriDateTime], [HebrewDateTime], and [ChineseDateTime]. Native Gregorian [DateTime]
 /// inputs throw [UnsupportedError]; use intl.DateFormat in your application.
 /// It allows the user to choose from a set of standard date time formats as
 /// well as specify a customized pattern under certain locales. Date elements
@@ -801,6 +802,13 @@ class GeneralDateFormat {
 
   void _selectCalendar(DateTime date) {
     final selected = calendarType(date);
+    if (selected == CalendarType.chinese &&
+        _formatFields.any((field) =>
+            field is _DateFormatPatternField &&
+            (field.pattern.startsWith('Q') || field.pattern.startsWith('G')))) {
+      throw UnsupportedError(
+          'Era and quarter patterns are not defined for Chinese civil dates');
+    }
     if (selected == CalendarType.hebrew &&
         _formatFields.any((field) =>
             field is _DateFormatPatternField &&
@@ -970,11 +978,39 @@ class GeneralDateFormat {
     for (var i = 0; i + 1 < fields.length; i++) {
       final field = fields[i];
       final next = fields[i + 1];
+      if (field is _DateFormatPatternField) field.followingField = next;
       if (field is _DateFormatPatternField &&
           next is _DateFormatPatternField &&
           field.isNumeric &&
           next.isNumeric) {
         field.fixedWidth = true;
+      }
+      if (field is _DateFormatPatternField &&
+          'ML'.contains(field.pattern[0]) &&
+          field.width >= 3) {
+        var digits = 0;
+        var exact = true;
+        var j = i + 1;
+        final literal = StringBuffer();
+        while (j < fields.length && fields[j] is! _DateFormatPatternField) {
+          literal.write(fields[j].pattern);
+          j++;
+        }
+        if (literal.isNotEmpty) field.followingLiteral = literal.toString();
+        for (; j < fields.length; j++) {
+          final following = fields[j];
+          if (following is! _DateFormatPatternField || !following.isNumeric) {
+            break;
+          }
+          if (following.width < 2) {
+            exact = false;
+            break;
+          }
+          digits += following.pattern[0] == 'S' && following.width < 3
+              ? 3
+              : following.width;
+        }
+        if (exact && digits > 0) field.followingNumericWidth = digits;
       }
     }
     return fields;

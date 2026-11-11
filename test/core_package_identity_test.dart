@@ -11,9 +11,9 @@ void main() {
     final date = PersianDateTime.utc(1403, 1, 1);
     expect(
         flutter_api.GeneralDateFormat('yyyy-MM-dd').format(date), '1403-01-01');
-    expect(
-        () => flutter_api.GeneralDateFormat('yyyy-MM-dd')
-            .format(ChineseDateTime.utc(2024, 1, 1)),
-        throwsUnsupportedError);
+    final chinese = ChineseDateTime.utc(2025, 7);
+    final format = flutter_api.GeneralDateFormat('yyyy-MM-dd');
+    expect(format.format(chinese), '2025-07-01');
+    expect(format.parseStrict('2025-07-01', chinese, true), chinese);
   });
 }
