@@ -52,6 +52,7 @@ class _FormatExampleState extends State<FormatExample> {
       'Persian': PersianDateTime.fromDateTime(instant),
       'Hijri': HijriDateTime.fromDateTime(instant),
       'Hebrew': HebrewDateTime.fromDateTime(instant),
+      'Chinese': ChineseDateTime.fromDateTime(instant),
     };
   }
 
@@ -84,7 +85,8 @@ class _FormatExampleState extends State<FormatExample> {
   Widget _calendarCard(String name, DateTime date) {
     final isCalendar = date is PersianDateTime ||
         date is HijriDateTime ||
-        date is HebrewDateTime;
+        date is HebrewDateTime ||
+        date is ChineseDateTime;
     // The app chooses intl and lets Flutter's delegate initialize its data.
     final gregorian = intl.DateFormat('yyyy/MM/dd', locale);
     final numeric = GeneralDateFormat('yyyy/MM/dd', locale);
@@ -123,28 +125,38 @@ class _FormatExampleState extends State<FormatExample> {
   }
 
   Future<void> _pickDate(String name, DateTime initial) async {
+    final chinese = initial is ChineseDateTime;
     final persian = initial is PersianDateTime;
     final hebrew = initial is HebrewDateTime;
-    final CalendarDelegate<DateTime> calendarDelegate = hebrew
-        ? const HebrewCalendarDelegate()
-        : persian
-            ? const PersianCalendarDelegate()
-            : const HijriCalendarDelegate();
-    final materialDelegate = hebrew
-        ? HebrewCalendarMaterialLocalizations.delegate
-        : persian
-            ? PersianCalendarMaterialLocalizations.delegate
-            : HijriCalendarMaterialLocalizations.delegate;
-    final firstDate = hebrew
-        ? HebrewDateTime(initial.year - 2)
-        : persian
-            ? PersianDateTime(initial.year - 2)
-            : HijriDateTime(initial.year - 2);
-    final lastDate = hebrew
-        ? HebrewDateTime(initial.year + 2, 13, 29)
-        : persian
-            ? PersianDateTime(initial.year + 2, 12, 29)
-            : HijriDateTime(initial.year + 2, 12, 29);
+    final CalendarDelegate<DateTime> calendarDelegate = chinese
+        ? const ChineseCalendarDelegate()
+        : hebrew
+            ? const HebrewCalendarDelegate()
+            : persian
+                ? const PersianCalendarDelegate()
+                : const HijriCalendarDelegate();
+    final materialDelegate = chinese
+        ? ChineseCalendarMaterialLocalizations.delegate
+        : hebrew
+            ? HebrewCalendarMaterialLocalizations.delegate
+            : persian
+                ? PersianCalendarMaterialLocalizations.delegate
+                : HijriCalendarMaterialLocalizations.delegate;
+    final firstDate = chinese
+        ? ChineseDateTime(initial.year - 2 < 1901 ? 1901 : initial.year - 2)
+        : hebrew
+            ? HebrewDateTime(initial.year - 2)
+            : persian
+                ? PersianDateTime(initial.year - 2)
+                : HijriDateTime(initial.year - 2);
+    final lastDate = chinese
+        ? ChineseDateTime(
+            initial.year + 2 > 2099 ? 2099 : initial.year + 2, 12, 29)
+        : hebrew
+            ? HebrewDateTime(initial.year + 2, 13, 29)
+            : persian
+                ? PersianDateTime(initial.year + 2, 12, 29)
+                : HijriDateTime(initial.year + 2, 12, 29);
     final selected = await showDatePicker(
       context: context,
       initialDate: initial,

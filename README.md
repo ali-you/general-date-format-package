@@ -1,6 +1,6 @@
 # General Date Format
 
-Localized formatting and parsing for Persian (Jalali), Hebrew, and Hijri
+Localized formatting and parsing for Persian (Jalali), Hebrew, Chinese, and Hijri
 (Umm al-Qura) dates, plus translated Flutter Material date-picker localizations. The date
 object selects the calendar; the locale selects language, date order, and digits.
 
@@ -26,7 +26,7 @@ Gregorian formatting/parsing belongs to the consuming application through
 - [Limits and error behavior](#limits-and-error-behavior)
 - [Examples and testing](#examples-and-testing)
 - [Locale maintenance and release checks](#locale-maintenance-and-release-checks)
-- [Release versions and migration](docs/release-migration.md)
+- [Release versions and migration](https://github.com/ali-you/general-date-format-package/blob/main/docs/release-migration.md)
 
 ## Packages and installation
 
@@ -48,8 +48,9 @@ wrapper's `lib/src` contains only Material localization adapters, which import
 the core directly. Use `general_date_format.dart` for the Flutter public API
 or `general_date_format_core.dart` for pure Dart applications.
 
-The compatible wrapper versions are `general_date_format` **4.0.0** and
-`general_datetime` **5.0.0**. Both Dart cores are **3.0.0**. Flutter wrappers
+The compatible wrapper versions are `general_date_format` **4.1.0** and
+`general_datetime` **5.0.1**. Use formatter core **3.1.0**
+with chronology core **3.0.1**. Flutter wrappers
 require Dart `>=3.4.0 <4.0.0` and Flutter `>=3.32.0`; the cores need only Dart
 `>=3.4.0 <4.0.0`.
 
@@ -58,20 +59,20 @@ Flutter application:
 
 ```yaml
 dependencies:
-  general_date_format: ^4.0.0
-  general_datetime: ^5.0.0
+  general_date_format: ^4.1.0
+  general_datetime: ^5.0.1
 ```
 
 Run `flutter pub get`. For a pure Dart application, use
-`general_date_format_core: ^3.0.0` and `general_datetime_core: ^3.0.0` instead,
+`general_date_format_core: ^3.1.0` and `general_datetime_core: ^3.0.1` instead,
 then run `dart pub get`.
 
-All manifests and examples use matching dependency constraints. Chinese
-chronology can coexist in the same application, but Chinese dates and parse
-selectors throw `UnsupportedError`; this formatter supports Persian, Hebrew
-and Hijri. For local development, see
+Chinese dates support localized formatting and strict/loose parsing, including
+leap-month names. Numeric months are chronological ordinals (1-12/13); named
+months retain traditional month and leap identity. Era and quarter patterns
+explicitly reject Chinese dates. See the [Chinese guide](https://github.com/ali-you/general-date-format-package/blob/main/docs/chinese-formatting.md). For local development, see
 [Locale maintenance and release checks](#locale-maintenance-and-release-checks).
-See [release migration](docs/release-migration.md) for breaking API changes.
+See [release migration](https://github.com/ali-you/general-date-format-package/blob/main/docs/release-migration.md) for breaking API changes.
 
 ## Quick start
 
@@ -140,7 +141,7 @@ iteration. Hebrew quarter patterns raise `UnsupportedError`.
 Pair `HebrewCalendarDelegate` with
 `HebrewCalendarMaterialLocalizations.delegate` for translated Material pickers,
 including Hebrew (`he`), native digits, input validation, and date ranges.
-See the [Hebrew guide](docs/hebrew-formatting.md) for semantics, picker code,
+See the [Hebrew guide](https://github.com/ali-you/general-date-format-package/blob/main/docs/hebrew-formatting.md) for semantics, picker code,
 and checkout setup. These additions require the updated local chronology and
 formatter cores until matching hosted releases are published.
 
@@ -597,7 +598,7 @@ percentages were not recalculated; `flutter test --coverage` creates a new repor
 
 ## Locale maintenance and release checks
 
-Persian/Hebrew/Umm al-Qura month and era names are generated from pinned CLDR 48.0.0
+Persian/Hebrew/Chinese/Umm al-Qura month names and applicable eras are generated from pinned CLDR 48.0.0
 inputs with verified hashes. Shared neutral metadata and legacy date-order,
 native-digit, skeleton, and `en_ISO` compatibility policies are explicit.
 Canonical tables live only in `packages/general_date_format_core/lib/src`.
@@ -615,10 +616,10 @@ Downloads are cached under `.dart_tool/cldr-48`; modified inputs are rejected
 against `tool/cldr_sources.lock.json`. On Windows, the unified generator accepts
 `--dart <absolute-dart.exe>` if Dart is available only as a batch wrapper.
 
-CI pins the Hebrew-capable chronology revision in `.github/calendar_pair.json`
+CI pins the Chinese-capable chronology revision in `.github/calendar_pair.json`
 and resolves both cores and the chronology wrapper from source. The manifests
-declare the new 2.0.0 cores and 4.0.0 chronology wrapper; use development
-overrides until those hosted releases are published. For these neighboring checkouts:
+declare formatter core 3.1.0, chronology core 3.0.0 and chronology wrapper 5.0.0. Use development overrides
+until formatter core 3.1.0 and wrapper 4.1.0 are hosted. For these neighboring checkouts:
 
 ```console
 python tool/resolve_calendar_pair.py --chronology ../general_date --formatter .
@@ -641,7 +642,7 @@ passed 64 tests in each of Lord Howe, Monrovia and Tehran. Chrome JavaScript
 and WebAssembly each passed 10 integration tests; the Android example APK built.
 Analysis passed and the generators reproduced all approved CLDR inputs.
 Before/after comparisons matched 850,228 Persian/Hijri records across all
-120 locale identifiers. The [release migration guide](docs/release-migration.md)
+120 locale identifiers. The [release migration guide](https://github.com/ali-you/general-date-format-package/blob/main/docs/release-migration.md)
 records remaining release checks and the compiled formatter size effect.
 
 ## License

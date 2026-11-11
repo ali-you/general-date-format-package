@@ -1,6 +1,24 @@
 # Release versions and migration
 
-## Formatter core 3.0.0 / Flutter wrapper 4.0.0
+## Chinese release: formatter core 3.1.0 / wrapper 4.1.0
+
+Use formatter core `^3.1.0` with chronology core `^3.0.0`, or Flutter
+formatter `^4.1.0` with chronology wrapper `^5.0.0`. SDK minimums stay unchanged.
+These are additive formatter releases; the earlier chronology enum addition
+still requires exhaustive switches to handle `CalendarId.chinese`.
+
+Chinese values now format and parse instead of throwing `UnsupportedError`.
+Numeric months are chronological ordinals. Named months carry the traditional
+number and leap identity, resolved using the parsed related year. Era and
+quarter patterns still throw because they have no defined Chinese civil meaning.
+Install `ChineseCalendarMaterialLocalizations.delegate` for translated pickers.
+See [Chinese formatting](chinese-formatting.md) for examples and limits.
+
+Publish core 3.1.0 before wrapper 4.1.0, then verify consumers without overrides.
+Chronology core 3.0.0 / wrapper 5.0.0 and general_calendar 1.1.0 are already
+hosted. This work prepares source; it does not publish packages.
+
+## Historical compatibility release: core 3.0.0 / wrapper 4.0.0
 
 Use chronology core `^3.0.0` and chronology wrapper `^5.0.0` with
 formatter core `^3.0.0` and formatter wrapper `^4.0.0`. The example uses
@@ -86,12 +104,11 @@ flutter pub get
 The helper preserves edited dependency overrides; it does not silently discard
 other local packages. See the [maintainer guide](../tool/README.md).
 
-Resolve the core and example separately before their commands. Publish chronology
-core 2.0.0 first, then chronology wrapper 4.0.0 / formatter core 2.0.0, then this
-wrapper 3.0.0. Test each consumer against hosted dependencies without development
-overrides before publication, and inspect `pub publish --dry-run` archives.
-After committing chronology release metadata, refresh `.github/calendar_pair.json`
-to that real commit; its current pin records the Hebrew implementation source.
+Resolve the core and example separately before their commands. Chronology
+core 3.0.0 and wrapper 5.0.0 are already hosted. Publish formatter core 3.1.0
+before wrapper 4.1.0; verify each consumer against hosted dependencies without
+local overrides before publication. Inspect `pub publish --dry-run` archives.
+The chronology source pin already references its available Chinese release commit.
 
 On 2026-10-12, 75 formatter core tests, 509 wrapper tests and 6 example tests
 passed; Node selections passed 64 cases in each tested timezone. Chrome JS/Wasm

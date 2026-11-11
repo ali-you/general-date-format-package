@@ -1,8 +1,9 @@
 # General Date Format example
 
-This example uses the local formatter 3.0.0 and chronology 4.0.0 pair with
-both cores at 2.0.0. Hebrew support requires these versions. Until the hosted
-releases are published, select the local cores. From the formatter repository root:
+This example uses formatter 4.1.0 / core 3.1.0 with chronology 5.0.0 /
+core 3.0.0. Chinese dates support localized month names and leap-month parsing.
+Until the new formatter releases are hosted, select the local packages from the
+formatter repository root:
 
 ```console
 python tool/resolve_calendar_pair.py --chronology ../general_date --formatter .
@@ -14,11 +15,11 @@ overrides and resolve matching hosted versions before release verification.
 
 The app shows explicit numeric patterns, locale-aware date/time skeletons and
 strict UTC parsing for Gregorian (via application-owned `intl.DateFormat`),
-Persian, Hijri, and Hebrew dates. The app uses Flutter localization delegates to initialize
+Persian, Hijri, Hebrew, and Chinese dates. The app uses Flutter localization delegates to initialize
 intl; the calendar formatter core does not initialize it. Select English,
 Persian, Arabic, or Hebrew to change the language and native digits.
 
-`DateTime`, `PersianDateTime`, `HijriDateTime`, and `HebrewDateTime` select the calendar. Formatting
+`DateTime`, `PersianDateTime`, `HijriDateTime`, `HebrewDateTime`, and `ChineseDateTime` select the calendar. Formatting
 does not convert calendars; use `general_datetime` for conversion.
 
 The screen samples `DateTime.now` once, then derives Persian, Hijri, and Hebrew values
@@ -32,6 +33,6 @@ MyApp(now: () => DateTime.utc(2024, 3, 20, 12, 34))
 ```
 
 The fixed fixture is Gregorian 2024-03-20, Persian 1403-01-01, and Umm al-Qura
-1445-09-10, and Hebrew 5784-07-10. The suite verifies numeric/native digits, all three localized picker
+1445-09-10, and Hebrew 5784-07-10. The suite verifies numeric/native digits, all four localized picker
 selections, a clock crossing midnight, locale rebuilds, and fresh screen state.
 Run `flutter test` from this directory to verify it.

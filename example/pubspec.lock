@@ -78,31 +78,31 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "4.0.0"
+    version: "4.1.0"
   general_date_format_core:
     dependency: transitive
     description:
       name: general_date_format_core
-      sha256: "177aa607a0f4f50a9aac7797369bfe145de5d02f8c7bb248aa26ff7c4aa1e2a7"
+      sha256: "890594cdab6a9e690eddd4a77a32b8018441e8afed32bf2f302fe04d4933e6ad"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.0"
+    version: "3.1.0"
   general_datetime:
     dependency: "direct main"
     description:
       name: general_datetime
-      sha256: "3362099a7590c936a3edc80fb1f0d0d3f3d51f30443d264aa5515258ae3027b7"
+      sha256: a773cc8a21a58eae928c9afbcf7146009bd7bf46fb433f472c26599f8add1390
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.0"
+    version: "5.0.1"
   general_datetime_core:
     dependency: transitive
     description:
       name: general_datetime_core
-      sha256: e6264e933ceb7598e43eaadf934fe3e7445957bda243a6462415c09e06aa72ff
+      sha256: "5a8da4c6630fdecb7f757211eeffcbcf79fedb8a15c9d00949e71183a7ceefcd"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.0"
+    version: "3.0.1"
   intl:
     dependency: "direct main"
     description:

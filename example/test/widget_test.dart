@@ -7,19 +7,21 @@ void main() {
   final referenceInstant = DateTime.utc(2024, 3, 20, 12, 34, 56, 789, 123);
   WidgetController.hitTestWarningShouldBeFatal = true;
   testWidgets('Demonstrates all calendars and native digits', (tester) async {
-    await tester.binding.setSurfaceSize(const Size(800, 1400));
+    await tester.binding.setSurfaceSize(const Size(800, 1700));
     addTearDown(() => tester.binding.setSurfaceSize(null));
     await tester.pumpWidget(MyApp(now: () => referenceInstant));
     expect(find.text('Gregorian'), findsOneWidget);
     expect(find.text('Persian'), findsOneWidget);
     expect(find.text('Hijri'), findsOneWidget);
     expect(find.text('Hebrew'), findsOneWidget);
+    expect(find.text('Chinese'), findsOneWidget);
     expect(find.textContaining('Ramadan'), findsOneWidget);
     expect(find.text('2024/03/20'), findsOneWidget);
     expect(find.text('1403/01/01'), findsOneWidget);
     expect(find.text('1445/09/10'), findsOneWidget);
     expect(find.text('5784/07/10'), findsOneWidget);
-    expect(find.text('Parsed in UTC: true'), findsNWidgets(4));
+    expect(find.text('2024/02/11'), findsOneWidget);
+    expect(find.text('Parsed in UTC: true'), findsNWidgets(5));
     await tester.tap(find.byType(DropdownButton<String>));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Persian').hitTestable());
@@ -31,7 +33,7 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  for (final calendar in ['Persian', 'Hijri', 'Hebrew']) {
+  for (final calendar in ['Persian', 'Hijri', 'Hebrew', 'Chinese']) {
     testWidgets('Opens and confirms a $calendar picker in Persian',
         (tester) async {
       await tester.pumpWidget(MyApp(now: () => referenceInstant));
@@ -55,7 +57,9 @@ void main() {
               ? 'فروردین'
               : calendar == 'Hijri'
                   ? 'رمضان'
-                  : 'واذار الثانی'),
+                  : calendar == 'Hebrew'
+                      ? 'واذار الثانی'
+                      : 'M02'),
           findsWidgets);
       final material = MaterialLocalizations.of(
           tester.element(find.byType(DatePickerDialog)));
@@ -69,7 +73,9 @@ void main() {
               ? 'Selected Persian: ۱۴۰۳/۱/۱'
               : calendar == 'Hijri'
                   ? 'Selected Hijri: ۱۴۴۵/۹/۱۰'
-                  : 'Selected Hebrew: ۵۷۸۴/۷/۱۰'),
+                  : calendar == 'Hebrew'
+                      ? 'Selected Hebrew: ۵۷۸۴/۷/۱۰'
+                      : 'Selected Chinese: ۲۰۲۴/۲/۱۱'),
           findsOneWidget);
       expect(tester.takeException(), isNull);
     });

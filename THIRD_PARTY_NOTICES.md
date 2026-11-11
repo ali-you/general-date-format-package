@@ -1,5 +1,11 @@
 # Third-party data
 
+
+Chinese month names and leap-month patterns are derived from
+[Unicode CLDR 48 Chinese calendar data](https://github.com/unicode-org/cldr-json/tree/48.0.0/cldr-json/cldr-cal-chinese-full).
+The generator stores regular and leap names separately and records every
+input SHA-256 in `tool/cldr_sources.lock.json`. The Unicode license below applies.
+
 Hebrew month names, leap-year Adar variants, and AM era labels are derived from
 [Unicode CLDR 48 Hebrew calendar data](https://github.com/unicode-org/cldr-json/tree/48.0.0/cldr-json/cldr-cal-hebrew-full).
 The generator preserves thirteen stable slots and separately records the

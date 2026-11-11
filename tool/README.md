@@ -18,7 +18,7 @@ the Flutter wrapper forwards to those same libraries. Both distributed cores
 retain their data-license notices.
 
 Gregorian formatting belongs to the application and uses `intl.DateFormat`.
-Persian, Hijri and Hebrew bundle weekday names, AM/PM markers, time/date-time
+Persian, Hijri, Hebrew and Chinese bundle weekday names, AM/PM markers, time/date-time
 formats, first weekday, weekend range, and first-week cutoff in
 `calendar_neutral_data.dart`. These calendar-independent fields are a pinned
 intl 0.20.3 / CLDR 48 snapshot, with Gregorian months and eras excluded.
@@ -125,3 +125,12 @@ all packaged files. `main.dart.js` is 3,452,264 bytes (837,855 with offline gzip
 The total includes renderer alternatives, fonts, assets and symbol files; it is
 neither a single page's download size nor a formatter-only budget. Browser
 startup timing and memory require separate measurements.
+
+## Chinese symbols
+
+`python tool/generate_calendar_data.py --calendar chinese --check` verifies
+CLDR 48 month names and leap-name patterns against the locked source hashes.
+Numeric months are ordinals; named patterns use traditional month identities.
+Chinese eras and quarters remain undefined. The full Node CI suite includes
+Chinese parsing, cross-calendar reuse, and DST cases. See the
+[Chinese guide](../docs/chinese-formatting.md).
