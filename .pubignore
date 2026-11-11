@@ -45,3 +45,6 @@ packages/*/*
 
 # Maintainer guides are hosted on GitHub, outside package archives.
 docs/
+
+# Temporary hosted-release verification overrides are never distributed.
+**/pubspec_overrides.release-backup.yaml
