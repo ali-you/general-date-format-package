@@ -1,5 +1,10 @@
 # Changelog
 
+## 4.2.0
+
+- Re-export `AmantaDateFormat` from formatter core 3.2.0.
+- Require the Amanta-compatible chronology wrapper 5.1.0.
+
 ## 4.1.0 — 2026-11-11
 
 - Add Chinese formatting and strict/loose parsing with pinned CLDR 48 names

@@ -1,21 +1,23 @@
 # General Date Format
 
-Localized formatting and parsing for Persian (Jalali), Hebrew, Chinese, and Hijri
-(Umm al-Qura) dates, plus translated Flutter Material date-picker localizations. The date
-object selects the calendar; the locale selects language, date order, and digits.
+![General Date Format banner](https://raw.githubusercontent.com/ali-you/general-date-format-package/v4.2.0/images/general_date_format-banner.png)
+
+Format and parse Persian (Jalali), Hebrew, Chinese, Amanta, and Umm al-Qura
+(Hijri) dates. The package also provides translated Flutter Material picker
+localizations for Persian, Hebrew, Chinese, and Umm al-Qura.
 
 [![pub.dev](https://img.shields.io/pub/v/general_date_format.svg)](https://pub.dev/packages/general_date_format)
 [![Formatter CI](https://github.com/ali-you/general-date-format-package/actions/workflows/flutter.yml/badge.svg)](https://github.com/ali-you/general-date-format-package/actions/workflows/flutter.yml)
 
-Gregorian formatting/parsing belongs to the consuming application through
-`intl.DateFormat`. Calendar conversion and arithmetic belong to
-`general_datetime` / `general_datetime_core`.
+[API reference](https://pub.dev/documentation/general_date_format/latest/) ·
+[Changelog](https://pub.dev/packages/general_date_format/changelog)
 
 ## Contents
 
 - [Packages and installation](#packages-and-installation)
 - [Quick start](#quick-start)
 - [Hebrew calendar](#hebrew-calendar)
+- [Amanta calendar](#amanta-calendar)
 - [Skeletons and explicit patterns](#skeletons-and-explicit-patterns)
 - [Pattern reference](#pattern-reference)
 - [Parsing contracts](#parsing-contracts)
@@ -30,11 +32,11 @@ Gregorian formatting/parsing belongs to the consuming application through
 
 ## Packages and installation
 
-| Package | Use | Runtime dependencies |
-| --- | --- | --- |
-| `general_date_format` | Formatter re-export and Flutter Material localization adapters | Formatting core, Flutter/localizations, datetime wrapper |
-| [`general_date_format_core`](packages/general_date_format_core/README.md) | Formatting/parsing for Dart servers and CLIs | `general_datetime_core` only |
-| `general_datetime` / `general_datetime_core` | Calendar chronology, conversion, civil dates, and JSON storage | Flutter for the wrapper only |
+| What you need | Packages |
+| --- | --- |
+| Localized formatting and Material picker localization in Flutter | `general_date_format` with [`general_datetime`](https://pub.dev/packages/general_datetime) |
+| Localized formatting and parsing in pure Dart | [`general_date_format_core`](https://pub.dev/packages/general_date_format_core) with [`general_datetime_core`](https://pub.dev/packages/general_datetime_core) |
+| Inline calendars and custom date, range, and time pickers | [`general_calendar`](https://pub.dev/packages/general_calendar) with the matching calendar delegate and localizations |
 
 The Flutter wrapper and pure Dart formatter expose the exact same
 `GeneralDateFormat` class. Bundled locale data requires no formatter
@@ -48,9 +50,9 @@ wrapper's `lib/src` contains only Material localization adapters, which import
 the core directly. Use `general_date_format.dart` for the Flutter public API
 or `general_date_format_core.dart` for pure Dart applications.
 
-The compatible wrapper versions are `general_date_format` **4.1.0** and
-`general_datetime` **5.0.1**. Use formatter core **3.1.0**
-with chronology core **3.0.1**. Flutter wrappers
+The compatible wrapper versions are `general_date_format` **4.2.0** and
+`general_datetime` **5.1.0**. Use formatter core **3.2.0**
+with chronology core **3.1.0**. Flutter wrappers
 require Dart `>=3.4.0 <4.0.0` and Flutter `>=3.32.0`; the cores need only Dart
 `>=3.4.0 <4.0.0`.
 
@@ -59,12 +61,12 @@ Flutter application:
 
 ```yaml
 dependencies:
-  general_date_format: ^4.1.0
-  general_datetime: ^5.0.1
+  general_date_format: ^4.2.0
+  general_datetime: ^5.1.0
 ```
 
 Run `flutter pub get`. For a pure Dart application, use
-`general_date_format_core: ^3.1.0` and `general_datetime_core: ^3.0.1` instead,
+`general_date_format_core: ^3.2.0` and `general_datetime_core: ^3.1.0` instead,
 then run `dart pub get`.
 
 Chinese dates support localized formatting and strict/loose parsing, including
@@ -101,11 +103,10 @@ void main() {
 }
 ```
 
-`format` accepts `DateTime` statically, but the value must be a
-`PersianDateTime`, `HijriDateTime`, or `HebrewDateTime` at runtime. A native Gregorian value throws
-`UnsupportedError`; it is not automatically converted. One formatter can be
-used for all three supported calendars, selecting the corresponding symbols for
-each operation.
+Pass a `PersianDateTime`, `HijriDateTime`, `HebrewDateTime`, or
+`ChineseDateTime` to `GeneralDateFormat`. The date type selects the calendar
+for each operation. The locale supplies language, date order, and digits.
+Use [`AmantaDateFormat`](#amanta-calendar) with `AmantaDate`.
 
 For Gregorian output, add `intl` as a direct application dependency:
 
@@ -144,6 +145,22 @@ including Hebrew (`he`), native digits, input validation, and date ranges.
 See the [Hebrew guide](https://github.com/ali-you/general-date-format-package/blob/main/docs/hebrew-formatting.md) for semantics, picker code,
 and checkout setup. These additions require the updated local chronology and
 formatter cores until matching hosted releases are published.
+
+## Amanta calendar
+
+`AmantaDateFormat` provides traditional Amanta labels in English and Hindi.
+Use `formatCompact` and `parseCompact` to round-trip Vikrama years, ordinal
+months, and civil days.
+
+```dart
+final date = AmantaDate.fromGregorian(2023, 7, 22);
+final format = AmantaDateFormat('en');
+print(format.formatTraditional(date)); // Adhika Shravana 2080, tithi 4 (second)
+final parsed = format.parseCompact(format.formatCompact(date));
+```
+
+See the [Amanta calendar guide](https://github.com/ali-you/general-date-package/blob/v5.1.0/docs/amanta-calendar.md) for
+civil days, tithi, and Flutter picker setup.
 
 ## Skeletons and explicit patterns
 
@@ -399,7 +416,13 @@ The wrapper exports these APIs through `general_date_format.dart` and
 | Calendar | Material localization | Datetime arithmetic delegate |
 | --- | --- | --- |
 | Persian | `PersianCalendarMaterialLocalizations.delegate` | `PersianCalendarDelegate` |
+| Hebrew | `HebrewCalendarMaterialLocalizations.delegate` | `HebrewCalendarDelegate` |
+| Chinese | `ChineseCalendarMaterialLocalizations.delegate` | `ChineseCalendarDelegate` |
 | Umm al-Qura | `HijriCalendarMaterialLocalizations.delegate` | `HijriCalendarDelegate` |
+
+Import arithmetic delegates from `package:general_datetime/delegates.dart`.
+For inline calendars, configure the same pair of delegates in
+[`general_calendar`](https://pub.dev/packages/general_calendar#calendars-and-localization).
 
 Supported picker locales are the intersection of the formatter's resolved data
 and Flutter's global Material translations. The adapters provide translated
@@ -513,8 +536,8 @@ instant. For persistence, use the chronology core's `CalendarInstant` for
 native Gregorian UTC timestamps with metadata, and `CalendarDateRecord` /
 `CalendarDate` for all-day values. Calendar-specific `toIso8601String()` output
 still contains Persian/Hijri/Hebrew fields and must not be sent as a generic timestamp.
-The [datetime README](../general_date/README.md#json-storage) documents the
-version-1 JSON schema, validation, and domain distinctions.
+The [chronology serialization guide](https://github.com/ali-you/general-date-package/blob/main/docs/serialization.md)
+documents the version-1 JSON schema and validation rules.
 
 ## Limits and error behavior
 
@@ -526,8 +549,8 @@ version-1 JSON schema, validation, and domain distinctions.
 | Unclosed quoted literal | `FormatException` when the pattern is used |
 | Malformed text, strict constraint failure, or date outside chronology bounds | `FormatException`; nullable parse counterparts return `null` |
 
-The formatter inherits Persian/Hebrew/Umm al-Qura supported bounds and calculation
-policies from the resolved chronology core. It supports UTC and host-local
+The formatter follows the [supported bounds and calculation policies](https://pub.dev/packages/general_datetime_core#supported-ranges-and-calculation-policy)
+of the chronology core. It supports UTC and host-local
 construction, with native DST rules. Strict/loose parsing rejects DST changes
 to the requested clock, except date-only midnight normalization to exactly
 01:00 on the same date. Permissive parsing retains native normalization.
@@ -542,7 +565,7 @@ argument. It is not a drop-in replacement for arbitrary Gregorian/ICU APIs.
 
 ## Examples and testing
 
-The [example](example/README.md) demonstrates explicit patterns, skeletons,
+The [example](https://github.com/ali-you/general-date-format-package/blob/main/example/README.md) demonstrates explicit patterns, skeletons,
 strict UTC parsing, four display calendars, English/Persian/Arabic/Hebrew
 selection, and Persian/Hijri/Hebrew pickers. Gregorian presentation uses application-owned `intl`.
 Run `flutter run` from `example` after its local setup.
@@ -602,7 +625,7 @@ Persian/Hebrew/Chinese/Umm al-Qura month names and applicable eras are generated
 inputs with verified hashes. Shared neutral metadata and legacy date-order,
 native-digit, skeleton, and `en_ISO` compatibility policies are explicit.
 Canonical tables live only in `packages/general_date_format_core/lib/src`.
-The [maintainer guide](tool/README.md) explains provenance, regeneration,
+The [maintainer guide](https://github.com/ali-you/general-date-format-package/blob/main/tool/README.md) explains provenance, regeneration,
 compatibility changes, and native/web release measurements.
 
 Check generated data without rewriting tracked output:
@@ -616,10 +639,10 @@ Downloads are cached under `.dart_tool/cldr-48`; modified inputs are rejected
 against `tool/cldr_sources.lock.json`. On Windows, the unified generator accepts
 `--dart <absolute-dart.exe>` if Dart is available only as a batch wrapper.
 
-CI pins the Chinese-capable chronology revision in `.github/calendar_pair.json`
-and resolves both cores and the chronology wrapper from source. The manifests
-declare formatter core 3.1.0, chronology core 3.0.0 and chronology wrapper 5.0.0. Use development overrides
-until formatter core 3.1.0 and wrapper 4.1.0 are hosted. For these neighboring checkouts:
+CI pins the chronology revision in `.github/calendar_pair.json` and resolves
+both cores and the chronology wrapper from source. For the Amanta release,
+advance the pin to the reviewed chronology commit once it is available remotely.
+Use development overrides with neighboring checkouts:
 
 ```console
 python tool/resolve_calendar_pair.py --chronology ../general_date --formatter .
