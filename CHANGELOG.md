@@ -1,5 +1,10 @@
 # Changelog
 
+## 4.2.1
+
+- Release the Amanta formatter from `main` with the updated Flutter CI checks.
+- Refresh the installation examples for the patch versions.
+
 ## 4.2.0
 
 - Re-export `AmantaDateFormat` from formatter core 3.2.0.

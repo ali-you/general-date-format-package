@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.2.1
+
+- Refresh the installation examples for the Amanta patch release.
+
 ## 3.2.0
 
 - Add `AmantaDateFormat` for compact civil-date round trips and traditional English and Hindi labels.

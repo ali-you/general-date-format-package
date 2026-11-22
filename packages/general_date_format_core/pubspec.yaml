@@ -1,6 +1,6 @@
 name: general_date_format_core
 description: "Pure Dart date formatting and parsing with bundled locale data for Persian (Jalali), Hebrew, Chinese, Amanta, and Umm al-Qura (Hijri) dates."
-version: 3.2.0
+version: 3.2.1
 repository: https://github.com/ali-you/general-date-format-package
 
 topics:

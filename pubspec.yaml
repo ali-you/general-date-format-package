@@ -1,6 +1,6 @@
 name: general_date_format
 description: "Localized date formatting and parsing for Persian (Jalali), Hebrew, Chinese, Amanta, and Umm al-Qura (Hijri) dates. Includes Flutter Material localization delegates."
-version: 4.2.0
+version: 4.2.1
 homepage: https://github.com/ali-you
 repository: https://github.com/ali-you/general-date-format-package
 documentation: https://github.com/ali-you/general-date-format-package
