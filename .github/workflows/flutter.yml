@@ -104,7 +104,10 @@ jobs:
           (cd example && flutter pub get)
       - if: matrix.flutter == ''
         run: dart format --output=none --set-exit-if-changed lib test example/lib example/test packages/general_date_format_core tool/export_locale_policy.dart
-      - run: flutter analyze
+      # Flutter 3.50 reports the SDK Material and Cupertino APIs as deprecated.
+      # Keep those APIs for Flutter 3.32 and report infos on rolling stable.
+      - name: Analyze Flutter code
+        run: flutter analyze ${{ matrix.flutter == '' && '--no-fatal-infos' || '' }}
       - run: flutter test --dart-define=CALENDAR_TEST_TZ=${{ matrix.timezone }}
       - run: flutter test
         working-directory: example
