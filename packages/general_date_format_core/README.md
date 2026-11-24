@@ -11,13 +11,13 @@ Format and parse Persian (Jalali), Hebrew, Chinese, Amanta, and Umm al-Qura
 
 ## Installation and quick start
 
-Use formatter core 3.2.1 with chronology core 3.1.1 for the Amanta patch release. Add
+Use formatter core 5.0.0 with chronology core 5.0.0 for the Saka release. Add
 them to a Dart application:
 
 ```yaml
 dependencies:
-  general_datetime_core: ^3.1.1
-  general_date_format_core: ^3.2.1
+  general_datetime_core: ^5.0.0
+  general_date_format_core: ^5.0.0
 ```
 
 Run `dart pub get`, then format a date and parse it back in UTC.

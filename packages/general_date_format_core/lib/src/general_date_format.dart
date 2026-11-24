@@ -248,97 +248,97 @@ class GeneralDateFormat {
   /// If the optional [locale] is omitted, the format will be created using the
   /// default locale, en_US.
 
-  GeneralDateFormat.d([locale]) : this('d', locale);
+  GeneralDateFormat.d([String? locale]) : this('d', locale);
 
-  GeneralDateFormat.E([locale]) : this('E', locale);
+  GeneralDateFormat.E([String? locale]) : this('E', locale);
 
-  GeneralDateFormat.EEEE([locale]) : this('EEEE', locale);
+  GeneralDateFormat.EEEE([String? locale]) : this('EEEE', locale);
 
-  GeneralDateFormat.EEEEE([locale]) : this('EEEEE', locale);
+  GeneralDateFormat.EEEEE([String? locale]) : this('EEEEE', locale);
 
-  GeneralDateFormat.LLL([locale]) : this('LLL', locale);
+  GeneralDateFormat.LLL([String? locale]) : this('LLL', locale);
 
-  GeneralDateFormat.LLLL([locale]) : this('LLLL', locale);
+  GeneralDateFormat.LLLL([String? locale]) : this('LLLL', locale);
 
-  GeneralDateFormat.M([locale]) : this('M', locale);
+  GeneralDateFormat.M([String? locale]) : this('M', locale);
 
-  GeneralDateFormat.Md([locale]) : this('Md', locale);
+  GeneralDateFormat.Md([String? locale]) : this('Md', locale);
 
-  GeneralDateFormat.MEd([locale]) : this('MEd', locale);
+  GeneralDateFormat.MEd([String? locale]) : this('MEd', locale);
 
-  GeneralDateFormat.MMM([locale]) : this('MMM', locale);
+  GeneralDateFormat.MMM([String? locale]) : this('MMM', locale);
 
-  GeneralDateFormat.MMMd([locale]) : this('MMMd', locale);
+  GeneralDateFormat.MMMd([String? locale]) : this('MMMd', locale);
 
-  GeneralDateFormat.MMMEd([locale]) : this('MMMEd', locale);
+  GeneralDateFormat.MMMEd([String? locale]) : this('MMMEd', locale);
 
-  GeneralDateFormat.MMMM([locale]) : this('MMMM', locale);
+  GeneralDateFormat.MMMM([String? locale]) : this('MMMM', locale);
 
-  GeneralDateFormat.MMMMd([locale]) : this('MMMMd', locale);
+  GeneralDateFormat.MMMMd([String? locale]) : this('MMMMd', locale);
 
-  GeneralDateFormat.MMMMEEEEd([locale]) : this('MMMMEEEEd', locale);
+  GeneralDateFormat.MMMMEEEEd([String? locale]) : this('MMMMEEEEd', locale);
 
-  GeneralDateFormat.QQQ([locale]) : this('QQQ', locale);
+  GeneralDateFormat.QQQ([String? locale]) : this('QQQ', locale);
 
-  GeneralDateFormat.QQQQ([locale]) : this('QQQQ', locale);
+  GeneralDateFormat.QQQQ([String? locale]) : this('QQQQ', locale);
 
-  GeneralDateFormat.y([locale]) : this('y', locale);
+  GeneralDateFormat.y([String? locale]) : this('y', locale);
 
-  GeneralDateFormat.yM([locale]) : this('yM', locale);
+  GeneralDateFormat.yM([String? locale]) : this('yM', locale);
 
-  GeneralDateFormat.yMd([locale]) : this('yMd', locale);
+  GeneralDateFormat.yMd([String? locale]) : this('yMd', locale);
 
-  GeneralDateFormat.yMEd([locale]) : this('yMEd', locale);
+  GeneralDateFormat.yMEd([String? locale]) : this('yMEd', locale);
 
-  GeneralDateFormat.yMMM([locale]) : this('yMMM', locale);
+  GeneralDateFormat.yMMM([String? locale]) : this('yMMM', locale);
 
-  GeneralDateFormat.yMMMd([locale]) : this('yMMMd', locale);
+  GeneralDateFormat.yMMMd([String? locale]) : this('yMMMd', locale);
 
-  GeneralDateFormat.yMMMEd([locale]) : this('yMMMEd', locale);
+  GeneralDateFormat.yMMMEd([String? locale]) : this('yMMMEd', locale);
 
-  GeneralDateFormat.yMMMM([locale]) : this('yMMMM', locale);
+  GeneralDateFormat.yMMMM([String? locale]) : this('yMMMM', locale);
 
-  GeneralDateFormat.yMMMMd([locale]) : this('yMMMMd', locale);
+  GeneralDateFormat.yMMMMd([String? locale]) : this('yMMMMd', locale);
 
-  GeneralDateFormat.yMMMMEEEEd([locale]) : this('yMMMMEEEEd', locale);
+  GeneralDateFormat.yMMMMEEEEd([String? locale]) : this('yMMMMEEEEd', locale);
 
-  GeneralDateFormat.yQQQ([locale]) : this('yQQQ', locale);
+  GeneralDateFormat.yQQQ([String? locale]) : this('yQQQ', locale);
 
-  GeneralDateFormat.yQQQQ([locale]) : this('yQQQQ', locale);
+  GeneralDateFormat.yQQQQ([String? locale]) : this('yQQQQ', locale);
 
-  GeneralDateFormat.H([locale]) : this('H', locale);
+  GeneralDateFormat.H([String? locale]) : this('H', locale);
 
-  GeneralDateFormat.Hm([locale]) : this('Hm', locale);
+  GeneralDateFormat.Hm([String? locale]) : this('Hm', locale);
 
-  GeneralDateFormat.Hms([locale]) : this('Hms', locale);
+  GeneralDateFormat.Hms([String? locale]) : this('Hms', locale);
 
-  GeneralDateFormat.j([locale]) : this('j', locale);
+  GeneralDateFormat.j([String? locale]) : this('j', locale);
 
-  GeneralDateFormat.jm([locale]) : this('jm', locale);
+  GeneralDateFormat.jm([String? locale]) : this('jm', locale);
 
-  GeneralDateFormat.jms([locale]) : this('jms', locale);
-
-  /// NOT YET IMPLEMENTED.
-  // TODO(https://github.com/dart-lang/intl/issues/74)
-  GeneralDateFormat.jmv([locale]) : this('jmv', locale);
+  GeneralDateFormat.jms([String? locale]) : this('jms', locale);
 
   /// NOT YET IMPLEMENTED.
   // TODO(https://github.com/dart-lang/intl/issues/74)
-  GeneralDateFormat.jmz([locale]) : this('jmz', locale);
+  GeneralDateFormat.jmv([String? locale]) : this('jmv', locale);
 
   /// NOT YET IMPLEMENTED.
   // TODO(https://github.com/dart-lang/intl/issues/74)
-  GeneralDateFormat.jv([locale]) : this('jv', locale);
+  GeneralDateFormat.jmz([String? locale]) : this('jmz', locale);
 
   /// NOT YET IMPLEMENTED.
   // TODO(https://github.com/dart-lang/intl/issues/74)
-  GeneralDateFormat.jz([locale]) : this('jz', locale);
+  GeneralDateFormat.jv([String? locale]) : this('jv', locale);
 
-  GeneralDateFormat.m([locale]) : this('m', locale);
+  /// NOT YET IMPLEMENTED.
+  // TODO(https://github.com/dart-lang/intl/issues/74)
+  GeneralDateFormat.jz([String? locale]) : this('jz', locale);
 
-  GeneralDateFormat.ms([locale]) : this('ms', locale);
+  GeneralDateFormat.m([String? locale]) : this('m', locale);
 
-  GeneralDateFormat.s([locale]) : this('s', locale);
+  GeneralDateFormat.ms([String? locale]) : this('ms', locale);
+
+  GeneralDateFormat.s([String? locale]) : this('s', locale);
 
   /// Return a string representing [date] formatted according to our locale
   /// and internal format.

@@ -1,3 +1,5 @@
+// Flutter 3.32 uses the SDK design libraries.
+// ignore: deprecated_member_use
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:general_date_format_core/general_date_format_core.dart';
@@ -30,6 +32,7 @@ enum MaterialCalendar {
 }
 
 bool isCalendarMaterialLocaleSupported(Locale locale) =>
+    // ignore: deprecated_member_use
     GlobalMaterialLocalizations.delegate.isSupported(locale) &&
     resolveLocale(locale.toString(), GeneralDateFormat.localeExists) != null;
 
@@ -40,6 +43,7 @@ Future<MaterialLocalizations> loadCalendarMaterialLocalizations(
     throw ArgumentError.value(locale, 'locale',
         'Material translations and calendar symbols must both support the locale');
   }
+  // ignore: deprecated_member_use
   final translations = await GlobalMaterialLocalizations.delegate.load(locale);
   final dateLocale =
       verifiedLocale(locale.toString(), GeneralDateFormat.localeExists);

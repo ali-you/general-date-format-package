@@ -1,5 +1,10 @@
 # Changelog
 
+## 6.0.0
+
+- Require the Saka-capable chronology 7.0.0 and formatter core 5.0.0.
+- Handle legacy Material localization deprecations while retaining Flutter 3.32 support.
+
 ## 5.0.0
 
 - Add English and Hindi Saka Material localization and picker input support.

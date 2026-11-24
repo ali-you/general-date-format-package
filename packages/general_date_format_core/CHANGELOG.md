@@ -1,5 +1,10 @@
 # Changelog
 
+## 5.0.0
+
+- Require chronology core 5.0.0 and include a runnable Saka example.
+- Declare the nullable string type for locale arguments in format constructors.
+
 ## 4.0.0
 
 - Format and parse Indian National Calendar dates with `GeneralDateFormat`,

@@ -51,9 +51,9 @@ wrapper's `lib/src` contains only Material localization adapters, which import
 the core directly. Use `general_date_format.dart` for the Flutter public API
 or `general_date_format_core.dart` for pure Dart applications.
 
-The Amanta patch versions are `general_date_format` **4.2.1** and
-`general_datetime` **5.1.1**. The corresponding Dart cores are formatter
-**3.2.1** and chronology **3.1.1**. Flutter wrappers
+The Saka release pairs `general_date_format` **6.0.0** with
+`general_datetime` **7.0.0**. The corresponding Dart cores are formatter
+**5.0.0** and chronology **5.0.0**. Flutter wrappers
 require Dart `>=3.4.0 <4.0.0` and Flutter `>=3.32.0`; the cores need only Dart
 `>=3.4.0 <4.0.0`.
 
@@ -62,12 +62,12 @@ Flutter application:
 
 ```yaml
 dependencies:
-  general_date_format: ^4.2.1
-  general_datetime: ^5.1.1
+  general_date_format: ^6.0.0
+  general_datetime: ^7.0.0
 ```
 
 Run `flutter pub get`. For a pure Dart application, use
-`general_date_format_core: ^3.2.1` and `general_datetime_core: ^3.1.1` instead,
+`general_date_format_core: ^5.0.0` and `general_datetime_core: ^5.0.0` instead,
 then run `dart pub get`.
 
 Chinese dates support localized formatting and strict/loose parsing, including
@@ -654,7 +654,7 @@ against `tool/cldr_sources.lock.json`. On Windows, the unified generator accepts
 
 CI pins the Saka chronology revision in `.github/calendar_pair.json` and
 resolves both cores and the chronology wrapper from source. For the hosted
-Saka release, the formatter requires chronology core 4.0.0 and wrapper 6.0.0.
+Saka release, the formatter requires chronology core 5.0.0 and wrapper 7.0.0.
 Use development overrides with neighboring checkouts:
 
 ```console
