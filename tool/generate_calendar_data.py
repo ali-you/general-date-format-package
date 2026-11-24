@@ -26,7 +26,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--check', action='store_true')
     parser.add_argument('--refresh-lock', action='store_true')
-    parser.add_argument('--calendar', choices=['all', 'persian', 'hijri', 'hebrew', 'chinese'], default='all')
+    parser.add_argument('--calendar', choices=['all', 'persian', 'hijri', 'hebrew', 'chinese', 'saka'], default='all')
     parser.add_argument('--dart', default='dart')
     args = parser.parse_args(argv)
     if args.check and args.refresh_lock:
@@ -70,20 +70,23 @@ def main(argv=None):
         'const calendarNeutralData = <String, Map<String, dynamic>>' +
         json.dumps(neutral, ensure_ascii=False).replace('$', '\\$') + ';\n')
     audit = {}
-    for name, package, calendar in [('persian', 'persian', 'persian'), ('hijri', 'islamic', 'islamic-umalqura'), ('hebrew', 'hebrew', 'hebrew'), ('chinese', 'chinese', 'chinese')]:
+    for name, package, calendar in [('persian', 'persian', 'persian'), ('hijri', 'islamic', 'islamic-umalqura'), ('hebrew', 'hebrew', 'hebrew'), ('chinese', 'chinese', 'chinese'), ('saka', 'indian', 'indian')]:
         if args.calendar not in ['all', name]:
             continue
-        index_url = f'https://api.github.com/repos/unicode-org/cldr-json/contents/cldr-json/cldr-cal-{package}-full/main?ref=48.0.0'
-        old_index = ROOT / '.dart_tool/cldr-48/locales.json' if name == 'hijri' else None
-        available = {entry['name'] for entry in load(index_url, old_index)}
-        locale_sources = {}
-        for locale in locales:
-            candidate = ALIASES.get(locale, locale.replace('_', '-'))
-            while candidate not in available and '-' in candidate:
-                candidate = candidate.rsplit('-', 1)[0]
-            if candidate not in available:
-                raise ValueError(f'No {calendar} data for {locale}')
-            locale_sources[locale] = candidate
+        if name == 'saka':
+            locale_sources = {'en': 'en', 'hi': 'hi'}
+        else:
+            index_url = f'https://api.github.com/repos/unicode-org/cldr-json/contents/cldr-json/cldr-cal-{package}-full/main?ref=48.0.0'
+            old_index = ROOT / '.dart_tool/cldr-48/locales.json' if name == 'hijri' else None
+            available = {entry['name'] for entry in load(index_url, old_index)}
+            locale_sources = {}
+            for locale in locales:
+                candidate = ALIASES.get(locale, locale.replace('_', '-'))
+                while candidate not in available and '-' in candidate:
+                    candidate = candidate.rsplit('-', 1)[0]
+                if candidate not in available:
+                    raise ValueError(f'No {calendar} data for {locale}')
+                locale_sources[locale] = candidate
 
         def calendar_data(locale):
             url = BASE + f'cldr-json/cldr-cal-{package}-full/main/{locale}/ca-{calendar}.json'
@@ -97,7 +100,7 @@ def main(argv=None):
         with concurrent.futures.ThreadPoolExecutor(max_workers=12) as pool:
             data = dict(zip(unique, pool.map(calendar_data, unique)))
         table = {}
-        for locale in locales:
+        for locale in locale_sources:
             fields = data[locale_sources[locale]]
             values = {}
             for key, context, width in [('MONTHS', 'format', 'wide'), ('SHORTMONTHS', 'format', 'abbreviated'),

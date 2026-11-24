@@ -47,6 +47,9 @@ class DateBuilder {
   }
 
   DateTime _inCalendar(DateTime date) {
+    if (generalDateTime is SakaDateTime) {
+      return SakaDateTime.fromDateTime(date);
+    }
     if (generalDateTime is ChineseDateTime) {
       return ChineseDateTime.fromDateTime(date);
     }
@@ -433,6 +436,13 @@ class DateBuilder {
   DateTime _construct(int year, int month, int day, int hour, int minute,
       int second, int millisecond,
       [int microsecond = 0]) {
+    if (generalDateTime is SakaDateTime) {
+      return utc
+          ? SakaDateTime.utc(
+              year, month, day, hour, minute, second, millisecond, microsecond)
+          : SakaDateTime(
+              year, month, day, hour, minute, second, millisecond, microsecond);
+    }
     if (generalDateTime is ChineseDateTime) {
       return utc
           ? ChineseDateTime.utc(

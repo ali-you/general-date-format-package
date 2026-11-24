@@ -17,7 +17,8 @@ part 'date_format_field.dart';
 
 /// feedback on appropriateness.
 /// GeneralDateFormat is for formatting and parsing dates in a locale-sensitive manner.
-/// Supports [PersianDateTime], [HijriDateTime], [HebrewDateTime], and [ChineseDateTime]. Native Gregorian [DateTime]
+/// Supports [PersianDateTime], [HijriDateTime], [HebrewDateTime],
+/// [ChineseDateTime], and [SakaDateTime]. Native Gregorian [DateTime]
 /// inputs throw [UnsupportedError]; use intl.DateFormat in your application.
 /// It allows the user to choose from a set of standard date time formats as
 /// well as specify a customized pattern under certain locales. Date elements
@@ -446,7 +447,7 @@ class GeneralDateFormat {
   }
 
   DateTime _parseLoose(String inputString, DateTime dateTimeType, bool utc) {
-    _selectCalendar(dateTimeType);
+    _selectParsingCalendar(dateTimeType);
     var dateFields = DateBuilder(dateTimeType, strict: true, now: now);
     if (utc) dateFields.utc = true;
     dateFields.dateOnly = dateOnly;
@@ -496,7 +497,7 @@ class GeneralDateFormat {
 
   DateTime _parse(String inputString, DateTime dateTimeType,
       {bool utc = false, bool strict = false}) {
-    _selectCalendar(dateTimeType);
+    _selectParsingCalendar(dateTimeType);
     var dateFields = DateBuilder(dateTimeType, strict: strict, now: now);
     if (utc) dateFields.utc = true;
     dateFields.dateOnly = dateOnly;
@@ -800,6 +801,34 @@ class GeneralDateFormat {
 
   CalendarType _calendar = CalendarType.persian;
 
+  void _selectParsingCalendar(DateTime date) {
+    _selectCalendar(date);
+    if (_calendar != CalendarType.saka) return;
+
+    // A narrow Saka month is one or two digits. In an undelimited run the
+    // surrounding fields must have known widths to identify those digits.
+    var narrowMonths = 0;
+    var variableWidth = false;
+    for (final field in _formatFields) {
+      if (field is _DateFormatPatternField &&
+          (field.isNumeric || field.isNarrowMonth)) {
+        if (field.isNarrowMonth) {
+          narrowMonths++;
+        } else {
+          variableWidth |= field.sakaFixedNumericWidth == null;
+        }
+        if (narrowMonths > 1 || (narrowMonths == 1 && variableWidth)) {
+          throw const FormatException(
+              'Separate Saka narrow months from variable-width numeric fields');
+        }
+      } else if (_parseDigitMatcher.stringMatch(field.pattern) !=
+          field.pattern) {
+        narrowMonths = 0;
+        variableWidth = false;
+      }
+    }
+  }
+
   void _selectCalendar(DateTime date) {
     final selected = calendarType(date);
     if (selected == CalendarType.chinese &&
@@ -990,6 +1019,7 @@ class GeneralDateFormat {
           field.width >= 3) {
         var digits = 0;
         var exact = true;
+        int? sakaDigits = 0;
         var j = i + 1;
         final literal = StringBuffer();
         while (j < fields.length && fields[j] is! _DateFormatPatternField) {
@@ -1004,13 +1034,19 @@ class GeneralDateFormat {
           }
           if (following.width < 2) {
             exact = false;
-            break;
           }
+          final sakaWidth = following.sakaFixedNumericWidth;
+          sakaDigits = sakaDigits == null || sakaWidth == null
+              ? null
+              : sakaDigits + sakaWidth;
           digits += following.pattern[0] == 'S' && following.width < 3
               ? 3
               : following.width;
         }
         if (exact && digits > 0) field.followingNumericWidth = digits;
+        if (sakaDigits != null && sakaDigits > 0) {
+          field.followingSakaNumericWidth = sakaDigits;
+        }
       }
     }
     return fields;

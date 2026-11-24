@@ -9,13 +9,15 @@ enum MaterialCalendar {
   persian,
   hijri,
   hebrew,
-  chinese;
+  chinese,
+  saka;
 
   DateTime get selector => switch (this) {
         persian => PersianDateTime(1400),
         hijri => HijriDateTime(1440),
         chinese => ChineseDateTime(2024),
         hebrew => HebrewDateTime(5784),
+        saka => SakaDateTime.utc(1948),
       };
 
   bool contains(DateTime date) => switch (this) {
@@ -23,6 +25,7 @@ enum MaterialCalendar {
         hijri => date is HijriDateTime,
         chinese => date is ChineseDateTime,
         hebrew => date is HebrewDateTime,
+        saka => date is SakaDateTime,
       };
 }
 
@@ -100,6 +103,18 @@ class _CalendarMaterialLocalizations extends MaterialLocalizationsProxy {
   String formatCompactDate(DateTime date) => _format('yMd', date);
 
   @override
+  String get dateHelpText => calendar == MaterialCalendar.saka
+      ? _formats['yMd']!.pattern!.replaceAllMapped(RegExp(r'y+|M+|d+'),
+          (match) {
+          return switch (match[0]![0]) {
+            'y' => 'yyyy',
+            'M' => 'mm',
+            _ => 'dd',
+          };
+        })
+      : super.dateHelpText;
+
+  @override
   String formatShortDate(DateTime date) => _format('yMMMd', date);
 
   @override
@@ -118,6 +133,11 @@ class _CalendarMaterialLocalizations extends MaterialLocalizationsProxy {
   DateTime? parseCompactDate(String? inputString) {
     if (inputString == null) return null;
     try {
+      if (calendar == MaterialCalendar.saka) {
+        final civil =
+            _formats['yMd']!.parseStrict(inputString, calendar.selector, true);
+        return SakaDateTime.atStartOfDay(civil.year, civil.month, civil.day);
+      }
       return _formats['yMd']!.parseStrict(inputString, calendar.selector);
     } on FormatException {
       return null;

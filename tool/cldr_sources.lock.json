@@ -223,6 +223,8 @@
   "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-cal-hebrew-full/main/zh-Hant/ca-hebrew.json": "df396d3c5c49081d4f0407fdf18aabdc7b7da86fb439efb80bcf7cdde2050f19",
   "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-cal-hebrew-full/main/zh/ca-hebrew.json": "38d70140c4a18a8a1e30162eb1a18a5a6cd570f429754f6b23bbdcd61aae63c2",
   "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-cal-hebrew-full/main/zu/ca-hebrew.json": "08c10cf57cab4eded3a612e2b761c4a41b00377c535c91895c62d4845cf23004",
+  "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-cal-indian-full/main/en/ca-indian.json": "dc12fdf7ed713adc3a1140b915a924069a8f5c11b83e8b566c9d406a86d43858",
+  "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-cal-indian-full/main/hi/ca-indian.json": "62fd7675453bf52c89d9600fd0a1cc1d74ba24bdba9911679b37f6c6c46d864e",
   "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-cal-islamic-full/main/af/ca-islamic-umalqura.json": "d2edbfa61fe8a035b88935a851426010079b75c36ffc378c1889ea3b39291e77",
   "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-cal-islamic-full/main/am/ca-islamic-umalqura.json": "ebcb29f9bafcd04c9d73150082453773c69b5c0cbac258eae06f56fe622b697a",
   "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-cal-islamic-full/main/ar-DZ/ca-islamic-umalqura.json": "c11781a9d3bcdae9c50801476a09ef4fdf042dd0a701634c1c716cf96b1251cf",
