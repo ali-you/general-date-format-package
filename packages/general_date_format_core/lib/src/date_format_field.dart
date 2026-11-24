@@ -306,18 +306,31 @@ class _DateFormatPatternField extends _DateFormatField {
       (_LoosePatternField(pattern, parent)
             ..fixedWidth = fixedWidth
             ..followingNumericWidth = followingNumericWidth
+            ..followingSakaNumericWidth = followingSakaNumericWidth
             ..followingField = followingField
             ..followingLiteral = followingLiteral)
           .parse(input, dateFields);
 
   bool fixedWidth = false;
   int? followingNumericWidth;
+  int? followingSakaNumericWidth;
   _DateFormatField? followingField;
   String? followingLiteral;
 
   bool get isNumeric =>
       'ydDHhKkmsS'.contains(pattern[0]) ||
       ('MLQc'.contains(pattern[0]) && width <= 2);
+
+  bool get isNarrowMonth => width == 5 && 'ML'.contains(pattern[0]);
+
+  int? get sakaFixedNumericWidth => switch (pattern[0]) {
+        'y' => width == 2 || width >= 4 ? width : null,
+        'D' => width >= 3 ? width : null,
+        'S' => width < 3 ? 3 : width,
+        'Q' => width,
+        'c' => 1,
+        _ => width >= 2 ? width : null,
+      };
 
   bool? _forDate;
 
@@ -493,8 +506,15 @@ class _DateFormatPatternField extends _DateFormatField {
   String _readDigits(StringStack inputStack) {
     var bounded = fixedWidth;
     var numericWidth = pattern[0] == 'S' && width < 3 ? 3 : width;
+    if (parent._calendar == CalendarType.saka) {
+      numericWidth = sakaFixedNumericWidth ?? numericWidth;
+    }
     final next = followingField;
-    if (!bounded &&
+    if (parent._calendar == CalendarType.saka &&
+        next is _DateFormatPatternField &&
+        next.isNarrowMonth) {
+      bounded = true;
+    } else if (!bounded &&
         parent._calendar == CalendarType.chinese &&
         next is _DateFormatPatternField &&
         'ML'.contains(next.pattern[0]) &&
@@ -566,13 +586,18 @@ class _DateFormatPatternField extends _DateFormatField {
 
   bool validEnumeratedMatch(
       StringStack input, List<String> names, int index, int length) {
-    if (!((parent._calendar == CalendarType.hebrew && names.length == 14) ||
+    final name = names[index];
+    final sakaNumericMonth = parent._calendar == CalendarType.saka &&
+        isNarrowMonth &&
+        parent._parseDigitMatcher.stringMatch(name) == name;
+    if (!(sakaNumericMonth ||
+        (parent._calendar == CalendarType.hebrew && names.length == 14) ||
         (parent._calendar == CalendarType.chinese && names.length == 24))) {
       return true;
     }
-    // CLDR Chinese names and some Adar variants end in numerals. Reserve
-    // adjacent fixed-width numeric fields so Mo1 + 12 cannot become Mo11 + 2.
-    final name = names[index];
+    // Reserve adjacent numeric fields when the month name ends in digits.
+    final suffixWidth =
+        sakaNumericMonth ? followingSakaNumericWidth : followingNumericWidth;
     final remaining = input.peekAll().substring(length);
     final literalText = followingLiteral;
     if (literalText != null) {
@@ -595,11 +620,11 @@ class _DateFormatPatternField extends _DateFormatField {
           }
           // A quoted digit cannot be borrowed from the day. Account for the
           // complete literal run and reserve any fixed-width numeric suffix.
-          return followingNumericWidth == null ||
+          return suffixWidth == null ||
               parent._parseDigitMatcher
                       .stringMatch(tail.substring(end))
                       ?.length ==
-                  followingNumericWidth;
+                  suffixWidth;
         }
 
         if (literalFollows(length)) return true;
@@ -629,9 +654,8 @@ class _DateFormatPatternField extends _DateFormatField {
         !parent._parseDigitMatcher.hasMatch(remaining)) {
       return true;
     }
-    return followingNumericWidth != null &&
-        parent._parseDigitMatcher.stringMatch(remaining)?.length ==
-            followingNumericWidth;
+    return suffixWidth != null &&
+        parent._parseDigitMatcher.stringMatch(remaining)?.length == suffixWidth;
   }
 
   void parseYear(StringStack input, DateBuilder builder) {

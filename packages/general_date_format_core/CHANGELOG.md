@@ -1,5 +1,12 @@
 # Changelog
 
+## 4.0.0
+
+- Format and parse Indian National Calendar dates with `GeneralDateFormat`,
+  including CLDR 48 English and Hindi month and era names.
+- Preserve adjacent fixed-width fields around numeric Saka narrow month names.
+- Require `general_datetime_core ^4.0.0`.
+
 ## 3.2.1
 
 - Refresh the installation examples for the Amanta patch release.

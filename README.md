@@ -2,9 +2,9 @@
 
 ![General Date Format banner](https://raw.githubusercontent.com/ali-you/general-date-format-package/v4.2.0/images/general_date_format-banner.png)
 
-Format and parse Persian (Jalali), Hebrew, Chinese, Amanta, and Umm al-Qura
+Format and parse Persian (Jalali), Hebrew, Chinese, Amanta, Saka, and Umm al-Qura
 (Hijri) dates. The package also provides translated Flutter Material picker
-localizations for Persian, Hebrew, Chinese, and Umm al-Qura.
+localizations for Persian, Hebrew, Chinese, Saka, and Umm al-Qura.
 
 [![pub.dev](https://img.shields.io/pub/v/general_date_format.svg)](https://pub.dev/packages/general_date_format)
 [![Formatter CI](https://github.com/ali-you/general-date-format-package/actions/workflows/flutter.yml/badge.svg)](https://github.com/ali-you/general-date-format-package/actions/workflows/flutter.yml)
@@ -18,6 +18,7 @@ localizations for Persian, Hebrew, Chinese, and Umm al-Qura.
 - [Quick start](#quick-start)
 - [Hebrew calendar](#hebrew-calendar)
 - [Amanta calendar](#amanta-calendar)
+- [Indian National Calendar (Saka)](#indian-national-calendar-saka)
 - [Skeletons and explicit patterns](#skeletons-and-explicit-patterns)
 - [Pattern reference](#pattern-reference)
 - [Parsing contracts](#parsing-contracts)
@@ -161,6 +162,18 @@ final parsed = format.parseCompact(format.formatCompact(date));
 
 See the [Amanta calendar guide](https://github.com/ali-you/general-date-package/blob/v5.1.0/docs/amanta-calendar.md) for
 civil days, tithi, and Flutter picker setup.
+
+## Indian National Calendar (Saka)
+
+Pass a `SakaDateTime` to `GeneralDateFormat` to format or parse Saka dates.
+English and Hindi month and era names come from CLDR 48. Other formatter locales
+use English Saka names with their usual date patterns and weekday labels.
+Pair `SakaCalendarMaterialLocalizations.delegate` with `SakaCalendarDelegate`
+for English and Hindi Flutter picker labels and input.
+
+When parsing narrow Saka month names (`MMMMM` or `LLLLL`), separate
+variable-width numeric fields with punctuation or spaces. For a compact date
+with a narrow month, use fixed-width fields, such as `yyyyMMMMMdd`.
 
 ## Skeletons and explicit patterns
 
@@ -639,9 +652,9 @@ Downloads are cached under `.dart_tool/cldr-48`; modified inputs are rejected
 against `tool/cldr_sources.lock.json`. On Windows, the unified generator accepts
 `--dart <absolute-dart.exe>` if Dart is available only as a batch wrapper.
 
-CI pins the chronology revision in `.github/calendar_pair.json` and resolves
-both cores and the chronology wrapper from source. For the Amanta release,
-advance the pin to the reviewed chronology commit once it is available remotely.
+CI pins the Saka chronology revision in `.github/calendar_pair.json` and
+resolves both cores and the chronology wrapper from source. For the hosted
+Saka release, the formatter requires chronology core 4.0.0 and wrapper 6.0.0.
 Use development overrides with neighboring checkouts:
 
 ```console

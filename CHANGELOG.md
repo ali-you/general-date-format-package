@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.0.0
+
+- Add English and Hindi Saka Material localization and picker input support.
+- Match the Saka picker input hint to each locale's compact date pattern.
+- Require `general_datetime ^6.0.0` and `general_date_format_core ^4.0.0`.
+
 ## 4.2.1
 
 - Release the Amanta formatter from `main` with the updated Flutter CI checks.
